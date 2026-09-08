@@ -1,0 +1,191 @@
+[
+  {
+    "id": "custom-weekly",
+    "slug": "weekly",
+    "title": "工作周报",
+    "categoryId": "office",
+    "description": "整理工作周报，按你的需求填写并调整。",
+    "content": "你是一位职场写作顾问。\n请完成以下任务：整理工作周报。\n\n本周工作记录：\n{{subject}}\n\n接收对象：{{audience}}\n表达风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 区分完成与进行中事项\n2. 成果优先\n3. 未提供的数字标注待补充",
+    "translation": "",
+    "tags": ["本周成果", "风险提示", "下周计划", "协作需求"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "本周工作记录",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "接收对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "直属主管",
+        "options": ["直属主管", "团队成员", "合作伙伴", "客户"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "表达风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "简洁专业",
+        "options": ["简洁专业", "礼貌正式", "客观清晰", "直接明确"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["本周成果", "风险提示"],
+        "options": ["本周成果", "风险提示", "下周计划", "协作需求"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-minutes",
+    "slug": "minutes",
+    "title": "会议纪要",
+    "categoryId": "office",
+    "description": "整理会议纪要与行动清单，按你的需求填写并调整。",
+    "content": "你是一位项目助理。\n请完成以下任务：整理会议纪要与行动清单。\n\n会议记录：\n{{subject}}\n\n接收对象：{{audience}}\n表达风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 区别建议与已确认决策\n2. 负责人和时间不明则标注待确认",
+    "translation": "",
+    "tags": ["决策记录", "行动清单", "负责人", "截止时间"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "会议记录",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "接收对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "直属主管",
+        "options": ["直属主管", "团队成员", "合作伙伴", "客户"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "表达风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "简洁专业",
+        "options": ["简洁专业", "礼貌正式", "客观清晰", "直接明确"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["决策记录", "行动清单"],
+        "options": ["决策记录", "行动清单", "负责人", "截止时间"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-email",
+    "slug": "email",
+    "title": "商务邮件",
+    "categoryId": "office",
+    "description": "撰写商务邮件，按你的需求填写并调整。",
+    "content": "你是一位商务沟通顾问。\n请完成以下任务：撰写商务邮件。\n\n邮件目的与背景：\n{{subject}}\n\n接收对象：{{audience}}\n表达风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 包含主题与落款占位符\n2. 明确希望对方采取的行动\n3. 不擅自作出承诺",
+    "translation": "",
+    "tags": ["目的清晰", "礼貌表达", "回复事项", "时间要求"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "邮件目的与背景",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "接收对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "直属主管",
+        "options": ["直属主管", "团队成员", "合作伙伴", "客户"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "表达风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "简洁专业",
+        "options": ["简洁专业", "礼貌正式", "客观清晰", "直接明确"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["目的清晰", "礼貌表达"],
+        "options": ["目的清晰", "礼貌表达", "回复事项", "时间要求"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

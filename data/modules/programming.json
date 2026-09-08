@@ -1,0 +1,191 @@
+[
+  {
+    "id": "custom-code-explain",
+    "slug": "code-explain",
+    "title": "代码解释",
+    "categoryId": "programming",
+    "description": "解释代码的输入输出、执行过程与边界条件，按你的需求填写并调整。",
+    "content": "你是一位资深软件工程师。\n请完成以下任务：解释代码的输入输出、执行过程与边界条件。\n\n代码或技术问题：\n{{subject}}\n\n开发语言：{{audience}}\n输出格式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 逐段解释关键代码，给出最小示例\n2. 区分代码实际行为与推测\n3. 解释必要术语",
+    "translation": "",
+    "tags": ["代码解读", "新手友好", "复杂度分析", "逐步说明"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "代码或技术问题",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "开发语言",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Python",
+        "options": ["Python", "JavaScript", "TypeScript", "SQL"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出格式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "步骤说明",
+        "options": ["完整代码", "差异补丁", "步骤说明", "测试清单"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["代码解读", "新手友好"],
+        "options": ["代码解读", "新手友好", "复杂度分析", "逐步说明"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-bug-fix",
+    "slug": "bug-fix",
+    "title": "Bug 排查",
+    "categoryId": "programming",
+    "description": "定位错误并提出最小修复方案，按你的需求填写并调整。",
+    "content": "你是一位调试工程师。\n请完成以下任务：定位错误并提出最小修复方案。\n\n报错、代码与复现步骤：\n{{subject}}\n\n开发语言：{{audience}}\n输出格式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 按可能性排序原因，提供验证步骤\n2. 不要猜测缺失实现\n3. 列出回归检查",
+    "translation": "",
+    "tags": ["根因分析", "最小修改", "边界条件", "复现步骤"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "报错、代码与复现步骤",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "开发语言",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Python",
+        "options": ["Python", "JavaScript", "TypeScript", "SQL"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出格式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "步骤说明",
+        "options": ["完整代码", "差异补丁", "步骤说明", "测试清单"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["根因分析", "最小修改"],
+        "options": ["根因分析", "最小修改", "边界条件", "复现步骤"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-unit-tests",
+    "slug": "unit-tests",
+    "title": "单元测试",
+    "categoryId": "programming",
+    "description": "为目标功能设计并编写单元测试，按你的需求填写并调整。",
+    "content": "你是一位测试工程师。\n请完成以下任务：为目标功能设计并编写单元测试。\n\n函数代码与预期行为：\n{{subject}}\n\n开发语言：{{audience}}\n输出格式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 覆盖正常、边界和异常场景\n2. 说明每个断言的依据\n3. 不重复实现被测逻辑",
+    "translation": "",
+    "tags": ["正常路径", "异常路径", "边界测试", "外部依赖隔离"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "函数代码与预期行为",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "开发语言",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Python",
+        "options": ["Python", "JavaScript", "TypeScript", "SQL"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出格式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "步骤说明",
+        "options": ["完整代码", "差异补丁", "步骤说明", "测试清单"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["正常路径", "异常路径"],
+        "options": ["正常路径", "异常路径", "边界测试", "外部依赖隔离"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

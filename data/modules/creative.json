@@ -1,0 +1,191 @@
+[
+  {
+    "id": "custom-story",
+    "slug": "story",
+    "title": "故事构思",
+    "categoryId": "creative",
+    "description": "发展人物与情节大纲，按你的需求填写并调整。",
+    "content": "你是一位故事编辑。\n请完成以下任务：发展人物与情节大纲。\n\n故事设定：\n{{subject}}\n\n受众：{{audience}}\n创作风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 明确人物动机与冲突\n2. 提供起承转合\n3. 避免只靠巧合推进",
+    "translation": "",
+    "tags": ["人物动机", "核心冲突", "转折", "完整结局"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "故事设定",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "受众",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通观众",
+        "options": ["普通观众", "儿童", "年轻人", "专业爱好者"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "创作风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "温暖自然",
+        "options": ["温暖自然", "幽默轻松", "简洁现代", "奇幻叙事"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["人物动机", "核心冲突"],
+        "options": ["人物动机", "核心冲突", "转折", "完整结局"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-naming",
+    "slug": "naming",
+    "title": "命名灵感",
+    "categoryId": "creative",
+    "description": "生成一组可解释的名称，按你的需求填写并调整。",
+    "content": "你是一位品牌命名顾问。\n请完成以下任务：生成一组可解释的名称。\n\n对象、定位与命名限制：\n{{subject}}\n\n受众：{{audience}}\n创作风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 说明每个名字的含义\n2. 不要宣称商标可用\n3. 避免同质化",
+    "translation": "",
+    "tags": ["易记", "易读", "寓意", "风格统一"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "对象、定位与命名限制",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "受众",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通观众",
+        "options": ["普通观众", "儿童", "年轻人", "专业爱好者"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "创作风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "温暖自然",
+        "options": ["温暖自然", "幽默轻松", "简洁现代", "奇幻叙事"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["易记", "易读"],
+        "options": ["易记", "易读", "寓意", "风格统一"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-exhibition",
+    "slug": "exhibition",
+    "title": "展览导览",
+    "categoryId": "creative",
+    "description": "编写易懂的展品导览词，按你的需求填写并调整。",
+    "content": "你是一位艺术导览编辑。\n请完成以下任务：编写易懂的展品导览词。\n\n展品资料与背景：\n{{subject}}\n\n受众：{{audience}}\n创作风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 只采用已提供的事实\n2. 解释观察细节\n3. 区分史料与主观解读",
+    "translation": "",
+    "tags": ["观察细节", "背景介绍", "互动问题", "通俗解释"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "展品资料与背景",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "受众",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通观众",
+        "options": ["普通观众", "儿童", "年轻人", "专业爱好者"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "创作风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "温暖自然",
+        "options": ["温暖自然", "幽默轻松", "简洁现代", "奇幻叙事"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["观察细节", "背景介绍"],
+        "options": ["观察细节", "背景介绍", "互动问题", "通俗解释"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

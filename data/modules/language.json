@@ -1,0 +1,191 @@
+[
+  {
+    "id": "custom-translate",
+    "slug": "translate",
+    "title": "自然翻译",
+    "categoryId": "language",
+    "description": "翻译文本并说明语境歧义，按你的需求填写并调整。",
+    "content": "你是一位专业译者。\n请完成以下任务：翻译文本并说明语境歧义。\n\n原文：\n{{subject}}\n\n目标语言：{{audience}}\n使用场景：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 准确保留含义和语气\n2. 专业词汇保持一致\n3. 不增加原文没有的信息",
+    "translation": "",
+    "tags": ["忠实原意", "自然表达", "语境说明", "术语一致"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "原文",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "目标语言",
+        "type": "text",
+        "required": false,
+        "defaultValue": "英语",
+        "options": ["英语", "日语", "中文", "法语"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "使用场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "日常交流",
+        "options": ["日常交流", "商务邮件", "学术写作", "旅游沟通"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["忠实原意", "自然表达"],
+        "options": ["忠实原意", "自然表达", "语境说明", "术语一致"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-japanese",
+    "slug": "japanese",
+    "title": "日语表达",
+    "categoryId": "language",
+    "description": "提供自然的日语表达，按你的需求填写并调整。",
+    "content": "你是一位日语语言教练。\n请完成以下任务：提供自然的日语表达。\n\n想表达的内容与对方关系：\n{{subject}}\n\n目标语言：{{audience}}\n使用场景：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 区分礼貌与日常说法\n2. 解释敬语和助词\n3. 标注难读词假名",
+    "translation": "",
+    "tags": ["敬语", "口语", "假名标注", "语气区别"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "想表达的内容与对方关系",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "目标语言",
+        "type": "text",
+        "required": false,
+        "defaultValue": "英语",
+        "options": ["英语", "日语", "中文", "法语"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "使用场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "日常交流",
+        "options": ["日常交流", "商务邮件", "学术写作", "旅游沟通"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["敬语", "口语"],
+        "options": ["敬语", "口语", "假名标注", "语气区别"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-terms",
+    "slug": "terms",
+    "title": "术语表",
+    "categoryId": "language",
+    "description": "提取并统一术语翻译，按你的需求填写并调整。",
+    "content": "你是一位术语编辑。\n请完成以下任务：提取并统一术语翻译。\n\n专业文档：\n{{subject}}\n\n目标语言：{{audience}}\n使用场景：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 以表格列原文译法含义\n2. 区分多个候选译法\n3. 不编造标准来源",
+    "translation": "",
+    "tags": ["双语对照", "上下文", "一致性", "歧义说明"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "专业文档",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "目标语言",
+        "type": "text",
+        "required": false,
+        "defaultValue": "英语",
+        "options": ["英语", "日语", "中文", "法语"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "使用场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "日常交流",
+        "options": ["日常交流", "商务邮件", "学术写作", "旅游沟通"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["双语对照", "上下文"],
+        "options": ["双语对照", "上下文", "一致性", "歧义说明"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,191 @@
+[
+  {
+    "id": "custom-polish",
+    "slug": "polish",
+    "title": "文章润色",
+    "categoryId": "writing",
+    "description": "润色文章并说明关键修改，按你的需求填写并调整。",
+    "content": "你是一位中文编辑。\n请完成以下任务：润色文章并说明关键修改。\n\n需要润色的文字：\n{{subject}}\n\n目标读者：{{audience}}\n文案风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 保留原意\n2. 删去重复和空泛表达\n3. 不要增加未经提供的事实",
+    "translation": "",
+    "tags": ["保留原意", "改善结构", "精简表达", "统一语气"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "需要润色的文字",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "目标读者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通读者",
+        "options": ["普通读者", "职场人士", "学生", "专业读者"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "文案风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "简洁清晰",
+        "options": ["简洁清晰", "轻松自然", "专业严谨", "故事化"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["保留原意", "改善结构"],
+        "options": ["保留原意", "改善结构", "精简表达", "统一语气"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-outline",
+    "slug": "outline",
+    "title": "文章大纲",
+    "categoryId": "writing",
+    "description": "设计层次清晰的文章大纲，按你的需求填写并调整。",
+    "content": "你是一位内容策划。\n请完成以下任务：设计层次清晰的文章大纲。\n\n文章主题与观点：\n{{subject}}\n\n目标读者：{{audience}}\n文案风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 先明确中心论点\n2. 为各节说明论据需求\n3. 避免重复段落",
+    "translation": "",
+    "tags": ["标题建议", "逻辑递进", "分级大纲", "证据清单"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "文章主题与观点",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "目标读者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通读者",
+        "options": ["普通读者", "职场人士", "学生", "专业读者"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "文案风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "简洁清晰",
+        "options": ["简洁清晰", "轻松自然", "专业严谨", "故事化"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["标题建议", "逻辑递进"],
+        "options": ["标题建议", "逻辑递进", "分级大纲", "证据清单"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-speech",
+    "slug": "speech",
+    "title": "演讲稿",
+    "categoryId": "writing",
+    "description": "撰写一份适合口头表达的演讲稿，按你的需求填写并调整。",
+    "content": "你是一位演讲教练。\n请完成以下任务：撰写一份适合口头表达的演讲稿。\n\n演讲主题与场合：\n{{subject}}\n\n目标读者：{{audience}}\n文案风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 短句为主\n2. 标记过渡和停顿\n3. 不要虚构经历和数据",
+    "translation": "",
+    "tags": ["开场设问", "自然过渡", "故事表达", "行动建议"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "演讲主题与场合",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "目标读者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通读者",
+        "options": ["普通读者", "职场人士", "学生", "专业读者"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "文案风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "简洁清晰",
+        "options": ["简洁清晰", "轻松自然", "专业严谨", "故事化"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["开场设问", "自然过渡"],
+        "options": ["开场设问", "自然过渡", "故事表达", "行动建议"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,191 @@
+[
+  {
+    "id": "custom-phone-guide",
+    "slug": "phone-guide",
+    "title": "手机操作指南",
+    "categoryId": "life",
+    "description": "把手机操作拆成容易跟随的步骤，按你的需求填写并调整。",
+    "content": "你是一位数字生活助教。\n请完成以下任务：把手机操作拆成容易跟随的步骤。\n\n想完成的操作与手机型号：\n{{subject}}\n\n使用者：{{audience}}\n表达方式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 一步只讲一件事\n2. 说明常见误操作\n3. 遇到支付或密码操作让使用者自行完成",
+    "translation": "",
+    "tags": ["大字阅读", "一步一图说明", "简单用语", "确认进度"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "想完成的操作与手机型号",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通成人",
+        "options": ["普通成人", "长辈", "初学者", "家庭成员"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "表达方式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "简单步骤",
+        "options": ["简单步骤", "大白话", "清单", "耐心解释"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["大字阅读", "一步一图说明"],
+        "options": ["大字阅读", "一步一图说明", "简单用语", "确认进度"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-daily-plan",
+    "slug": "daily-plan",
+    "title": "日常安排",
+    "categoryId": "life",
+    "description": "整理一份可执行的日常安排，按你的需求填写并调整。",
+    "content": "你是一位生活规划助手。\n请完成以下任务：整理一份可执行的日常安排。\n\n当天事项与时间限制：\n{{subject}}\n\n使用者：{{audience}}\n表达方式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 预留休息和交通时间\n2. 避免安排冲突\n3. 标记可调整事项",
+    "translation": "",
+    "tags": ["时间分配", "优先顺序", "休息安排", "弹性调整"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "当天事项与时间限制",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通成人",
+        "options": ["普通成人", "长辈", "初学者", "家庭成员"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "表达方式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "简单步骤",
+        "options": ["简单步骤", "大白话", "清单", "耐心解释"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["时间分配", "优先顺序"],
+        "options": ["时间分配", "优先顺序", "休息安排", "弹性调整"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-recipe",
+    "slug": "recipe",
+    "title": "食材搭配",
+    "categoryId": "life",
+    "description": "按已有食材设计家常菜做法，按你的需求填写并调整。",
+    "content": "你是一位家常菜规划助手。\n请完成以下任务：按已有食材设计家常菜做法。\n\n现有食材与饮食限制：\n{{subject}}\n\n使用者：{{audience}}\n表达方式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 列出用量和步骤\n2. 尊重过敏信息\n3. 说明食材熟制要求，不作医疗建议",
+    "translation": "",
+    "tags": ["简单易做", "少量步骤", "食材替换", "口味调整"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "现有食材与饮食限制",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通成人",
+        "options": ["普通成人", "长辈", "初学者", "家庭成员"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "表达方式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "简单步骤",
+        "options": ["简单步骤", "大白话", "清单", "耐心解释"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["简单易做", "少量步骤"],
+        "options": ["简单易做", "少量步骤", "食材替换", "口味调整"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,191 @@
+[
+  {
+    "id": "custom-decision",
+    "slug": "decision",
+    "title": "决策梳理",
+    "categoryId": "thinking",
+    "description": "比较选项并澄清决策依据，按你的需求填写并调整。",
+    "content": "你是一位思考伙伴。\n请完成以下任务：比较选项并澄清决策依据。\n\n待决定的问题与选项：\n{{subject}}\n\n讨论对象：{{audience}}\n表达形式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 分开事实假设与偏好\n2. 列出权衡和缺失信息\n3. 不代替用户作决定",
+    "translation": "",
+    "tags": ["决策标准", "利弊分析", "缺失信息", "下一步验证"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "待决定的问题与选项",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "讨论对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通读者",
+        "options": ["初学者", "团队成员", "专业读者", "普通读者"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "表达形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "对照分析",
+        "options": ["论点清单", "对照分析", "问答", "步骤推演"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["决策标准", "利弊分析"],
+        "options": ["决策标准", "利弊分析", "缺失信息", "下一步验证"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-argument",
+    "slug": "argument",
+    "title": "观点检查",
+    "categoryId": "thinking",
+    "description": "检查论证结构与薄弱环节，按你的需求填写并调整。",
+    "content": "你是一位逻辑分析助理。\n请完成以下任务：检查论证结构与薄弱环节。\n\n观点与论据：\n{{subject}}\n\n讨论对象：{{audience}}\n表达形式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 准确重述论点\n2. 分析证据是否支持结论\n3. 给出反例和改进问题",
+    "translation": "",
+    "tags": ["前提", "推理链", "反例", "证据检查"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "观点与论据",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "讨论对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通读者",
+        "options": ["初学者", "团队成员", "专业读者", "普通读者"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "表达形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "对照分析",
+        "options": ["论点清单", "对照分析", "问答", "步骤推演"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["前提", "推理链"],
+        "options": ["前提", "推理链", "反例", "证据检查"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-brainstorm",
+    "slug": "brainstorm",
+    "title": "头脑风暴",
+    "categoryId": "thinking",
+    "description": "提出不同方向的可行想法，按你的需求填写并调整。",
+    "content": "你是一位创意讨论主持人。\n请完成以下任务：提出不同方向的可行想法。\n\n目标与限制：\n{{subject}}\n\n讨论对象：{{audience}}\n表达形式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 先发散再筛选\n2. 解释筛选标准\n3. 标记需要验证的假设",
+    "translation": "",
+    "tags": ["多角度", "约束条件", "可行性", "验证步骤"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "目标与限制",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "讨论对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "普通读者",
+        "options": ["初学者", "团队成员", "专业读者", "普通读者"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "表达形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "对照分析",
+        "options": ["论点清单", "对照分析", "问答", "步骤推演"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["多角度", "约束条件"],
+        "options": ["多角度", "约束条件", "可行性", "验证步骤"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

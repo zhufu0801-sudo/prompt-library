@@ -1,0 +1,10 @@
+{
+  "upstream": "https://github.com/rockbenben/ChatGPT-Shortcut",
+  "commit": "1db7679dc07c2633188990442c48d1e9c3bcfd52",
+  "path": "src/data/prompt_zh-Hans.json",
+  "license": "MIT",
+  "importedCount": 279,
+  "importedAt": "2026-09-07",
+  "scope": "仓库公开简体中文精选数据；不含在线社区及私有数据",
+  "sha256": "7d3dfe5f1c255762210742ec2f1c3ddc76bdb3cbaac47004f0abd09c9df547e4"
+}

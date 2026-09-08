@@ -36,3 +36,10 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# Never commit runtime data or secrets
+.dev.vars*
+*.tsbuildinfo
+/database/*.previous.sqlite
+/database/*.sqlite-wal
+/database/*.sqlite-shm

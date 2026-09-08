@@ -1,0 +1,191 @@
+[
+  {
+    "id": "custom-competitors",
+    "slug": "competitors",
+    "title": "竞品分析框架",
+    "categoryId": "business",
+    "description": "设计可填充的竞品分析框架，按你的需求填写并调整。",
+    "content": "你是一位商业分析师。\n请完成以下任务：设计可填充的竞品分析框架。\n\n行业与竞品名单：\n{{subject}}\n\n目标读者：{{audience}}\n输出形式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 先确定比较维度\n2. 没有依据的内容标记待调研\n3. 不编造价格与市场数据",
+    "translation": "",
+    "tags": ["用户定位", "核心功能", "证据来源", "差异分析"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "行业与竞品名单",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "目标读者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "产品经理",
+        "options": ["产品经理", "创业团队", "管理者", "业务人员"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "对照表",
+        "options": ["对照表", "分析报告", "行动清单", "问题清单"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["用户定位", "核心功能"],
+        "options": ["用户定位", "核心功能", "证据来源", "差异分析"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-interview",
+    "slug": "interview",
+    "title": "用户访谈",
+    "categoryId": "business",
+    "description": "设计30分钟用户访谈提纲，按你的需求填写并调整。",
+    "content": "你是一位用户研究员。\n请完成以下任务：设计30分钟用户访谈提纲。\n\n研究目标与受访对象：\n{{subject}}\n\n目标读者：{{audience}}\n输出形式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 关注过去行为\n2. 采用开放式问题\n3. 避免诱导\n4. 提供追问",
+    "translation": "",
+    "tags": ["开放问题", "真实经历", "痛点追问", "时间控制"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "研究目标与受访对象",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "目标读者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "产品经理",
+        "options": ["产品经理", "创业团队", "管理者", "业务人员"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "对照表",
+        "options": ["对照表", "分析报告", "行动清单", "问题清单"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["开放问题", "真实经历"],
+        "options": ["开放问题", "真实经历", "痛点追问", "时间控制"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-requirements",
+    "slug": "requirements",
+    "title": "需求拆解",
+    "categoryId": "business",
+    "description": "整理产品需求与验收标准，按你的需求填写并调整。",
+    "content": "你是一位产品经理。\n请完成以下任务：整理产品需求与验收标准。\n\n功能想法与业务背景：\n{{subject}}\n\n目标读者：{{audience}}\n输出形式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 区别确定需求与假设\n2. 列出核心流程与异常\n3. 不擅自扩展功能",
+    "translation": "",
+    "tags": ["用户目标", "核心流程", "异常状态", "验收标准"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "功能想法与业务背景",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "目标读者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "产品经理",
+        "options": ["产品经理", "创业团队", "管理者", "业务人员"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "对照表",
+        "options": ["对照表", "分析报告", "行动清单", "问题清单"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["用户目标", "核心流程"],
+        "options": ["用户目标", "核心流程", "异常状态", "验收标准"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

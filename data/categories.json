@@ -1,0 +1,72 @@
+[
+  {
+    "id": "programming",
+    "name": "编程开发",
+    "description": "编程开发相关的模板与灵感词",
+    "sortOrder": 0,
+    "icon": "code"
+  },
+  {
+    "id": "writing",
+    "name": "写作创作",
+    "description": "写作创作相关的模板与灵感词",
+    "sortOrder": 1,
+    "icon": "write"
+  },
+  {
+    "id": "office",
+    "name": "职场办公",
+    "description": "职场办公相关的模板与灵感词",
+    "sortOrder": 2,
+    "icon": "company"
+  },
+  {
+    "id": "marketing",
+    "name": "营销策划",
+    "description": "营销策划相关的模板与灵感词",
+    "sortOrder": 3,
+    "icon": "seo"
+  },
+  {
+    "id": "study",
+    "name": "学习研究",
+    "description": "学习研究相关的模板与灵感词",
+    "sortOrder": 4,
+    "icon": "academic"
+  },
+  {
+    "id": "language",
+    "name": "语言翻译",
+    "description": "语言翻译相关的模板与灵感词",
+    "sortOrder": 5,
+    "icon": "language"
+  },
+  {
+    "id": "life",
+    "name": "生活关怀",
+    "description": "生活关怀相关的模板与灵感词",
+    "sortOrder": 6,
+    "icon": "life"
+  },
+  {
+    "id": "creative",
+    "name": "创意艺术",
+    "description": "创意艺术相关的模板与灵感词",
+    "sortOrder": 7,
+    "icon": "music"
+  },
+  {
+    "id": "business",
+    "name": "商业分析",
+    "description": "商业分析相关的模板与灵感词",
+    "sortOrder": 8,
+    "icon": "finance"
+  },
+  {
+    "id": "thinking",
+    "name": "思维表达",
+    "description": "思维表达相关的模板与灵感词",
+    "sortOrder": 9,
+    "icon": "mind"
+  }
+]

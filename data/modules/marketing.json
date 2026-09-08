@@ -1,0 +1,212 @@
+[
+  {
+    "id": "custom-product",
+    "slug": "product",
+    "title": "产品介绍",
+    "categoryId": "marketing",
+    "description": "创作产品介绍文案，按你的需求填写并调整。",
+    "content": "你是一位产品文案策划。\n请完成以下任务：创作产品介绍文案。\n\n产品名称与已验证卖点：\n{{subject}}\n\n发布平台：{{audience}}\n文案风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 以使用场景说明价值\n2. 不编造参数和评价\n3. 避免绝对化宣传",
+    "translation": "",
+    "tags": ["目标用户", "使用场景", "核心卖点", "行动号召"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "产品名称与已验证卖点",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "发布平台",
+        "type": "text",
+        "required": false,
+        "defaultValue": "小红书",
+        "options": ["小红书", "公众号", "官网", "LinkedIn"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "文案风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自然种草",
+        "options": ["自然种草", "专业正式", "简洁有力", "真实体验"],
+        "maxSelections": 1,
+        "conditionalOptions": {
+          "audience": {
+            "小红书": ["自然种草", "口语化", "场景分享"],
+            "LinkedIn": ["专业正式", "行业观点", "商业价值"],
+            "官网": ["专业严谨", "清晰简洁", "参数准确"]
+          }
+        }
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["目标用户", "使用场景"],
+        "options": ["目标用户", "使用场景", "核心卖点", "行动号召"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-video",
+    "slug": "video",
+    "title": "短视频脚本",
+    "categoryId": "marketing",
+    "description": "设计约60秒口播脚本，按你的需求填写并调整。",
+    "content": "你是一位短视频编导。\n请完成以下任务：设计约60秒口播脚本。\n\n视频主题与受众：\n{{subject}}\n\n发布平台：{{audience}}\n文案风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 分配开场主体结尾时间\n2. 列出口播和画面\n3. 避免虚构事实",
+    "translation": "",
+    "tags": ["开场吸引", "节奏紧凑", "镜头建议", "结尾互动"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "视频主题与受众",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "发布平台",
+        "type": "text",
+        "required": false,
+        "defaultValue": "小红书",
+        "options": ["小红书", "公众号", "官网", "LinkedIn"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "文案风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自然种草",
+        "options": ["自然种草", "专业正式", "简洁有力", "真实体验"],
+        "maxSelections": 1,
+        "conditionalOptions": {
+          "audience": {
+            "小红书": ["自然种草", "口语化", "场景分享"],
+            "LinkedIn": ["专业正式", "行业观点", "商业价值"],
+            "官网": ["专业严谨", "清晰简洁", "参数准确"]
+          }
+        }
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["开场吸引", "节奏紧凑"],
+        "options": ["开场吸引", "节奏紧凑", "镜头建议", "结尾互动"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-seo-outline",
+    "slug": "seo-outline",
+    "title": "搜索内容规划",
+    "categoryId": "marketing",
+    "description": "规划围绕主题的搜索内容，按你的需求填写并调整。",
+    "content": "你是一位内容策略顾问。\n请完成以下任务：规划围绕主题的搜索内容。\n\n业务主题与关键词：\n{{subject}}\n\n发布平台：{{audience}}\n文案风格：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 区分搜索意图\n2. 提出文章主题与结构\n3. 不编造流量或排名数据",
+    "translation": "",
+    "tags": ["搜索意图", "主题聚类", "内容结构", "标题建议"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "业务主题与关键词",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "发布平台",
+        "type": "text",
+        "required": false,
+        "defaultValue": "小红书",
+        "options": ["小红书", "公众号", "官网", "LinkedIn"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "文案风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自然种草",
+        "options": ["自然种草", "专业正式", "简洁有力", "真实体验"],
+        "maxSelections": 1,
+        "conditionalOptions": {
+          "audience": {
+            "小红书": ["自然种草", "口语化", "场景分享"],
+            "LinkedIn": ["专业正式", "行业观点", "商业价值"],
+            "官网": ["专业严谨", "清晰简洁", "参数准确"]
+          }
+        }
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["搜索意图", "主题聚类"],
+        "options": ["搜索意图", "主题聚类", "内容结构", "标题建议"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

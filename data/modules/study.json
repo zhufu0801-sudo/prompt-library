@@ -1,0 +1,191 @@
+[
+  {
+    "id": "custom-paper",
+    "slug": "paper",
+    "title": "论文解读",
+    "categoryId": "study",
+    "description": "梳理论文的问题、方法、结论与局限，按你的需求填写并调整。",
+    "content": "你是一位研究助教。\n请完成以下任务：梳理论文的问题、方法、结论与局限。\n\n论文原文或摘要：\n{{subject}}\n\n读者基础：{{audience}}\n输出形式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 只根据提供内容分析\n2. 区分作者结论与推断\n3. 不编造引用",
+    "translation": "",
+    "tags": ["研究问题", "方法原理", "实验设计", "研究局限"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "论文原文或摘要",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "读者基础",
+        "type": "text",
+        "required": false,
+        "defaultValue": "本科生",
+        "options": ["零基础", "本科生", "研究生", "专业人员"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "分步讲解",
+        "options": ["分步讲解", "学习清单", "对照表", "阅读笔记"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["研究问题", "方法原理"],
+        "options": ["研究问题", "方法原理", "实验设计", "研究局限"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-learning-plan",
+    "slug": "learning-plan",
+    "title": "学习计划",
+    "categoryId": "study",
+    "description": "制定四周学习计划，按你的需求填写并调整。",
+    "content": "你是一位学习规划教练。\n请完成以下任务：制定四周学习计划。\n\n学习目标与可投入时间：\n{{subject}}\n\n读者基础：{{audience}}\n输出形式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 安排练习和复习\n2. 明确每周验收标准\n3. 不假设已有未说明的基础",
+    "translation": "",
+    "tags": ["每日任务", "循序渐进", "实践练习", "阶段复习"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "学习目标与可投入时间",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "读者基础",
+        "type": "text",
+        "required": false,
+        "defaultValue": "本科生",
+        "options": ["零基础", "本科生", "研究生", "专业人员"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "分步讲解",
+        "options": ["分步讲解", "学习清单", "对照表", "阅读笔记"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["每日任务", "循序渐进"],
+        "options": ["每日任务", "循序渐进", "实践练习", "阶段复习"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-concept",
+    "slug": "concept",
+    "title": "概念讲解",
+    "categoryId": "study",
+    "description": "用清晰语言解释复杂概念，按你的需求填写并调整。",
+    "content": "你是一位教学助理。\n请完成以下任务：用清晰语言解释复杂概念。\n\n要学习的概念：\n{{subject}}\n\n读者基础：{{audience}}\n输出形式：{{style}}\n重点关注：{{keywords}}\n补充要求：{{constraints}}\n\n具体要求：\n1. 给出类比并说明局限\n2. 举例说明\n3. 结尾提供理解检查题",
+    "translation": "",
+    "tags": ["简单类比", "具体例子", "术语说明", "理解检查"],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "要学习的概念",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "读者基础",
+        "type": "text",
+        "required": false,
+        "defaultValue": "本科生",
+        "options": ["零基础", "本科生", "研究生", "专业人员"],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "分步讲解",
+        "options": ["分步讲解", "学习清单", "对照表", "阅读笔记"],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点词条",
+        "type": "multi",
+        "required": false,
+        "defaultValue": ["简单类比", "具体例子"],
+        "options": ["简单类比", "具体例子", "术语说明", "理解检查"],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "补充要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]
