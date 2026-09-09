@@ -1,0 +1,210 @@
+[
+  {
+    "id": "write",
+    "labels": {
+      "zh": "写作辅助",
+      "en": "Writing assistance",
+      "ja": "文章作成支援"
+    }
+  },
+  {
+    "id": "article",
+    "labels": {
+      "zh": "文章/报告",
+      "en": "Articles and reports",
+      "ja": "記事・レポート"
+    }
+  },
+  {
+    "id": "code",
+    "labels": {
+      "zh": "IT/编程",
+      "en": "IT and programming",
+      "ja": "IT・プログラミング"
+    }
+  },
+  {
+    "id": "ai",
+    "labels": {
+      "zh": "AI",
+      "en": "AI",
+      "ja": "AI"
+    }
+  },
+  {
+    "id": "living",
+    "labels": {
+      "zh": "生活质量",
+      "en": "Wellbeing",
+      "ja": "暮らしの質"
+    }
+  },
+  {
+    "id": "interesting",
+    "labels": {
+      "zh": "趣味科普",
+      "en": "Popular science",
+      "ja": "身近な科学"
+    }
+  },
+  {
+    "id": "life",
+    "labels": {
+      "zh": "生活百科",
+      "en": "Everyday knowledge",
+      "ja": "生活の知識"
+    }
+  },
+  {
+    "id": "social",
+    "labels": {
+      "zh": "心理/社交",
+      "en": "Psychology and social skills",
+      "ja": "心理・対人関係"
+    }
+  },
+  {
+    "id": "philosophy",
+    "labels": {
+      "zh": "哲学/宗教",
+      "en": "Philosophy and religion",
+      "ja": "哲学・宗教"
+    }
+  },
+  {
+    "id": "mind",
+    "labels": {
+      "zh": "思维训练",
+      "en": "Thinking skills",
+      "ja": "思考トレーニング"
+    }
+  },
+  {
+    "id": "pedagogy",
+    "labels": {
+      "zh": "教育/学生",
+      "en": "Education and students",
+      "ja": "教育・学生"
+    }
+  },
+  {
+    "id": "academic",
+    "labels": {
+      "zh": "学术/教师",
+      "en": "Academia and teaching",
+      "ja": "学術・教員"
+    }
+  },
+  {
+    "id": "games",
+    "labels": {
+      "zh": "趣味游戏",
+      "en": "Games",
+      "ja": "ゲーム"
+    }
+  },
+  {
+    "id": "tool",
+    "labels": {
+      "zh": "效率工具",
+      "en": "Productivity tools",
+      "ja": "効率化ツール"
+    }
+  },
+  {
+    "id": "interpreter",
+    "labels": {
+      "zh": "终端/解释器",
+      "en": "Terminals and interpreters",
+      "ja": "端末・インタープリター"
+    }
+  },
+  {
+    "id": "language",
+    "labels": {
+      "zh": "语言/翻译",
+      "en": "Languages and translation",
+      "ja": "言語・翻訳"
+    }
+  },
+  {
+    "id": "speech",
+    "labels": {
+      "zh": "辩论/演讲",
+      "en": "Debate and speeches",
+      "ja": "討論・スピーチ"
+    }
+  },
+  {
+    "id": "comments",
+    "labels": {
+      "zh": "点评/评鉴",
+      "en": "Reviews and critiques",
+      "ja": "批評・レビュー"
+    }
+  },
+  {
+    "id": "text",
+    "labels": {
+      "zh": "文本/词语",
+      "en": "Text and words",
+      "ja": "文章・語彙"
+    }
+  },
+  {
+    "id": "company",
+    "labels": {
+      "zh": "企业职能",
+      "en": "Business functions",
+      "ja": "企業の業務"
+    }
+  },
+  {
+    "id": "seo",
+    "labels": {
+      "zh": "SEO",
+      "en": "SEO",
+      "ja": "SEO"
+    }
+  },
+  {
+    "id": "doctor",
+    "labels": {
+      "zh": "医疗健康",
+      "en": "Health",
+      "ja": "健康"
+    }
+  },
+  {
+    "id": "finance",
+    "labels": {
+      "zh": "金融顾问",
+      "en": "Finance",
+      "ja": "金融"
+    }
+  },
+  {
+    "id": "music",
+    "labels": {
+      "zh": "音乐艺术",
+      "en": "Music and art",
+      "ja": "音楽・芸術"
+    }
+  },
+  {
+    "id": "professional",
+    "labels": {
+      "zh": "专业顾问",
+      "en": "Professional advice",
+      "ja": "専門的な相談"
+    }
+  },
+  {
+    "id": "contribute",
+    "labels": {
+      "zh": "用户分享",
+      "en": "Community contributions",
+      "ja": "コミュニティ投稿"
+    }
+  }
+]

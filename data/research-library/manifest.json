@@ -1,0 +1,16 @@
+{
+  "source": "https://github.com/rockbenben/ChatGPT-Shortcut",
+  "commit": "1db7679dc07c2633188990442c48d1e9c3bcfd52",
+  "license": "MIT; see licenses/aishort-MIT.txt",
+  "importedAt": "2026-09-09",
+  "prompts": 279,
+  "localizedEntries": 837,
+  "tags": 26,
+  "public": false,
+  "review": "Locale policies applied; individual quality and model-output review pending",
+  "sha256": {
+    "prompt_en.json": "3ea959019c6c0de21b48dd437a888827b98c4fe9b08065f6e053dae1a6e6e4c9",
+    "prompt_ja.json": "2d1633375ca07258bf75f446cd1d00c9d75c85bb2bc324e53c874f8e34ef77aa",
+    "prompt_zh-Hans.json": "7d3dfe5f1c255762210742ec2f1c3ddc76bdb3cbaac47004f0abd09c9df547e4"
+  }
+}
