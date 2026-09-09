@@ -1,0 +1,26 @@
+{
+  "reviewedAt": "2026-09-09",
+  "status": "editorial-review-complete; model-output-not-tested",
+  "scope": "Two featured templates; seven selectable task examples in each of zh/en/ja",
+  "sources": [
+    {
+      "id": "github-copilot-prompting",
+      "url": "https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering",
+      "appliesTo": ["custom-programming"],
+      "changes": ["Goal and requirements", "Relevant context and examples", "Decomposition and iterative revision"]
+    },
+    {
+      "id": "runway-gen4-video",
+      "url": "https://help.runwayml.com/hc/en-us/articles/39789879462419-Gen-4-Video-Prompting-Guide",
+      "appliesTo": ["custom-animation"],
+      "modelScope": "Runway Gen-4 video only; do not generalize model-specific limitations",
+      "changes": ["Separate conversational brief from render prompt", "Positive motion wording", "Conditional negative prompts", "Change one major variable per iteration"]
+    }
+  ],
+  "examples": {
+    "origin": "Original editorial examples, not copied source examples",
+    "programming": ["List page", "Bug diagnosis", "Code review", "Test design"],
+    "visual": ["Product image", "Character views", "Animation storyboard"]
+  },
+  "futureReview": ["User outcome feedback", "Tool/model version", "Known limitations", "Duplicate removal", "Translation consistency"]
+}

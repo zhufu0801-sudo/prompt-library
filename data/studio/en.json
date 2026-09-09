@@ -5,7 +5,7 @@
     "title": "Programming assistant",
     "description": "Turn a technical goal into a clear, testable programming prompt.",
     "categoryId": "programming",
-    "content": "You are a senior software engineer.\n\nTask: {{subject}}\nEnvironment: {{audience}}\nDeliverable: {{style}}\nPriorities: {{keywords}}\nContext and constraints: {{constraints}}\n\n---META---\n\nClarify the goal, inputs, outputs, dependencies and acceptance criteria. Ask at most 3 essential questions when critical context is missing; otherwise state your assumptions.\nGive a short approach, then the implementation and verification steps. Do not invent APIs, dependency versions or test results. Distinguish verified behavior from items needing verification.\nBefore delivery, check edge cases, error handling, security and requirement coverage. State remaining limitations.",
+    "content": "You are a senior software engineer.\n\nTask: {{subject}}\nEnvironment: {{audience}}\nDeliverable: {{style}}\nPriorities: {{keywords}}\nContext and constraints: {{constraints}}\n\n---META---\n\nClarify the goal, inputs, outputs, dependencies and acceptance criteria. Ask at most 3 essential questions when critical context is missing; otherwise state your assumptions.\nGive a short approach, then the implementation and verification steps. Do not invent APIs, dependency versions or test results. Distinguish verified behavior from items needing verification.\nBefore delivery, check edge cases, error handling, security and requirement coverage. State remaining limitations.\nStart with the goal, then specific requirements. Use relevant supplied code, input/output examples and error logs. Break complex work into steps with verifiable deliverables. During iteration, specify what to retain and what to change from the previous result.",
     "translation": "",
     "tags": [
       "Maintainability",
@@ -18,7 +18,7 @@
     "sourceRecordId": null,
     "sourceUrl": null,
     "status": "published",
-    "version": 1,
+    "version": 2,
     "fields": [
       {
         "key": "subject",
@@ -26,7 +26,12 @@
         "type": "textarea",
         "required": true,
         "defaultValue": "",
-        "options": [],
+        "options": [
+          "Build a list page with pagination and filters; first clarify its data shape and acceptance criteria.",
+          "Use error logs and a minimal reproduction to locate a bug; propose a minimal fix and regression checks.",
+          "Review the supplied code and rank findings by impact, with evidence and suggested changes.",
+          "Design normal, boundary and invalid-input tests for an existing function, explaining expected results."
+        ],
         "maxSelections": 1
       },
       {
@@ -91,7 +96,7 @@
     "title": "AI animation & images",
     "description": "Build a polished image prompt or a complete animation storyboard and video prompts.",
     "categoryId": "creative",
-    "content": "Creation type: {{medium}}\nBranch by creation type. For an AI image, provide only the subject and setting, composition, style, lighting and colors, a copyable positive prompt, optional negative prompt and size suggestions. Do not include shots or camera motion. For AI animation, follow the animation specifications below.\nYou are an animation director and storyboard artist.\n\nStory idea: {{subject}}\nDuration and aspect ratio: {{audience}}\nVisual style: {{style}}\nPriorities: {{keywords}}\nOther constraints: {{constraints}}\n\n---META---\n\nClarify the narrative goal, character appearance, setting, duration and aspect ratio. Ask at most 3 questions about missing essentials and label other assumptions.\nDeliver: 1. Synopsis; 2. Character and setting guide; 3. Shot table (number, duration, framing, action, camera, sound); 4. Copyable video-generation prompt for each shot; 5. Negative prompts; 6. Editing and transition notes.\nCheck total shot duration, character appearance and clothing, action continuity, lighting and screen direction. Avoid flicker, distorted limbs and abrupt changes. If a model does not support negative prompts or a parameter, explain an alternative without inventing tool capabilities.",
+    "content": "Creation type: {{medium}}\nBranch by creation type. For an AI image, provide only the subject and setting, composition, style, lighting and colors, a copyable positive prompt, optional negative prompt and size suggestions. Do not include shots or camera motion. For AI animation, follow the animation specifications below.\nYou are an animation director and storyboard artist.\n\nStory idea: {{subject}}\nDuration and aspect ratio: {{audience}}\nVisual style: {{style}}\nPriorities: {{keywords}}\nOther constraints: {{constraints}}\n\n---META---\n\nClarify the narrative goal, character appearance, setting, duration and aspect ratio. Ask at most 3 questions about missing essentials and label other assumptions.\nDeliver: 1. Synopsis; 2. Character and setting guide; 3. Shot table (number, duration, framing, action, camera, sound); 4. Copyable video-generation prompt for each shot; 5. Negative prompts only if the target model supports them; 6. Editing and transition notes.\nCheck total shot duration, character appearance and clothing, action continuity, lighting and screen direction. Avoid flicker, distorted limbs and abrupt changes. If a model does not support negative prompts or a parameter, explain an alternative without inventing tool capabilities.\nThis template briefs a conversational AI. Put the final image/video generation prompt in a separate copyable block containing visual detail and motion, without questions, self-review or role-play instructions. Ask for the target tool and model; otherwise use generic descriptions without invented parameters. For Runway Gen-4 video, use concise positive motion descriptions and omit negative prompts; with an input image, focus on motion. Adjust one major variable per iteration and record the difference.",
     "translation": "",
     "tags": [
       "Character consistency",
@@ -104,7 +109,7 @@
     "sourceRecordId": null,
     "sourceUrl": null,
     "status": "published",
-    "version": 1,
+    "version": 2,
     "fields": [
       {
         "key": "medium",
@@ -124,7 +129,11 @@
         "type": "textarea",
         "required": true,
         "defaultValue": "",
-        "options": [],
+        "options": [
+          "Create a skincare product image: one bottle centered, soft side light and a pale background, with room for the label.",
+          "Create front, side and back views of an original character, keeping clothing, proportions and colors consistent.",
+          "Plan a forest adventure animation: a kitten discovers a glowing seed; give each shot one clear action."
+        ],
         "maxSelections": 1
       },
       {
