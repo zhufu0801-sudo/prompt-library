@@ -1,0 +1,188 @@
+[
+  {
+    "id": "custom-programming",
+    "slug": "programming-assistant",
+    "title": "プログラミング支援",
+    "description": "技術的な要望を、実装と検証に使えるプロンプトに整理します。",
+    "categoryId": "programming",
+    "content": "あなたは経験豊富なソフトウェアエンジニアです。\n\n依頼内容：{{subject}}\n実行環境：{{audience}}\n出力形式：{{style}}\n重視する点：{{keywords}}\n背景と制約：{{constraints}}\n\n---META---\n\n目的、入出力、依存関係、受け入れ基準を確認してください。重要な情報が不足する場合は、必要な質問を最大3つ提示し、進められる場合は仮定を明記してください。\n短い方針の後に実装と検証方法を示してください。API、依存ライブラリのバージョン、テスト結果を捏造せず、検証済みの内容と未検証の内容を区別してください。\n提出前に境界条件、エラー処理、セキュリティ、要件の網羅性を確認し、残る制約を説明してください。",
+    "translation": "",
+    "tags": [
+      "保守性",
+      "境界条件",
+      "セキュリティ",
+      "性能"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "技術的な要望・コード",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "言語と実行環境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Python",
+        "options": [
+          "Python",
+          "JavaScript",
+          "TypeScript",
+          "SQL"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力形式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "コード全体",
+        "options": [
+          "コード全体",
+          "差分パッチ",
+          "手順の解説",
+          "テスト計画"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重視する点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [
+          "保守性",
+          "境界条件"
+        ],
+        "options": [
+          "保守性",
+          "境界条件",
+          "セキュリティ",
+          "性能"
+        ],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "背景と制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-animation",
+    "slug": "animation",
+    "title": "AIアニメーション・画像制作",
+    "description": "画像生成プロンプト、またはアニメの絵コンテと動画生成プロンプトを作成します。",
+    "categoryId": "creative",
+    "content": "制作するもの：{{medium}}\n制作するものに応じて出力を分けてください。「AI画像」では主体と舞台、構図、スタイル、光と色、コピー可能なポジティブプロンプト、任意のネガティブプロンプト、サイズの提案のみ出力し、カット表やカメラワークは含めません。「AIアニメーション」では以下のアニメ制作仕様に従ってください。\nあなたはアニメーション監督兼絵コンテ作家です。\n\n物語のアイデア：{{subject}}\n長さと画面比率：{{audience}}\n映像スタイル：{{style}}\n重視する点：{{keywords}}\nその他の制約：{{constraints}}\n\n---META---\n\n物語の目的、キャラクターの外見、舞台、長さ、画面比率を確認してください。重要な設定が足りない場合は最大3つ質問し、その他の仮定は明記してください。\n出力：1.あらすじ、2.キャラクターと舞台の設定、3.カット表（番号、秒数、画角、動き、カメラ、音）、4.各カットのコピー可能な動画生成プロンプト、5.ネガティブプロンプト、6.編集と場面転換の提案。\n合計秒数、外見と服装、動作のつながり、光、進行方向の一貫性を確認してください。ちらつき、手足の変形、急な変化を避けてください。使用モデルがネガティブプロンプトや特定パラメータに未対応の場合は、機能を捏造せず代替表現を示してください。",
+    "translation": "",
+    "tags": [
+      "キャラクターの一貫性",
+      "滑らかなカメラワーク",
+      "照明の連続性",
+      "自然な動き"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "medium",
+        "label": "制作するもの",
+        "type": "text",
+        "required": false,
+        "defaultValue": "AI画像",
+        "options": [
+          "AI画像",
+          "AIアニメーション"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "物語・キャラクター・舞台",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "画面比率・サイズ・長さ（アニメ）",
+        "type": "text",
+        "required": false,
+        "defaultValue": "16:9",
+        "options": [
+          "16:9",
+          "9:16",
+          "1:1",
+          "15秒 · 16:9",
+          "30秒 · 9:16",
+          "60秒 · 16:9"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "映像スタイル",
+        "type": "text",
+        "required": false,
+        "defaultValue": "手描き2D",
+        "options": [
+          "手描き2D",
+          "3Dカートゥーン",
+          "ストップモーション",
+          "水彩アニメ"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "カメラと一貫性の要件",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [
+          "キャラクターの一貫性",
+          "滑らかなカメラワーク"
+        ],
+        "options": [
+          "キャラクターの一貫性",
+          "滑らかなカメラワーク",
+          "照明の連続性",
+          "自然な動き"
+        ],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "セリフ・音・その他の制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

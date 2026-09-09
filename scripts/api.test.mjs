@@ -27,19 +27,53 @@ async function post(path, body, cookie = '', customOrigin = origin) {
   };
 }
 const all = await get('/api/catalog');
+for (const locale of ['zh', 'en', 'ja']) {
+  const studio = await get('/api/studio?locale=' + locale);
+  assert.equal(studio.status, 200);
+  assert.equal(studio.body.templates.length, 2);
+  assert.equal(studio.body.locale, locale);
+  assert.deepEqual(
+    studio.body.templates.map((t) => t.id),
+    ['custom-programming', 'custom-animation'],
+  );
+  const animation = studio.body.templates[1];
+  assert.equal(
+    animation.fields.find((f) => f.key === 'medium').options.length,
+    2,
+  );
+  const values = Object.fromEntries(
+    animation.fields.map((f) => [f.key, f.defaultValue]),
+  );
+  values.subject = 'A kitten in a forest';
+  const saved = await post(
+    '/api/plans',
+    {
+      templateId: animation.id,
+      title: 'Locale test ' + locale,
+      values,
+      locks: { medium: true },
+      output: animation.content,
+    },
+    studio.cookie,
+  );
+  assert.equal(saved.status, 200);
+  const restored = await get('/api/plans', saved.cookie);
+  assert.equal(restored.body.plans[0].values.medium, values.medium);
+  assert.equal(restored.body.plans[0].locks.medium, true);
+}
 assert.equal(all.status, 200);
 cookieA = all.cookie;
-assert.equal(all.body.total, 309);
+assert.equal(all.body.total, 311);
 assert.equal(all.body.categories.length, 10);
 assert.equal(all.body.ai.enabled, false);
 const userB = await get('/api/catalog');
 cookieB = userB.cookie;
 assert.notEqual(cookieA, cookieB);
-assert.equal((await get('/api/catalog?kind=custom')).body.total, 30);
+assert.equal((await get('/api/catalog?kind=custom')).body.total, 32);
 assert.equal((await get('/api/catalog?kind=imported')).body.total, 279);
 assert.equal(
   (await get('/api/catalog?kind=custom&category=programming')).body.total,
-  3,
+  4,
 );
 assert.ok(
   (await get('/api/catalog?q=' + encodeURIComponent('代码'))).body.total > 0,

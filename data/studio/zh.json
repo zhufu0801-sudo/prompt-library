@@ -1,0 +1,188 @@
+[
+  {
+    "id": "custom-programming",
+    "slug": "programming-assistant",
+    "title": "编程助手",
+    "description": "把技术需求整理成可执行、可验证的编程提示词。",
+    "categoryId": "programming",
+    "content": "你是一位资深软件工程师。\n\n请完成：{{subject}}\n开发环境：{{audience}}\n交付格式：{{style}}\n重点要求：{{keywords}}\n背景与限制：{{constraints}}\n\n---META---\n\n先确认目标、输入输出、依赖和验收标准。关键背景缺失时，最多提出 3 个必要问题；若可继续，明确列出假设。\n先给简短方案，再给实现与验证方法。不要编造 API、依赖版本或测试结果；区分已验证与待验证内容。\n交付前检查边界条件、错误处理、安全和需求覆盖情况，说明剩余限制。",
+    "translation": "",
+    "tags": [
+      "可维护性",
+      "边界条件",
+      "安全性",
+      "性能"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "技术需求或代码",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "开发语言与环境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Python",
+        "options": [
+          "Python",
+          "JavaScript",
+          "TypeScript",
+          "SQL"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "交付格式",
+        "type": "text",
+        "required": false,
+        "defaultValue": "完整代码",
+        "options": [
+          "完整代码",
+          "差异补丁",
+          "逐步讲解",
+          "测试方案"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点要求",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [
+          "可维护性",
+          "边界条件"
+        ],
+        "options": [
+          "可维护性",
+          "边界条件",
+          "安全性",
+          "性能"
+        ],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "背景与限制",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-animation",
+    "slug": "animation",
+    "title": "AI 动画与图片制作",
+    "description": "把创意整理成图片提示词，或完整的动画分镜与视频提示词。",
+    "categoryId": "creative",
+    "content": "制作类型：{{medium}}\n根据制作类型分支输出。选择“AI 图片”时，只输出主体与场景、构图、风格、光线与色彩、可复制的正向提示词、可选负面提示词及尺寸建议，不输出分镜或运镜。选择“AI 动画”时，按以下动画规范输出。\n你是一位动画导演和分镜设计师。\n\n故事创意：{{subject}}\n时长与画幅：{{audience}}\n视觉风格：{{style}}\n重点要求：{{keywords}}\n补充限制：{{constraints}}\n\n---META---\n\n先明确故事目标、角色外观、场景、时长与画幅。缺少关键设定时，最多提出 3 个问题；其余假设明确标注。\n输出：1.故事梗概；2.角色与场景设定；3.分镜表（镜号、时长、景别、动作、运镜、声音）；4.每镜可复制的视频生成提示词；5.负面提示词；6.剪辑与衔接建议。\n检查分镜时长总和、角色服饰和外观、动作衔接、光线与方向一致性。避免闪烁、肢体畸变和突变。若模型不支持负面提示词或某项参数，明确说明替代写法，不编造工具能力。",
+    "translation": "",
+    "tags": [
+      "角色一致",
+      "平滑运镜",
+      "光影连贯",
+      "动作自然"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "medium",
+        "label": "制作类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "AI 图片",
+        "options": [
+          "AI 图片",
+          "AI 动画"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "故事、角色与场景",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "画幅、尺寸与时长（动画）",
+        "type": "text",
+        "required": false,
+        "defaultValue": "16:9",
+        "options": [
+          "16:9",
+          "9:16",
+          "1:1",
+          "15秒 · 16:9",
+          "30秒 · 9:16",
+          "60秒 · 16:9"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "画面风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "二维手绘",
+        "options": [
+          "二维手绘",
+          "三维卡通",
+          "定格动画",
+          "水彩动画"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "镜头与一致性要求",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [
+          "角色一致",
+          "平滑运镜"
+        ],
+        "options": [
+          "角色一致",
+          "平滑运镜",
+          "光影连贯",
+          "动作自然"
+        ],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "对白、声音与其他限制",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

@@ -1,33 +1,19 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Sparkles,
-  Search,
+  Code2,
+  Clapperboard,
   Star,
   Copy,
-  Check,
-  ArrowUpRight,
-  ArrowRight,
-  Code2,
-  PenLine,
-  BriefcaseBusiness,
-  GraduationCap,
-  Languages,
-  Lightbulb,
-  X,
-  BookOpen,
-  SlidersHorizontal,
   LockKeyhole,
   LockKeyholeOpen,
+  Languages,
+  ArrowUpRight,
+  Search,
   RefreshCw,
-  Save,
   Download,
-  FolderOpen,
-  Database,
-  Heart,
-  Plus,
-  ChevronLeft,
-  ChevronRight,
+  Save,
 } from 'lucide-react';
 import {
   Dialog,
@@ -45,135 +31,87 @@ import {
 } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-} from '@/components/ui/pagination';
-import {
   defaultValues,
-  compose,
-  getOptions,
   refreshValues,
-  validateValues,
+  getOptions,
   type Template,
   type Values,
   type Locks,
-  type Category,
   type Plan,
   type Field,
 } from '@/lib/prompt';
-type Card = Pick<
-  Template,
-  'id' | 'title' | 'description' | 'categoryId' | 'kind' | 'tags' | 'content'
->;
-type Catalog = {
-  items: Card[];
-  categories: Category[];
-  total: number;
-  page: number;
-  pageSize: number;
-  favorites: string[];
-  totals: { kind: string; count: number }[];
-};
-const moduleIcons: Record<string, typeof Code2> = {
-  programming: Code2,
-  writing: PenLine,
-  office: BriefcaseBusiness,
-  marketing: Lightbulb,
-  study: GraduationCap,
-  language: Languages,
-  life: Heart,
-  creative: Sparkles,
-  business: SlidersHorizontal,
-  thinking: BookOpen,
-};
-async function request<T>(path: string, body?: unknown): Promise<T> {
-  const r = await fetch(path, {
-    ...(body === undefined
+import {
+  composeStudio,
+  translateValues,
+  localeOf,
+  type Locale,
+} from '@/lib/studio';
+import { ui } from '@/lib/studio-ui';
+async function api<T>(url: string, body?: unknown): Promise<T> {
+  const r = await fetch(
+    url,
+    body === undefined
       ? {}
       : {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body),
-        }),
-  });
-  const value = (await r.json()) as T & { error?: string };
-  if (!r.ok) throw Error(value.error || '操作失败，请重试');
-  return value;
+        },
+  );
+  if (!r.ok) throw Error('REQUEST_FAILED');
+  return r.json();
 }
 export default function Home() {
-  const [catalog, setCatalog] = useState<Catalog | null>(null),
-    [category, setCategory] = useState(''),
-    [kind, setKind] = useState('all'),
-    [search, setSearch] = useState(''),
-    [query, setQuery] = useState(''),
-    [page, setPage] = useState(1),
-    [tab, setTab] = useState('library'),
-    [loading, setLoading] = useState(true),
-    [error, setError] = useState(''),
-    [notice, setNotice] = useState(''),
-    [refresh, setRefresh] = useState(0),
-    [care, setCare] = useState(false),
-    [help, setHelp] = useState(false),
-    [aiInfo, setAiInfo] = useState(false),
+  const [locale, setLocale] = useState<Locale>('zh'),
+    [ready, setReady] = useState(false),
+    [templates, setTemplates] = useState<Template[]>([]),
+    [favorites, setFavorites] = useState<string[]>([]),
     [plans, setPlans] = useState<Plan[]>([]);
   const [active, setActive] = useState<Template | null>(null),
     [values, setValues] = useState<Values>({}),
     [locks, setLocks] = useState<Locks>({}),
     [edited, setEdited] = useState<string | null>(null),
+    [meta, setMeta] = useState(true),
     [planId, setPlanId] = useState<string | undefined>(),
-    [planTitle, setPlanTitle] = useState(''),
+    [title, setTitle] = useState('');
+  const [tab, setTab] = useState('library'),
+    [search, setSearch] = useState(''),
+    [category, setCategory] = useState('all'),
     [busy, setBusy] = useState(false),
-    [favoriteBusy, setFavoriteBusy] = useState(''),
-    [custom, setCustom] = useState<Record<string, string>>({}),
-    [language, setLanguage] = useState('original');
-  const detailRequest = useRef(0);
-  const output = active
-    ? (edited ??
-      (language === 'translation' && active.translation
-        ? active.translation
-        : compose(active, values)))
-    : '';
+    [loading, setLoading] = useState(true),
+    [failed, setFailed] = useState(false),
+    [revision, setRevision] = useState(0),
+    [notice, setNotice] = useState(''),
+    [care, setCare] = useState(false),
+    [help, setHelp] = useState(false),
+    [custom, setCustom] = useState<Record<string, string>>({});
+  const t = ui[locale];
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setQuery(search);
-      setPage(1);
-    }, 250);
-    return () => clearTimeout(timer);
-  }, [search]);
+    try {
+      setLocale(localeOf(localStorage.getItem('ame_locale')));
+    } catch {}
+    setReady(true);
+  }, []);
   useEffect(() => {
+    if (!ready) return;
+    document.documentElement.lang = locale === 'zh' ? 'zh-CN' : locale;
+    document.title = 'AI Made Easy · ' + ui[locale].library;
+    try {
+      localStorage.setItem('ame_locale', locale);
+    } catch {}
     let live = true;
     setLoading(true);
-    setError('');
-    if (tab === 'plans') {
-      request<{ plans: Plan[] }>('/api/plans')
-        .then((v) => {
-          if (live) setPlans(v.plans);
-        })
-        .catch((e) => {
-          if (live) setError(e.message);
-        })
-        .finally(() => {
-          if (live) setLoading(false);
-        });
-      return () => {
-        live = false;
-      };
-    }
-    const params = new URLSearchParams({
-      q: query,
-      category,
-      kind,
-      page: String(page),
-      favorites: tab === 'favorites' ? '1' : '0',
-    });
-    request<Catalog>('/api/catalog?' + params)
-      .then((v) => {
-        if (live) setCatalog(v);
+    setFailed(false);
+    api<{ templates: Template[]; favorites: string[] }>(
+      '/api/studio?locale=' + locale,
+    )
+      .then((data) => {
+        if (!live) return;
+        setTemplates(data.templates);
+        setFavorites(data.favorites);
       })
-      .catch((e) => {
-        if (live) setError(e.message);
+      .catch(() => {
+        if (live) setFailed(true);
       })
       .finally(() => {
         if (live) setLoading(false);
@@ -181,70 +119,57 @@ export default function Home() {
     return () => {
       live = false;
     };
-  }, [query, category, kind, page, tab, refresh]);
-  function navigate(next: string) {
-    setTab(next);
-    setPage(1);
-    setSearch('');
-    setQuery('');
-    setCategory('');
-    setKind('all');
-    setError('');
+  }, [locale, ready, revision]);
+  useEffect(() => {
+    if (!active) return;
+    const next = templates.find((x) => x.id === active.id);
+    if (next && next !== active) {
+      setValues((v) => translateValues(active, next, v, locks));
+      setActive(next);
+    }
+  }, [templates, active, locks]);
+  useEffect(() => {
+    if (tab !== 'plans') return;
+    let live = true;
+    api<{ plans: Plan[] }>('/api/plans')
+      .then((x) => {
+        if (live) setPlans(x.plans);
+      })
+      .catch(() => {
+        if (live) setNotice(t.error);
+      });
+    return () => {
+      live = false;
+    };
+  }, [tab, revision, t.error]);
+  function changeLocale(value: string | null) {
+    const next = localeOf(value);
+    setLocale(next);
+    setNotice(ui[next].preserved);
   }
-  async function open(id: string, plan?: Plan) {
-    const sequence = ++detailRequest.current;
+  function open(item: Template, plan?: Plan) {
+    setActive(item);
+    setValues(plan?.values ?? defaultValues(item));
+    setLocks(plan?.locks ?? {});
+    setEdited(plan?.output ?? null);
+    setPlanId(plan?.id);
+    setTitle(plan?.title ?? item.title);
+    setMeta(true);
+    setCustom({});
+    setNotice('');
+  }
+  async function openPlan(plan: Plan) {
     setBusy(true);
     try {
-      const item = await request<Template>(
-        '/api/templates/' + encodeURIComponent(id),
+      open(
+        templates.find((x) => x.id === plan.templateId) ??
+          (await api<Template>(
+            '/api/templates/' + encodeURIComponent(plan.templateId),
+          )),
+        plan,
       );
-      if (sequence !== detailRequest.current) return;
-      setActive(item);
-      setValues(plan?.values ?? defaultValues(item));
-      setLocks(plan?.locks ?? {});
-      setEdited(plan?.output ?? null);
-      setPlanId(plan?.id);
-      setPlanTitle(plan?.title ?? item.title);
-      setCustom({});
-      setLanguage('original');
-      setNotice('');
-    } catch (e) {
-      setNotice((e as Error).message);
-    } finally {
-      if (sequence === detailRequest.current) setBusy(false);
-    }
-  }
-  async function favorite(id: string) {
-    if (favoriteBusy) return;
-    const saved = !catalog?.favorites.includes(id);
-    setFavoriteBusy(id);
-    try {
-      await request('/api/favorites', { templateId: id, saved });
-      setRefresh((v) => v + 1);
-      setNotice(saved ? '已保存收藏。' : '已取消收藏。');
-    } catch (e) {
-      setNotice((e as Error).message);
-    } finally {
-      setFavoriteBusy('');
-    }
-  }
-  async function copy(text: string) {
-    try {
-      await navigator.clipboard.writeText(text);
-      setNotice('已复制。粘贴到你使用的 AI 工具即可。');
     } catch {
-      setNotice('浏览器不允许自动复制，请在详情中选择文字后手动复制。');
-    }
-  }
-  async function copyCard(id: string) {
-    setBusy(true);
-    try {
-      const item = await request<Template>(
-        '/api/templates/' + encodeURIComponent(id),
-      );
-      await copy(item.content);
-    } catch (e) {
-      setNotice((e as Error).message);
+      setNotice(t.error);
     } finally {
       setBusy(false);
     }
@@ -254,91 +179,85 @@ export default function Home() {
     setValues((v) => ({ ...v, [key]: value }));
     setEdited(null);
   }
-  function toggle(f: Field, word: string) {
+  function word(f: Field, value: string) {
     if (locks[f.key]) return;
-    const current = Array.isArray(values[f.key])
-      ? (values[f.key] as string[])
-      : [];
-    if (current.includes(word))
-      update(
-        f.key,
-        current.filter((v) => v !== word),
-      );
-    else if (current.length < f.maxSelections)
-      update(f.key, [...current, word]);
-    else setNotice(`最多选择 ${f.maxSelections} 项，请先取消一项。`);
-  }
-  function addWord(f: Field) {
-    const word = (custom[f.key] || '').trim();
-    if (!word) return;
-    if (word.length > 40) {
-      setNotice('词条最多40字。');
+    if (f.type !== 'multi') {
+      update(f.key, value);
       return;
     }
-    if (f.type === 'multi') {
-      const selected = (values[f.key] as string[]) || [];
-      if (selected.includes(word)) {
-        setCustom((c) => ({ ...c, [f.key]: '' }));
-        return;
-      }
-      if (selected.length >= f.maxSelections) {
-        setNotice(`最多选择${f.maxSelections}项。`);
-        return;
-      }
-      toggle(f, word);
-    } else update(f.key, word);
-    setCustom((c) => ({ ...c, [f.key]: '' }));
+    const old = Array.isArray(values[f.key]) ? (values[f.key] as string[]) : [];
+    if (old.includes(value))
+      update(
+        f.key,
+        old.filter((x) => x !== value),
+      );
+    else if (old.length < f.maxSelections && value.length <= 40)
+      update(f.key, [...old, value]);
+    else setNotice(t.limit);
   }
   function detect() {
     if (!active) return;
-    const text = String(values.subject || '');
-    if (!text.trim()) {
-      setNotice('先填写需求，再提取已知词条。');
-      return;
-    }
-    let found = 0;
-    const next = { ...values };
-    for (const f of active.fields) {
-      if (locks[f.key]) continue;
-      const matches = getOptions(f, values).filter((word) =>
-        text.toLowerCase().includes(word.toLowerCase()),
+    const subject = String(values.subject || '').toLowerCase(),
+      next = { ...values };
+    active.fields.forEach((f) => {
+      if (locks[f.key]) return;
+      const found = getOptions(f, values).filter((x) =>
+        subject.includes(x.toLowerCase()),
       );
-      if (matches.length) {
+      if (found.length)
         next[f.key] =
-          f.type === 'multi' ? matches.slice(0, f.maxSelections) : matches[0];
-        found += matches.length;
-      }
-    }
+          f.type === 'multi' ? found.slice(0, f.maxSelections) : found[0];
+    });
     setValues(next);
     setEdited(null);
-    setNotice(
-      found
-        ? `匹配到${found}个已知词条，已填入未锁定的字段。`
-        : '暂未匹配到已知词条。可直接点击推荐词或自行填写。',
-    );
+    setNotice(t.detected);
+  }
+  const output = active
+    ? (edited ?? composeStudio(active, values, locale, meta))
+    : '';
+  async function favorite(id: string) {
+    if (busy) return;
+    setBusy(true);
+    try {
+      const saved = !favorites.includes(id);
+      await api('/api/favorites', { templateId: id, saved });
+      setFavorites((v) => (saved ? [...v, id] : v.filter((x) => x !== id)));
+      setNotice(t.favorited);
+    } catch {
+      setNotice(t.error);
+    } finally {
+      setBusy(false);
+    }
+  }
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(output);
+      setNotice(t.copied);
+    } catch {
+      setNotice(t.copyFail);
+    }
   }
   async function save() {
     if (!active || busy) return;
-    const errors = validateValues(active, values);
-    if (errors.length) {
-      setNotice(errors[0]);
+    if (!String(values.subject || '').trim()) {
+      setNotice(t.required);
       return;
     }
     setBusy(true);
     try {
-      const result = await request<{ id: string }>('/api/plans', {
+      const r = await api<{ id: string }>('/api/plans', {
         id: planId,
         templateId: active.id,
-        title: planTitle.trim() || active.title,
+        title: title.trim() || active.title,
         values,
         locks,
         output,
       });
-      setPlanId(result.id);
-      setNotice('方案已保存到数据库，可在“我的方案”继续修改。');
-      setRefresh((v) => v + 1);
-    } catch (e) {
-      setNotice((e as Error).message);
+      setPlanId(r.id);
+      setNotice(t.saved);
+      setRevision((x) => x + 1);
+    } catch {
+      setNotice(t.error);
     } finally {
       setBusy(false);
     }
@@ -349,651 +268,400 @@ export default function Home() {
     );
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'AI-Made-Easy-prompt.txt';
+    a.download = 'AI-Made-Easy-' + locale + '.txt';
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
-  const totalCount = catalog?.totals.reduce((n, t) => n + t.count, 0) || 0;
-  const pageCount = Math.max(1, Math.ceil((catalog?.total || 0) / 18));
+  function example() {
+    if (!active || locks.subject || String(values.subject || '').trim()) return;
+    const examples =
+      active.id === 'custom-programming'
+        ? {
+            zh: '用 Python 读取 CSV，按月份汇总销售额，并处理缺失值。',
+            en: 'Read a CSV in Python, summarize sales by month and handle missing values.',
+            ja: 'PythonでCSVを読み込み、月別の売上を集計し、欠損値を処理したい。',
+          }
+        : {
+            zh: '一只背着小书包的白色猫咪，在雨后的森林里发现一颗发光的种子。',
+            en: 'A white kitten with a tiny backpack discovers a glowing seed in a forest after the rain.',
+            ja: '小さなリュックを背負った白い子猫が、雨上がりの森で光る種を見つける。',
+          };
+    update('subject', examples[locale]);
+  }
+  const filtered = templates.filter(
+    (x) =>
+      (tab !== 'favorites' || favorites.includes(x.id)) &&
+      (category === 'all' || x.id === category) &&
+      [x.title, x.description, ...x.tags]
+        .join(' ')
+        .toLowerCase()
+        .includes(search.toLowerCase()),
+  );
+  const languagePicker = (
+    <Select value={locale} onValueChange={changeLocale}>
+      <SelectTrigger aria-label={t.preference} className="studio-language">
+        <Languages size={17} />
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="zh">简体中文</SelectItem>
+        <SelectItem value="ja">日本語</SelectItem>
+        <SelectItem value="en">English</SelectItem>
+      </SelectContent>
+    </Select>
+  );
   return (
-    <div className={care ? 'app care' : 'app'}>
-      <header className="header">
-        <div className="header-inner">
-          <a className="brand" href="#" onClick={() => navigate('library')}>
-            <span className="brand-mark">
-              <Sparkles size={21} />
-            </span>
-            AI Made Easy
-          </a>
-          <nav>
+    <div className={'studio' + (care ? ' studio-care' : '')}>
+      <header className="studio-header">
+        <a className="studio-brand" href="#" onClick={() => setTab('library')}>
+          <Sparkles />
+          AI Made Easy
+        </a>
+        <nav>
+          {(['library', 'favorites', 'plans'] as const).map((key) => (
             <button
-              className={'nav ' + (tab === 'library' ? 'active' : '')}
-              onClick={() => navigate('library')}
+              key={key}
+              className={tab === key ? 'selected' : ''}
+              onClick={() => {
+                setTab(key);
+                setSearch('');
+                setCategory('all');
+              }}
             >
-              模板广场
+              {t[key]}
             </button>
-            <button
-              className={'nav ' + (tab === 'favorites' ? 'active' : '')}
-              onClick={() => navigate('favorites')}
-            >
-              我的收藏<span>{catalog?.favorites.length || 0}</span>
-            </button>
-            <button
-              className={'nav ' + (tab === 'plans' ? 'active' : '')}
-              onClick={() => navigate('plans')}
-            >
-              我的方案
-            </button>
-          </nav>
-          <label className="care-toggle">
-            <Heart size={15} />
-            <span>关怀模式</span>
-            <Switch
-              checked={care}
-              onCheckedChange={setCare}
-              aria-label="关怀模式，大字显示"
-            />
+          ))}
+        </nav>
+        <div className="studio-header-tools">
+          <label className="studio-toggle">
+            <Switch checked={care} onCheckedChange={setCare} />
+            <span>{t.care}</span>
           </label>
+          {languagePicker}
         </div>
       </header>
-      <main>
-        <section className="intro">
+      <main className="studio-main">
+        <div className="studio-heading">
           <div>
-            <div className="eyebrow">
-              <span /> BASIC MODE · 无需调用 AI
-            </div>
-            <h1>
-              让每一个想法，<span>更容易开始。</span>
-            </h1>
-            <p>搜索模板，填入需求。选好关键词，把清晰的提示词带走。</p>
+            <span className="studio-eyebrow">AI MADE EASY</span>
+            <h1>{t.title}</h1>
+            <p>{t.intro}</p>
           </div>
-          <div className="mode-tools">
-            <span className="basic-mode">
-              <Check size={15} />
-              基础模式
-            </span>
-            <button onClick={() => setAiInfo(true)}>
-              <Sparkles size={15} />
-              AI 进阶模式<span>待接入</span>
-            </button>
-          </div>
-        </section>
-        {tab !== 'plans' && (
-          <section className="explorer">
-            <div className="search-line">
-              <div className="search">
-                <Search size={20} />
-                <input
-                  aria-label="搜索模板"
-                  placeholder="想完成什么？试试：代码、产品介绍、日语…"
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-                {search && (
-                  <button aria-label="清空搜索" onClick={() => setSearch('')}>
-                    <X size={16} />
-                  </button>
-                )}
-              </div>
-              <div className="library-count">
-                <b>{totalCount || '—'}</b>
-                <span>条提示词</span>
-              </div>
-            </div>
-            <div className="categories">
-              <button
-                className={'category ' + (!category ? 'selected' : '')}
-                onClick={() => {
-                  setCategory('');
-                  setPage(1);
-                }}
-              >
-                <SlidersHorizontal size={16} />
-                全部模块
-              </button>
-              {catalog?.categories.map((c) => {
-                const Icon = moduleIcons[c.id] || BookOpen;
-                return (
-                  <button
-                    className={
-                      'category ' + (category === c.id ? 'selected' : '')
-                    }
-                    key={c.id}
-                    onClick={() => {
-                      setCategory(c.id);
-                      setPage(1);
-                    }}
-                    aria-pressed={category === c.id}
-                  >
-                    <Icon size={16} />
-                    {c.name}
-                  </button>
-                );
-              })}
-            </div>
-          </section>
-        )}
-        <div className="results-head">
-          <h2>
-            {tab === 'plans'
-              ? '我的方案'
-              : tab === 'favorites'
-                ? '我的收藏'
-                : category
-                  ? catalog?.categories.find((c) => c.id === category)?.name
-                  : '找到适合你的起点'}
-            <span>
-              {tab === 'plans' ? plans.length : catalog?.total || 0} 个结果
-            </span>
-          </h2>
-          <div className="results-tools">
-            {tab !== 'plans' && (
-              <Select
-                value={kind}
-                onValueChange={(v) => {
-                  setKind(v || 'all');
-                  setPage(1);
-                }}
-              >
-                <SelectTrigger aria-label="内容来源">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">全部来源</SelectItem>
-                  <SelectItem value="custom">
-                    可填写模板 ·{' '}
-                    {catalog?.totals.find((t) => t.kind === 'custom')?.count ||
-                      0}
-                  </SelectItem>
-                  <SelectItem value="imported">
-                    AI Short 原文 ·{' '}
-                    {catalog?.totals.find((t) => t.kind === 'imported')
-                      ?.count || 0}
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            )}
-            <button className="text-button" onClick={() => setHelp(true)}>
-              <BookOpen size={14} />
-              使用说明
-            </button>
-          </div>
+          <button onClick={() => setHelp(true)}>{t.help}</button>
         </div>
-        {error ? (
-          <div className="empty" role="alert">
-            <Database size={28} />
-            <p>{error}</p>
-            <button onClick={() => setRefresh((v) => v + 1)}>重新加载</button>
+        <div className="studio-toolbar">
+          <div className="studio-filters">
+            <button
+              className={category === 'all' ? 'selected' : ''}
+              onClick={() => setCategory('all')}
+            >
+              {t.all}
+            </button>
+            {templates.map((x) => (
+              <button
+                key={x.id}
+                className={category === x.id ? 'selected' : ''}
+                onClick={() => setCategory(x.id)}
+              >
+                {x.title}
+              </button>
+            ))}
+          </div>
+          {tab !== 'plans' && (
+            <label className="studio-search">
+              <Search size={18} />
+              <input
+                aria-label={t.search}
+                placeholder={t.search}
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </label>
+          )}
+        </div>
+        {failed ? (
+          <div role="alert">
+            {t.error}{' '}
+            <button onClick={() => setRevision((x) => x + 1)}>{t.retry}</button>
           </div>
         ) : loading ? (
-          <div className="loading-state" role="status">
-            正在读取模板库…
-          </div>
+          <p role="status">{t.loading}</p>
         ) : tab === 'plans' ? (
           <>
-            <p className="plan-note">
-              方案保存在数据库中，当前通过浏览器访客身份识别。清除 Cookie
-              后无法自动找回，请导出重要内容。
-            </p>
-            <section className="cards">
+            <p>{t.oldPlans}</p>
+            <div className="studio-grid">
               {plans.map((p) => (
-                <article className="card plan-card" key={p.id}>
-                  <span className="card-icon">
-                    <FolderOpen size={20} />
-                  </span>
+                <article className="studio-card" key={p.id}>
                   <h2>{p.title}</h2>
-                  <p>{new Date(p.updatedAt).toLocaleString('zh-CN')}</p>
-                  <div className="excerpt">{p.output}</div>
-                  <div className="card-bottom">
-                    <button
-                      className="details"
-                      onClick={() => open(p.templateId, p)}
-                    >
-                      继续修改
-                      <ArrowRight size={14} />
-                    </button>
-                    <button className="copy" onClick={() => copy(p.output)}>
-                      <Copy size={14} />
-                      复制
-                    </button>
-                  </div>
+                  <p className="studio-excerpt">{p.output}</p>
+                  <button disabled={busy} onClick={() => openPlan(p)}>
+                    {t.update}
+                    <ArrowUpRight size={18} />
+                  </button>
                 </article>
               ))}
-            </section>
-            {!plans.length && (
-              <div className="empty">
-                <FolderOpen size={30} />
-                <h2>还没有保存的方案</h2>
-                <p>打开模板，填写需求后点击“保存方案”。</p>
-                <button onClick={() => navigate('library')}>
-                  浏览模板
-                  <ArrowRight size={15} />
-                </button>
-              </div>
-            )}
+            </div>
+            {!plans.length && <p>{t.empty}</p>}
           </>
         ) : (
-          <>
-            <section className="cards">
-              {catalog?.items.map((p) => {
-                const Icon = moduleIcons[p.categoryId] || BookOpen;
-                return (
-                  <article className="card" key={p.id}>
-                    <div className="card-top">
-                      <span
-                        className={
-                          'card-icon ' +
-                          (p.kind === 'custom' ? 'custom-icon' : '')
-                        }
-                      >
-                        <Icon size={20} />
-                      </span>
-                      <span className="card-category">
-                        {
-                          catalog.categories.find((c) => c.id === p.categoryId)
-                            ?.name
-                        }
-                      </span>
-                      <button
-                        className={
-                          'star ' +
-                          (catalog.favorites.includes(p.id) ? 'saved' : '')
-                        }
-                        aria-label={
-                          (catalog.favorites.includes(p.id)
-                            ? '取消收藏'
-                            : '收藏') + p.title
-                        }
-                        aria-pressed={catalog.favorites.includes(p.id)}
-                        disabled={!!favoriteBusy}
-                        onClick={() => favorite(p.id)}
-                      >
-                        <Star
-                          size={18}
-                          fill={
-                            catalog.favorites.includes(p.id)
-                              ? 'currentColor'
-                              : 'none'
-                          }
-                        />
-                      </button>
-                    </div>
-                    <button
-                      className="card-title"
-                      disabled={busy}
-                      onClick={() => open(p.id)}
-                    >
-                      {p.title}
-                      <ArrowUpRight size={16} />
-                    </button>
-                    <p className="description">{p.description}</p>
-                    <div className="tags">
-                      {p.tags.slice(0, 3).map((tag) => (
-                        <button
-                          key={tag}
-                          onClick={() => {
-                            setSearch(tag);
-                            setCategory('');
-                            setPage(1);
-                          }}
-                        >
-                          #{tag}
-                        </button>
-                      ))}
-                    </div>
-                    <button className="excerpt" onClick={() => open(p.id)}>
-                      {p.content}
-                    </button>
-                    <div className="card-bottom">
-                      <span
-                        className={
-                          'source-badge ' +
-                          (p.kind === 'custom' ? 'original' : '')
-                        }
-                      >
-                        {p.kind === 'custom' ? '可填写模板' : 'AI Short 原文'}
-                      </span>
-                      <button
-                        className="copy"
-                        disabled={busy}
-                        onClick={() =>
-                          p.kind === 'custom' ? open(p.id) : copyCard(p.id)
-                        }
-                      >
-                        {p.kind === 'custom' ? (
-                          <PenLine size={14} />
-                        ) : (
-                          <Copy size={14} />
-                        )}{' '}
-                        {p.kind === 'custom' ? '填写需求' : '复制提示词'}
-                      </button>
-                    </div>
-                  </article>
-                );
-              })}
-            </section>
-            {!catalog?.items.length && (
-              <div className="empty">
-                <Search size={30} />
-                <h2>没有匹配的内容</h2>
-                <p>换个关键词、模块或来源再试试。</p>
-                <button onClick={() => navigate('library')}>查看全部</button>
-              </div>
-            )}
-            {pageCount > 1 && (
-              <Pagination className="pagination">
-                <PaginationContent>
-                  <PaginationItem>
-                    <button
-                      aria-label="上一页"
-                      disabled={page <= 1}
-                      onClick={() => setPage((p) => p - 1)}
-                    >
-                      <ChevronLeft size={18} />
-                    </button>
-                  </PaginationItem>
-                  {Array.from(
-                    { length: Math.min(5, pageCount) },
-                    (_, i) =>
-                      Math.min(
-                        Math.max(1, page - 2),
-                        Math.max(1, pageCount - 4),
-                      ) + i,
-                  ).map((p) => (
-                    <PaginationItem key={p}>
-                      <PaginationLink
-                        href="#"
-                        isActive={page === p}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setPage(p);
-                        }}
-                      >
-                        {p}
-                      </PaginationLink>
-                    </PaginationItem>
+          <div className="studio-grid">
+            {filtered.map((item, i) => (
+              <article className="studio-card" key={item.id}>
+                <div className="studio-card-top">
+                  <span
+                    className={
+                      'studio-icon ' +
+                      (item.id === 'custom-animation' ? 'animation' : '')
+                    }
+                  >
+                    {item.id === 'custom-animation' ? (
+                      <Clapperboard />
+                    ) : (
+                      <Code2 />
+                    )}
+                  </span>
+                  <span className="studio-index">0{i + 1}</span>
+                  <button
+                    disabled={busy}
+                    aria-label={t.favorites + ' · ' + item.title}
+                    aria-pressed={favorites.includes(item.id)}
+                    onClick={() => favorite(item.id)}
+                  >
+                    <Star
+                      size={20}
+                      fill={
+                        favorites.includes(item.id) ? 'currentColor' : 'none'
+                      }
+                    />
+                  </button>
+                </div>
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+                <div className="studio-tags">
+                  {item.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
                   ))}
-                  <PaginationItem>
-                    <button
-                      aria-label="下一页"
-                      disabled={page >= pageCount}
-                      onClick={() => setPage((p) => p + 1)}
-                    >
-                      <ChevronRight size={18} />
-                    </button>
-                  </PaginationItem>
-                </PaginationContent>
-              </Pagination>
-            )}
-          </>
-        )}
-        <footer>
-          <div>
-            <Sparkles size={15} />
-            AI Made Easy<span>基础模式 · 不调用 AI</span>
+                </div>
+                <div className="studio-card-bottom">
+                  <span>
+                    <Sparkles size={15} />
+                    {t.meta}
+                  </span>
+                  <button className="studio-primary" onClick={() => open(item)}>
+                    {t.use}
+                    <ArrowUpRight size={17} />
+                  </button>
+                </div>
+              </article>
+            ))}
+            {!filtered.length && <p>{t.empty}</p>}
           </div>
-          <p>
-            部分内容来自{' '}
-            <a
-              href="https://github.com/rockbenben/ChatGPT-Shortcut"
-              target="_blank"
-              rel="noreferrer"
-            >
-              AI Short
-            </a>{' '}
-            · MIT ·{' '}
-            <button onClick={() => setHelp(true)}>数据与使用说明</button>
-          </p>
-        </footer>
+        )}
+        <p className="studio-footnote">{t.modeNote}</p>
+        <p className="studio-footnote">{t.userData}</p>
       </main>
+      {!active && notice && (
+        <div className="studio-notice" role="status">
+          {notice}
+        </div>
+      )}
       <Dialog
         open={!!active}
         onOpenChange={(v) => {
-          if (!v) {
-            detailRequest.current++;
-            setActive(null);
-          }
+          if (!v) setActive(null);
         }}
       >
-        <DialogContent className={'builder-dialog ' + (care ? 'care' : '')}>
+        <DialogContent
+          showCloseButton={false}
+          className={'studio-dialog' + (care ? ' studio-care' : '')}
+        >
           <DialogHeader>
-            <span className="detail-category">
-              {active?.kind === 'custom'
-                ? '基础模式 / 可填写模板'
-                : 'AI Short / 导入原文'}
-            </span>
-            <DialogTitle>{active?.title}</DialogTitle>
-            <DialogDescription>{active?.description}</DialogDescription>
+            <div className="studio-dialog-top">
+              <DialogTitle>{active?.title}</DialogTitle>
+              <div className="studio-header-tools">
+                {languagePicker}
+                <button onClick={() => setActive(null)}>{t.close}</button>
+              </div>
+            </div>
+            <DialogDescription>{t.modeNote}</DialogDescription>
           </DialogHeader>
           {active && (
-            <div
-              className={
-                'builder-grid ' + (active.fields.length ? '' : 'text-only')
-              }
-            >
-              {active.fields.length > 0 && (
-                <section className="builder-form">
-                  <div className="builder-section-title">
-                    <h3>填写需求</h3>
-                    <button className="text-button" onClick={detect}>
-                      <Lightbulb size={14} />
-                      匹配关键词
-                    </button>
-                  </div>
-                  {active.fields.map((f) => (
-                    <div className="form-field" key={f.key}>
-                      <div className="field-head">
-                        <label htmlFor={'field-' + f.key}>
-                          {f.label}
-                          {f.required && <em>*</em>}
-                        </label>
+            <div className="studio-builder">
+              <section>
+                <div className="studio-section-head">
+                  <h3>{t.form}</h3>
+                  <button title={t.sampleHelp} onClick={example}>
+                    {t.sample}
+                  </button>
+                </div>
+                <div className="studio-meta">
+                  <label>
+                    <Switch
+                      checked={meta}
+                      onCheckedChange={(v) => {
+                        setMeta(v);
+                        setEdited(null);
+                      }}
+                    />
+                    {t.meta}
+                  </label>
+                  <p>{t.metaHelp}</p>
+                </div>
+                {active.fields.map((f) => (
+                  <div className="studio-field" key={f.key}>
+                    <div className="studio-field-head">
+                      <label htmlFor={'field-' + f.key}>
+                        {f.label}
+                        <small>
+                          {f.required ? t.requiredLabel : t.optional}
+                        </small>
+                      </label>
+                      <button
+                        aria-label={
+                          (locks[f.key] ? t.unlock : t.lock) + ' ' + f.label
+                        }
+                        aria-pressed={!!locks[f.key]}
+                        onClick={() =>
+                          setLocks((v) => ({ ...v, [f.key]: !v[f.key] }))
+                        }
+                      >
+                        {locks[f.key] ? (
+                          <LockKeyhole size={17} />
+                        ) : (
+                          <LockKeyholeOpen size={17} />
+                        )}
+                      </button>
+                    </div>
+                    {f.type === 'textarea' ? (
+                      <textarea
+                        id={'field-' + f.key}
+                        required={f.required}
+                        maxLength={12000}
+                        disabled={!!locks[f.key]}
+                        rows={f.key === 'subject' ? 4 : 2}
+                        value={String(values[f.key] || '')}
+                        onChange={(e) => update(f.key, e.target.value)}
+                      />
+                    ) : f.type === 'text' ? (
+                      <input
+                        id={'field-' + f.key}
+                        maxLength={200}
+                        disabled={!!locks[f.key]}
+                        value={String(values[f.key] || '')}
+                        onChange={(e) => update(f.key, e.target.value)}
+                      />
+                    ) : null}
+                    <div className="studio-options">
+                      {[
+                        ...new Set([
+                          ...getOptions(f, values),
+                          ...(Array.isArray(values[f.key])
+                            ? (values[f.key] as string[])
+                            : []),
+                        ]),
+                      ].map((w) => (
                         <button
-                          className={locks[f.key] ? 'lock locked' : 'lock'}
-                          aria-label={
-                            (locks[f.key] ? '解锁' : '锁定') + f.label
-                          }
-                          aria-pressed={!!locks[f.key]}
-                          onClick={() =>
-                            setLocks((l) => ({ ...l, [f.key]: !l[f.key] }))
-                          }
-                        >
-                          {locks[f.key] ? (
-                            <LockKeyhole size={14} />
-                          ) : (
-                            <LockKeyholeOpen size={14} />
-                          )}{' '}
-                          {locks[f.key] ? '已锁定' : '锁定'}
-                        </button>
-                      </div>
-                      {f.type === 'textarea' ? (
-                        <textarea
-                          id={'field-' + f.key}
-                          maxLength={12000}
                           disabled={!!locks[f.key]}
-                          placeholder={'请输入' + f.label}
-                          value={String(values[f.key] || '')}
-                          onChange={(e) => update(f.key, e.target.value)}
-                        />
-                      ) : f.type === 'text' ? (
+                          key={w}
+                          aria-pressed={
+                            Array.isArray(values[f.key])
+                              ? (values[f.key] as string[]).includes(w)
+                              : values[f.key] === w
+                          }
+                          onClick={() => word(f, w)}
+                        >
+                          {w}
+                        </button>
+                      ))}
+                    </div>
+                    {f.type === 'multi' && (
+                      <div className="studio-add">
                         <input
                           id={'field-' + f.key}
-                          maxLength={200}
+                          aria-label={t.word}
+                          placeholder={t.word}
+                          maxLength={40}
                           disabled={!!locks[f.key]}
-                          value={String(values[f.key] || '')}
-                          onChange={(e) => update(f.key, e.target.value)}
+                          value={custom[f.key] || ''}
+                          onChange={(e) =>
+                            setCustom((v) => ({
+                              ...v,
+                              [f.key]: e.target.value,
+                            }))
+                          }
                         />
-                      ) : (
-                        <p className="field-hint">
-                          最多 {f.maxSelections} 项 · 点击词条可添加或取消
-                        </p>
-                      )}
-                      {(f.options.length > 0 || f.type === 'multi') && (
-                        <div className="word-options">
-                          {Array.from(
-                            new Set([
-                              ...(f.type === 'multi' &&
-                              Array.isArray(values[f.key])
-                                ? (values[f.key] as string[])
-                                : []),
-                              ...getOptions(f, values),
-                            ]),
-                          ).map((word) => {
-                            const selected =
-                              f.type === 'multi'
-                                ? ((values[f.key] as string[]) || []).includes(
-                                    word,
-                                  )
-                                : values[f.key] === word;
-                            return (
-                              <button
-                                key={word}
-                                className={selected ? 'word selected' : 'word'}
-                                disabled={!!locks[f.key]}
-                                aria-pressed={selected}
-                                onClick={() =>
-                                  f.type === 'multi'
-                                    ? toggle(f, word)
-                                    : update(f.key, word)
-                                }
-                              >
-                                {selected && <Check size={12} />} {word}
-                              </button>
-                            );
-                          })}
-                        </div>
-                      )}
-                      {f.type === 'multi' && (
-                        <div className="custom-word">
-                          <input
-                            aria-label="自定义关键词"
-                            maxLength={40}
-                            disabled={!!locks[f.key]}
-                            placeholder="添加自定义词条"
-                            value={custom[f.key] || ''}
-                            onChange={(e) =>
-                              setCustom((c) => ({
-                                ...c,
-                                [f.key]: e.target.value,
-                              }))
+                        <button
+                          disabled={!!locks[f.key]}
+                          onClick={() => {
+                            const value = custom[f.key]?.trim();
+                            if (value) {
+                              word(f, value);
+                              setCustom((v) => ({ ...v, [f.key]: '' }));
                             }
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter') addWord(f);
-                            }}
-                          />
-                          <button
-                            aria-label="添加词条"
-                            disabled={!!locks[f.key]}
-                            onClick={() => addWord(f)}
-                          >
-                            <Plus size={17} />
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                          }}
+                        >
+                          {t.add}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <div className="studio-actions">
                   <button
-                    className="refresh-words"
                     onClick={() => {
                       setValues(refreshValues(active, values, locks));
                       setEdited(null);
-                      setNotice('已更新未锁定的推荐字段；自由填写内容保留。');
                     }}
                   >
-                    <RefreshCw size={15} />
-                    换一组推荐词
+                    <RefreshCw size={16} />
+                    {t.refresh}
                   </button>
-                  <p className="field-hint">
-                    锁定的字段保持不变。关键词匹配基于词库规则。
-                  </p>
-                </section>
-              )}
-              <section className="builder-output">
-                <div className="builder-section-title">
-                  <h3>完整提示词</h3>
-                  <span>{edited === null ? '实时生成' : '手动编辑'}</span>
+                  <button onClick={detect}>{t.detect}</button>
                 </div>
-                {active.translation && (
-                  <div className="translation-choice">
-                    <button
-                      className={language === 'original' ? 'selected' : ''}
-                      onClick={() => {
-                        setLanguage('original');
-                        setEdited(null);
-                      }}
-                    >
-                      原始提示词
-                    </button>
-                    <button
-                      className={language === 'translation' ? 'selected' : ''}
-                      onClick={() => {
-                        setLanguage('translation');
-                        setEdited(null);
-                      }}
-                    >
-                      中文释义
-                    </button>
-                  </div>
-                )}
+              </section>
+              <section className="studio-preview">
+                <h3>{t.preview}</h3>
+                <p>{t.previewHelp}</p>
                 <textarea
-                  aria-label="完整提示词"
-                  className="prompt-output"
+                  aria-label={t.preview}
+                  className="studio-output"
                   maxLength={20000}
                   value={output}
                   onChange={(e) => setEdited(e.target.value)}
                 />
-                <div className="output-meta">
-                  <span>{output.length} 字符</span>
-                  <button onClick={() => setEdited(null)}>恢复自动内容</button>
-                </div>
-                <p className="field-hint">
-                  可直接编辑。修改左侧字段或切换语言会重新生成，覆盖手动编辑。
-                </p>
-                <label className="save-label" htmlFor="plan-title">
-                  方案名称
+                {edited !== null && (
+                  <button title={t.resetHelp} onClick={() => setEdited(null)}>
+                    {t.reset}
+                  </button>
+                )}
+                <label className="studio-field">
+                  {t.titleLabel}
+                  <input
+                    value={title}
+                    maxLength={100}
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
                 </label>
-                <input
-                  id="plan-title"
-                  className="plan-title-input"
-                  maxLength={100}
-                  value={planTitle}
-                  onChange={(e) => setPlanTitle(e.target.value)}
-                />
-                <div className="output-actions">
-                  <button
-                    className="primary"
-                    onClick={() => {
-                      const errors = validateValues(active, values);
-                      errors.length ? setNotice(errors[0]) : copy(output);
-                    }}
-                  >
-                    <Copy size={15} />
-                    复制提示词
-                  </button>
-                  <button className="secondary" disabled={busy} onClick={save}>
-                    <Save size={15} />
-                    {planId ? '更新方案' : '保存方案'}
+                <div className="studio-actions">
+                  <button className="studio-primary" onClick={copy}>
+                    <Copy size={16} />
+                    {t.copy}
                   </button>
                   <button
-                    className="secondary"
-                    aria-label="导出提示词"
-                    onClick={download}
+                    disabled={busy || output.length > 20000}
+                    onClick={save}
                   >
+                    <Save size={16} />
+                    {planId ? t.update : t.save}
+                  </button>
+                  <button onClick={download}>
                     <Download size={16} />
+                    {t.download}
                   </button>
                 </div>
-                {active.kind === 'imported' && (
-                  <p className="source-note">
-                    来源：AI Short，原编号 {active.sourceRecordId}，许可 MIT。
-                    {active.sourceUrl &&
-                      /^https?:\/\//.test(active.sourceUrl) && (
-                        <a
-                          href={active.sourceUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          查看上游引用 <ArrowUpRight size={12} />
-                        </a>
-                      )}
+                {notice && (
+                  <p role="status" className="studio-inline-notice">
+                    {notice}
                   </p>
                 )}
               </section>
@@ -1002,70 +670,14 @@ export default function Home() {
         </DialogContent>
       </Dialog>
       <Dialog open={help} onOpenChange={setHelp}>
-        <DialogContent>
+        <DialogContent showCloseButton={false}>
           <DialogHeader>
-            <DialogTitle>让 AI 更容易使用</DialogTitle>
-            <DialogDescription>
-              搜索 → 填写 → 锁定与调整 → 复制或保存
-            </DialogDescription>
+            <DialogTitle>{t.help}</DialogTitle>
+            <DialogDescription>{t.helpText}</DialogDescription>
           </DialogHeader>
-          <div className="help-steps">
-            <p>
-              <b>基础模式</b>搜索数据库并按模板拼装内容，不需要模型或 API
-              Key。推荐词基于固定词库和条件关联。
-            </p>
-            <p>
-              <b>保存方案</b>
-              填写内容、锁定状态和最终提示词一起保存在数据库。当前使用访客
-              Cookie 识别，尚未提供跨设备登录。
-            </p>
-            <p>
-              <b>内容来源</b>本次导入 AI Short 公开仓库的 279
-              条简体中文精选记录，保留原文、中文释义、原编号及来源；不含在线社区或用户私有数据。另有
-              10 个模块、每模块 3 个原创可填写模板。
-            </p>
-            <p>
-              <b>关怀模式</b>
-              启用大字与更宽松间距，方便阅读。专业领域的原始提示词保持上游内容，不代表内容经过专业验证。
-            </p>
-            <a
-              href="https://github.com/rockbenben/ChatGPT-Shortcut/blob/main/LICENSE"
-              target="_blank"
-              rel="noreferrer"
-            >
-              查看 AI Short MIT 许可 ↗
-            </a>
-          </div>
+          <button onClick={() => setHelp(false)}>{t.close}</button>
         </DialogContent>
       </Dialog>
-      <Dialog open={aiInfo} onOpenChange={setAiInfo}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>AI 进阶模式，留给下一步</DialogTitle>
-            <DialogDescription>
-              按当前版本规划，尚未接入 OpenAI。
-            </DialogDescription>
-          </DialogHeader>
-          <div className="help-steps">
-            <p>
-              后续可接入智能推荐、提示词优化和直接运行。目前只使用数据库与规则，不发送你的填写内容给模型，也不产生模型费用。
-            </p>
-            <p>基础模式已经可以完成模板搜索、填写、词条锁定与方案保存。</p>
-          </div>
-          <button className="primary" onClick={() => setAiInfo(false)}>
-            继续使用基础模式
-          </button>
-        </DialogContent>
-      </Dialog>
-      {notice && (
-        <div className="notice" role="status">
-          <Check size={16} />
-          {notice}
-          <button aria-label="关闭提示" onClick={() => setNotice('')}>
-            <X size={16} />
-          </button>
-        </div>
-      )}
     </div>
   );
 }

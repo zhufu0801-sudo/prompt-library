@@ -1,0 +1,188 @@
+[
+  {
+    "id": "custom-programming",
+    "slug": "programming-assistant",
+    "title": "Programming assistant",
+    "description": "Turn a technical goal into a clear, testable programming prompt.",
+    "categoryId": "programming",
+    "content": "You are a senior software engineer.\n\nTask: {{subject}}\nEnvironment: {{audience}}\nDeliverable: {{style}}\nPriorities: {{keywords}}\nContext and constraints: {{constraints}}\n\n---META---\n\nClarify the goal, inputs, outputs, dependencies and acceptance criteria. Ask at most 3 essential questions when critical context is missing; otherwise state your assumptions.\nGive a short approach, then the implementation and verification steps. Do not invent APIs, dependency versions or test results. Distinguish verified behavior from items needing verification.\nBefore delivery, check edge cases, error handling, security and requirement coverage. State remaining limitations.",
+    "translation": "",
+    "tags": [
+      "Maintainability",
+      "Edge cases",
+      "Security",
+      "Performance"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "subject",
+        "label": "Technical goal or code",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Language and environment",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Python",
+        "options": [
+          "Python",
+          "JavaScript",
+          "TypeScript",
+          "SQL"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Deliverable format",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Complete code",
+        "options": [
+          "Complete code",
+          "Patch diff",
+          "Step-by-step explanation",
+          "Test plan"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Priorities",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [
+          "Maintainability",
+          "Edge cases"
+        ],
+        "options": [
+          "Maintainability",
+          "Edge cases",
+          "Security",
+          "Performance"
+        ],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Context and constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-animation",
+    "slug": "animation",
+    "title": "AI animation & images",
+    "description": "Build a polished image prompt or a complete animation storyboard and video prompts.",
+    "categoryId": "creative",
+    "content": "Creation type: {{medium}}\nBranch by creation type. For an AI image, provide only the subject and setting, composition, style, lighting and colors, a copyable positive prompt, optional negative prompt and size suggestions. Do not include shots or camera motion. For AI animation, follow the animation specifications below.\nYou are an animation director and storyboard artist.\n\nStory idea: {{subject}}\nDuration and aspect ratio: {{audience}}\nVisual style: {{style}}\nPriorities: {{keywords}}\nOther constraints: {{constraints}}\n\n---META---\n\nClarify the narrative goal, character appearance, setting, duration and aspect ratio. Ask at most 3 questions about missing essentials and label other assumptions.\nDeliver: 1. Synopsis; 2. Character and setting guide; 3. Shot table (number, duration, framing, action, camera, sound); 4. Copyable video-generation prompt for each shot; 5. Negative prompts; 6. Editing and transition notes.\nCheck total shot duration, character appearance and clothing, action continuity, lighting and screen direction. Avoid flicker, distorted limbs and abrupt changes. If a model does not support negative prompts or a parameter, explain an alternative without inventing tool capabilities.",
+    "translation": "",
+    "tags": [
+      "Character consistency",
+      "Smooth camera motion",
+      "Lighting continuity",
+      "Natural movement"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "medium",
+        "label": "Creation type",
+        "type": "text",
+        "required": false,
+        "defaultValue": "AI image",
+        "options": [
+          "AI image",
+          "AI animation"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Story, characters and setting",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Aspect ratio, size & duration (animation)",
+        "type": "text",
+        "required": false,
+        "defaultValue": "16:9",
+        "options": [
+          "16:9",
+          "9:16",
+          "1:1",
+          "15 sec · 16:9",
+          "30 sec · 9:16",
+          "60 sec · 16:9"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Visual style",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Hand-drawn 2D",
+        "options": [
+          "Hand-drawn 2D",
+          "3D cartoon",
+          "Stop motion",
+          "Watercolor animation"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Camera and continuity priorities",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [
+          "Character consistency",
+          "Smooth camera motion"
+        ],
+        "options": [
+          "Character consistency",
+          "Smooth camera motion",
+          "Lighting continuity",
+          "Natural movement"
+        ],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Dialogue, sound and other constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      }
+    ]
+  }
+]

@@ -8,6 +8,7 @@ const read = (p) =>
   );
 const categories = read('data/categories.json');
 const templates = [
+  ...read('data/studio/zh.json'),
   ...fs
     .readdirSync('data/modules')
     .filter((f) => f.endsWith('.json'))
