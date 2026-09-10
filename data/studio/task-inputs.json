@@ -5,7 +5,9 @@
         "label": "功能目标与使用流程",
         "placeholder": "实现订单列表：按状态筛选、按创建时间排序，每页20条；支持加载、空列表和请求失败状态。请给出完整实现和启动步骤。",
         "options": [
-          "实现订单列表：按状态筛选、按创建时间排序，每页20条；支持加载、空列表和请求失败状态。请给出完整实现和启动步骤。"
+          "实现订单列表：按状态筛选、按创建时间排序，每页20条；支持加载、空列表和请求失败状态。请给出完整实现和启动步骤。",
+          "制作CSV销售报表工具：读取日期、商品、数量、单价四列，按月份汇总销售额，输出汇总CSV和无效行清单。日期无效、缺列或金额非数字时给出行号和原因；附示例输入、预期输出、运行命令及边界测试。",
+          "实现文件上传表单：只接收PNG/JPEG且单文件不超过5MB，选择后显示预览，支持取消和失败重试。服务端校验文件实际类型并生成安全文件名；给出前后端代码、接口约定和超限、伪造扩展名、重复提交的验证步骤。"
         ]
       },
       "materials": {
@@ -44,7 +46,9 @@
         "label": "Feature goal and user flow",
         "placeholder": "Build an order list with status filters, creation-date sorting and 20 items per page. Include loading, empty and failure states. Deliver the implementation and startup steps.",
         "options": [
-          "Build an order list with status filters, creation-date sorting and 20 items per page. Include loading, empty and failure states. Deliver the implementation and startup steps."
+          "Build an order list with status filters, creation-date sorting and 20 items per page. Include loading, empty and failure states. Deliver the implementation and startup steps.",
+          "Build a CSV sales reporting tool. Read date, product, quantity and unit price; aggregate revenue by month and export a summary CSV plus rejected rows. Report row numbers and reasons for invalid dates, missing columns and nonnumeric amounts. Include sample input, expected output, run commands and edge-case tests.",
+          "Implement an upload form for PNG/JPEG files up to 5 MB each, with preview, cancellation and retry. Validate actual file types on the server and generate safe filenames. Deliver client/server code, the API contract and checks for oversized files, misleading extensions and duplicate submissions."
         ]
       },
       "materials": {
@@ -83,7 +87,9 @@
         "label": "機能の目的と操作の流れ",
         "placeholder": "注文一覧を実装してください。状態で絞り込み、作成日時で並べ替え、1ページ20件とします。読み込み中・0件・通信失敗の表示を含め、実装と起動手順を提示してください。",
         "options": [
-          "注文一覧を実装してください。状態で絞り込み、作成日時で並べ替え、1ページ20件とします。読み込み中・0件・通信失敗の表示を含め、実装と起動手順を提示してください。"
+          "注文一覧を実装してください。状態で絞り込み、作成日時で並べ替え、1ページ20件とします。読み込み中・0件・通信失敗の表示を含め、実装と起動手順を提示してください。",
+          "CSV売上集計ツールを作成してください。日付・商品・数量・単価を読み込み、月別売上と不正行一覧をCSVに出力します。日付不正、列不足、金額の数値変換失敗は行番号と理由を表示。入力例、期待する出力、実行コマンド、境界値テストを付けてください。",
+          "PNG/JPEG・1ファイル5MB以下のアップロードフォームを実装してください。プレビュー、キャンセル、失敗時の再試行に対応し、サーバーで実際の形式を検証して安全なファイル名を生成。前後のコード、API仕様、容量超過・偽装拡張子・重複送信の確認手順を提示してください。"
         ]
       },
       "materials": {
@@ -124,7 +130,9 @@
         "label": "故障现象与复现步骤",
         "placeholder": "结算页点击“提交”两次会生成两笔订单。预期只创建一笔；实际返回两个不同订单编号。请根据我提供的请求日志和代码定位原因，给出最小修复与回归步骤。",
         "options": [
-          "结算页点击“提交”两次会生成两笔订单。预期只创建一笔；实际返回两个不同订单编号。请根据我提供的请求日志和代码定位原因，给出最小修复与回归步骤。"
+          "结算页点击“提交”两次会生成两笔订单。预期只创建一笔；实际返回两个不同订单编号。请根据我提供的请求日志和代码定位原因，给出最小修复与回归步骤。",
+          "搜索框快速输入关键词时，旧请求后返回并覆盖新结果。请基于提供的组件和网络日志复现请求竞态，区分取消请求与忽略过期响应两种修复的适用条件，给出最小补丁，并验证快速输入、清空输入和组件卸载。",
+          "本地日期显示正确，部署后日报把午夜附近的订单分到了前一天。根据时间字段样例、存储格式和时区配置区分解析、存储与分组问题，给出一致的时间处理方案和最小修改；测试跨日、跨月及目标地区存在夏令时的情况。"
         ]
       },
       "materials": {
@@ -163,7 +171,9 @@
         "label": "Failure symptoms and reproduction steps",
         "placeholder": "Clicking Submit twice on checkout creates two orders. Expected: one order. Actual: two different order IDs. Use my request logs and code to identify the cause and deliver a minimal fix with regression steps.",
         "options": [
-          "Clicking Submit twice on checkout creates two orders. Expected: one order. Actual: two different order IDs. Use my request logs and code to identify the cause and deliver a minimal fix with regression steps."
+          "Clicking Submit twice on checkout creates two orders. Expected: one order. Actual: two different order IDs. Use my request logs and code to identify the cause and deliver a minimal fix with regression steps.",
+          "Rapid typing in a search box lets older requests overwrite newer results. Reproduce the race using my component and network logs. Explain when cancellation or ignoring stale responses is appropriate, provide a minimal patch, and check rapid typing, clearing input and unmounting.",
+          "Dates look correct locally, but deployed daily reports assign orders near midnight to the previous day. Use my timestamp samples, storage format and timezone settings to distinguish parsing, storage and grouping errors. Provide a consistent policy, minimal changes and day/month-boundary tests, including daylight saving if applicable."
         ]
       },
       "materials": {
@@ -202,7 +212,9 @@
         "label": "不具合の現象と再現手順",
         "placeholder": "決済画面で送信ボタンを2回押すと注文が2件作成されます。期待値は1件ですが、異なる注文番号が返ります。提供するログとコードから原因を調べ、最小限の修正と回帰確認手順を提示してください。",
         "options": [
-          "決済画面で送信ボタンを2回押すと注文が2件作成されます。期待値は1件ですが、異なる注文番号が返ります。提供するログとコードから原因を調べ、最小限の修正と回帰確認手順を提示してください。"
+          "決済画面で送信ボタンを2回押すと注文が2件作成されます。期待値は1件ですが、異なる注文番号が返ります。提供するログとコードから原因を調べ、最小限の修正と回帰確認手順を提示してください。",
+          "検索欄で素早く入力すると、古いリクエストの応答が新しい結果を上書きします。提供するコンポーネントと通信ログで競合を再現し、リクエスト中止と古い応答の無視の適用条件を整理。最小修正と、連続入力・入力消去・アンマウントの確認手順を提示してください。",
+          "ローカルでは正しい日付が、本番の日報では深夜付近の注文だけ前日扱いになります。時刻データ例、保存形式、タイムゾーン設定から解析・保存・集計の問題を切り分け、一貫した処理方針と最小修正を提示。日付・月の境界と、対象地域に存在する場合は夏時間も検証してください。"
         ]
       },
       "materials": {
@@ -243,7 +255,9 @@
         "label": "待审查代码与审查范围",
         "placeholder": "审查我提供的订单查询接口，重点检查越权访问、分页边界和异常处理。按影响排序，指出文件位置、触发条件、证据和修复建议；不要虚构未提供的代码。",
         "options": [
-          "审查我提供的订单查询接口，重点检查越权访问、分页边界和异常处理。按影响排序，指出文件位置、触发条件、证据和修复建议；不要虚构未提供的代码。"
+          "审查我提供的订单查询接口，重点检查越权访问、分页边界和异常处理。按影响排序，指出文件位置、触发条件、证据和修复建议；不要虚构未提供的代码。",
+          "审查文件下载接口的鉴权和路径处理：检查用户能否读取其他用户文件、路径穿越、错误信息泄露及大文件资源占用。只对提供的代码下结论，逐项给出位置、可复现输入、影响、修复建议和回归测试，不输出真实敏感文件内容。",
+          "审查数据库迁移脚本：检查新增非空列、唯一索引和字段重命名对现有数据与旧版本应用的影响。列出迁移前检查、分阶段执行顺序、锁表风险及回滚限制；缺少表规模或数据库版本时标明待确认项，不声称已经执行。"
         ]
       },
       "materials": {
@@ -282,7 +296,9 @@
         "label": "Code and review scope",
         "placeholder": "Review my order-query endpoint for unauthorized access, pagination boundaries and error handling. Rank findings by impact and include file locations, triggers, evidence and fixes. Do not invent unseen code.",
         "options": [
-          "Review my order-query endpoint for unauthorized access, pagination boundaries and error handling. Rank findings by impact and include file locations, triggers, evidence and fixes. Do not invent unseen code."
+          "Review my order-query endpoint for unauthorized access, pagination boundaries and error handling. Rank findings by impact and include file locations, triggers, evidence and fixes. Do not invent unseen code.",
+          "Review authorization and path handling in my download endpoint for cross-user file access, path traversal, error disclosure and large-file resource usage. Base conclusions on supplied code. Include locations, reproducible inputs, impact, fixes and regression tests without exposing real sensitive files.",
+          "Review my database migration for the effects of new non-null columns, unique indexes and renamed fields on existing data and older application versions. Provide prechecks, staged execution order, locking risks and rollback limits. Flag missing table sizes or database versions, and do not claim execution."
         ]
       },
       "materials": {
@@ -321,7 +337,9 @@
         "label": "レビュー対象のコードと範囲",
         "placeholder": "注文検索APIのコードをレビューしてください。権限外アクセス、ページングの境界、例外処理を重点確認し、影響度順にファイル位置・発生条件・根拠・修正案を示してください。未提示のコードは推測で断定しないでください。",
         "options": [
-          "注文検索APIのコードをレビューしてください。権限外アクセス、ページングの境界、例外処理を重点確認し、影響度順にファイル位置・発生条件・根拠・修正案を示してください。未提示のコードは推測で断定しないでください。"
+          "注文検索APIのコードをレビューしてください。権限外アクセス、ページングの境界、例外処理を重点確認し、影響度順にファイル位置・発生条件・根拠・修正案を示してください。未提示のコードは推測で断定しないでください。",
+          "ファイルダウンロードAPIの認可とパス処理をレビューしてください。他ユーザーのファイル取得、パストラバーサル、エラー情報漏えい、大容量ファイルによる資源消費を確認。提示コードを根拠に、位置・再現入力・影響・修正案・回帰テストを示し、実際の機密ファイル内容は出力しないでください。",
+          "DB移行スクリプトをレビューしてください。NOT NULL列の追加、一意インデックス、列名変更が既存データと旧アプリに与える影響を確認。事前確認、段階的な実行順、ロックのリスク、ロールバックの限界を示し、テーブル規模やDBバージョンが不明なら要確認と明記。実行済みと断定しないでください。"
         ]
       },
       "materials": {
@@ -362,7 +380,9 @@
         "label": "图片用途与画面描述",
         "placeholder": "为护肤品制作一张竖版产品主视觉：一个磨砂玻璃瓶位于画面下方中央，浅米色背景，左上方柔光，瓶身标签清晰，顶部留出标题空间。只生成静态画面的提示词。",
         "options": [
-          "为护肤品制作一张竖版产品主视觉：一个磨砂玻璃瓶位于画面下方中央，浅米色背景，左上方柔光，瓶身标签清晰，顶部留出标题空间。只生成静态画面的提示词。"
+          "为护肤品制作一张竖版产品主视觉：一个磨砂玻璃瓶位于画面下方中央，浅米色背景，左上方柔光，瓶身标签清晰，顶部留出标题空间。只生成静态画面的提示词。",
+          "制作原创探险家角色三视图：正面、侧面、背面等比例并排，短卷发、橙色夹克、深蓝背包、棕色短靴，白色背景与柔和均匀光。三视图保持服装结构和配件位置一致，分别给出统一设定及每个视角可复制的静态图片提示词。",
+          "设计咖啡店秋季海报底图：4:5竖版，一杯热拿铁放在右下木桌上，窗外金黄树叶虚化，暖侧光突出奶泡质感，左上三分之一留作后期排版。不给图片模型加入标题文字；交付主提示词、构图说明和与画面不冲突的排版建议。"
         ]
       },
       "materials": {
@@ -401,7 +421,9 @@
         "label": "Image purpose and visual brief",
         "placeholder": "Create a vertical skincare product hero: one frosted-glass bottle centered low in the frame, a pale beige background and soft upper-left lighting. Keep the label readable and leave headline space above. Produce a still-image prompt.",
         "options": [
-          "Create a vertical skincare product hero: one frosted-glass bottle centered low in the frame, a pale beige background and soft upper-left lighting. Keep the label readable and leave headline space above. Produce a still-image prompt."
+          "Create a vertical skincare product hero: one frosted-glass bottle centered low in the frame, a pale beige background and soft upper-left lighting. Keep the label readable and leave headline space above. Produce a still-image prompt.",
+          "Create a turnaround for an original explorer: equally scaled front, side and back views, short curly hair, orange jacket, navy backpack and brown ankle boots, on white with soft even lighting. Keep garment construction and accessory placement consistent. Provide shared design specifications and a copyable still-image prompt for each view.",
+          "Design a 4:5 autumn café poster background. Place a hot latte on a wooden table at lower right, with blurred golden leaves outside and warm side light revealing foam texture. Reserve the upper-left third for later typesetting. Request no headline text in the generated image; deliver the image prompt, composition notes and compatible layout guidance."
         ]
       },
       "materials": {
@@ -440,7 +462,9 @@
         "label": "画像の用途と画面構成",
         "placeholder": "スキンケア商品の縦長キービジュアルを制作します。すりガラスのボトル1本を中央下に配置し、淡いベージュの背景に左上から柔らかい光を当てます。ラベルは読みやすく、上部には見出し用の余白を確保。静止画用のプロンプトを作成してください。",
         "options": [
-          "スキンケア商品の縦長キービジュアルを制作します。すりガラスのボトル1本を中央下に配置し、淡いベージュの背景に左上から柔らかい光を当てます。ラベルは読みやすく、上部には見出し用の余白を確保。静止画用のプロンプトを作成してください。"
+          "スキンケア商品の縦長キービジュアルを制作します。すりガラスのボトル1本を中央下に配置し、淡いベージュの背景に左上から柔らかい光を当てます。ラベルは読みやすく、上部には見出し用の余白を確保。静止画用のプロンプトを作成してください。",
+          "オリジナル探検家の三面図を作成します。正面・側面・背面を同縮尺で並べ、短い巻き髪、オレンジのジャケット、紺のリュック、茶色のショートブーツ。白背景と均一な柔光で衣装構造・装備位置を統一し、共通設定と各方向の静止画プロンプトを提示してください。",
+          "カフェの秋向けポスター背景を縦4:5で作成します。右下の木製テーブルに温かいラテ、窓外にぼけた黄金色の葉、暖かな側光で泡の質感を表現。左上3分の1は後から文字を組む余白とし、画像モデルには見出しを描かせず、生成プロンプト・構図説明・文字配置案を提示してください。"
         ]
       },
       "materials": {
@@ -481,7 +505,9 @@
         "label": "单镜头动作与起止状态",
         "placeholder": "以我提供的白猫参考图为首帧，制作5秒单镜头：白猫先注视种子，再缓慢伸爪触碰，种子亮起，最后停在触碰姿势。镜头缓慢推近，不切镜，保持白猫外观和背景一致。",
         "options": [
-          "以我提供的白猫参考图为首帧，制作5秒单镜头：白猫先注视种子，再缓慢伸爪触碰，种子亮起，最后停在触碰姿势。镜头缓慢推近，不切镜，保持白猫外观和背景一致。"
+          "以我提供的白猫参考图为首帧，制作5秒单镜头：白猫先注视种子，再缓慢伸爪触碰，种子亮起，最后停在触碰姿势。镜头缓慢推近，不切镜，保持白猫外观和背景一致。",
+          "以香水瓶产品图为首帧制作6秒单镜头：瓶子始终静止，背景薄雾缓慢从左向右流动，高光沿瓶肩轻微变化，镜头固定，最后雾气变淡。保持瓶形、瓶盖、标签和构图稳定；给出精简动作提示词与逐秒节奏，不添加切镜。",
+          "让参考插画中的女孩在4秒内自然眨眼一次，再微微抬头看向窗外；只保留轻微呼吸和窗帘摆动，头部转动幅度小，镜头固定。保持五官、发型和画风一致，给出起始状态、动作顺序、结束姿态与最终视频提示词。"
         ]
       },
       "materials": {
@@ -520,7 +546,9 @@
         "label": "Single-shot action and start/end states",
         "placeholder": "Use my white-cat reference as the first frame of a 5-second shot. The cat watches a seed, slowly touches it with a paw, and holds its pose as the seed glows. Use a gentle push-in without cuts; preserve the cat and background.",
         "options": [
-          "Use my white-cat reference as the first frame of a 5-second shot. The cat watches a seed, slowly touches it with a paw, and holds its pose as the seed glows. Use a gentle push-in without cuts; preserve the cat and background."
+          "Use my white-cat reference as the first frame of a 5-second shot. The cat watches a seed, slowly touches it with a paw, and holds its pose as the seed glows. Use a gentle push-in without cuts; preserve the cat and background.",
+          "Animate my perfume product image as one 6-second shot. Keep the bottle still as a thin background mist drifts left to right and highlights shift gently along the shoulder. Use a fixed camera and let the mist thin at the end. Preserve bottle shape, cap, label and framing. Provide a concise motion prompt and second-by-second pacing without cuts.",
+          "Animate the girl in my reference illustration for 4 seconds: one natural blink, then a slight lift of her head toward the window. Add only subtle breathing and curtain movement, with limited head rotation and a fixed camera. Preserve facial features, hair and illustration style. Provide start state, action order, final pose and the video prompt."
         ]
       },
       "materials": {
@@ -559,7 +587,9 @@
         "label": "単一カットの動作と開始・終了状態",
         "placeholder": "白猫の参考画像を開始フレームとして5秒の動画にします。猫が種を見つめ、ゆっくり前足で触れると種が光り、その姿勢で止まります。カットを切り替えず緩やかに寄り、猫の外観と背景を維持してください。",
         "options": [
-          "白猫の参考画像を開始フレームとして5秒の動画にします。猫が種を見つめ、ゆっくり前足で触れると種が光り、その姿勢で止まります。カットを切り替えず緩やかに寄り、猫の外観と背景を維持してください。"
+          "白猫の参考画像を開始フレームとして5秒の動画にします。猫が種を見つめ、ゆっくり前足で触れると種が光り、その姿勢で止まります。カットを切り替えず緩やかに寄り、猫の外観と背景を維持してください。",
+          "香水の商品画像を開始フレームに6秒の単一カットを作ります。瓶は静止し、背景の薄い霧だけ左から右へ流れ、瓶の肩のハイライトがわずかに変化。固定カメラで終盤に霧が薄くなります。瓶形・キャップ・ラベル・構図を維持し、簡潔な動作プロンプトと秒単位の進行を示してください。",
+          "参考イラストの少女を4秒間動かします。自然に1回まばたきした後、窓の外へわずかに顔を上げます。小さな呼吸とカーテンの揺れだけを加え、頭の回転は控えめ、カメラは固定。顔立ち・髪型・画風を維持し、開始状態・動作順・終了姿勢・動画プロンプトを提示してください。"
         ]
       },
       "materials": {
@@ -600,7 +630,9 @@
         "label": "故事目标与分镜需求",
         "placeholder": "制作15秒、3个镜头的温暖治愈动画：背小书包的白猫在雨后森林发现发光种子，尝试触碰后让周围鲜花绽放，最后惊喜微笑。每镜给出时长、动作、景别、关键帧和视频提示词，并保持角色一致。",
         "options": [
-          "制作15秒、3个镜头的温暖治愈动画：背小书包的白猫在雨后森林发现发光种子，尝试触碰后让周围鲜花绽放，最后惊喜微笑。每镜给出时长、动作、景别、关键帧和视频提示词，并保持角色一致。"
+          "制作15秒、3个镜头的温暖治愈动画：背小书包的白猫在雨后森林发现发光种子，尝试触碰后让周围鲜花绽放，最后惊喜微笑。每镜给出时长、动作、景别、关键帧和视频提示词，并保持角色一致。",
+          "制作20秒4镜的原创机器人短片：小机器人发现枯萎盆栽，尝试用空水壶浇水，找到雨滴收集器，最后新叶展开。每镜5秒，无对白，用表情动作讲故事；给出角色固定设定、逐镜关键帧与视频提示词、音效和衔接方式，检查道具连续性。",
+          "为原创帆布包制作12秒3镜动画广告：首镜展示包的轮廓与纹理，第二镜展示打开包和放入一本书，末镜回到干净产品画面并留出品牌排版区域。三镜各4秒，不虚构容量、防水等性能；逐镜输出动作、构图、静态和动态提示词及剪辑节奏。"
         ]
       },
       "materials": {
@@ -639,7 +671,9 @@
         "label": "Story goal and storyboard brief",
         "placeholder": "Create a warm 15-second animation in 3 shots. A white kitten with a small backpack discovers a glowing seed in a rain-washed forest, touches it and makes flowers bloom, then smiles in surprise. Provide timings, action, framing, keyframes and video prompts for each shot with consistent character design.",
         "options": [
-          "Create a warm 15-second animation in 3 shots. A white kitten with a small backpack discovers a glowing seed in a rain-washed forest, touches it and makes flowers bloom, then smiles in surprise. Provide timings, action, framing, keyframes and video prompts for each shot with consistent character design."
+          "Create a warm 15-second animation in 3 shots. A white kitten with a small backpack discovers a glowing seed in a rain-washed forest, touches it and makes flowers bloom, then smiles in surprise. Provide timings, action, framing, keyframes and video prompts for each shot with consistent character design.",
+          "Create an original 20-second robot short in four 5-second shots: a robot discovers a wilted plant, tries an empty watering can, finds a rain collector, then watches a new leaf unfold. Tell the story through action without dialogue. Deliver fixed character specifications, per-shot keyframe and video prompts, sound effects and transitions, with prop continuity checks.",
+          "Create a 12-second animated ad for an original canvas bag in three 4-second shots: silhouette and fabric texture, opening the bag and placing a book inside, then a clean product frame with space for branding. Do not invent capacity or waterproofing claims. Provide action, composition, still and motion prompts, and editing rhythm for each shot."
         ]
       },
       "materials": {
@@ -678,7 +712,9 @@
         "label": "物語の目的と絵コンテの要件",
         "placeholder": "15秒・3カットの心温まるアニメを制作します。小さなリュックを背負った白猫が雨上がりの森で光る種を見つけ、触れると花が咲き、驚いて微笑みます。各カットの尺・動作・画角・キーフレーム・動画プロンプトを提示し、キャラクターを統一してください。",
         "options": [
-          "15秒・3カットの心温まるアニメを制作します。小さなリュックを背負った白猫が雨上がりの森で光る種を見つけ、触れると花が咲き、驚いて微笑みます。各カットの尺・動作・画角・キーフレーム・動画プロンプトを提示し、キャラクターを統一してください。"
+          "15秒・3カットの心温まるアニメを制作します。小さなリュックを背負った白猫が雨上がりの森で光る種を見つけ、触れると花が咲き、驚いて微笑みます。各カットの尺・動作・画角・キーフレーム・動画プロンプトを提示し、キャラクターを統一してください。",
+          "20秒・4カットのオリジナルロボット短編を制作します。しおれた鉢植えを発見、空のじょうろで水やりを試す、雨水収集器を見つける、最後に新芽が開く流れです。各5秒、台詞なしで表情と動作で伝え、固定設定・各カットのキーフレームと動画プロンプト・効果音・接続方法を示し、小道具の連続性を確認してください。",
+          "オリジナル帆布バッグの12秒・3カット広告を制作します。輪郭と布の質感、バッグを開いて本を1冊入れる動作、ブランド表示用の余白がある商品画面の順に各4秒。容量や防水性能は捏造せず、各カットの動作・構図・静止画と動画のプロンプト・編集テンポを提示してください。"
         ]
       },
       "materials": {

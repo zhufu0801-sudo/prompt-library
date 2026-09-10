@@ -94,7 +94,8 @@ test('task input hints and samples stay specific without changing entered values
       const before = structuredClone(values);
       const fields = taskFields(template, values, locale);
       const subject = fields.find(f=>f.key==='subject');
-      assert.equal(subject.options.length, 1);
+      assert.equal(subject.options.length, 3);
+      assert.equal(new Set(subject.options).size, 3);
       samples.add(subject.options[0]);
       for (const key of ['subject','materials','criteria','constraints','audience']) assert.ok(fields.find(f=>f.key===key).placeholder);
       assert.deepEqual(values,before);
