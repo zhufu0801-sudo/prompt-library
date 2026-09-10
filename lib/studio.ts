@@ -1,5 +1,6 @@
-import type { Template, Values, Locks } from './prompt';
+import type { Template, Values, Locks, Field } from './prompt';
 import guides from '../data/studio/task-guides.json' with { type: 'json' };
+import inputs from '../data/studio/task-inputs.json' with { type: 'json' };
 export type Locale = 'zh' | 'en' | 'ja';
 export const studioIds = ['custom-programming', 'custom-animation'];
 export function localeOf(value: string | null): Locale {
@@ -17,11 +18,7 @@ export function composeStudio(
     ja: '未指定。重要でない不足は仮定を明示し、不可欠な点だけ確認',
   }[locale];
   const sections = t.content.split('\n\n---META---\n\n');
-  const selection = String(values[t.id === 'custom-programming' ? 'task' : 'medium'] || '');
-  const group = t.id === 'custom-programming' ? 'programming' : 'visual';
-  const selected = guides.find(g => g.group === group && Object.values(g.labels).includes(selection));
-  const fallback = guides.find(g => g.id === (group === 'programming' ? 'build' : ['AI 动画','AI animation','AIアニメーション'].includes(selection) ? 'storyboard' : 'image'))!;
-  const guide = (selected || fallback).guidance[locale];
+  const guide = taskGuide(t, values).guidance[locale];
   return (meta ? sections.join('\n\n') : sections[0]).replace('[[TASK_GUIDE]]', guide).replace(
     /\{\{([a-z_]+)\}\}/g,
     (_, key) => {
@@ -49,7 +46,23 @@ export function translateValues(
       if (!old || !next) return [key, value];
       const translate = (v: string) => {
         const i = old.options.indexOf(v);
-        return i >= 0 ? (next.options[i] ?? v) : v;
+        if (i >= 0) return next.options[i] ?? v;
+        const guide = taskGuide(to, values);
+        const targetLabel = to.fields.find(f => f.key === (to.id === 'custom-programming' ? 'task' : 'medium'))?.options[0];
+        const firstGuide = guides.find(g => g.id === (to.id === 'custom-programming' ? 'build' : 'image'))!;
+        const targetLocale = (Object.keys(firstGuide.labels) as Locale[]).find(l => firstGuide.labels[l] === targetLabel);
+        if (targetLocale) {
+          const localized = inputs[guide.id as keyof typeof inputs];
+          for (const sourceLocale of ['zh', 'en', 'ja'] as Locale[]) {
+            const sourceField = localized[sourceLocale][key as keyof typeof localized.zh];
+            const targetField = localized[targetLocale][key as keyof typeof localized.zh];
+            if (sourceField && targetField && 'options' in sourceField && 'options' in targetField) {
+              const optionIndex = (sourceField.options as string[]).indexOf(v);
+              if (optionIndex >= 0) return targetField.options[optionIndex] ?? v;
+            }
+          }
+        }
+        return v;
       };
       return [
         key,
@@ -58,3 +71,19 @@ export function translateValues(
     }),
   );
 }
+
+function taskGuide(t: Template, values: Values) {
+  const selection = String(values[t.id === 'custom-programming' ? 'task' : 'medium'] || '');
+  const group = t.id === 'custom-programming' ? 'programming' : 'visual';
+  const selected = guides.find(g => g.group === group && Object.values(g.labels).includes(selection));
+  const fallback = guides.find(g => g.id === (group === 'programming' ? 'build' : ['AI 动画','AI animation','AIアニメーション'].includes(selection) ? 'storyboard' : 'image'))!;
+  return selected || fallback;
+
+}
+
+export function taskFields(t: Template, values: Values, locale: Locale): (Field & {placeholder?: string})[] {
+  if (!studioIds.includes(t.id)) return t.fields;
+  const overrides = inputs[taskGuide(t, values).id as keyof typeof inputs][locale] as Record<string, Partial<Field> & {placeholder?: string}>;
+  return t.fields.map(f => ({...f, ...overrides[f.key]}));
+}
+

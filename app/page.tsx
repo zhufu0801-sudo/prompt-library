@@ -42,6 +42,7 @@ import {
 } from '@/lib/prompt';
 import {
   composeStudio,
+  taskFields,
   translateValues,
   localeOf,
   type Locale,
@@ -86,6 +87,7 @@ export default function Home() {
     [help, setHelp] = useState(false),
     [custom, setCustom] = useState<Record<string, string>>({});
   const t = ui[locale];
+  const fields = active ? taskFields(active, values, locale) : [];
   useEffect(() => {
     try {
       setLocale(localeOf(localStorage.getItem('ame_locale')));
@@ -199,7 +201,7 @@ export default function Home() {
     if (!active) return;
     const subject = String(values.subject || '').toLowerCase(),
       next = { ...values };
-    active.fields.forEach((f) => {
+    fields.forEach((f) => {
       if (locks[f.key]) return;
       const found = getOptions(f, values).filter((x) =>
         subject.includes(x.toLowerCase()),
@@ -274,19 +276,8 @@ export default function Home() {
   }
   function example() {
     if (!active || locks.subject || String(values.subject || '').trim()) return;
-    const examples =
-      active.id === 'custom-programming'
-        ? {
-            zh: '用 Python 读取 CSV，按月份汇总销售额，并处理缺失值。',
-            en: 'Read a CSV in Python, summarize sales by month and handle missing values.',
-            ja: 'PythonでCSVを読み込み、月別の売上を集計し、欠損値を処理したい。',
-          }
-        : {
-            zh: '一只背着小书包的白色猫咪，在雨后的森林里发现一颗发光的种子。',
-            en: 'A white kitten with a tiny backpack discovers a glowing seed in a forest after the rain.',
-            ja: '小さなリュックを背負った白い子猫が、雨上がりの森で光る種を見つける。',
-          };
-    update('subject', examples[locale]);
+    const sample = fields.find(f => f.key === 'subject')?.options[0];
+    if (sample) update('subject', sample);
   }
   const filtered = templates.filter(
     (x) =>
@@ -507,7 +498,7 @@ export default function Home() {
                   </label>
                   <p>{t.metaHelp}</p>
                 </div>
-                {active.fields.map((f) => (
+                {fields.map((f) => (
                   <div className="studio-field" key={f.key}>
                     <div className="studio-field-head">
                       <label htmlFor={'field-' + f.key}>
@@ -535,6 +526,7 @@ export default function Home() {
                     {f.type === 'textarea' ? (
                       <textarea
                         id={'field-' + f.key}
+                        placeholder={f.placeholder}
                         required={f.required}
                         maxLength={12000}
                         disabled={!!locks[f.key]}
@@ -545,6 +537,7 @@ export default function Home() {
                     ) : f.type === 'text' ? (
                       <input
                         id={'field-' + f.key}
+                        placeholder={f.placeholder}
                         maxLength={200}
                         disabled={!!locks[f.key]}
                         value={String(values[f.key] || '')}
@@ -609,7 +602,7 @@ export default function Home() {
                 <div className="studio-actions">
                   <button
                     onClick={() => {
-                      setValues(refreshValues(active, values, locks));
+                      setValues(refreshValues({...active, fields}, values, locks));
                       setEdited(null);
                     }}
                   >

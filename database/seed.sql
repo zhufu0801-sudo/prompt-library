@@ -166,7 +166,7 @@ INSERT INTO templates (id,slug,title,category_id,description,content,translation
 
 任务：{{subject}}
 任务类型：{{task}}
-环境、画幅或时长：{{audience}}
+技术栈与运行环境：{{audience}}
 风格或交付偏好：{{style}}
 重点：{{keywords}}
 已有资料：
@@ -3357,4 +3357,4 @@ DELETE FROM template_tags WHERE template_id='aishort-279';
 INSERT INTO template_tags (template_id,tag_id) VALUES ('aishort-279','tag-4d8f6af10e6b745064f6');
 INSERT INTO template_tags (template_id,tag_id) VALUES ('aishort-279','tag-84b98966a279ebb7b69c');
 DELETE FROM template_fields WHERE template_id='aishort-279';
-INSERT OR IGNORE INTO content_versions(id,applied_at) VALUES ('e616a23dcdbb8c36980bee5a',datetime('now'));
+INSERT OR IGNORE INTO content_versions(id,applied_at) VALUES ('85a4560e007ab29fb7641dcb',datetime('now'));

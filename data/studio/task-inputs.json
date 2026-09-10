@@ -1,0 +1,716 @@
+{
+  "build": {
+    "zh": {
+      "subject": {
+        "label": "功能目标与使用流程",
+        "placeholder": "实现订单列表：按状态筛选、按创建时间排序，每页20条；支持加载、空列表和请求失败状态。请给出完整实现和启动步骤。",
+        "options": [
+          "实现订单列表：按状态筛选、按创建时间排序，每页20条；支持加载、空列表和请求失败状态。请给出完整实现和启动步骤。"
+        ]
+      },
+      "materials": {
+        "label": "相关代码与接口资料",
+        "placeholder": "粘贴现有目录结构、相关组件、接口请求与响应示例；没有现有项目时注明从零开始。",
+        "options": []
+      },
+      "criteria": {
+        "label": "完成标准与测试要求",
+        "placeholder": "例如：筛选后回到第一页；空数据有提示；失败可重试；给出正常与边界测试。",
+        "options": []
+      },
+      "constraints": {
+        "label": "技术与范围限制",
+        "placeholder": "说明不可修改的接口、依赖限制、浏览器支持、时间范围。",
+        "options": []
+      },
+      "audience": {
+        "label": "技术栈与运行环境",
+        "placeholder": "例如：TypeScript、React 19、REST API；注明现有版本。"
+      },
+      "keywords": {
+        "options": [
+          "类型安全",
+          "错误处理",
+          "边界测试",
+          "可维护性"
+        ]
+      },
+      "style": {
+        "placeholder": "填写本次交付的格式或视觉风格偏好。"
+      }
+    },
+    "en": {
+      "subject": {
+        "label": "Feature goal and user flow",
+        "placeholder": "Build an order list with status filters, creation-date sorting and 20 items per page. Include loading, empty and failure states. Deliver the implementation and startup steps.",
+        "options": [
+          "Build an order list with status filters, creation-date sorting and 20 items per page. Include loading, empty and failure states. Deliver the implementation and startup steps."
+        ]
+      },
+      "materials": {
+        "label": "Related code and API references",
+        "placeholder": "Paste the project tree, relevant components and API request/response examples, or say this is a new project.",
+        "options": []
+      },
+      "criteria": {
+        "label": "Acceptance criteria and tests",
+        "placeholder": "For example: reset pagination after filtering; show empty states; allow retries; include normal and edge-case tests.",
+        "options": []
+      },
+      "constraints": {
+        "label": "Technical and scope constraints",
+        "placeholder": "List fixed interfaces, dependency restrictions and supported browsers.",
+        "options": []
+      },
+      "audience": {
+        "label": "Stack and runtime environment",
+        "placeholder": "For example: TypeScript, React 19, REST API; specify existing versions."
+      },
+      "keywords": {
+        "options": [
+          "Type safety",
+          "Error handling",
+          "Edge-case tests",
+          "Maintainability"
+        ]
+      },
+      "style": {
+        "placeholder": "Specify the delivery format or visual style for this task."
+      }
+    },
+    "ja": {
+      "subject": {
+        "label": "機能の目的と操作の流れ",
+        "placeholder": "注文一覧を実装してください。状態で絞り込み、作成日時で並べ替え、1ページ20件とします。読み込み中・0件・通信失敗の表示を含め、実装と起動手順を提示してください。",
+        "options": [
+          "注文一覧を実装してください。状態で絞り込み、作成日時で並べ替え、1ページ20件とします。読み込み中・0件・通信失敗の表示を含め、実装と起動手順を提示してください。"
+        ]
+      },
+      "materials": {
+        "label": "関連コードとAPI資料",
+        "placeholder": "既存のディレクトリ構成、関連コンポーネント、APIの入出力例を貼り付けてください。新規開発ならその旨を記載してください。",
+        "options": []
+      },
+      "criteria": {
+        "label": "完了条件とテスト要件",
+        "placeholder": "例：絞り込み時は1ページ目へ戻る、0件表示、再試行、正常系と境界値のテスト。",
+        "options": []
+      },
+      "constraints": {
+        "label": "技術・作業範囲の制約",
+        "placeholder": "変更不可のAPI、依存関係の制約、対応ブラウザを記載してください。",
+        "options": []
+      },
+      "audience": {
+        "label": "技術スタックと実行環境",
+        "placeholder": "例：TypeScript、React 19、REST API。既存のバージョンも記載してください。"
+      },
+      "keywords": {
+        "options": [
+          "型安全性",
+          "例外処理",
+          "境界値テスト",
+          "保守性"
+        ]
+      },
+      "style": {
+        "placeholder": "今回の納品形式、または映像・画像のスタイルを指定してください。"
+      }
+    }
+  },
+  "debug": {
+    "zh": {
+      "subject": {
+        "label": "故障现象与复现步骤",
+        "placeholder": "结算页点击“提交”两次会生成两笔订单。预期只创建一笔；实际返回两个不同订单编号。请根据我提供的请求日志和代码定位原因，给出最小修复与回归步骤。",
+        "options": [
+          "结算页点击“提交”两次会生成两笔订单。预期只创建一笔；实际返回两个不同订单编号。请根据我提供的请求日志和代码定位原因，给出最小修复与回归步骤。"
+        ]
+      },
+      "materials": {
+        "label": "相关代码与接口资料",
+        "placeholder": "粘贴出错文件、完整报错或调用栈、请求日志、最小复现代码；标注发生时间和最近改动，隐去密钥。",
+        "options": []
+      },
+      "criteria": {
+        "label": "完成标准与测试要求",
+        "placeholder": "例如：连续双击仅生成一笔订单；超时重试不重复扣款；现有正常流程保持可用。",
+        "options": []
+      },
+      "constraints": {
+        "label": "技术与范围限制",
+        "placeholder": "说明是否允许改数据库、升级依赖、修改接口，以及生产环境的排查限制。",
+        "options": []
+      },
+      "audience": {
+        "label": "技术栈与运行环境",
+        "placeholder": "填写语言、框架和运行时版本，以及本地/生产环境差异。"
+      },
+      "keywords": {
+        "options": [
+          "最小复现",
+          "根因证据",
+          "最小补丁",
+          "回归验证"
+        ]
+      },
+      "style": {
+        "placeholder": "填写本次交付的格式或视觉风格偏好。"
+      }
+    },
+    "en": {
+      "subject": {
+        "label": "Failure symptoms and reproduction steps",
+        "placeholder": "Clicking Submit twice on checkout creates two orders. Expected: one order. Actual: two different order IDs. Use my request logs and code to identify the cause and deliver a minimal fix with regression steps.",
+        "options": [
+          "Clicking Submit twice on checkout creates two orders. Expected: one order. Actual: two different order IDs. Use my request logs and code to identify the cause and deliver a minimal fix with regression steps."
+        ]
+      },
+      "materials": {
+        "label": "Related code and API references",
+        "placeholder": "Paste affected files, the full error or stack trace, request logs and a minimal reproduction. Include recent changes; remove secrets.",
+        "options": []
+      },
+      "criteria": {
+        "label": "Acceptance criteria and tests",
+        "placeholder": "For example: double-click creates one order; timeout retries never double-charge; normal checkout still works.",
+        "options": []
+      },
+      "constraints": {
+        "label": "Technical and scope constraints",
+        "placeholder": "State whether database changes, dependency upgrades or API changes are allowed, and production debugging limits.",
+        "options": []
+      },
+      "audience": {
+        "label": "Stack and runtime environment",
+        "placeholder": "Specify language, framework and runtime versions, plus local/production differences."
+      },
+      "keywords": {
+        "options": [
+          "Minimal reproduction",
+          "Root-cause evidence",
+          "Minimal patch",
+          "Regression checks"
+        ]
+      },
+      "style": {
+        "placeholder": "Specify the delivery format or visual style for this task."
+      }
+    },
+    "ja": {
+      "subject": {
+        "label": "不具合の現象と再現手順",
+        "placeholder": "決済画面で送信ボタンを2回押すと注文が2件作成されます。期待値は1件ですが、異なる注文番号が返ります。提供するログとコードから原因を調べ、最小限の修正と回帰確認手順を提示してください。",
+        "options": [
+          "決済画面で送信ボタンを2回押すと注文が2件作成されます。期待値は1件ですが、異なる注文番号が返ります。提供するログとコードから原因を調べ、最小限の修正と回帰確認手順を提示してください。"
+        ]
+      },
+      "materials": {
+        "label": "関連コードとAPI資料",
+        "placeholder": "該当ファイル、エラー全文やスタックトレース、リクエストログ、最小再現コードを貼り付けてください。直近の変更も記載し、秘密情報は除いてください。",
+        "options": []
+      },
+      "criteria": {
+        "label": "完了条件とテスト要件",
+        "placeholder": "例：連続クリックでも注文は1件、タイムアウト後の再試行でも二重請求なし、通常の決済も成功。",
+        "options": []
+      },
+      "constraints": {
+        "label": "技術・作業範囲の制約",
+        "placeholder": "DB変更・依存関係更新・API変更の可否、本番環境での調査制約を記載してください。",
+        "options": []
+      },
+      "audience": {
+        "label": "技術スタックと実行環境",
+        "placeholder": "言語、フレームワーク、ランタイムのバージョンと、ローカル・本番の違いを記載してください。"
+      },
+      "keywords": {
+        "options": [
+          "最小再現",
+          "根本原因の根拠",
+          "最小限の修正",
+          "回帰確認"
+        ]
+      },
+      "style": {
+        "placeholder": "今回の納品形式、または映像・画像のスタイルを指定してください。"
+      }
+    }
+  },
+  "review": {
+    "zh": {
+      "subject": {
+        "label": "待审查代码与审查范围",
+        "placeholder": "审查我提供的订单查询接口，重点检查越权访问、分页边界和异常处理。按影响排序，指出文件位置、触发条件、证据和修复建议；不要虚构未提供的代码。",
+        "options": [
+          "审查我提供的订单查询接口，重点检查越权访问、分页边界和异常处理。按影响排序，指出文件位置、触发条件、证据和修复建议；不要虚构未提供的代码。"
+        ]
+      },
+      "materials": {
+        "label": "相关代码与接口资料",
+        "placeholder": "贴出相关代码并标注文件名、调用链、接口契约、权限规则与现有测试。",
+        "options": []
+      },
+      "criteria": {
+        "label": "完成标准与测试要求",
+        "placeholder": "例如：每个问题可定位到具体代码；区分已证实缺陷与待验证风险；关键问题附补丁和验证步骤。",
+        "options": []
+      },
+      "constraints": {
+        "label": "技术与范围限制",
+        "placeholder": "说明本次涉及的文件、禁止改动的公共接口，以及是否只审查新增差异。",
+        "options": []
+      },
+      "audience": {
+        "label": "技术栈与运行环境",
+        "placeholder": "填写代码语言、框架、数据库及相关版本。"
+      },
+      "keywords": {
+        "options": [
+          "访问控制",
+          "输入校验",
+          "资源释放",
+          "风险分级"
+        ]
+      },
+      "style": {
+        "placeholder": "填写本次交付的格式或视觉风格偏好。"
+      }
+    },
+    "en": {
+      "subject": {
+        "label": "Code and review scope",
+        "placeholder": "Review my order-query endpoint for unauthorized access, pagination boundaries and error handling. Rank findings by impact and include file locations, triggers, evidence and fixes. Do not invent unseen code.",
+        "options": [
+          "Review my order-query endpoint for unauthorized access, pagination boundaries and error handling. Rank findings by impact and include file locations, triggers, evidence and fixes. Do not invent unseen code."
+        ]
+      },
+      "materials": {
+        "label": "Related code and API references",
+        "placeholder": "Provide named files, call paths, API contracts, authorization rules and existing tests.",
+        "options": []
+      },
+      "criteria": {
+        "label": "Acceptance criteria and tests",
+        "placeholder": "Each finding should identify code and distinguish confirmed defects from unverified risks. Include patches and checks for critical issues.",
+        "options": []
+      },
+      "constraints": {
+        "label": "Technical and scope constraints",
+        "placeholder": "State the files in scope, public interfaces that must remain stable and whether only the diff should be reviewed.",
+        "options": []
+      },
+      "audience": {
+        "label": "Stack and runtime environment",
+        "placeholder": "Specify the language, framework, database and relevant versions."
+      },
+      "keywords": {
+        "options": [
+          "Access control",
+          "Input validation",
+          "Resource cleanup",
+          "Risk severity"
+        ]
+      },
+      "style": {
+        "placeholder": "Specify the delivery format or visual style for this task."
+      }
+    },
+    "ja": {
+      "subject": {
+        "label": "レビュー対象のコードと範囲",
+        "placeholder": "注文検索APIのコードをレビューしてください。権限外アクセス、ページングの境界、例外処理を重点確認し、影響度順にファイル位置・発生条件・根拠・修正案を示してください。未提示のコードは推測で断定しないでください。",
+        "options": [
+          "注文検索APIのコードをレビューしてください。権限外アクセス、ページングの境界、例外処理を重点確認し、影響度順にファイル位置・発生条件・根拠・修正案を示してください。未提示のコードは推測で断定しないでください。"
+        ]
+      },
+      "materials": {
+        "label": "関連コードとAPI資料",
+        "placeholder": "ファイル名付きのコード、呼び出し経路、API仕様、権限ルール、既存テストを提示してください。",
+        "options": []
+      },
+      "criteria": {
+        "label": "完了条件とテスト要件",
+        "placeholder": "各指摘のコード位置と根拠を明記し、確定した欠陥と要検証のリスクを区別。重大な問題には修正例と確認手順を付けてください。",
+        "options": []
+      },
+      "constraints": {
+        "label": "技術・作業範囲の制約",
+        "placeholder": "対象ファイル、変更不可の公開API、差分のみをレビューするかを記載してください。",
+        "options": []
+      },
+      "audience": {
+        "label": "技術スタックと実行環境",
+        "placeholder": "言語、フレームワーク、DBと関連バージョンを記載してください。"
+      },
+      "keywords": {
+        "options": [
+          "アクセス制御",
+          "入力検証",
+          "リソース解放",
+          "リスクの重大度"
+        ]
+      },
+      "style": {
+        "placeholder": "今回の納品形式、または映像・画像のスタイルを指定してください。"
+      }
+    }
+  },
+  "image": {
+    "zh": {
+      "subject": {
+        "label": "图片用途与画面描述",
+        "placeholder": "为护肤品制作一张竖版产品主视觉：一个磨砂玻璃瓶位于画面下方中央，浅米色背景，左上方柔光，瓶身标签清晰，顶部留出标题空间。只生成静态画面的提示词。",
+        "options": [
+          "为护肤品制作一张竖版产品主视觉：一个磨砂玻璃瓶位于画面下方中央，浅米色背景，左上方柔光，瓶身标签清晰，顶部留出标题空间。只生成静态画面的提示词。"
+        ]
+      },
+      "materials": {
+        "label": "参考画面与外观设定",
+        "placeholder": "描述参考图的主体、颜色、材质和必须保留的外观；有品牌文案时提供准确文字。此处可填写图片链接或文字描述。",
+        "options": []
+      },
+      "criteria": {
+        "label": "画面与成片验收标准",
+        "placeholder": "例如：只有一个瓶子；标签可辨识；顶部留白约四分之一；无多余道具。",
+        "options": []
+      },
+      "constraints": {
+        "label": "创作与工具限制",
+        "placeholder": "说明禁止出现的元素、品牌规范、版权素材范围及目标生成工具。",
+        "options": []
+      },
+      "audience": {
+        "label": "用途、画幅与时长",
+        "placeholder": "例如：电商主视觉，4:5竖图，目标尺寸1080×1350。"
+      },
+      "keywords": {
+        "options": [
+          "主体清晰",
+          "构图留白",
+          "材质质感",
+          "布光层次"
+        ]
+      },
+      "style": {
+        "placeholder": "填写本次交付的格式或视觉风格偏好。"
+      }
+    },
+    "en": {
+      "subject": {
+        "label": "Image purpose and visual brief",
+        "placeholder": "Create a vertical skincare product hero: one frosted-glass bottle centered low in the frame, a pale beige background and soft upper-left lighting. Keep the label readable and leave headline space above. Produce a still-image prompt.",
+        "options": [
+          "Create a vertical skincare product hero: one frosted-glass bottle centered low in the frame, a pale beige background and soft upper-left lighting. Keep the label readable and leave headline space above. Produce a still-image prompt."
+        ]
+      },
+      "materials": {
+        "label": "Visual references and design details",
+        "placeholder": "Describe reference subjects, colors, materials and features to preserve. Supply exact brand copy and an image link or written description.",
+        "options": []
+      },
+      "criteria": {
+        "label": "Visual and delivery criteria",
+        "placeholder": "For example: one bottle only, readable label, top quarter clear for text and no extra props.",
+        "options": []
+      },
+      "constraints": {
+        "label": "Creative and tool constraints",
+        "placeholder": "List excluded elements, brand rules, asset rights constraints and the target generation tool.",
+        "options": []
+      },
+      "audience": {
+        "label": "Usage, aspect ratio and duration",
+        "placeholder": "For example: e-commerce hero, 4:5 portrait, 1080×1350 target size."
+      },
+      "keywords": {
+        "options": [
+          "Clear subject",
+          "Negative space",
+          "Material texture",
+          "Lighting depth"
+        ]
+      },
+      "style": {
+        "placeholder": "Specify the delivery format or visual style for this task."
+      }
+    },
+    "ja": {
+      "subject": {
+        "label": "画像の用途と画面構成",
+        "placeholder": "スキンケア商品の縦長キービジュアルを制作します。すりガラスのボトル1本を中央下に配置し、淡いベージュの背景に左上から柔らかい光を当てます。ラベルは読みやすく、上部には見出し用の余白を確保。静止画用のプロンプトを作成してください。",
+        "options": [
+          "スキンケア商品の縦長キービジュアルを制作します。すりガラスのボトル1本を中央下に配置し、淡いベージュの背景に左上から柔らかい光を当てます。ラベルは読みやすく、上部には見出し用の余白を確保。静止画用のプロンプトを作成してください。"
+        ]
+      },
+      "materials": {
+        "label": "参考画像と外観設定",
+        "placeholder": "参考画像の被写体・色・素材・維持すべき外観を説明してください。文字を入れる場合は正確な文言を記載。画像URLまたは文章で指定できます。",
+        "options": []
+      },
+      "criteria": {
+        "label": "画面・完成映像の確認基準",
+        "placeholder": "例：ボトルは1本、ラベルを判読できる、上部約4分の1は余白、余分な小物なし。",
+        "options": []
+      },
+      "constraints": {
+        "label": "表現・ツールの制約",
+        "placeholder": "除外する要素、ブランド規定、素材の権利上の制約、使用する生成ツールを記載してください。",
+        "options": []
+      },
+      "audience": {
+        "label": "用途・画面比率・尺",
+        "placeholder": "例：EC商品画像、縦4:5、目標サイズ1080×1350。"
+      },
+      "keywords": {
+        "options": [
+          "被写体の明確さ",
+          "構図の余白",
+          "素材の質感",
+          "光の立体感"
+        ]
+      },
+      "style": {
+        "placeholder": "今回の納品形式、または映像・画像のスタイルを指定してください。"
+      }
+    }
+  },
+  "clip": {
+    "zh": {
+      "subject": {
+        "label": "单镜头动作与起止状态",
+        "placeholder": "以我提供的白猫参考图为首帧，制作5秒单镜头：白猫先注视种子，再缓慢伸爪触碰，种子亮起，最后停在触碰姿势。镜头缓慢推近，不切镜，保持白猫外观和背景一致。",
+        "options": [
+          "以我提供的白猫参考图为首帧，制作5秒单镜头：白猫先注视种子，再缓慢伸爪触碰，种子亮起，最后停在触碰姿势。镜头缓慢推近，不切镜，保持白猫外观和背景一致。"
+        ]
+      },
+      "materials": {
+        "label": "参考画面与外观设定",
+        "placeholder": "描述或链接首帧参考图，列出角色外观、背景、需固定的物件，以及目标视频模型。",
+        "options": []
+      },
+      "criteria": {
+        "label": "画面与成片验收标准",
+        "placeholder": "例如：总长5秒；仅一个连续镜头；动作按顺序发生；猫的外观不漂移；最后姿态稳定。",
+        "options": []
+      },
+      "constraints": {
+        "label": "创作与工具限制",
+        "placeholder": "填写不可变化的区域、运动幅度限制、是否允许镜头移动及输出工具限制。",
+        "options": []
+      },
+      "audience": {
+        "label": "用途、画幅与时长",
+        "placeholder": "例如：5秒，16:9横屏，单镜头；填写目标工具支持的时长。"
+      },
+      "keywords": {
+        "options": [
+          "动作连续",
+          "外观稳定",
+          "运动节奏",
+          "结束姿态"
+        ]
+      },
+      "style": {
+        "placeholder": "填写本次交付的格式或视觉风格偏好。"
+      }
+    },
+    "en": {
+      "subject": {
+        "label": "Single-shot action and start/end states",
+        "placeholder": "Use my white-cat reference as the first frame of a 5-second shot. The cat watches a seed, slowly touches it with a paw, and holds its pose as the seed glows. Use a gentle push-in without cuts; preserve the cat and background.",
+        "options": [
+          "Use my white-cat reference as the first frame of a 5-second shot. The cat watches a seed, slowly touches it with a paw, and holds its pose as the seed glows. Use a gentle push-in without cuts; preserve the cat and background."
+        ]
+      },
+      "materials": {
+        "label": "Visual references and design details",
+        "placeholder": "Describe or link the first-frame reference. Identify character features, background and fixed objects, plus the target video model.",
+        "options": []
+      },
+      "criteria": {
+        "label": "Visual and delivery criteria",
+        "placeholder": "For example: 5 seconds, one continuous shot, ordered actions, consistent cat appearance and a stable final pose.",
+        "options": []
+      },
+      "constraints": {
+        "label": "Creative and tool constraints",
+        "placeholder": "Specify fixed regions, motion limits, whether camera movement is allowed and tool restrictions.",
+        "options": []
+      },
+      "audience": {
+        "label": "Usage, aspect ratio and duration",
+        "placeholder": "For example: 5 seconds, 16:9 landscape, one shot; use a duration supported by the target tool."
+      },
+      "keywords": {
+        "options": [
+          "Continuous action",
+          "Stable appearance",
+          "Motion pacing",
+          "Final pose"
+        ]
+      },
+      "style": {
+        "placeholder": "Specify the delivery format or visual style for this task."
+      }
+    },
+    "ja": {
+      "subject": {
+        "label": "単一カットの動作と開始・終了状態",
+        "placeholder": "白猫の参考画像を開始フレームとして5秒の動画にします。猫が種を見つめ、ゆっくり前足で触れると種が光り、その姿勢で止まります。カットを切り替えず緩やかに寄り、猫の外観と背景を維持してください。",
+        "options": [
+          "白猫の参考画像を開始フレームとして5秒の動画にします。猫が種を見つめ、ゆっくり前足で触れると種が光り、その姿勢で止まります。カットを切り替えず緩やかに寄り、猫の外観と背景を維持してください。"
+        ]
+      },
+      "materials": {
+        "label": "参考画像と外観設定",
+        "placeholder": "開始フレームの画像URLまたは説明、キャラクターの特徴、背景、固定する物体、使用モデルを記載してください。",
+        "options": []
+      },
+      "criteria": {
+        "label": "画面・完成映像の確認基準",
+        "placeholder": "例：5秒の連続した1カット、動作の順番を守る、猫の外観を維持、終了姿勢が安定。",
+        "options": []
+      },
+      "constraints": {
+        "label": "表現・ツールの制約",
+        "placeholder": "変えてはいけない領域、動きの大きさ、カメラ移動の可否、ツールの制約を記載してください。",
+        "options": []
+      },
+      "audience": {
+        "label": "用途・画面比率・尺",
+        "placeholder": "例：5秒、横16:9、単一カット。使用ツールが対応する尺を指定してください。"
+      },
+      "keywords": {
+        "options": [
+          "動作の連続性",
+          "外観の安定",
+          "動きのテンポ",
+          "終了姿勢"
+        ]
+      },
+      "style": {
+        "placeholder": "今回の納品形式、または映像・画像のスタイルを指定してください。"
+      }
+    }
+  },
+  "storyboard": {
+    "zh": {
+      "subject": {
+        "label": "故事目标与分镜需求",
+        "placeholder": "制作15秒、3个镜头的温暖治愈动画：背小书包的白猫在雨后森林发现发光种子，尝试触碰后让周围鲜花绽放，最后惊喜微笑。每镜给出时长、动作、景别、关键帧和视频提示词，并保持角色一致。",
+        "options": [
+          "制作15秒、3个镜头的温暖治愈动画：背小书包的白猫在雨后森林发现发光种子，尝试触碰后让周围鲜花绽放，最后惊喜微笑。每镜给出时长、动作、景别、关键帧和视频提示词，并保持角色一致。"
+        ]
+      },
+      "materials": {
+        "label": "参考画面与外观设定",
+        "placeholder": "提供角色外观设定、场景说明、参考画面链接或描述、已有台词与音乐方向。",
+        "options": []
+      },
+      "criteria": {
+        "label": "画面与成片验收标准",
+        "placeholder": "例如：3镜时长合计15秒；故事有发现、行动、结果；逐镜可直接复制；服装、光线与空间连续。",
+        "options": []
+      },
+      "constraints": {
+        "label": "创作与工具限制",
+        "placeholder": "说明受众年龄、不可出现的情节、制作工具、镜头数量上限及配音语言。",
+        "options": []
+      },
+      "audience": {
+        "label": "用途、画幅与时长",
+        "placeholder": "例如：15秒，3镜，9:16竖屏，中文配音。"
+      },
+      "keywords": {
+        "options": [
+          "故事节奏",
+          "角色一致",
+          "镜头衔接",
+          "视听配合"
+        ]
+      },
+      "style": {
+        "placeholder": "填写本次交付的格式或视觉风格偏好。"
+      }
+    },
+    "en": {
+      "subject": {
+        "label": "Story goal and storyboard brief",
+        "placeholder": "Create a warm 15-second animation in 3 shots. A white kitten with a small backpack discovers a glowing seed in a rain-washed forest, touches it and makes flowers bloom, then smiles in surprise. Provide timings, action, framing, keyframes and video prompts for each shot with consistent character design.",
+        "options": [
+          "Create a warm 15-second animation in 3 shots. A white kitten with a small backpack discovers a glowing seed in a rain-washed forest, touches it and makes flowers bloom, then smiles in surprise. Provide timings, action, framing, keyframes and video prompts for each shot with consistent character design."
+        ]
+      },
+      "materials": {
+        "label": "Visual references and design details",
+        "placeholder": "Provide character designs, setting descriptions, reference links or descriptions, existing dialogue and music direction.",
+        "options": []
+      },
+      "criteria": {
+        "label": "Visual and delivery criteria",
+        "placeholder": "For example: 3 shots totaling 15 seconds; discovery, action and resolution; copyable prompts per shot; consistent costume, lighting and space.",
+        "options": []
+      },
+      "constraints": {
+        "label": "Creative and tool constraints",
+        "placeholder": "Specify audience age, excluded plot elements, production tools, maximum shot count and voiceover language.",
+        "options": []
+      },
+      "audience": {
+        "label": "Usage, aspect ratio and duration",
+        "placeholder": "For example: 15 seconds, 3 shots, 9:16 portrait, English voiceover."
+      },
+      "keywords": {
+        "options": [
+          "Story pacing",
+          "Character consistency",
+          "Shot transitions",
+          "Audiovisual timing"
+        ]
+      },
+      "style": {
+        "placeholder": "Specify the delivery format or visual style for this task."
+      }
+    },
+    "ja": {
+      "subject": {
+        "label": "物語の目的と絵コンテの要件",
+        "placeholder": "15秒・3カットの心温まるアニメを制作します。小さなリュックを背負った白猫が雨上がりの森で光る種を見つけ、触れると花が咲き、驚いて微笑みます。各カットの尺・動作・画角・キーフレーム・動画プロンプトを提示し、キャラクターを統一してください。",
+        "options": [
+          "15秒・3カットの心温まるアニメを制作します。小さなリュックを背負った白猫が雨上がりの森で光る種を見つけ、触れると花が咲き、驚いて微笑みます。各カットの尺・動作・画角・キーフレーム・動画プロンプトを提示し、キャラクターを統一してください。"
+        ]
+      },
+      "materials": {
+        "label": "参考画像と外観設定",
+        "placeholder": "キャラクター設定、場面の説明、参考画像のURLまたは説明、既存の台詞、音楽の方向性を提示してください。",
+        "options": []
+      },
+      "criteria": {
+        "label": "画面・完成映像の確認基準",
+        "placeholder": "例：3カットの合計15秒、発見・行動・結果が伝わる、カット別にコピー可能、衣装・光・位置関係を統一。",
+        "options": []
+      },
+      "constraints": {
+        "label": "表現・ツールの制約",
+        "placeholder": "対象年齢、避ける展開、制作ツール、カット数の上限、音声の言語を記載してください。",
+        "options": []
+      },
+      "audience": {
+        "label": "用途・画面比率・尺",
+        "placeholder": "例：15秒、3カット、縦9:16、日本語ナレーション。"
+      },
+      "keywords": {
+        "options": [
+          "物語のテンポ",
+          "キャラクターの統一",
+          "カットのつながり",
+          "映像と音の同期"
+        ]
+      },
+      "style": {
+        "placeholder": "今回の納品形式、または映像・画像のスタイルを指定してください。"
+      }
+    }
+  }
+}

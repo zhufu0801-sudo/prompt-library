@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {
   composeStudio,
+  taskFields,
   translateValues,
   localeOf,
   studioIds,
@@ -80,4 +81,28 @@ test('translate known options but preserve prose and locked fields', () => {
     result.keywords,
     to.fields.find((f) => f.key === 'keywords').defaultValue,
   );
+});
+
+
+test('task input hints and samples stay specific without changing entered values', () => {
+  for (const locale of ['zh','en','ja']) {
+    const samples = new Set();
+    for (const guide of guides) {
+      const template = load(locale)[guide.group === 'programming' ? 0 : 1];
+      const key = guide.group === 'programming' ? 'task' : 'medium';
+      const values = {...defaultValues(template), [key]:guide.labels[locale], subject:'my code', materials:'my reference'};
+      const before = structuredClone(values);
+      const fields = taskFields(template, values, locale);
+      const subject = fields.find(f=>f.key==='subject');
+      assert.equal(subject.options.length, 1);
+      samples.add(subject.options[0]);
+      for (const key of ['subject','materials','criteria','constraints','audience']) assert.ok(fields.find(f=>f.key===key).placeholder);
+      assert.deepEqual(values,before);
+    }
+    assert.equal(samples.size,6);
+  }
+  const source = load('zh')[0], target=load('ja')[0];
+  const values = {task:'错误排查',keywords:['最小复现'],subject:'do not translate my code'};
+  assert.deepEqual(translateValues(source,target,values,{}).keywords,['最小再現']);
+  assert.deepEqual(translateValues(source,target,values,{keywords:true}).keywords,['最小复现']);
 });
