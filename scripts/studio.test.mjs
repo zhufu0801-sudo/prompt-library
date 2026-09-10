@@ -8,6 +8,19 @@ import {
   studioIds,
 } from '../lib/studio.ts';
 import { defaultValues } from '../lib/prompt.ts';
+const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.json',import.meta.url),'utf8'));
+test('each task emits only its own deliverable rules in all three languages', () => {
+  for (const locale of ['zh','en','ja']) for (const guide of guides) {
+    const template = load(locale)[guide.group === 'programming' ? 0 : 1];
+    const key = guide.group === 'programming' ? 'task' : 'medium';
+    const output = composeStudio(template,{...defaultValues(template),[key]:guide.labels[locale],subject:'Example'},locale);
+    assert.ok(output.includes(guide.guidance[locale]));
+    assert.ok(!output.includes('[[TASK_GUIDE]]'));
+    for (const other of guides.filter(g=>g.id!==guide.id)) assert.ok(!output.includes(other.guidance[locale]));
+  }
+  const old = composeStudio(load('zh')[1],{medium:'AI 动画',subject:'旧方案'},'zh');
+  assert.ok(old.includes(guides.find(g=>g.id==='storyboard').guidance.zh));
+});
 const load = (l) =>
   JSON.parse(
     fs.readFileSync(
@@ -45,7 +58,7 @@ test('three languages share field identities, option positions and two featured 
       );
     });
     assert.ok(
-      items[1].fields.some((f) => f.key === 'medium' && f.options.length === 2),
+      items[1].fields.some((f) => f.key === 'medium' && f.options.length === 3),
     );
   }
   assert.equal(localeOf('de'), 'zh');

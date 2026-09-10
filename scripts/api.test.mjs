@@ -39,7 +39,7 @@ for (const locale of ['zh', 'en', 'ja']) {
   const animation = studio.body.templates[1];
   assert.equal(
     animation.fields.find((f) => f.key === 'medium').options.length,
-    2,
+    3,
   );
   const values = Object.fromEntries(
     animation.fields.map((f) => [f.key, f.defaultValue]),

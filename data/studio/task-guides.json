@@ -1,0 +1,86 @@
+[
+  {
+    "id": "build",
+    "group": "programming",
+    "labels": {
+      "zh": "新功能开发",
+      "en": "Feature implementation",
+      "ja": "新機能の実装"
+    },
+    "guidance": {
+      "zh": "交付可运行实现：先用不超过5条列出需求与明确假设；给出文件目录及每个新增或修改文件的完整内容（按用户指定可改为差异补丁），不得用省略号代替核心代码；列出安装、配置、启动命令与环境变量名称，不填入真实密钥。说明接口输入输出、错误响应、空状态、加载状态和权限边界。提供最小样例及预期输出，并给出验收步骤；未执行测试须明确标记。非必要不引入新框架。",
+      "en": "Deliver a runnable implementation: begin with up to five requirements and explicit assumptions. Provide a file tree and complete contents of added or changed files, or a patch if requested; never replace core logic with ellipses. Include install, configuration and run commands and environment-variable names without real secrets. Define API inputs, outputs, errors, empty/loading states and permission boundaries. Supply a minimal example, expected output and acceptance steps. Label unexecuted tests. Avoid unnecessary framework changes.",
+      "ja": "実行可能な実装を納品してください。要件と仮定を5項目以内で示し、ファイル構成と追加・変更ファイルの全文（指定があれば差分）を出力します。核心となるコードを省略記号で置き換えず、導入・設定・起動コマンドと環境変数名を示してください。実際の秘密情報は記載しません。APIの入出力、エラー、空・読込状態、権限境界を定義し、最小の入力例、期待結果、受け入れ手順を付けます。未実行のテストは明記し、不要なフレームワーク変更を避けてください。"
+    }
+  },
+  {
+    "id": "debug",
+    "group": "programming",
+    "labels": {
+      "zh": "错误排查",
+      "en": "Debugging",
+      "ja": "不具合調査"
+    },
+    "guidance": {
+      "zh": "交付故障修复报告与最小补丁：逐项对照预期行为、实际行为、复现步骤、完整报错和运行环境。把已证实原因与待验证假设分开；证据不足时先给最短诊断步骤，不假装已定位根因。指出具体文件或函数及修改理由，只改变与故障相关的逻辑。提供修复前失败用例、修复后预期结果、相邻功能回归检查和回退方法；不把清空数据或重装系统作为默认解决方案。",
+      "en": "Deliver a diagnosis and minimal patch. Compare expected and actual behavior, reproduction steps, full errors and environment. Separate confirmed causes from hypotheses; if evidence is missing, give the shortest diagnostic procedure instead of claiming a root cause. Identify the relevant files or functions and explain each change. Include a failing example, expected behavior after the fix, nearby regression checks and rollback steps. Do not default to wiping data or reinstalling the system.",
+      "ja": "原因調査と最小パッチを納品してください。期待動作、実際の動作、再現手順、エラー全文、実行環境を照合します。確認済み原因と仮説を分け、根拠不足なら最短の診断手順を示し、原因を断定しません。対象ファイル・関数と変更理由を明記し、関連ロジックだけを修正します。修正前の失敗例、修正後の期待結果、関連機能の回帰確認、戻し方を示します。データ削除やOS再導入を標準の解決策にしないでください。"
+    }
+  },
+  {
+    "id": "review",
+    "group": "programming",
+    "labels": {
+      "zh": "代码审查",
+      "en": "Code review",
+      "ja": "コードレビュー"
+    },
+    "guidance": {
+      "zh": "交付按影响排序的审查结果：每项包含位置、触发条件、具体后果、证据和最小修改建议；没有文件行号时引用函数名，勿编造行号。优先查正确性、数据与权限、错误处理、资源释放和性能瓶颈，格式偏好单独列为可选。给出关键问题的修复补丁和验证用例；未发现问题就如实说明，不凑数量，不将推测漏洞写成确定事实。",
+      "en": "Deliver findings ordered by impact, each with location, trigger, consequence, evidence and a minimal correction. Reference function names when line numbers are unavailable; never invent locations. Prioritize correctness, data handling, authorization, errors, resource cleanup and performance bottlenecks. Keep style preferences optional. Provide patches and verification cases for key findings. Report no findings when appropriate and distinguish suspected issues from confirmed defects.",
+      "ja": "影響順のレビュー結果を納品してください。各項目に場所、発生条件、具体的影響、根拠、最小修正案を記載します。行番号が不明なら関数名を使い、架空の行番号を付けません。正確性、データ処理、権限、エラー処理、リソース解放、性能を優先し、表記の好みは任意事項に分けます。重要な問題にはパッチと検証例を示し、問題がなければその旨を記載します。仮説を確定した不具合として扱わないでください。"
+    }
+  },
+  {
+    "id": "image",
+    "group": "visual",
+    "labels": {
+      "zh": "AI 图片",
+      "en": "AI image",
+      "ja": "AI画像"
+    },
+    "guidance": {
+      "zh": "只交付静态图片方案：明确用途（海报、产品图、角色设定等）、主体数量与外观、姿态、主体在画面中的位置、前中后景、光源方向与软硬、主辅色、材质、风格、画幅和文字区域。产品图突出材质及品牌识别，角色设定强调外观与服装一致，海报确认精确文案和留白。输出①简短画面说明②一段可直接粘贴的完整生图提示词③工具支持时的负面提示词④尺寸与参数建议⑤可检查的成图标准。图片中文字需逐字核对；不添加分镜时长或运镜指令。",
+      "en": "Deliver only a still-image brief. Specify use, subject count and appearance, pose, placement, foreground/background, light direction and softness, palette, materials, style, aspect ratio and text area. Emphasize material and identity for products, consistent appearance for character sheets, and exact copy and whitespace for posters. Output a short visual brief, a complete copyable image prompt, optional supported negative prompts, size/parameter suggestions and an inspection checklist. Verify rendered lettering. Do not add shot timing or camera movement.",
+      "ja": "静止画像の制作案だけを出力してください。用途、主体の数・外観・姿勢・配置、前中後景、光の方向と硬さ、配色、材質、スタイル、画面比率、文字領域を明確にします。商品画像は材質と識別性、設定画は外見と服装の一貫性、ポスターは正確な文言と余白を重視します。短い画面説明、コピー可能な完成プロンプト、対応時のみネガティブプロンプト、サイズ・設定案、検品項目を出力します。文字は一字ずつ確認し、カットの秒数やカメラ移動は追加しません。"
+    }
+  },
+  {
+    "id": "clip",
+    "group": "visual",
+    "labels": {
+      "zh": "图生视频 · 单镜头",
+      "en": "Image-to-video · single shot",
+      "ja": "画像から動画・単一カット"
+    },
+    "guidance": {
+      "zh": "交付单镜头图生视频方案：将参考图中已存在的人物、服装、布景作为不变资产，缺少参考图时不要声称看过图片，先请求提供或明确这是待配图方案。明确起始状态、一个主要动作、动作速度与幅度、镜头移动方向、环境运动、结束状态和目标时长。输出①不可变化清单②时间顺序动作描述③完整可复制视频提示词④首尾衔接说明⑤稳定性检查。不要塞入多次切镜或同时要求互相冲突的运镜；工具能力未经确认时不保证时长、帧率或分辨率。",
+      "en": "Deliver a single-shot image-to-video plan. Treat the reference character, clothing and setting as fixed assets. If no image is available, request it or label this a plan awaiting a reference; do not claim to have inspected it. Specify the start state, one main action, speed and amplitude, camera direction, environmental motion, end state and target duration. Provide invariants, a chronological action description, one copyable video prompt, continuity notes and stability checks. Avoid multiple cuts or conflicting camera instructions. Do not guarantee unsupported duration, frame rate or resolution.",
+      "ja": "単一カットの画像から動画への制作案を出力してください。参考画像の人物、服装、背景を固定要素とします。画像がなければ提供を依頼するか参考画像待ちの案と明記し、見たことにしません。開始状態、主な動作1つ、速度と大きさ、カメラ方向、周囲の動き、終了状態、希望秒数を定義します。固定要素、時系列の動作、コピー可能な動画プロンプト、始終点のつながり、安定性の確認項目を示します。複数のカット切替や矛盾する運鏡を詰め込まず、未確認の秒数・フレームレート・解像度を保証しないでください。"
+    }
+  },
+  {
+    "id": "storyboard",
+    "group": "visual",
+    "labels": {
+      "zh": "多镜头动画",
+      "en": "Multi-shot animation",
+      "ja": "複数カットのアニメ"
+    },
+    "guidance": {
+      "zh": "交付完整短片制作包：先明确主题、受众、叙事起承转合、角色动机、总时长、画幅和声音方案，再建立角色外观、服装、道具、场景与色彩的固定设定。分镜表必须逐镜包含镜号、起止时间、时长、景别、构图、动作、运镜、对白或旁白、音效、衔接方式。每镜分别给出静态关键帧提示词和动态视频提示词，不能只给概念大纲。核对各镜秒数之和等于总时长，检查动作方向、道具位置、角色服装与光源的连续性；最后附素材清单、制作顺序和剪辑检查表。",
+      "en": "Deliver a complete short-film production pack. Define theme, audience, narrative arc, character motivation, total duration, aspect ratio and sound plan, then establish fixed character, costume, prop, setting and color references. For every shot list ID, start/end time, duration, framing, composition, action, camera motion, dialogue/narration, sound and transition. Supply separate still-keyframe and motion prompts for every shot, not just an outline. Check that shot durations add up to the requested total and that motion direction, props, costume and lighting remain continuous. Finish with an asset list, production order and editing checklist.",
+      "ja": "短編制作一式を出力してください。テーマ、対象視聴者、起承転結、人物の動機、総尺、画面比率、音の方針を定め、外見・衣装・小道具・舞台・色の固定設定を作ります。各カットに番号、開始・終了時刻、秒数、画角、構図、動作、運鏡、セリフやナレーション、効果音、つなぎ方を記載します。各カットの静止キーフレーム用と動画用のプロンプトを分け、概略だけで終わらせません。秒数の合計、動作方向、小道具、衣装、光源の連続性を確認し、素材一覧、制作順、編集チェック表を付けてください。"
+    }
+  }
+]

@@ -1,4 +1,5 @@
 import type { Template, Values, Locks } from './prompt';
+import guides from '../data/studio/task-guides.json' with { type: 'json' };
 export type Locale = 'zh' | 'en' | 'ja';
 export const studioIds = ['custom-programming', 'custom-animation'];
 export function localeOf(value: string | null): Locale {
@@ -11,12 +12,17 @@ export function composeStudio(
   meta = true,
 ) {
   const empty = {
-    zh: '未指定，请先询问我',
-    en: 'Not specified; ask me first',
-    ja: '未指定。先に質問してください',
+    zh: '未提供；非关键内容可列明假设，关键缺项再询问',
+    en: 'Not supplied; state assumptions for noncritical gaps and ask only about blockers',
+    ja: '未指定。重要でない不足は仮定を明示し、不可欠な点だけ確認',
   }[locale];
   const sections = t.content.split('\n\n---META---\n\n');
-  return (meta ? sections.join('\n\n') : sections[0]).replace(
+  const selection = String(values[t.id === 'custom-programming' ? 'task' : 'medium'] || '');
+  const group = t.id === 'custom-programming' ? 'programming' : 'visual';
+  const selected = guides.find(g => g.group === group && Object.values(g.labels).includes(selection));
+  const fallback = guides.find(g => g.id === (group === 'programming' ? 'build' : ['AI 动画','AI animation','AIアニメーション'].includes(selection) ? 'storyboard' : 'image'))!;
+  const guide = (selected || fallback).guidance[locale];
+  return (meta ? sections.join('\n\n') : sections[0]).replace('[[TASK_GUIDE]]', guide).replace(
     /\{\{([a-z_]+)\}\}/g,
     (_, key) => {
       const value = values[key];

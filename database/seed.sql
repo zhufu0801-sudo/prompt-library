@@ -162,63 +162,78 @@ INSERT INTO tags (id,label) VALUES ('tag-d1c1433eea329ab967be','金融顾问') O
 INSERT INTO tags (id,label) VALUES ('tag-16b88b838221aa00495f','音乐艺术') ON CONFLICT(id) DO UPDATE SET label=excluded.label;
 INSERT INTO tags (id,label) VALUES ('tag-4ec6d1af7963957795cb','专业顾问') ON CONFLICT(id) DO UPDATE SET label=excluded.label;
 INSERT INTO tags (id,label) VALUES ('tag-4d8f6af10e6b745064f6','用户分享') ON CONFLICT(id) DO UPDATE SET label=excluded.label;
-INSERT INTO templates (id,slug,title,category_id,description,content,translation,kind,source_id,source_record_id,source_url,status,version) VALUES ('custom-programming','programming-assistant','编程助手','programming','把技术需求整理成可执行、可验证的编程提示词。','你是一位资深软件工程师。
+INSERT INTO templates (id,slug,title,category_id,description,content,translation,kind,source_id,source_record_id,source_url,status,version) VALUES ('custom-programming','programming-assistant','编程助手','programming','把技术需求整理成可执行、可验证的编程提示词。','你是一位根据具体任务交付成品的专业助手。
 
-请完成：{{subject}}
-开发环境：{{audience}}
-交付格式：{{style}}
-重点要求：{{keywords}}
-背景与限制：{{constraints}}
+任务：{{subject}}
+任务类型：{{task}}
+环境、画幅或时长：{{audience}}
+风格或交付偏好：{{style}}
+重点：{{keywords}}
+已有资料：
+{{materials}}
+验收标准：
+{{criteria}}
+限制与补充：
+{{constraints}}
+
+针对本任务的交付规范：
+[[TASK_GUIDE]]
 
 ---META---
 
-先确认目标、输入输出、依赖和验收标准。关键背景缺失时，最多提出 3 个必要问题；若可继续，明确列出假设。
-先给简短方案，再给实现与验证方法。不要编造 API、依赖版本或测试结果；区分已验证与待验证内容。
-交付前检查边界条件、错误处理、安全和需求覆盖情况，说明剩余限制。
-先概述目标，再列具体要求；优先使用用户提供的相关代码、输入输出示例和错误日志。复杂任务分步完成，每步给出可验证的交付物。迭代时针对上次结果明确指出要保留和修改的部分。','','custom','original',NULL,NULL,'published',2) ON CONFLICT(id) DO UPDATE SET slug=excluded.slug,title=excluded.title,category_id=excluded.category_id,description=excluded.description,content=excluded.content,translation=excluded.translation,kind=excluded.kind,source_id=excluded.source_id,source_record_id=excluded.source_record_id,source_url=excluded.source_url,status=excluded.status,version=excluded.version;
+执行原则：先核对目标、对象、已有资料、限制和验收要求。信息足够时，在本次回答中直接交付完整初稿，不只给计划或建议。非关键缺项采用合理假设并明确列出；只有会改变目标、造成事实错误或无法完成任务的关键缺项才追问，每次只问一个最重要的问题，不重复询问已提供信息。识别互相冲突的要求并说明取舍。交付前逐项对照验收标准修正遗漏，最后简述假设、待验证事项和使用方式，不输出冗长思考过程。不要编造资料、模型能力、执行结果或保证一次成功。视觉生成的最终提示词单独放在可复制区，不混入问答和自检指令；Runway Gen-4 视频只用正向动作描述，不添加负面提示词。','','custom','original',NULL,NULL,'published',3) ON CONFLICT(id) DO UPDATE SET slug=excluded.slug,title=excluded.title,category_id=excluded.category_id,description=excluded.description,content=excluded.content,translation=excluded.translation,kind=excluded.kind,source_id=excluded.source_id,source_record_id=excluded.source_record_id,source_url=excluded.source_url,status=excluded.status,version=excluded.version;
 DELETE FROM template_tags WHERE template_id='custom-programming';
 INSERT INTO template_tags (template_id,tag_id) VALUES ('custom-programming','tag-02c2cbf2424306018512');
 INSERT INTO template_tags (template_id,tag_id) VALUES ('custom-programming','tag-9bbe9f3294edc356f2cd');
 INSERT INTO template_tags (template_id,tag_id) VALUES ('custom-programming','tag-c1920ea23cdcbefb2547');
 INSERT INTO template_tags (template_id,tag_id) VALUES ('custom-programming','tag-3b1ef565e60927b80c2c');
 DELETE FROM template_fields WHERE template_id='custom-programming';
-INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:subject','custom-programming','subject','技术需求或代码','textarea',1,'""',1,0) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:task','custom-programming','task','任务类型','text',0,'"新功能开发"',1,0) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:task:0','custom-programming:task','新功能开发',NULL,NULL,0) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
+INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:task:1','custom-programming:task','错误排查',NULL,NULL,1) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
+INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:task:2','custom-programming:task','代码审查',NULL,NULL,2) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:subject','custom-programming','subject','技术需求或代码','textarea',1,'""',1,1) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:subject:0','custom-programming:subject','实现带分页与筛选的列表页面，先明确数据结构和验收条件。',NULL,NULL,0) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:subject:1','custom-programming:subject','根据错误日志和最小复现定位故障，给出最小修复及回归验证步骤。',NULL,NULL,1) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:subject:2','custom-programming:subject','审查我提供的代码，按影响排序列出问题、证据与修改建议。',NULL,NULL,2) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:subject:3','custom-programming:subject','为现有函数设计正常、边界和异常输入测试，并解释预期结果。',NULL,NULL,3) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
-INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:audience','custom-programming','audience','开发语言与环境','text',0,'"Python"',1,1) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:audience','custom-programming','audience','开发语言与环境','text',0,'"Python"',1,2) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:audience:0','custom-programming:audience','Python',NULL,NULL,0) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:audience:1','custom-programming:audience','JavaScript',NULL,NULL,1) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:audience:2','custom-programming:audience','TypeScript',NULL,NULL,2) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:audience:3','custom-programming:audience','SQL',NULL,NULL,3) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
-INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:style','custom-programming','style','交付格式','text',0,'"完整代码"',1,2) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
-INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:style:0','custom-programming:style','完整代码',NULL,NULL,0) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
-INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:style:1','custom-programming:style','差异补丁',NULL,NULL,1) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
-INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:style:2','custom-programming:style','逐步讲解',NULL,NULL,2) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
-INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:style:3','custom-programming:style','测试方案',NULL,NULL,3) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
-INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:keywords','custom-programming','keywords','重点要求','multi',0,'["可维护性","边界条件"]',5,3) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:style','custom-programming','style','交付偏好','text',0,'"完整可执行成品"',1,3) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:style:0','custom-programming:style','完整可执行成品',NULL,NULL,0) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
+INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:style:1','custom-programming:style','成品＋必要解释',NULL,NULL,1) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
+INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:style:2','custom-programming:style','差异补丁（适用时）',NULL,NULL,2) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:keywords','custom-programming','keywords','重点要求','multi',0,'["可维护性","边界条件"]',5,4) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:keywords:0','custom-programming:keywords','可维护性',NULL,NULL,0) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:keywords:1','custom-programming:keywords','边界条件',NULL,NULL,1) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:keywords:2','custom-programming:keywords','安全性',NULL,NULL,2) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-programming:keywords:3','custom-programming:keywords','性能',NULL,NULL,3) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
-INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:constraints','custom-programming','constraints','背景与限制','textarea',0,'""',1,4) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
-INSERT INTO templates (id,slug,title,category_id,description,content,translation,kind,source_id,source_record_id,source_url,status,version) VALUES ('custom-animation','animation','AI 动画与图片制作','creative','把创意整理成图片提示词，或完整的动画分镜与视频提示词。','制作类型：{{medium}}
-根据制作类型分支输出。选择“AI 图片”时，只输出主体与场景、构图、风格、光线与色彩、可复制的正向提示词、可选负面提示词及尺寸建议，不输出分镜或运镜。选择“AI 动画”时，按以下动画规范输出。
-你是一位动画导演和分镜设计师。
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:constraints','custom-programming','constraints','背景与限制','textarea',0,'""',1,5) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:materials','custom-programming','materials','已有资料：代码、报错、参考图说明或关键设定','textarea',0,'""',1,6) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-programming:criteria','custom-programming','criteria','验收标准：必须包含什么，如何判断完成','textarea',0,'""',1,7) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO templates (id,slug,title,category_id,description,content,translation,kind,source_id,source_record_id,source_url,status,version) VALUES ('custom-animation','animation','AI 动画与图片制作','creative','把创意整理成图片提示词，或完整的动画分镜与视频提示词。','你是一位根据具体任务交付成品的专业助手。
 
-故事创意：{{subject}}
-时长与画幅：{{audience}}
-视觉风格：{{style}}
-重点要求：{{keywords}}
-补充限制：{{constraints}}
+任务：{{subject}}
+任务类型：{{medium}}
+环境、画幅或时长：{{audience}}
+风格或交付偏好：{{style}}
+重点：{{keywords}}
+已有资料：
+{{materials}}
+验收标准：
+{{criteria}}
+限制与补充：
+{{constraints}}
+
+针对本任务的交付规范：
+[[TASK_GUIDE]]
 
 ---META---
 
-先明确故事目标、角色外观、场景、时长与画幅。缺少关键设定时，最多提出 3 个问题；其余假设明确标注。
-输出：1.故事梗概；2.角色与场景设定；3.分镜表（镜号、时长、景别、动作、运镜、声音）；4.每镜可复制的视频生成提示词；5.仅当目标模型支持时提供负面提示词；6.剪辑与衔接建议。
-检查分镜时长总和、角色服饰和外观、动作衔接、光线与方向一致性。避免闪烁、肢体畸变和突变。若模型不支持负面提示词或某项参数，明确说明替代写法，不编造工具能力。
-本模板是给对话型 AI 的需求整理指令；最终用于图像或视频生成的提示词应单独放在可复制区，仅描述画面与动作，不混入提问、自检或角色扮演指令。先询问目标工具与具体模型，未提供时使用通用描述，不编造专用参数。若使用 Runway Gen-4 视频，使用正向、简洁的动作描述，不输出负面提示词；有输入图时重点描述运动。每次迭代只调整一个主要变量，并记录前后差异。','','custom','original',NULL,NULL,'published',2) ON CONFLICT(id) DO UPDATE SET slug=excluded.slug,title=excluded.title,category_id=excluded.category_id,description=excluded.description,content=excluded.content,translation=excluded.translation,kind=excluded.kind,source_id=excluded.source_id,source_record_id=excluded.source_record_id,source_url=excluded.source_url,status=excluded.status,version=excluded.version;
+执行原则：先核对目标、对象、已有资料、限制和验收要求。信息足够时，在本次回答中直接交付完整初稿，不只给计划或建议。非关键缺项采用合理假设并明确列出；只有会改变目标、造成事实错误或无法完成任务的关键缺项才追问，每次只问一个最重要的问题，不重复询问已提供信息。识别互相冲突的要求并说明取舍。交付前逐项对照验收标准修正遗漏，最后简述假设、待验证事项和使用方式，不输出冗长思考过程。不要编造资料、模型能力、执行结果或保证一次成功。视觉生成的最终提示词单独放在可复制区，不混入问答和自检指令；Runway Gen-4 视频只用正向动作描述，不添加负面提示词。','','custom','original',NULL,NULL,'published',3) ON CONFLICT(id) DO UPDATE SET slug=excluded.slug,title=excluded.title,category_id=excluded.category_id,description=excluded.description,content=excluded.content,translation=excluded.translation,kind=excluded.kind,source_id=excluded.source_id,source_record_id=excluded.source_record_id,source_url=excluded.source_url,status=excluded.status,version=excluded.version;
 DELETE FROM template_tags WHERE template_id='custom-animation';
 INSERT INTO template_tags (template_id,tag_id) VALUES ('custom-animation','tag-cdab4d13cc9302626fd2');
 INSERT INTO template_tags (template_id,tag_id) VALUES ('custom-animation','tag-324b47a4509b96039c71');
@@ -227,7 +242,8 @@ INSERT INTO template_tags (template_id,tag_id) VALUES ('custom-animation','tag-d
 DELETE FROM template_fields WHERE template_id='custom-animation';
 INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-animation:medium','custom-animation','medium','制作类型','text',0,'"AI 图片"',1,0) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-animation:medium:0','custom-animation:medium','AI 图片',NULL,NULL,0) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
-INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-animation:medium:1','custom-animation:medium','AI 动画',NULL,NULL,1) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
+INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-animation:medium:1','custom-animation:medium','图生视频 · 单镜头',NULL,NULL,1) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
+INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-animation:medium:2','custom-animation:medium','多镜头动画',NULL,NULL,2) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-animation:subject','custom-animation','subject','故事、角色与场景','textarea',1,'""',1,1) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-animation:subject:0','custom-animation:subject','制作一张护肤品展示图：单瓶居中、柔和侧光、浅色背景，保留包装文字区域。',NULL,NULL,0) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-animation:subject:1','custom-animation:subject','设计一个原创角色的正面、侧面与背面设定，保持服装、比例和配色一致。',NULL,NULL,1) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
@@ -250,6 +266,8 @@ INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,s
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-animation:keywords:2','custom-animation:keywords','光影连贯',NULL,NULL,2) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO field_suggestions (id,field_id,label,condition_key,condition_value,sort_order) VALUES ('custom-animation:keywords:3','custom-animation:keywords','动作自然',NULL,NULL,3) ON CONFLICT(id) DO UPDATE SET field_id=excluded.field_id,label=excluded.label,condition_key=excluded.condition_key,condition_value=excluded.condition_value,sort_order=excluded.sort_order;
 INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-animation:constraints','custom-animation','constraints','对白、声音与其他限制','textarea',0,'""',1,5) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-animation:materials','custom-animation','materials','已有资料：代码、报错、参考图说明或关键设定','textarea',0,'""',1,6) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
+INSERT INTO template_fields (id,template_id,key,label,type,required,default_json,max_selections,sort_order) VALUES ('custom-animation:criteria','custom-animation','criteria','验收标准：必须包含什么，如何判断完成','textarea',0,'""',1,7) ON CONFLICT(id) DO UPDATE SET template_id=excluded.template_id,key=excluded.key,label=excluded.label,type=excluded.type,required=excluded.required,default_json=excluded.default_json,max_selections=excluded.max_selections,sort_order=excluded.sort_order;
 INSERT INTO templates (id,slug,title,category_id,description,content,translation,kind,source_id,source_record_id,source_url,status,version) VALUES ('custom-competitors','competitors','竞品分析框架','business','设计可填充的竞品分析框架，按你的需求填写并调整。','你是一位商业分析师。
 请完成以下任务：设计可填充的竞品分析框架。
 
@@ -3339,4 +3357,4 @@ DELETE FROM template_tags WHERE template_id='aishort-279';
 INSERT INTO template_tags (template_id,tag_id) VALUES ('aishort-279','tag-4d8f6af10e6b745064f6');
 INSERT INTO template_tags (template_id,tag_id) VALUES ('aishort-279','tag-84b98966a279ebb7b69c');
 DELETE FROM template_fields WHERE template_id='aishort-279';
-INSERT OR IGNORE INTO content_versions(id,applied_at) VALUES ('d4b323bce1b7c8fef435377b',datetime('now'));
+INSERT OR IGNORE INTO content_versions(id,applied_at) VALUES ('e616a23dcdbb8c36980bee5a',datetime('now'));
