@@ -18,7 +18,7 @@
     "sourceRecordId": null,
     "sourceUrl": null,
     "status": "published",
-    "version": 3,
+    "version": 4,
     "fields": [
       {
         "key": "task",
@@ -30,6 +30,42 @@
           "新機能の実装",
           "不具合調査",
           "コードレビュー"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "詳細シナリオ",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合",
+          "CSVデータ処理",
+          "ファイルアップロード",
+          "非同期リクエスト競合",
+          "日付・タイムゾーン不具合",
+          "DB移行レビュー",
+          "認可・アクセス制御レビュー",
+          "モバイルナビゲーション",
+          "ロール別の機能",
+          "ログイン品質チェック",
+          "根拠付きレビュー",
+          "ウェブアクセシビリティ",
+          "境界値・異常系テスト",
+          "SPAの表示・ルート障害"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用するAIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "対話AI · Claude / Gemini / DeepSeek / ChatGPT / 豆包",
+        "options": [
+          "対話AI · Claude / Gemini / DeepSeek / ChatGPT / 豆包",
+          "プロジェクト用エージェント · Codex / Claude Code / Cursor"
         ],
         "maxSelections": 1
       },
@@ -139,7 +175,7 @@
     "sourceRecordId": null,
     "sourceUrl": null,
     "status": "published",
-    "version": 3,
+    "version": 4,
     "fields": [
       {
         "key": "medium",
@@ -151,6 +187,40 @@
           "AI画像",
           "画像から動画・単一カット",
           "複数カットのアニメ"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "詳細シナリオ",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合",
+          "商品キービジュアル",
+          "キャラクター三面図",
+          "固定カメラの微細動作",
+          "複数カットの商品広告",
+          "幻想風景の構図",
+          "商品の9コマ構成",
+          "写真から9カット絵コンテ",
+          "6コマの物語",
+          "カートゥーンの単一動作"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用するAIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用 · Kling / 即夢 / その他の画像・動画ツール",
+        "options": [
+          "汎用 · Kling / 即夢 / その他の画像・動画ツール",
+          "Midjourney · 画像",
+          "Stable Diffusion / ComfyUI · 画像",
+          "Runway Gen-4 · 動画"
         ],
         "maxSelections": 1
       },

@@ -4,12 +4,42 @@ import fs from 'node:fs';
 import {
   composeStudio,
   taskFields,
+  analyzeTask,
+  toolAdapter,
   translateValues,
   localeOf,
   studioIds,
 } from '../lib/studio.ts';
 import { defaultValues } from '../lib/prompt.ts';
 const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.json',import.meta.url),'utf8'));
+test('curated scenarios are localized, scoped, attributable and used in output',()=>{
+ const items=JSON.parse(fs.readFileSync(new URL('../data/studio/prompts-chat-curated.json',import.meta.url),'utf8'));
+ assert.equal(items.length,12);
+ for(const locale of ['zh','en','ja']) for(const s of items) {
+  const guide=guides.find(g=>g.id===s.task);
+  const t=load(locale)[guide.group==='programming'?0:1];
+  const values={...defaultValues(t),[t.id==='custom-programming'?'task':'medium']:guide.labels[locale],scenario:s.labels[locale],subject:'My custom brief {{criteria}}'};
+  assert.equal(analyzeTask(t,values,locale).scenarios[0].id,s.id);
+  assert.ok(composeStudio(t,values,locale).includes(s.details[locale]));
+  assert.ok(!composeStudio(t,values,locale,false).includes(s.details[locale]));
+  assert.ok(composeStudio(t,values,locale).includes('My custom brief {{criteria}}'));
+  assert.equal(taskFields(t,values,locale).find(f=>f.key==='subject').options[0],s.examples[locale]);
+  assert.equal(s.source.license,'CC0-1.0');
+  const changed={...values,[t.id==='custom-programming'?'task':'medium']:guides.find(g=>g.group===guide.group&&g.id!==guide.id).labels[locale]};
+  assert.ok(!analyzeTask(t,changed,locale).scenarios.some(x=>x.id===s.id));
+ }
+});
+test('tool adapters remain task scoped and translate with saved choices',()=>{
+ for(const locale of ['zh','en','ja']) for(let i=0;i<2;i++) {
+  const t=load(locale)[i];
+  for(const tool of t.fields.find(f=>f.key==='tool').options) {
+   const values={...defaultValues(t),tool};
+   assert.ok(composeStudio(t,values,locale,false).includes(toolAdapter(t,values).guidance[locale]));
+   const translated=translateValues(t,load('en')[i],values,{});
+   assert.equal(toolAdapter(t,values).id,toolAdapter(load('en')[i],translated).id);
+  }
+ }
+});
 test('each task emits only its own deliverable rules in all three languages', () => {
   for (const locale of ['zh','en','ja']) for (const guide of guides) {
     const template = load(locale)[guide.group === 'programming' ? 0 : 1];
@@ -106,4 +136,22 @@ test('task input hints and samples stay specific without changing entered values
   const values = {task:'错误排查',keywords:['最小复现'],subject:'do not translate my code'};
   assert.deepEqual(translateValues(source,target,values,{}).keywords,['最小再現']);
   assert.deepEqual(translateValues(source,target,values,{keywords:true}).keywords,['最小复现']);
+});
+
+test('scenario guidance is task-scoped, optional and preserves literal user content',()=>{
+  const t=load('en')[0];
+  const values={...defaultValues(t),subject:'Build a CSV tool {{materials}}',materials:'private input'};
+  assert.equal(analyzeTask(t,values,'en').scenarios[0].id,'csv');
+  assert.ok(composeStudio(t,values,'en').includes('row-level errors'));
+  assert.ok(!composeStudio(t,values,'en',false).includes('row-level errors'));
+  assert.ok(composeStudio(t,values,'en').includes('{{materials}}'));
+  assert.equal(analyzeTask(t,{...values,task:'Code review'},'en').scenarios.length,0);
+  assert.equal(analyzeTask(t,{...values,subject:'address'},'en').scenarios.length,0);
+  assert.equal(analyzeTask(t,{...values,subject:''},'en').candidates.length,0);
+  for (const locale of ['zh','en','ja']) {
+    const template=load(locale)[1];
+    const analysis=analyzeTask(template,{...defaultValues(template),subject:'turnaround 三视图 三面図'},locale);
+    assert.equal(analysis.scenarios[0].id,'turnaround');
+    assert.ok(analysis.scenarios[0].details[locale]);
+  }
 });

@@ -43,6 +43,8 @@ import {
 import {
   composeStudio,
   taskFields,
+  analyzeTask,
+  toolAdapter,
   translateValues,
   localeOf,
   type Locale,
@@ -88,6 +90,12 @@ export default function Home() {
     [custom, setCustom] = useState<Record<string, string>>({});
   const t = ui[locale];
   const fields = active ? taskFields(active, values, locale) : [];
+  const analysis = active ? analyzeTask(active, values, locale) : null;
+  const analysisText = {
+    zh: {title:'需求细化',intro:'根据文字匹配候选场景，请核对后使用。不会自动理解代码或图片。',task:'可选任务',evidence:'匹配词',empty:'填写具体需求后，将显示匹配场景。未匹配时仍使用所选任务的基础规范。',missing:'可补充的信息（若已写在需求中，无需重复）',apply:'切换为',details:'细分交付要求已加入元提示词；关闭元提示词辅助可移除。'},
+    en: {title:'Refine your brief',intro:'Text-based scenario suggestions; check their relevance. Code and images are not automatically understood.',task:'Possible tasks',evidence:'Matched terms',empty:'Describe your goal to see matching scenarios. Otherwise, the selected task’s base rules apply.',missing:'Optional details to add (do not repeat information already in your goal)',apply:'Switch to',details:'Scenario deliverables are included with meta-prompt guidance. Turn it off to omit them.'},
+    ja: {title:'要件を具体化',intro:'入力文から候補を照合します。適合性をご確認ください。コードや画像を自動理解する機能ではありません。',task:'タスク候補',evidence:'一致した語',empty:'具体的な目的を入力すると候補が表示されます。一致しない場合は選択中タスクの基本要件を使用します。',missing:'補足できる項目（目的に記載済みなら重複不要）',apply:'切り替え',details:'詳細な納品要件はメタプロンプト補助に含まれます。オフにすると除外できます。'}
+  }[locale];
   useEffect(() => {
     try {
       setLocale(localeOf(localStorage.getItem('ame_locale')));
@@ -178,7 +186,7 @@ export default function Home() {
   }
   function update(key: string, value: string | string[]) {
     if (locks[key]) return;
-    setValues((v) => ({ ...v, [key]: value }));
+    setValues((v) => ({ ...v, [key]: value, ...((key==='task'||key==='medium') && !locks.scenario ? {scenario:active?.fields.find(f=>f.key==='scenario')?.options[0] || ''} : {}) }));
     setEdited(null);
   }
   function word(f: Field, value: string) {
@@ -196,23 +204,6 @@ export default function Home() {
     else if (old.length < f.maxSelections && value.length <= 40)
       update(f.key, [...old, value]);
     else setNotice(t.limit);
-  }
-  function detect() {
-    if (!active) return;
-    const subject = String(values.subject || '').toLowerCase(),
-      next = { ...values };
-    fields.forEach((f) => {
-      if (locks[f.key]) return;
-      const found = getOptions(f, values).filter((x) =>
-        subject.includes(x.toLowerCase()),
-      );
-      if (found.length)
-        next[f.key] =
-          f.type === 'multi' ? found.slice(0, f.maxSelections) : found[0];
-    });
-    setValues(next);
-    setEdited(null);
-    setNotice(t.detected);
   }
   const output = active
     ? (edited ?? composeStudio(active, values, locale, meta))
@@ -498,6 +489,26 @@ export default function Home() {
                   </label>
                   <p>{t.metaHelp}</p>
                 </div>
+                {analysis && (
+                  <div className="studio-analysis" aria-live="polite">
+                    <h3>{analysisText.title}</h3>
+                    <p>{analysisText.intro}</p>
+                    {analysis.candidates.some(c=>c.id!==analysis.current) && <div className="studio-options">
+                      <span>{analysisText.task}: </span>
+                      {analysis.candidates.filter(c=>c.id!==analysis.current).map(c=><button key={c.id}
+                        disabled={!!locks[active.id==='custom-programming'?'task':'medium']}
+                        title={analysisText.evidence+': '+c.evidence.join(', ')}
+                        onClick={()=>update(active.id==='custom-programming'?'task':'medium',c.label)}>{analysisText.apply} {c.label}</button>)}
+                    </div>}
+                    {analysis.scenarios.length ? <>
+                      {analysis.scenarios.map(s=><div key={s.id}><strong>{s.labels[locale]}</strong><p>{analysisText.evidence}: {s.evidence.join(' / ')}</p><p>{s.details[locale]}</p>{s.source && <a href={s.source.url} target="_blank" rel="noreferrer">Prompts.chat · {s.source.title} · CC0</a>}</div>)}
+                      {meta && <p>{analysisText.details}</p>}
+                    </> : <p>{analysisText.empty}</p>}
+                    {!!analysis.missing.length && <details><summary>{analysisText.missing}</summary>
+                      {analysis.missing.map(key=><p key={key}><strong>{fields.find(f=>f.key===key)?.label}: </strong>{fields.find(f=>f.key===key)?.placeholder}</p>)}
+                    </details>}
+                  </div>
+                )}
                 {fields.map((f) => (
                   <div className="studio-field" key={f.key}>
                     <div className="studio-field-head">
@@ -534,6 +545,11 @@ export default function Home() {
                         value={String(values[f.key] || '')}
                         onChange={(e) => update(f.key, e.target.value)}
                       />
+                    ) : (f.key === 'scenario' || f.key === 'tool') ? (
+                      <select id={'field-'+f.key} disabled={!!locks[f.key]} value={String(values[f.key] || f.options[0])} onChange={e=>update(f.key,e.target.value)}>
+                        {!f.options.includes(String(values[f.key] || f.options[0])) && <option value={String(values[f.key])}>{String(values[f.key])} ({locale==='zh'?'当前任务不适用':locale==='ja'?'現在のタスク対象外':'not applicable to this task'})</option>}
+                        {f.options.map(o=><option key={o} value={o}>{o}</option>)}
+                      </select>
                     ) : f.type === 'text' ? (
                       <input
                         id={'field-' + f.key}
@@ -544,7 +560,8 @@ export default function Home() {
                         onChange={(e) => update(f.key, e.target.value)}
                       />
                     ) : null}
-                    <div className="studio-options">
+                    {f.key==='tool' && <p className="studio-tool-help">{toolAdapter(active,values).guidance[locale]}</p>}
+                    {f.key!=='tool' && f.key!=='scenario' && <div className="studio-options">
                       {[
                         ...new Set([
                           ...getOptions(f, values),
@@ -566,7 +583,7 @@ export default function Home() {
                           {w}
                         </button>
                       ))}
-                    </div>
+                    </div>}
                     {f.type === 'multi' && (
                       <div className="studio-add">
                         <input
@@ -602,14 +619,14 @@ export default function Home() {
                 <div className="studio-actions">
                   <button
                     onClick={() => {
-                      setValues(refreshValues({...active, fields}, values, locks));
+                      setValues(refreshValues({...active, fields}, values, {...locks,task:true,medium:true,scenario:true,tool:true}));
                       setEdited(null);
                     }}
                   >
                     <RefreshCw size={16} />
                     {t.refresh}
                   </button>
-                  <button onClick={detect}>{t.detect}</button>
+
                 </div>
               </section>
               <section className="studio-preview">

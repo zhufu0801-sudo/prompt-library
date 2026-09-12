@@ -448,3 +448,9 @@
     min-height: 380px;
   }
 }
+
+.studio-analysis{margin:16px 0;padding:16px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc;color:#334155}.studio-analysis h3{margin:0 0 8px}.studio-analysis p{font-size:14px;line-height:1.65;margin:8px 0}.studio-analysis summary{cursor:pointer;font-size:14px}.studio-analysis>div{margin:12px 0}
+.studio-field select { width:100%; min-height:44px; padding:10px 12px; border:1px solid #d4d9e2; border-radius:8px; background:#fff; color:#172033; font:inherit; font-size:14px; }
+.studio-field select:focus-visible { outline:2px solid #2962ff; outline-offset:2px; }
+.studio-tool-help { font-size:14px; line-height:1.65; color:#526178; margin:8px 0; }
+.studio-analysis a { font-size:14px; color:#255ad5; overflow-wrap:anywhere; }

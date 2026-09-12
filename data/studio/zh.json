@@ -18,7 +18,7 @@
     "sourceRecordId": null,
     "sourceUrl": null,
     "status": "published",
-    "version": 3,
+    "version": 4,
     "fields": [
       {
         "key": "task",
@@ -30,6 +30,42 @@
           "新功能开发",
           "错误排查",
           "代码审查"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配",
+          "CSV 数据处理",
+          "文件上传",
+          "异步请求竞态",
+          "日期与时区排错",
+          "数据库迁移审查",
+          "权限与访问控制审查",
+          "移动端导航",
+          "角色权限功能",
+          "登录质量检查",
+          "按证据审查代码",
+          "网页无障碍",
+          "边界与异常测试",
+          "SPA 白屏与路由"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的 AI 工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "对话助手 · Claude / Gemini / DeepSeek / ChatGPT / 豆包",
+        "options": [
+          "对话助手 · Claude / Gemini / DeepSeek / ChatGPT / 豆包",
+          "项目编程代理 · Codex / Claude Code / Cursor"
         ],
         "maxSelections": 1
       },
@@ -139,7 +175,7 @@
     "sourceRecordId": null,
     "sourceUrl": null,
     "status": "published",
-    "version": 3,
+    "version": 4,
     "fields": [
       {
         "key": "medium",
@@ -151,6 +187,40 @@
           "AI 图片",
           "图生视频 · 单镜头",
           "多镜头动画"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配",
+          "产品主视觉",
+          "角色三视图",
+          "固定机位微动",
+          "多镜头产品广告",
+          "幻想场景构图",
+          "产品九宫格",
+          "照片转九镜头分镜",
+          "六格叙事",
+          "卡通单镜头动作"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的 AI 工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用 · 可灵 / 即梦 / 其他视觉工具",
+        "options": [
+          "通用 · 可灵 / 即梦 / 其他视觉工具",
+          "Midjourney · 图片",
+          "Stable Diffusion / ComfyUI · 图片",
+          "Runway Gen-4 · 视频"
         ],
         "maxSelections": 1
       },

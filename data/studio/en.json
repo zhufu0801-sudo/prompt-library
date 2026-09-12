@@ -18,7 +18,7 @@
     "sourceRecordId": null,
     "sourceUrl": null,
     "status": "published",
-    "version": 3,
+    "version": 4,
     "fields": [
       {
         "key": "task",
@@ -30,6 +30,42 @@
           "Feature implementation",
           "Debugging",
           "Code review"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Auto match",
+        "options": [
+          "Auto match",
+          "CSV processing",
+          "File upload",
+          "Async request races",
+          "Date and timezone errors",
+          "Database migration review",
+          "Authorization review",
+          "Mobile navigation",
+          "Role-based application",
+          "Login quality checks",
+          "Evidence-based review",
+          "Web accessibility",
+          "Boundary and failure tests",
+          "SPA rendering and routing"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "Target AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Chat assistant · Claude / Gemini / DeepSeek / ChatGPT / Doubao",
+        "options": [
+          "Chat assistant · Claude / Gemini / DeepSeek / ChatGPT / Doubao",
+          "Project coding agent · Codex / Claude Code / Cursor"
         ],
         "maxSelections": 1
       },
@@ -139,7 +175,7 @@
     "sourceRecordId": null,
     "sourceUrl": null,
     "status": "published",
-    "version": 3,
+    "version": 4,
     "fields": [
       {
         "key": "medium",
@@ -151,6 +187,40 @@
           "AI image",
           "Image-to-video · single shot",
           "Multi-shot animation"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Auto match",
+        "options": [
+          "Auto match",
+          "Product hero image",
+          "Character turnaround",
+          "Fixed-camera subtle motion",
+          "Multi-shot product ad",
+          "Fantasy composition",
+          "Nine-panel product grid",
+          "Photo-to-storyboard",
+          "Six-beat narrative",
+          "Cartoon single-shot motion"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "Target AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General · Kling / Jimeng / other visual tools",
+        "options": [
+          "General · Kling / Jimeng / other visual tools",
+          "Midjourney · images",
+          "Stable Diffusion / ComfyUI · images",
+          "Runway Gen-4 · video"
         ],
         "maxSelections": 1
       },

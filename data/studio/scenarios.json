@@ -1,0 +1,210 @@
+[
+  {
+    "id": "csv",
+    "task": "build",
+    "terms": [
+      "csv",
+      "销售报表",
+      "売上集計"
+    ],
+    "labels": {
+      "zh": "CSV 数据处理",
+      "en": "CSV processing",
+      "ja": "CSVデータ処理"
+    },
+    "details": {
+      "zh": "明确输入列、编码、日期格式、缺失值和去重规则；交付字段映射、正常与异常样例、逐行错误报告和可重复运行的导出步骤。不能把未知列名当作事实。",
+      "en": "Specify input columns, encoding, date formats, missing-value and deduplication policies. Deliver field mappings, valid/invalid examples, row-level errors and repeatable exports. Do not invent unknown column names.",
+      "ja": "列名・文字コード・日付形式・欠損値・重複の扱いを明確にし、項目対応、正常／異常データ例、行別エラー、再実行可能な出力手順を提示。未知の列名は断定しない。"
+    }
+  },
+  {
+    "id": "upload",
+    "task": "build",
+    "terms": [
+      "上传",
+      "upload",
+      "アップロード"
+    ],
+    "labels": {
+      "zh": "文件上传",
+      "en": "File upload",
+      "ja": "ファイルアップロード"
+    },
+    "details": {
+      "zh": "明确文件类型、单文件与总大小、存储位置和访问权限；前后端双重校验，包含取消、超时、重试、重复提交和临时文件清理；给出请求响应及失败样例。",
+      "en": "Define file types, per-file and total size limits, storage and access rights. Validate on client and server; address cancellation, timeout, retry, duplicates and temporary-file cleanup. Include request/response and failure examples.",
+      "ja": "形式・個別／合計容量・保存先・アクセス権を定義。クライアントとサーバーで検証し、中止・タイムアウト・再試行・重複・一時ファイル削除、API入出力と失敗例を示す。"
+    }
+  },
+  {
+    "id": "race",
+    "task": "debug",
+    "terms": [
+      "竞态",
+      "旧请求",
+      "stale response",
+      "race condition",
+      "古いリクエスト",
+      "競合"
+    ],
+    "labels": {
+      "zh": "异步请求竞态",
+      "en": "Async request races",
+      "ja": "非同期リクエスト競合"
+    },
+    "details": {
+      "zh": "画出请求发出和返回顺序，区分取消网络请求与忽略过期响应；只对证据支持的根因下结论，给出最小补丁，验证快速输入、清空、卸载和失败重试。",
+      "en": "Show request/response ordering; distinguish cancellation from discarding stale responses. Confirm causes only with evidence, provide a minimal patch, and test rapid input, clearing, unmounting and retry.",
+      "ja": "送信と応答の順序を示し、中止と古い応答の無視を区別。根拠のある原因だけ断定し、最小修正と連続入力・消去・アンマウント・再試行の確認を提示。"
+    }
+  },
+  {
+    "id": "timezone",
+    "task": "debug",
+    "terms": [
+      "时区",
+      "跨日",
+      "timezone",
+      "midnight",
+      "タイムゾーン",
+      "深夜"
+    ],
+    "labels": {
+      "zh": "日期与时区排错",
+      "en": "Date and timezone errors",
+      "ja": "日付・タイムゾーン不具合"
+    },
+    "details": {
+      "zh": "分别核对原始时间值、解析方式、数据库保存、显示时区和聚合边界；交付可复现时间样例、最小修复和跨日跨月测试，目标地区存在夏令时时再补充对应测试。",
+      "en": "Check raw timestamps, parsing, database storage, display timezone and aggregation boundaries separately. Deliver reproducible timestamps, a minimal fix and day/month-boundary tests; include DST only where applicable.",
+      "ja": "元の時刻、解析、DB保存、表示タイムゾーン、集計境界を分けて確認。再現用時刻、最小修正、日／月境界のテストを示し、対象地域に夏時間がある場合のみ追加検証。"
+    }
+  },
+  {
+    "id": "migration",
+    "task": "review",
+    "terms": [
+      "数据库迁移",
+      "migration",
+      "DB移行",
+      "マイグレーション"
+    ],
+    "labels": {
+      "zh": "数据库迁移审查",
+      "en": "Database migration review",
+      "ja": "DB移行レビュー"
+    },
+    "details": {
+      "zh": "检查既有数据兼容性、锁表时间、索引创建、分批回填及新旧应用共存；列出执行前检查、迁移顺序、停止条件、回滚能力和不可逆步骤。未提供数据库版本与规模时明确限制。",
+      "en": "Check existing-data compatibility, lock duration, index creation, batched backfills and old/new app coexistence. List prechecks, migration order, stop conditions, rollback capabilities and irreversible steps. State limits when version or scale is unknown.",
+      "ja": "既存データ互換性、ロック時間、インデックス作成、分割バックフィル、新旧アプリ共存を確認。事前確認・順序・中止条件・復旧可能範囲・不可逆操作を列挙し、DB版や規模が不明なら限界を明示。"
+    }
+  },
+  {
+    "id": "access",
+    "task": "review",
+    "terms": [
+      "鉴权",
+      "越权",
+      "权限",
+      "authorization",
+      "access control",
+      "認可",
+      "アクセス権"
+    ],
+    "labels": {
+      "zh": "权限与访问控制审查",
+      "en": "Authorization review",
+      "ja": "認可・アクセス制御レビュー"
+    },
+    "details": {
+      "zh": "按角色、资源归属和操作类型列出权限矩阵；检查服务端是否实际执行权限校验，区分未登录、无权、资源不存在三种情况；为跨用户访问提供脱敏的复现和回归测试。",
+      "en": "Build a role/resource/action permission matrix. Verify server-side enforcement and distinguish unauthenticated, forbidden and missing-resource cases. Use sanitized cross-user reproductions and regression tests.",
+      "ja": "役割・リソース所有者・操作別の権限表を作成し、サーバー側検証を確認。未認証・権限不足・対象なしを区別し、機密を除いた他ユーザーアクセスの再現と回帰テストを提示。"
+    }
+  },
+  {
+    "id": "product",
+    "task": "image",
+    "terms": [
+      "产品",
+      "商品",
+      "product",
+      "bottle",
+      "ボトル"
+    ],
+    "labels": {
+      "zh": "产品主视觉",
+      "en": "Product hero image",
+      "ja": "商品キービジュアル"
+    },
+    "details": {
+      "zh": "明确产品数量、形状比例、材质、标签、机位、背景与留白；区分必须保留的真实外观与可创作元素；文字建议后期排版，不编造产品功能或品牌标识。输出可复制的静态提示词。",
+      "en": "Specify count, proportions, material, labels, camera angle, background and copy space. Separate fixed product details from creative choices. Suggest later typesetting; invent no features or brand marks. Deliver a copyable still-image prompt.",
+      "ja": "数量・形状比率・素材・ラベル・視点・背景・余白を指定。実物に忠実な要素と創作可能な要素を区別し、文字は後工程を提案。機能やブランドを捏造せず静止画プロンプトを納品。"
+    }
+  },
+  {
+    "id": "turnaround",
+    "task": "image",
+    "terms": [
+      "三视图",
+      "turnaround",
+      "三面図"
+    ],
+    "labels": {
+      "zh": "角色三视图",
+      "en": "Character turnaround",
+      "ja": "キャラクター三面図"
+    },
+    "details": {
+      "zh": "建立角色固定设定表，分开描述正面、侧面、背面；统一身高比例、服装结构、配件位置、画风和光照；各视角单独提供提示词，并列出跨视图核对项目。",
+      "en": "Create fixed character specifications and separate front, side and back descriptions. Keep proportions, garment construction, accessories, style and light consistent. Provide per-view prompts and a cross-view checklist.",
+      "ja": "固定キャラクター設定と正面・側面・背面を分けて記載。体格・衣装構造・装備位置・画風・光を統一し、方向別プロンプトと三面の整合チェック項目を提示。"
+    }
+  },
+  {
+    "id": "stillmotion",
+    "task": "clip",
+    "terms": [
+      "镜头固定",
+      "静止",
+      "fixed camera",
+      "stationary",
+      "still as",
+      "固定カメラ",
+      "カメラは固定"
+    ],
+    "labels": {
+      "zh": "固定机位微动",
+      "en": "Fixed-camera subtle motion",
+      "ja": "固定カメラの微細動作"
+    },
+    "details": {
+      "zh": "划分固定区域和可动区域，只安排少量顺序清楚的动作；明确首帧、动作幅度、节奏和结束停留，避免同时要求固定镜头和运镜；保持单镜头，不自动加入转场。",
+      "en": "Separate fixed and moving regions; use a few clearly ordered actions. Define the first frame, motion amplitude, pacing and final hold. Resolve fixed-camera versus camera-move conflicts. Keep one shot without added transitions.",
+      "ja": "固定領域と可動領域を分け、少数の動作を順番に指定。開始フレーム・振幅・テンポ・終了時の静止を明確化し、固定とカメラ移動の矛盾を解消。1カットを維持。"
+    }
+  },
+  {
+    "id": "ad",
+    "task": "storyboard",
+    "terms": [
+      "广告",
+      "advert",
+      " ad ",
+      "広告"
+    ],
+    "labels": {
+      "zh": "多镜头产品广告",
+      "en": "Multi-shot product ad",
+      "ja": "複数カットの商品広告"
+    },
+    "details": {
+      "zh": "按展示产品、使用动作、品牌收尾分配镜头；每镜明确时长、卖点证据、字幕留白和资产连续性，时长总和必须准确；不虚构功效，静态关键帧与视频动作提示词分开输出。",
+      "en": "Allocate shots to product introduction, usage and brand closing. Specify duration, evidence for claims, text space and asset continuity, with exact total timing. Invent no benefits; separate keyframe and motion prompts.",
+      "ja": "商品紹介・使用動作・ブランド締めにカットを配分。尺・訴求の根拠・文字用余白・素材の連続性を示し合計尺を一致させる。効果を捏造せず静止画と動作プロンプトを分離。"
+    }
+  }
+]

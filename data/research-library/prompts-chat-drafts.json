@@ -1,0 +1,182 @@
+[
+  {
+    "id": "pc-draft-writing",
+    "category": "writing",
+    "status": "draft",
+    "source": {
+      "recordIndex": 83,
+      "title": "Essay Writer",
+      "contributor": "devisasari",
+      "license": "CC0-1.0",
+      "commit": "f78a1c5136fa080155d928e0d7e2b4a41ddef03e",
+      "url": "https://github.com/f/prompts.chat/blob/f78a1c5136fa080155d928e0d7e2b4a41ddef03e/prompts.csv"
+    },
+    "localizations": {
+      "zh": {
+        "title": "润色与论证",
+        "prompt": "根据我提供的原文、读者、用途和字数要求，交付可直接使用的修订稿。保留事实、数字、专名和核心立场；整理主张、证据、段落衔接，删除重复套话。缺少证据标为待补，不编造引文。成稿后给最多五项实质修改和必须确认的歧义，不擅自添加原文没有的结论。原文：{{source}}；读者与用途：{{audience}}；字数和风格：{{constraints}}。",
+        "status": "editorial-draft"
+      },
+      "en": {
+        "title": "Revision and argument",
+        "prompt": "Produce a ready-to-use revision of the supplied text for its audience, purpose and length. Preserve facts, figures, names and the central position. Improve claims, evidence and paragraph flow; remove repetition. Flag missing evidence without inventing citations. Follow the revision with up to five substantive changes and essential ambiguities. Do not add unsupported conclusions. Text: {{source}}; audience/purpose: {{audience}}; length/style: {{constraints}}.",
+        "status": "editorial-draft"
+      },
+      "ja": {
+        "title": "推敲と論証",
+        "prompt": "原文を読者・用途・字数に合わせ、そのまま使える文章に推敲する。事実、数値、固有名詞、中心の立場を維持し、主張、根拠、段落のつながりを整え、重複を削る。不足する根拠を明示し、引用を捏造しない。完成稿の後に主要変更を最大5件と重要な曖昧点を示す。原文：{{source}}、読者・用途：{{audience}}、字数・文体：{{constraints}}。",
+        "status": "editorial-draft"
+      }
+    }
+  },
+  {
+    "id": "pc-draft-translation",
+    "category": "translation",
+    "status": "draft",
+    "source": {
+      "recordIndex": 2,
+      "title": "English Translator and Improver",
+      "contributor": "f",
+      "license": "CC0-1.0",
+      "commit": "f78a1c5136fa080155d928e0d7e2b4a41ddef03e",
+      "url": "https://github.com/f/prompts.chat/blob/f78a1c5136fa080155d928e0d7e2b4a41ddef03e/prompts.csv"
+    },
+    "localizations": {
+      "zh": {
+        "title": "语境翻译",
+        "prompt": "将原文译为目标语言，按使用场景选择自然表达和礼貌程度，保留数字、专名、格式与事实。遵守提供的术语表；同一术语保持一致，不为了华丽而改变意思。交付完整译文，另列影响含义的歧义、文化转换和待核实术语。原文：{{source}}；目标语言与地区：{{language}}；用途和术语：{{context}}。",
+        "status": "editorial-draft"
+      },
+      "en": {
+        "title": "Contextual translation",
+        "prompt": "Translate the complete source into the target language and locale, using natural phrasing and suitable formality. Preserve figures, names, formatting and facts. Follow the glossary consistently and never change meaning merely to sound elegant. Provide the translation, then material ambiguities, cultural adaptations and terms needing verification. Source: {{source}}; language/locale: {{language}}; purpose/glossary: {{context}}.",
+        "status": "editorial-draft"
+      },
+      "ja": {
+        "title": "文脈に沿う翻訳",
+        "prompt": "対象言語・地域と用途に合う自然な表現と敬語で全文を翻訳する。数値、固有名詞、書式、事実を保持し、用語集を一貫して使う。美文にするために意味を変えない。訳文の後に意味に関わる曖昧点、文化的調整、確認が必要な用語を別記する。原文：{{source}}、言語・地域：{{language}}、用途・用語集：{{context}}。",
+        "status": "editorial-draft"
+      }
+    }
+  },
+  {
+    "id": "pc-draft-education",
+    "category": "education",
+    "status": "draft",
+    "source": {
+      "recordIndex": 81,
+      "title": "Educational Content Creator",
+      "contributor": "devisasari",
+      "license": "CC0-1.0",
+      "commit": "f78a1c5136fa080155d928e0d7e2b4a41ddef03e",
+      "url": "https://github.com/f/prompts.chat/blob/f78a1c5136fa080155d928e0d7e2b4a41ddef03e/prompts.csv"
+    },
+    "localizations": {
+      "zh": {
+        "title": "学习单元设计",
+        "prompt": "根据学习者基础和时长制作一份可直接教学的学习单元：可测量目标、前置知识检查、逐步讲解、一个完整示例、三道递进练习、答案与常见错误反馈，最后给自测标准。控制在指定时长，不假定学生懂未教术语。主题：{{topic}}；基础：{{level}}；时长：{{duration}}。",
+        "status": "editorial-draft"
+      },
+      "en": {
+        "title": "Learning unit design",
+        "prompt": "Create a ready-to-teach unit matched to learner level and available time: measurable objectives, prerequisite check, staged explanation, one worked example, three progressive exercises, answers and feedback on common errors, then self-assessment criteria. Stay within the time budget and explain new terms. Topic: {{topic}}; level: {{level}}; duration: {{duration}}.",
+        "status": "editorial-draft"
+      },
+      "ja": {
+        "title": "学習単元の設計",
+        "prompt": "学習者の水準と時間に合う授業単元を作る。測定可能な目標、前提知識の確認、段階的な説明、解説付き例題、難度が上がる練習3問、解答と誤りへのフィードバック、自己評価基準を含める。未習語を説明し、時間内に収める。テーマ：{{topic}}、水準：{{level}}、時間：{{duration}}。",
+        "status": "editorial-draft"
+      }
+    }
+  },
+  {
+    "id": "pc-draft-research",
+    "category": "research",
+    "status": "draft",
+    "source": {
+      "recordIndex": 71,
+      "title": "Academician",
+      "contributor": "devisasari",
+      "license": "CC0-1.0",
+      "commit": "f78a1c5136fa080155d928e0d7e2b4a41ddef03e",
+      "url": "https://github.com/f/prompts.chat/blob/f78a1c5136fa080155d928e0d7e2b4a41ddef03e/prompts.csv"
+    },
+    "localizations": {
+      "zh": {
+        "title": "资料证据梳理",
+        "prompt": "围绕研究问题整理提供的资料，交付核心结论、证据表、不同观点、局限与待查问题。证据表逐项写主张、来源、日期、支持范围和不确定性。只引用实际读到的资料，区分事实与推断；不能联网时明确检索尚未完成，不编造论文、DOI或页码。问题：{{question}}；资料：{{sources}}；范围：{{scope}}。",
+        "status": "editorial-draft"
+      },
+      "en": {
+        "title": "Evidence synthesis",
+        "prompt": "Synthesize the supplied material around the research question. Deliver key findings, an evidence table, disagreements, limitations and open questions. Map each claim to its source, date, support boundaries and uncertainty. Cite only material actually inspected and distinguish facts from inference. Without browsing, mark the search incomplete; never invent papers, DOIs or pages. Question: {{question}}; sources: {{sources}}; scope: {{scope}}.",
+        "status": "editorial-draft"
+      },
+      "ja": {
+        "title": "資料と根拠の整理",
+        "prompt": "研究上の問いに沿って提供資料を整理し、主要結果、根拠表、異論、限界、未解決の問いを示す。主張ごとに出典、日付、裏付けの範囲、不確実性を対応付ける。実際に読んだ資料のみ引用し、事実と推論を分ける。検索できない場合は未完了とし、論文、DOI、ページを捏造しない。問い：{{question}}、資料：{{sources}}、範囲：{{scope}}。",
+        "status": "editorial-draft"
+      }
+    }
+  },
+  {
+    "id": "pc-draft-work",
+    "category": "work",
+    "status": "draft",
+    "source": {
+      "recordIndex": 626,
+      "title": "Default Meeting Summary",
+      "contributor": "elmehdibenyoussef@gmail.com",
+      "license": "CC0-1.0",
+      "commit": "f78a1c5136fa080155d928e0d7e2b4a41ddef03e",
+      "url": "https://github.com/f/prompts.chat/blob/f78a1c5136fa080155d928e0d7e2b4a41ddef03e/prompts.csv"
+    },
+    "localizations": {
+      "zh": {
+        "title": "会议纪要与行动项",
+        "prompt": "仅依据会议记录生成摘要、已决定事项、未决问题和行动表。每项行动写任务、负责人、期限与对应原文位置；没有提到的负责人或日期写未指定。区分建议与决定，保留反对意见及依赖，不替参会者承诺。疑似转写错误单独列出供核对。记录：{{transcript}}；输出语言：{{language}}。",
+        "status": "editorial-draft"
+      },
+      "en": {
+        "title": "Meeting notes and actions",
+        "prompt": "Use only the transcript to produce a summary, decisions, open questions and an action table. Each action needs task, owner, due date and transcript reference. Mark absent owners or dates as unspecified. Separate proposals from decisions; preserve objections and dependencies without making commitments for participants. List possible transcription errors separately. Transcript: {{transcript}}; output language: {{language}}.",
+        "status": "editorial-draft"
+      },
+      "ja": {
+        "title": "議事録とアクション",
+        "prompt": "議事記録のみを根拠に概要、決定事項、未決事項、アクション表を作る。各行に作業、担当、期限、原文位置を付け、未記載の担当・日付は未指定とする。提案と決定を分け、異論と依存関係を残し、参加者の約束を勝手に作らない。転記ミスの疑いを別記する。記録：{{transcript}}、出力言語：{{language}}。",
+        "status": "editorial-draft"
+      }
+    }
+  },
+  {
+    "id": "pc-draft-content",
+    "category": "content",
+    "status": "draft",
+    "source": {
+      "recordIndex": 84,
+      "title": "Social Media Manager",
+      "contributor": "devisasari",
+      "license": "CC0-1.0",
+      "commit": "f78a1c5136fa080155d928e0d7e2b4a41ddef03e",
+      "url": "https://github.com/f/prompts.chat/blob/f78a1c5136fa080155d928e0d7e2b4a41ddef03e/prompts.csv"
+    },
+    "localizations": {
+      "zh": {
+        "title": "内容选题与发布草案",
+        "prompt": "按目标受众、平台与资源规划一周内容，交付每天的主题、受众问题、开头、可直接编辑的正文、配图需求与行动引导。每条对应一个可衡量目标，区分待核实事实和创意。避免虚假效果承诺，不自动发布或代回复。补充测试变量与复盘指标，未知基线不捏造。品牌与受众：{{audience}}；平台：{{platform}}；资料与限制：{{materials}}。",
+        "status": "editorial-draft"
+      },
+      "en": {
+        "title": "Content planning drafts",
+        "prompt": "Plan one week of content for the audience, platform and resources. For each day provide topic, audience question, hook, editable copy, visual brief and call to action tied to one measurable goal. Separate creative ideas from facts to verify; avoid false performance promises. Do not publish or reply automatically. Add testing variables and review metrics without inventing baselines. Brand/audience: {{audience}}; platform: {{platform}}; material/constraints: {{materials}}.",
+        "status": "editorial-draft"
+      },
+      "ja": {
+        "title": "コンテンツ企画案",
+        "prompt": "読者、媒体、制作資源に合う1週間の企画を作る。各日にテーマ、読者の疑問、導入、編集可能な本文、画像要件、行動案内を置き、測れる目標一つに対応させる。創作と要確認の事実を分け、成果を虚偽保証せず自動投稿・返信しない。比較変数と振り返り指標を示し、基準値を捏造しない。ブランド・読者：{{audience}}、媒体：{{platform}}、資料・制約：{{materials}}。",
+        "status": "editorial-draft"
+      }
+    }
+  }
+]
