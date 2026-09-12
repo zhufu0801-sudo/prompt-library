@@ -1,0 +1,2 @@
+# Preserve the pinned upstream byte hash on Windows and Linux.
+data/sources/prompts-chat/prompts.csv -text
