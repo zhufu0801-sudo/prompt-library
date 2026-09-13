@@ -55,7 +55,8 @@
           "Boundary and failure tests",
           "SPA rendering and routing",
           "Browser form and editing tests",
-          "API validation and error contracts"
+          "API validation and error contracts",
+          "Request cancellation, timeout and cleanup"
         ],
         "maxSelections": 1
       },
