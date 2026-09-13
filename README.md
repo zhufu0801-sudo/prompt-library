@@ -1,6 +1,7 @@
 # AI Made Easy
 
 Open-source prompt studio / 三语提示词工作室 / 3言語対応プロンプトスタジオ。
+Latest learning batch: browser form tests and API error contracts, based on reading concrete Playwright/FastAPI source files. Current scenario catalog: 26 published + 8 drafts, 102 localized entries. See [source review and continuation notes](docs/GITHUB-LEARNING-2026-09-13.md).
 Original code and editorial content use the MIT license; upstream content retains its own notices (see LICENSE).
 
 2026-09-13: added scene-map/camera-grid and spatial-continuity workflows in Chinese, English and Japanese. The scenario catalog contains 24 published scenarios and 8 offline drafts (96 localized entries). Homepage modules remain programming and animation/images. See [spatial workflow notes](docs/SPATIAL-CONTINUITY.md). Prompt generation is rule-based; the site does not call a model or verify generated media.

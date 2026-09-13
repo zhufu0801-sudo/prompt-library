@@ -53,7 +53,9 @@
           "Evidence-based review",
           "Web accessibility",
           "Boundary and failure tests",
-          "SPA rendering and routing"
+          "SPA rendering and routing",
+          "Browser form and editing tests",
+          "API validation and error contracts"
         ],
         "maxSelections": 1
       },

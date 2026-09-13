@@ -12,6 +12,20 @@ import {
 } from '../lib/studio.ts';
 import { defaultValues } from '../lib/prompt.ts';
 const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.json',import.meta.url),'utf8'));
+test('engineering scenarios compose and translate without crossing task boundaries',()=>{
+ const scenes=JSON.parse(fs.readFileSync(new URL('../data/studio/engineering-scenarios.json',import.meta.url),'utf8'));
+ for(const locale of ['zh','en','ja']) for(const s of scenes) {
+  const t=load(locale)[0],g=guides.find(g=>g.id===s.task);
+  const v={...defaultValues(t),task:g.labels[locale],scenario:s.labels[locale],subject:'Existing code {{materials}}'};
+  assert.equal(analyzeTask(t,v,locale).scenarios[0].id,s.id);
+  assert.ok(composeStudio(t,v,locale).includes(s.details[locale]));
+  assert.ok(composeStudio(t,v,locale).includes('Existing code {{materials}}'));
+  assert.ok(!composeStudio(t,v,locale,false).includes(s.details[locale]));
+  assert.equal(taskFields(t,v,locale).find(f=>f.key==='subject').placeholder,s.examples[locale]);
+  assert.equal(translateValues(t,load('ja')[0],v,{}).scenario,s.labels.ja);
+  assert.ok(!analyzeTask(t,{...v,task:guides.find(g=>g.id==='review').labels[locale]},locale).scenarios.some(x=>x.id===s.id));
+ }
+});
 test('spatial workflows stay in their task, localize selection and preserve custom text',()=>{
  const scenes=JSON.parse(fs.readFileSync(new URL('../data/studio/spatial-scenarios.json',import.meta.url),'utf8'));
  for(const locale of ['zh','en','ja']) for(const s of scenes) {
