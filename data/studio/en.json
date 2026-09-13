@@ -59,7 +59,19 @@
           "Request cancellation, timeout and cleanup",
           "Pagination, filters and stable ordering",
           "Background tasks and execution states",
-          "Upload endpoint and file validation review"
+          "Upload endpoint and file validation review",
+          "Form validation and errors",
+          "Create, edit and delete records",
+          "Keyword search and empty results",
+          "File downloads and CSV export",
+          "Dependency installation conflicts",
+          "Type mismatches and contracts",
+          "Null and undefined runtime errors",
+          "Expired sessions and login loops",
+          "Duplicate lists and state updates",
+          "Mobile layout and overflow",
+          "Page and API performance review",
+          "Configuration and secret handling"
         ],
         "maxSelections": 1
       },

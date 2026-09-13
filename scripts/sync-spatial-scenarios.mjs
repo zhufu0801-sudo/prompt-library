@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 const root=new URL('../',import.meta.url);
-const scenarios=['spatial-scenarios','engineering-scenarios','code-and-shots'].flatMap(name=>JSON.parse(fs.readFileSync(new URL(`data/studio/${name}.json`,root),'utf8')));
+const scenarios=['spatial-scenarios','engineering-scenarios','code-and-shots','everyday-scenarios'].flatMap(name=>JSON.parse(fs.readFileSync(new URL(`data/studio/${name}.json`,root),'utf8')));
 for(const locale of ['zh','en','ja']) {
  const file=new URL(`data/studio/${locale}.json`,root);
  const items=JSON.parse(fs.readFileSync(file,'utf8'));

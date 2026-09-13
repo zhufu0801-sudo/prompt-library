@@ -7,7 +7,7 @@ csv.field_size_limit(10000000)
 raw=(root/'data/sources/prompts-chat/prompts.csv').read_bytes()
 assert hashlib.sha256(raw).hexdigest()==manifest['sha256']
 rows=list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig'))))
-scenarios=read('data/studio/scenarios.json')+read('data/studio/prompts-chat-curated.json')+read('data/studio/spatial-scenarios.json')+read('data/studio/engineering-scenarios.json')+read('data/studio/code-and-shots.json')
+scenarios=read('data/studio/scenarios.json')+read('data/studio/prompts-chat-curated.json')+read('data/studio/spatial-scenarios.json')+read('data/studio/engineering-scenarios.json')+read('data/studio/code-and-shots.json')+read('data/studio/everyday-scenarios.json')
 drafts=read('data/research-library/prompts-chat-drafts.json')+read('data/research-library/learning-2026-09-13.json')
 db=sqlite3.connect(root/'database/scenario-library.sqlite')
 db.execute('PRAGMA foreign_keys=ON')

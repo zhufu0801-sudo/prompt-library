@@ -12,6 +12,21 @@ import {
 } from '../lib/studio.ts';
 import { defaultValues } from '../lib/prompt.ts';
 const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.json',import.meta.url),'utf8'));
+test('everyday programming scenarios translate, preserve prose and filter by task',()=>{
+ const scenes=JSON.parse(fs.readFileSync(new URL('../data/studio/everyday-scenarios.json',import.meta.url),'utf8'));
+ for(const locale of ['zh','en','ja']) for(const s of scenes) {
+  const t=load(locale)[0],g=guides.find(g=>g.id===s.task);
+  const v={...defaultValues(t),task:g.labels[locale],scenario:s.labels[locale],subject:'User input {{materials}}'};
+  assert.equal(analyzeTask(t,v,locale).scenarios[0].id,s.id);
+  assert.ok(composeStudio(t,v,locale).includes(s.details[locale]));
+  assert.ok(composeStudio(t,v,locale).includes('User input {{materials}}'));
+  assert.ok(!composeStudio(t,v,locale,false).includes(s.details[locale]));
+  assert.equal(taskFields(t,v,locale).find(f=>f.key==='subject').placeholder,s.examples[locale]);
+  assert.equal(translateValues(t,load('en')[0],v,{}).scenario,s.labels.en);
+  const other=guides.find(g=>g.group==='programming'&&g.id!==s.task);
+  assert.ok(!taskFields(t,{...v,task:other.labels[locale]},locale).find(f=>f.key==='scenario').options.includes(s.labels[locale]));
+ }
+});
 test('code and shot-size scenarios stay distinct and translate in every locale',()=>{
  const scenes=JSON.parse(fs.readFileSync(new URL('../data/studio/code-and-shots.json',import.meta.url),'utf8'));
  for(const locale of ['zh','en','ja']) for(const s of scenes) {

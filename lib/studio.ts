@@ -7,8 +7,9 @@ import adapters from '../data/studio/tool-adapters.json' with { type: 'json' };
 import spatialScenarios from '../data/studio/spatial-scenarios.json' with { type: 'json' };
 import engineeringScenarios from '../data/studio/engineering-scenarios.json' with { type: 'json' };
 import codeAndShots from '../data/studio/code-and-shots.json' with { type: 'json' };
+import everydayScenarios from '../data/studio/everyday-scenarios.json' with { type: 'json' };
 type Scenario = typeof originalScenarios[number] & {source?: typeof curatedScenarios[number]['source']};
-const scenarios: Scenario[] = [...originalScenarios, ...curatedScenarios, ...spatialScenarios, ...engineeringScenarios, ...codeAndShots];
+const scenarios: Scenario[] = [...originalScenarios, ...curatedScenarios, ...spatialScenarios, ...engineeringScenarios, ...codeAndShots, ...everydayScenarios];
 export type Locale = 'zh' | 'en' | 'ja';
 export const studioIds = ['custom-programming', 'custom-animation'];
 export function localeOf(value: string | null): Locale {
@@ -97,7 +98,7 @@ export function taskFields(t: Template, values: Values, locale: Locale): (Field 
   if (!studioIds.includes(t.id)) return t.fields;
   const overrides = inputs[taskGuide(t, values).id as keyof typeof inputs][locale] as Record<string, Partial<Field> & {placeholder?: string}>;
   const current = taskGuide(t, values).id;
-  const selected = [...curatedScenarios, ...spatialScenarios, ...engineeringScenarios, ...codeAndShots].find(s=>s.task===current && Object.values(s.labels).includes(String(values.scenario || '')));
+  const selected = [...curatedScenarios, ...spatialScenarios, ...engineeringScenarios, ...codeAndShots, ...everydayScenarios].find(s=>s.task===current && Object.values(s.labels).includes(String(values.scenario || '')));
   return t.fields.map(f => {
     const field = {...f, ...overrides[f.key]};
     if (f.key === 'scenario') field.options = [f.options[0],...scenarios.filter(s=>s.task===current).map(s=>s.labels[locale])];
