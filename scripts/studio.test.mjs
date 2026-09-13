@@ -12,6 +12,21 @@ import {
 } from '../lib/studio.ts';
 import { defaultValues } from '../lib/prompt.ts';
 const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.json',import.meta.url),'utf8'));
+test('code and shot-size scenarios stay distinct and translate in every locale',()=>{
+ const scenes=JSON.parse(fs.readFileSync(new URL('../data/studio/code-and-shots.json',import.meta.url),'utf8'));
+ for(const locale of ['zh','en','ja']) for(const s of scenes) {
+  const g=guides.find(g=>g.id===s.task),t=load(locale)[g.group==='programming'?0:1];
+  const key=g.group==='programming'?'task':'medium';
+  const v={...defaultValues(t),[key]:g.labels[locale],scenario:s.labels[locale],subject:'Custom subject {{materials}}'};
+  assert.equal(analyzeTask(t,v,locale).scenarios[0].id,s.id);
+  const output=composeStudio(t,v,locale);
+  assert.ok(output.includes(s.details[locale]));
+  assert.ok(output.includes('Custom subject {{materials}}'));
+  assert.equal(taskFields(t,v,locale).find(f=>f.key==='subject').placeholder,s.examples[locale]);
+  assert.equal(translateValues(t,load('en')[g.group==='programming'?0:1],v,{}).scenario,s.labels.en);
+  for(const other of scenes.filter(x=>x.id!==s.id)) assert.ok(!output.includes(other.details[locale]));
+ }
+});
 test('engineering scenarios compose and translate without crossing task boundaries',()=>{
  const scenes=JSON.parse(fs.readFileSync(new URL('../data/studio/engineering-scenarios.json',import.meta.url),'utf8'));
  for(const locale of ['zh','en','ja']) for(const s of scenes) {

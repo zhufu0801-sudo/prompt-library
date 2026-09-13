@@ -56,7 +56,10 @@
           "SPA rendering and routing",
           "Browser form and editing tests",
           "API validation and error contracts",
-          "Request cancellation, timeout and cleanup"
+          "Request cancellation, timeout and cleanup",
+          "Pagination, filters and stable ordering",
+          "Background tasks and execution states",
+          "Upload endpoint and file validation review"
         ],
         "maxSelections": 1
       },
@@ -211,7 +214,10 @@
           "Six-beat narrative",
           "Cartoon single-shot motion",
           "Scene map and nine camera views",
-          "Spatial continuity and shot planning"
+          "Spatial continuity and shot planning",
+          "Close shot: expression and detail",
+          "Medium shot: action and interaction",
+          "Wide shot: space and blocking"
         ],
         "maxSelections": 1
       },

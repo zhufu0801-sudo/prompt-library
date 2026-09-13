@@ -1,6 +1,7 @@
 # AI Made Easy
 
 Open-source prompt studio / 三语提示词工作室 / 3言語対応プロンプトスタジオ。
+Current update: pagination, background jobs, upload review and close/medium/wide video prompts. Scenario catalog: **33 published + 8 drafts, 123 localizations**. See [code and shot-size notes](docs/CODE-AND-SHOT-SIZES.md). Counts in older batch notes describe their historical snapshots.
 Latest learning batch: request cancellation, timeout cleanup and stronger stale-response handling, based on reading Axios source and tests. Current scenario catalog: 27 published + 8 drafts, 105 localized entries. See [source review and continuation notes](docs/GITHUB-LEARNING-CANCELLATION.md). Earlier Playwright/FastAPI review remains in [batch 2](docs/GITHUB-LEARNING-2026-09-13.md).
 Original code and editorial content use the MIT license; upstream content retains its own notices (see LICENSE).
 

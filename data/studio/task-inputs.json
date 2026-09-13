@@ -539,6 +539,9 @@
       },
       "style": {
         "placeholder": "填写本次交付的格式或视觉风格偏好。"
+      },
+      "scenario": {
+        "label": "景别与具体场景"
       }
     },
     "en": {
@@ -580,6 +583,9 @@
       },
       "style": {
         "placeholder": "Specify the delivery format or visual style for this task."
+      },
+      "scenario": {
+        "label": "Shot size and scenario"
       }
     },
     "ja": {
@@ -621,6 +627,9 @@
       },
       "style": {
         "placeholder": "今回の納品形式、または映像・画像のスタイルを指定してください。"
+      },
+      "scenario": {
+        "label": "景別と具体的な場面"
       }
     }
   },
