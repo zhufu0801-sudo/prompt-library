@@ -8,6 +8,7 @@ import spatialScenarios from '../data/studio/spatial-scenarios.json' with { type
 import engineeringScenarios from '../data/studio/engineering-scenarios.json' with { type: 'json' };
 import codeAndShots from '../data/studio/code-and-shots.json' with { type: 'json' };
 import everydayScenarios from '../data/studio/everyday-scenarios.json' with { type: 'json' };
+import {termEvidence, scenarioEvidence} from './matching.ts';
 type Scenario = typeof originalScenarios[number] & {source?: typeof curatedScenarios[number]['source']};
 const scenarios: Scenario[] = [...originalScenarios, ...curatedScenarios, ...spatialScenarios, ...engineeringScenarios, ...codeAndShots, ...everydayScenarios];
 export type Locale = 'zh' | 'en' | 'ja';
@@ -126,19 +127,16 @@ const intentTerms: Record<string,string[]> = {
   storyboard: ['分镜','多镜头','storyboard','multi-shot','絵コンテ','複数カット']
 };
 function matchedTerms(text: string, terms: string[]) {
-  const lower = text.toLowerCase();
-  return terms.filter(term => {
-    if (/^[a-z -]+$/i.test(term)) return new RegExp('\\b'+term.trim().replace(/[- ]/g,'[- ]')+'\\b','i').test(lower);
-    return lower.includes(term);
-  });
+  return termEvidence(text,terms);
 }
 export function analyzeTask(t: Template, values: Values, locale: Locale) {
   const subject = String(values.subject || '').trim();
   const current = taskGuide(t, values);
+  const ranked = subject ? scenarios.map(s=>({...s,...scenarioEvidence(subject,s.id,s.terms)})).filter(s=>s.score>=2).sort((a,b)=>b.score-a.score) : [];
   const candidates = subject ? guides.filter(g => g.group === current.group).map(g => ({
-    id:g.id, label:g.labels[locale], evidence:matchedTerms(subject,intentTerms[g.id] || [])
+    id:g.id, label:g.labels[locale], evidence:[...new Set([...matchedTerms(subject,intentTerms[g.id] || []),...ranked.filter(s=>s.task===g.id).slice(0,1).flatMap(s=>s.evidence)])]
   })).filter(g => g.evidence.length).sort((a,b)=>b.evidence.length-a.evidence.length) : [];
   const selected = scenarios.find(s=>s.task===current.id && Object.values(s.labels).includes(String(values.scenario || '')));
-  const matched = selected ? [{...selected,evidence:[{zh:'手动选择',en:'Selected by you',ja:'手動選択'}[locale]]}] : subject ? scenarios.filter(s => s.task === current.id).map(s => ({...s,evidence:matchedTerms(subject,s.terms)})).filter(s=>s.evidence.length).sort((a,b)=>b.evidence.length-a.evidence.length).slice(0,2) : [];
+  const matched = selected ? [{...selected,evidence:[{zh:'手动选择',en:'Selected by you',ja:'手動選択'}[locale]]}] : ranked.filter(s=>s.task===current.id).slice(0,1);
   return {current:current.id, candidates, scenarios:matched, missing:subject ? ['materials','criteria','constraints'].filter(k=>!String(values[k]||'').trim()) : []};
 }

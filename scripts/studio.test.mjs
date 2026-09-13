@@ -12,6 +12,18 @@ import {
 } from '../lib/studio.ts';
 import { defaultValues } from '../lib/prompt.ts';
 const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.json',import.meta.url),'utf8'));
+test('natural problem descriptions route to relevant tasks without weak or excluded matches',()=>{
+ const cases=[['zh',0,'debug','登录后一直跳转','auth-expiry'],['en',0,'debug','same item appears twice','duplicate-list'],['ja',0,'debug','画面からはみ出す','responsive-layout'],['zh',1,'clip','想看手部细节','video-close'],['en',1,'clip','show the whole setting','video-wide'],['ja',1,'clip','二人のやり取り','video-medium'],['zh',1,'storyboard','前后镜头场景变了','spatial-continuity']];
+ for(const [l,i,task,subject,id] of cases){
+  const t=load(l)[i],key=i===0?'task':'medium';
+  const v={...defaultValues(t),[key]:guides.find(g=>g.id===task).labels[l],subject};
+  assert.equal(analyzeTask(t,v,l).scenarios[0]?.id,id);
+ }
+ const t=load('en')[0],v={...defaultValues(t),subject:'limit 4012',task:guides.find(g=>g.id==='build').labels.en};
+ assert.equal(analyzeTask(t,v,'en').scenarios.length,0);
+ assert.equal(analyzeTask(t,{...v,subject:'no need for pagination'},'en').scenarios.length,0);
+ assert.ok(analyzeTask(t,{...v,subject:'keeps redirecting to login'},'en').candidates.some(c=>c.id==='debug'));
+});
 test('everyday programming scenarios translate, preserve prose and filter by task',()=>{
  const scenes=JSON.parse(fs.readFileSync(new URL('../data/studio/everyday-scenarios.json',import.meta.url),'utf8'));
  for(const locale of ['zh','en','ja']) for(const s of scenes) {
