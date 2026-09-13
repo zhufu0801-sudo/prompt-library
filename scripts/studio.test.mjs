@@ -12,6 +12,21 @@ import {
 } from '../lib/studio.ts';
 import { defaultValues } from '../lib/prompt.ts';
 const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.json',import.meta.url),'utf8'));
+test('spatial workflows stay in their task, localize selection and preserve custom text',()=>{
+ const scenes=JSON.parse(fs.readFileSync(new URL('../data/studio/spatial-scenarios.json',import.meta.url),'utf8'));
+ for(const locale of ['zh','en','ja']) for(const s of scenes) {
+  const t=load(locale)[1], g=guides.find(g=>g.id===s.task);
+  const v={...defaultValues(t),medium:g.labels[locale],scenario:s.labels[locale],subject:'User brief {{materials}}'};
+  assert.equal(analyzeTask(t,v,locale).scenarios[0].id,s.id);
+  assert.ok(composeStudio(t,v,locale).includes(s.details[locale]));
+  assert.ok(composeStudio(t,v,locale).includes('User brief {{materials}}'));
+  assert.ok(!composeStudio(t,v,locale,false).includes(s.details[locale]));
+  assert.equal(taskFields(t,v,locale).find(f=>f.key==='subject').placeholder,s.examples[locale]);
+  assert.equal(translateValues(t,load('en')[1],v,{}).scenario,s.labels.en);
+  const clip={...v,medium:guides.find(g=>g.id==='clip').labels[locale]};
+  assert.ok(!analyzeTask(t,clip,locale).scenarios.some(x=>x.id===s.id));
+ }
+});
 test('curated scenarios are localized, scoped, attributable and used in output',()=>{
  const items=JSON.parse(fs.readFileSync(new URL('../data/studio/prompts-chat-curated.json',import.meta.url),'utf8'));
  assert.equal(items.length,12);

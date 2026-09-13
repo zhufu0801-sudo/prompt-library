@@ -1,5 +1,10 @@
 # AI Made Easy
 
+Open-source prompt studio / 三语提示词工作室 / 3言語対応プロンプトスタジオ。
+Original code and editorial content use the MIT license; upstream content retains its own notices (see LICENSE).
+
+2026-09-13: added scene-map/camera-grid and spatial-continuity workflows in Chinese, English and Japanese. The scenario catalog contains 24 published scenarios and 8 offline drafts (96 localized entries). Homepage modules remain programming and animation/images. See [spatial workflow notes](docs/SPATIAL-CONTINUITY.md). Prompt generation is rule-based; the site does not call a model or verify generated media.
+
 ## 当前首页（2026-09-09）
 
 仅展示「编程助手」与「AI 动画与图片制作」两个精选模板。第二个模板可选图片或动画。

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "spatial-reference",
+    "task": "image",
+    "terms": ["九宫格", "俯视图", "场景一致", "camera grid", "top-down", "spatial reference", "俯瞰図", "9コマ", "空間設定"],
+    "labels": {"zh":"场景俯视图与九宫格机位", "en":"Scene map and nine camera views", "ja":"俯瞰図と9方向のカメラ設定"},
+    "examples": {
+      "zh":"为同一间咖啡馆制作俯视布局与九宫格机位参考。北墙有两扇窗，东侧入口，中央长桌，西侧吧台；下午阳光从北窗进入。保持家具位置，人物暂不入镜。没有实测尺寸，请标注比例假设。",
+      "en":"Plan a top-down layout and nine camera references for one café: two windows on the north wall, an east entrance, a central table and a west counter. Afternoon light enters through the north windows. Keep furniture fixed and exclude people. Mark assumed proportions because measured dimensions are unavailable.",
+      "ja":"同じカフェの俯瞰配置図と9方向のカメラ参考図を設計してください。北壁に窓2枚、東に入口、中央に長机、西にカウンター。午後の光は北の窓から入ります。家具の位置を固定し、人物は入れません。実測寸法がないため、比率の仮定を明記してください。"
+    },
+    "details": {
+      "zh":"交付可复制的场景参考图提示词包。1. 建立场景 S01、参考版本 v1：逐项列出已有参考和未确认区域，不将单张照片不可见的结构写成事实；尺寸缺失可提出明确的比例假设。2. 固定世界坐标：北为图上方、东为右方、原点与单位明确；门窗、家具、道具分别编号，记录坐标、朝向、比例、材质及主光源。世界方位与画面左右分开描述。3. 单独输出正交俯视布局图提示词；如需斜俯视展示，另列一张，禁止混淆两种视图。4. 为 C01–C09 建立机位表：位置、朝向、机位高度、景别、透视或焦段意图、可见地标、遮挡关系。九宫格是同一空间不同机位，不是九个新场景；每格必须与布局对得上，不穿墙拍摄。5. 分别给出九宫格总提示词与九段独立提示词，重复必要的场景固定属性，避免依赖模型未收到的上下文。生成器文本只包含可见内容，机位编号可用外部排版标注。6. 列出核对表：门窗数量、家具相对位置、光向、比例、遮挡、镜像错误；发现错误时给出仅改错误物体或机位的局部修正提示词，锁定其余属性。未看到生成图片时标记待验证，不宣称通过。参考图支持与否以目标软件实际能力为准，不虚构上传文件或权重。",
+      "en":"Deliver a copyable scene-reference prompt pack. Define scene S01 and reference version v1; separate supplied evidence from unseen or uncertain geometry. Label assumed proportions instead of presenting hidden structures as facts. Establish world coordinates: north at the top, east at the right, with an explicit origin and units. Give doors, windows, furniture and props stable IDs, positions, orientations, proportions, materials and light sources; distinguish world directions from screen left/right. Write a separate orthographic top-down layout prompt; any oblique overview must be a separate image. Plan cameras C01–C09 with position, facing, height, shot size, perspective or focal-length intent, landmarks and occlusion. These are nine views of one space, not nine redesigned locations; reject cameras inside walls. Supply one grid prompt and nine standalone view prompts, repeating essential fixed attributes. Generator copy contains visible scene descriptions; labels may be added in layout software. Check counts, relative positions, light direction, scale, occlusion and accidental mirroring. Provide targeted repair prompts that change only the failing element or camera and preserve the rest. Without generated images, mark checks as pending. Use image references only when the target tool supports them; invent neither attachments nor reference weights.",
+      "ja":"コピーして使える場面参考図のプロンプト一式を作る。場面 S01 と参照版 v1 を定義し、提供資料で確認できる情報と未確認の構造を分ける。写真に映らない部分を事実として補完せず、寸法不足は比率の仮定として明記する。北を上、東を右とする世界座標の原点と単位を定め、扉・窓・家具・小物に固定ID、位置、向き、比率、材質、主光源を割り当てる。世界方位と画面の左右を区別する。正投影の俯瞰配置図プロンプトを独立して出力し、斜め俯瞰図が必要なら別画像にする。C01–C09 の位置、向き、高さ、画角、遠近感・焦点距離の意図、見える目印、遮蔽を表にする。9コマは同じ空間の別視点であり、別々の部屋に作り替えない。壁の中から撮影しない。全体用と各コマ単独用の計10本を出し、固定属性を必要な範囲で繰り返す。生成用本文には視覚情報のみを記し、番号は外部で付けてもよい。窓や扉の数、相対位置、光の向き、比率、遮蔽、左右反転を確認し、誤った要素だけを直す修正プロンプトを添える。生成画像がない場合は未検証とする。参照画像や重みは対象ツールが実際に対応する場合だけ指定する。"
+    }
+  },
+  {
+    "id":"spatial-continuity",
+    "task":"storyboard",
+    "terms":["场景一致", "空间连续", "九宫格", "人物站位", "continuity", "blocking", "camera grid", "空間の連続性", "立ち位置", "9コマ"],
+    "labels":{"zh":"固定场景与连续分镜", "en":"Spatial continuity and shot planning", "ja":"空間の連続性とカット設計"},
+    "examples":{
+      "zh":"制作咖啡馆内两人对话的六镜头分镜：A从东门进入，走到中央桌旁，将信封交给坐在桌西侧的B；B接过信封后抬头。总时长24秒，北窗下午光。固定门窗与桌椅，明确人物站位、视线和信封在哪只手中。",
+      "en":"Plan six shots over 24 seconds in one café. A enters from the east, reaches the central table and hands an envelope to B seated west of it; B accepts it and looks up. Use afternoon light from the north windows. Preserve the layout and track blocking, eyelines and which hand holds the envelope.",
+      "ja":"カフェでの24秒・6カットの会話シーンを設計してください。Aが東の入口から中央の机へ進み、西側に座るBへ封筒を渡し、Bが受け取って顔を上げます。北窓から午後の光。扉・窓・家具を固定し、立ち位置、視線、封筒を持つ手を追跡してください。"
+    },
+    "details":{
+      "zh":"按实际剧本生成连续分镜提示词包，不强制凑满九镜头。先建立 S01/v1 场景布局、角色 A/B 外观卡与道具状态表；分别列出不可变属性和每镜可变动作。缺少参考时明确是假定方案。用固定世界坐标记录门窗、桌椅、光源及角色起点；给每镜分配镜头号、机位号、参考格号，九宫格仅用作参考排版。输出分镜表：时长、叙事目的、景别、机位位置/朝向/高度、构图、画面左右、运镜、人物起终点、视线、手部与道具状态、主光方向、与前镜衔接。检查总时长是否等于要求。建立对话或运动轴线，维持银幕方向与视线匹配；跨轴必须给出可读的过渡，不把所有反打误判为跳轴。道具交接要写清交出手、接收手及完成时刻，禁止无动作换手或人物瞬移。逐镜输出独立的关键帧图片提示词和单镜头视频提示词；图片写静态构图，视频写起始状态、动作节奏、摄影机运动和结束状态，减少同时发生的复杂动作。九宫格不能直接当成普通单镜头视频的首帧：使用对应单格高清图，必要时独立重生成。使用真实附件名称；无附件则给出应准备的参考清单，不谎称看过。最终给连续性检查表与每类失败的局部修复指令，保护已确认的角色、空间和光线；生成结果未提供则标记待验证，不保证一致性。",
+      "en":"Produce a continuity prompt pack for the actual script; do not pad it to nine shots. Establish scene S01/v1, character A/B appearance cards and a prop-state ledger, separating locked attributes from per-shot action. Label provisional choices when references are missing. Use fixed world coordinates for architecture, furniture, lights and character starts. Assign shot, camera and reference-cell IDs; a nine-cell sheet is only a reference layout. For each shot specify duration, narrative purpose, shot size, camera position/facing/height, composition, screen sides, movement, character start/end positions, eyelines, hand/prop states, key light and the cut connection. Check the total duration. Maintain the dialogue or movement axis and screen direction; motivate any axis crossing with a readable transition, without treating every reverse angle as a violation. For handoffs specify giving hand, receiving hand and completion time; prevent unexplained hand swaps and teleportation. Supply separate standalone keyframe-image and single-shot-video prompts per shot. Images describe a static composition; videos describe initial state, action timing, camera motion and end state, limiting competing actions. Use a corresponding high-resolution individual frame, not the whole grid, as an ordinary single-shot video input; regenerate the frame separately if needed. Use actual attachment names or list required references without claiming to have seen them. Finish with a continuity checklist and targeted repair instructions that preserve approved identity, space and lighting. Mark unseen outputs as unverified; do not promise consistency.",
+      "ja":"実際の脚本に応じた連続性プロンプト一式を作り、無理に9カットへ増やさない。場面 S01/v1、人物 A/B の外見設定、小物の状態表を作り、固定属性とカットごとに変わる動作を分ける。資料不足の設定は仮案と明記する。建築、家具、光源、人物の開始位置を固定世界座標で管理する。カット番号、カメラ番号、参照コマ番号を対応させ、9コマは参考図の配置形式として扱う。各カットに秒数、物語上の目的、画角、カメラの位置・向き・高さ、構図、画面左右、カメラ移動、人物の始点と終点、視線、手と小物の状態、主光源、前カットとの接続を記す。合計秒数を照合する。会話や移動の軸線を定義し、画面方向と視線をつなぐ。軸を越える場合は分かる移行を設け、切り返しをすべて軸越えと誤認しない。受け渡しは渡す手、受ける手、完了時点を明記し、理由のない持ち替えや瞬間移動を防ぐ。各カットに独立した静止キーフレーム用と単一カット動画用のプロンプトを出す。静止画は構図、動画は開始状態、動作のタイミング、カメラ移動、終了状態に集中する。通常の単一カット動画には9コマ全体ではなく対応する高解像度の1枚を使い、必要なら単独で再生成する。実在する添付名を使い、未提供なら必要資料を列挙する。最後に連続性の確認表と、承認済みの人物・空間・光を保つ局所修正指示を出す。未提供の生成結果は未検証とし、一致を保証しない。"
+    }
+  }
+]

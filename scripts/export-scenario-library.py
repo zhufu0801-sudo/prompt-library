@@ -7,8 +7,8 @@ csv.field_size_limit(10000000)
 raw=(root/'data/sources/prompts-chat/prompts.csv').read_bytes()
 assert hashlib.sha256(raw).hexdigest()==manifest['sha256']
 rows=list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig'))))
-scenarios=read('data/studio/scenarios.json')+read('data/studio/prompts-chat-curated.json')
-drafts=read('data/research-library/prompts-chat-drafts.json')
+scenarios=read('data/studio/scenarios.json')+read('data/studio/prompts-chat-curated.json')+read('data/studio/spatial-scenarios.json')
+drafts=read('data/research-library/prompts-chat-drafts.json')+read('data/research-library/learning-2026-09-13.json')
 db=sqlite3.connect(root/'database/scenario-library.sqlite')
 db.execute('PRAGMA foreign_keys=ON')
 db.executescript('''
@@ -30,6 +30,6 @@ with db:
   for l,v in s['localizations'].items(): db.execute('INSERT OR REPLACE INTO scenario_localizations VALUES(?,?,?,?,?)',(s['id'],l,v['title'],v['prompt'],''))
 assert db.execute('PRAGMA foreign_key_check').fetchall()==[]
 assert db.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
-assert db.execute('SELECT count(*) FROM scenario_localizations').fetchone()[0]==84
+assert db.execute('SELECT count(*) FROM scenario_localizations').fetchone()[0]==3*(len(scenarios)+len(drafts))
 print({t:db.execute('SELECT count(*) FROM '+t).fetchone()[0] for t in ['source_prompts','topics','scenarios','scenario_localizations']})
 db.close()
