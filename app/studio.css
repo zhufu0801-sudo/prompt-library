@@ -454,3 +454,10 @@
 .studio-field select:focus-visible { outline:2px solid #2962ff; outline-offset:2px; }
 .studio-tool-help { font-size:14px; line-height:1.65; color:#526178; margin:8px 0; }
 .studio-analysis a { font-size:14px; color:#255ad5; overflow-wrap:anywhere; }
+.studio-skill, .studio-question {padding:16px;margin:12px 0;border:1px solid #d9e1ed;border-radius:12px;background:#f8fafc;}
+.studio-skill p, .studio-question p {font-size:13px;line-height:1.7;margin:8px 0;}
+.studio-skill a {color:#315cca;text-decoration:underline;text-underline-offset:3px;}
+.studio-hash {overflow-wrap:anywhere;}
+.studio-skill label {display:flex;align-items:center;gap:8px;margin-top:12px;}
+.studio-dialog .studio-skill input[type=radio] {width:16px;height:16px;min-height:0;flex-shrink:0;padding:0;margin:0;}
+.studio-question button {padding:6px 12px;border:1px solid #cad5e5;border-radius:7px;}

@@ -171,14 +171,23 @@
         "defaultValue": "",
         "options": [],
         "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
       }
     ]
   },
   {
     "id": "custom-animation",
     "slug": "animation",
-    "title": "AI animation & images",
-    "description": "Build a polished image prompt or a complete animation storyboard and video prompts.",
+    "title": "AI animation creation",
+    "description": "Single-shot video, framing and storyboards.",
     "categoryId": "creative",
     "content": "You are a professional assistant delivering a finished result tailored to the specific task.\n\nGoal: {{subject}}\nTask type: {{medium}}\nEnvironment, aspect ratio or duration: {{audience}}\nStyle or delivery preference: {{style}}\nPriorities: {{keywords}}\nAvailable material:\n{{materials}}\nAcceptance criteria:\n{{criteria}}\nConstraints:\n{{constraints}}\n\nTask-specific deliverables:\n[[TASK_GUIDE]]\n\n---META---\n\nExecution policy: check the goal, audience, supplied material, constraints and acceptance criteria. When sufficient information exists, deliver a complete first draft in this response rather than only a plan. State reasonable assumptions for noncritical gaps. Ask one most important question at a time only when a missing fact changes the goal, would cause factual errors or prevents completion; never re-ask answered questions. Identify conflicting requirements and explain the tradeoff. Before delivery, check every acceptance item and fix omissions. End with concise assumptions, unverified items and usage steps, not lengthy internal reasoning. Never invent material, model capabilities or execution results, or guarantee one-shot success. Keep final visual-generation prompts separate from dialogue and self-review instructions; use positive motion descriptions without negative prompts for Runway Gen-4 video.",
     "translation": "",
@@ -200,9 +209,8 @@
         "label": "Creation type",
         "type": "text",
         "required": false,
-        "defaultValue": "AI image",
+        "defaultValue": "Image-to-video · single shot",
         "options": [
-          "AI image",
           "Image-to-video · single shot",
           "Multi-shot animation"
         ],
@@ -332,6 +340,577 @@
         "required": false,
         "defaultValue": "",
         "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-image",
+    "slug": "image-assistant",
+    "title": "AI image creation",
+    "description": "Composition, style and character/scene consistency.",
+    "categoryId": "creative",
+    "content": "You are a professional assistant delivering a finished result tailored to the specific task.\n\nGoal: {{subject}}\nTask type: {{medium}}\nEnvironment, aspect ratio or duration: {{audience}}\nStyle or delivery preference: {{style}}\nPriorities: {{keywords}}\nAvailable material:\n{{materials}}\nAcceptance criteria:\n{{criteria}}\nConstraints:\n{{constraints}}\n\nTask-specific deliverables:\n[[TASK_GUIDE]]\n\n---META---\n\nExecution policy: check the goal, audience, supplied material, constraints and acceptance criteria. When sufficient information exists, deliver a complete first draft in this response rather than only a plan. State reasonable assumptions for noncritical gaps. Ask one most important question at a time only when a missing fact changes the goal, would cause factual errors or prevents completion; never re-ask answered questions. Identify conflicting requirements and explain the tradeoff. Before delivery, check every acceptance item and fix omissions. End with concise assumptions, unverified items and usage steps, not lengthy internal reasoning. Never invent material, model capabilities or execution results, or guarantee one-shot success. Keep final visual-generation prompts separate from dialogue and self-review instructions; use positive motion descriptions without negative prompts for Runway Gen-4 video.",
+    "translation": "",
+    "tags": [
+      "Composition",
+      "Lighting",
+      "Materials",
+      "Subject consistency"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 4,
+    "fields": [
+      {
+        "key": "medium",
+        "label": "Creation type",
+        "type": "text",
+        "required": false,
+        "defaultValue": "AI image",
+        "options": [
+          "AI image"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Auto match",
+        "options": [
+          "Auto match",
+          "Product hero image",
+          "Character turnaround",
+          "Fixed-camera subtle motion",
+          "Multi-shot product ad",
+          "Fantasy composition",
+          "Nine-panel product grid",
+          "Photo-to-storyboard",
+          "Six-beat narrative",
+          "Cartoon single-shot motion",
+          "Scene map and nine camera views",
+          "Spatial continuity and shot planning",
+          "Close shot: expression and detail",
+          "Medium shot: action and interaction",
+          "Wide shot: space and blocking"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "Target AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General · Kling / Jimeng / other visual tools",
+        "options": [
+          "General · Kling / Jimeng / other visual tools",
+          "Midjourney · images",
+          "Stable Diffusion / ComfyUI · images",
+          "Runway Gen-4 · video"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Story, characters and setting",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [
+          "Create a skincare product image: one bottle centered, soft side light and a pale background, with room for the label.",
+          "Create front, side and back views of an original character, keeping clothing, proportions and colors consistent.",
+          "Plan a forest adventure animation: a kitten discovers a glowing seed; give each shot one clear action."
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Aspect ratio, size & duration (animation)",
+        "type": "text",
+        "required": false,
+        "defaultValue": "16:9",
+        "options": [
+          "16:9",
+          "9:16",
+          "1:1",
+          "15 sec · 16:9",
+          "30 sec · 9:16",
+          "60 sec · 16:9"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Visual style",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Hand-drawn 2D",
+        "options": [
+          "Hand-drawn 2D",
+          "3D cartoon",
+          "Stop motion",
+          "Watercolor animation"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Camera and continuity priorities",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [
+          "Character consistency",
+          "Smooth camera motion"
+        ],
+        "options": [
+          "Character consistency",
+          "Smooth camera motion",
+          "Lighting continuity",
+          "Natural movement"
+        ],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Dialogue, sound and other constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available material: code, errors, reference description or fixed settings",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance criteria: required items and how to check completion",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-office",
+    "slug": "office-assistant",
+    "title": "WPS Office assistant",
+    "description": "Writer, spreadsheets, slides, PDF and collaboration.",
+    "categoryId": "office",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "WPS Writer",
+      "WPS Spreadsheets",
+      "WPS Presentation",
+      "WPS PDF",
+      "Cloud document collaboration"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "WPS Writer",
+        "options": [
+          "WPS Writer",
+          "WPS Spreadsheets",
+          "WPS Presentation",
+          "WPS PDF",
+          "Cloud document collaboration"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "WPS Office China desktop; version to specify",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-copy",
+    "slug": "copy-assistant",
+    "title": "Copywriting",
+    "description": "Usable copy for your audience, channel and verified benefits.",
+    "categoryId": "marketing",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Product and brand copy",
+      "Social and campaign copy",
+      "Ads and short-video scripts"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Product and brand copy",
+        "options": [
+          "Product and brand copy",
+          "Social and campaign copy",
+          "Ads and short-video scripts"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-paper-writing",
+    "slug": "paper-writing-assistant",
+    "title": "Paper writing and production",
+    "description": "From evidence to sections, abstracts, citations and formatting.",
+    "categoryId": "study",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Paper outline and writing plan",
+      "Sections and abstract drafting",
+      "Citations, figures and formatting",
+      "Revision, translation and responses"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Paper outline and writing plan",
+        "options": [
+          "Paper outline and writing plan",
+          "Sections and abstract drafting",
+          "Citations, figures and formatting",
+          "Revision, translation and responses"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
         "maxSelections": 1
       }
     ]

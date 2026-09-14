@@ -153,6 +153,10 @@ for (const t of templates) {
   groups.push(group);
   group = [];
 }
+for (const s of read('data/studio/skills.json')) upsert('skill_resources',{id:s.id,metadata_json:JSON.stringify(s)});
+for (const s of [...read('data/studio/extended-tasks.json').map(s=>({...s,status:'published'})),...read('data/research-library/topic-rules.json')]) upsert('task_resources',{id:s.id,status:s.status,metadata_json:JSON.stringify(s)});
+groups.push(group);
+group=[];
 const version = crypto
   .createHash('sha256')
   .update(JSON.stringify(groups))

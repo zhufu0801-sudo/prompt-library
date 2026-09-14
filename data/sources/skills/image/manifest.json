@@ -1,0 +1,37 @@
+{
+  "id": "image",
+  "tasks": [
+    "image"
+  ],
+  "labels": {
+    "zh": "营销图片工作流",
+    "en": "Marketing image workflow",
+    "ja": "マーケティング画像制作"
+  },
+  "repository": "https://github.com/coreyhaines31/marketingskills",
+  "source": "https://github.com/coreyhaines31/marketingskills/tree/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/image",
+  "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+  "license": "MIT",
+  "language": "en",
+  "edition": "upstream-documentation",
+  "review": "source-and-license-checked; not-runtime-tested",
+  "usage": {
+    "zh": "这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
+    "en": "This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
+    "ja": "上流の英語 Skill 文書と、中国語・英語・日本語の使用説明を収録。モデル、APIキー、実行スクリプト、インストーラーは含みません。展開後、SKILL.md 対応ツールの公式手順でフォルダーを取り込んでください。通常のチャットでは必要な指示と生成したプロンプトを貼り付け、日本語での回答を指定します。まず不足資料と機能を確認し、ファイル・媒体操作ができなければ本文と手順を出し、生成済みとしないこと。参照先の外部Skill、スクリプト、連携機能は別途必要です。モデル・料金・機能・コマンドは公式文書で確認。例示の統計値を事実として転用せず、秘密情報や環境変数を出力しないこと。操作と費用は利用者が確認します。"
+  },
+  "files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "c34b67e249e558410ee960043d0de3c1d188dc3b6ba36d7714c16ec6f1fad46e"
+    },
+    {
+      "path": "evals/evals.json",
+      "sha256": "61f38e67d5fa11016e97391e360402fa696e059015c754f422d061a361a3cead"
+    },
+    {
+      "path": "references/ai-image-prompting.md",
+      "sha256": "b090ad1be7adc2cd11d922183540bf0d4b7a36cb1d484e549e4dd3d67ce92186"
+    }
+  ]
+}

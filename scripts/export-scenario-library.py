@@ -11,6 +11,11 @@ scenarios=read('data/studio/scenarios.json')+read('data/studio/prompts-chat-cura
 drafts=read('data/research-library/prompts-chat-drafts.json')+read('data/research-library/learning-2026-09-13.json')
 db=sqlite3.connect(root/'database/scenario-library.sqlite')
 db.execute('PRAGMA foreign_keys=ON')
+db.executescript((root/'drizzle/0001_task_resources.sql').read_text(encoding='utf-8'))
+with db:
+ for s in read('data/studio/skills.json'):db.execute('INSERT OR REPLACE INTO skill_resources VALUES(?,?)',(s['id'],json.dumps(s,ensure_ascii=False)))
+ for s in read('data/studio/extended-tasks.json'):db.execute('INSERT OR REPLACE INTO task_resources VALUES(?,?,?)',(s['id'],'published',json.dumps(s,ensure_ascii=False)))
+ for s in read('data/research-library/topic-rules.json'):db.execute('INSERT OR REPLACE INTO task_resources VALUES(?,?,?)',(s['id'],'draft',json.dumps(s,ensure_ascii=False)))
 db.executescript('''
 CREATE TABLE IF NOT EXISTS source_prompts(source_id TEXT PRIMARY KEY,title TEXT NOT NULL,body TEXT NOT NULL,contributor TEXT,media_type TEXT,source_commit TEXT NOT NULL,license TEXT NOT NULL,review_status TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS topics(id TEXT PRIMARY KEY,parent_id TEXT REFERENCES topics(id));

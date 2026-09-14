@@ -1,0 +1,392 @@
+[
+  {
+    "id": "wps-writing",
+    "group": "office",
+    "labels": {
+      "zh": "WPS 文字",
+      "en": "WPS Writer",
+      "ja": "WPS 文書"
+    },
+    "terms": [
+      "通知",
+      "报告",
+      "排版",
+      "writer",
+      "document",
+      "文書"
+    ],
+    "guidance": {
+      "zh": "根据已有事实直接交付完整文稿，再列标题层级、段落、页码、目录与排版步骤。保留人名、金额和日期；未确认内容标注待补。按实际WPS版本说明操作，不虚构菜单；不默认付费功能可用。",
+      "en": "Deliver the complete document from supplied facts, followed by heading, paragraph, page-number, contents and layout steps. Preserve names, amounts and dates; mark unknowns. Match instructions to the actual WPS version without inventing menus or assuming paid features.",
+      "ja": "提供事実から文書全文を作り、見出し、段落、ページ番号、目次、レイアウト手順を示す。名前、金額、日付を保持し、不明は要確認とする。WPSの実際の版に合わせ、有料機能やメニューを決めつけない。"
+    },
+    "examples": {
+      "zh": "在WPS文字制作会议通知，含时间、地点、议程和参会要求。",
+      "en": "Create a meeting notice in WPS Writer with time, place, agenda and attendance requirements.",
+      "ja": "WPSで日時、場所、議題、参加条件を含む会議案内を作る。"
+    },
+    "questions": {
+      "zh": "文稿给谁看、用于什么场合？有哪些必须保留的事实？",
+      "en": "Who will read this document, for what purpose, and which facts must stay?",
+      "ja": "読者、用途、必ず保持する事実は何ですか？"
+    }
+  },
+  {
+    "id": "wps-sheet",
+    "group": "office",
+    "labels": {
+      "zh": "WPS 表格",
+      "en": "WPS Spreadsheets",
+      "ja": "WPS 表計算"
+    },
+    "terms": [
+      "公式",
+      "汇总",
+      "透视表",
+      "spreadsheet",
+      "formula",
+      "集計",
+      "数式"
+    ],
+    "guidance": {
+      "zh": "先确认表头、样例数据和统计口径。输出可粘贴公式、目标单元格、填充方向、引用规则和预期值；区分空值、零值、重复与日期文本。根据WPS版本选择公式或透视表，提供不支持新函数时的替代。没有文件或计算工具时不得声称已算出真实结果。",
+      "en": "Establish headers, sample data and aggregation rules. Supply paste-ready formulas, destination cells, fill direction, references and expected values. Distinguish blanks, zero, duplicates and text dates. Choose formulas/pivots for the WPS version and offer compatible alternatives. Do not claim actual calculations without data and execution.",
+      "ja": "列名、サンプル、集計条件を確認し、貼付可能な数式、入力セル、コピー方向、参照規則、期待値を示す。空白、ゼロ、重複、文字列日付を分ける。WPS版に応じて数式やピボットを選び、非対応関数の代替を出す。未実行の実測値を捏造しない。"
+    },
+    "examples": {
+      "zh": "按月份和地区汇总销售额，列为日期、地区、金额，并制作柱状图。",
+      "en": "Summarize sales by month and region from Date, Region, Amount and plan a bar chart.",
+      "ja": "日付・地域・金額の列から月別地域別に集計し、棒グラフを作る。"
+    },
+    "questions": {
+      "zh": "请提供表头和两行脱敏示例，以及希望得到的结果。",
+      "en": "Provide column headers, two anonymized rows and the desired result.",
+      "ja": "列名、匿名化した2行、求める結果を教えてください。"
+    }
+  },
+  {
+    "id": "wps-slides",
+    "group": "office",
+    "labels": {
+      "zh": "WPS 演示",
+      "en": "WPS Presentation",
+      "ja": "WPS プレゼン"
+    },
+    "terms": [
+      "ppt",
+      "演示",
+      "汇报",
+      "presentation",
+      "slide",
+      "スライド"
+    ],
+    "guidance": {
+      "zh": "先确定听众、目的、页数与演讲时长。逐页输出标题、核心结论、可用正文、图表需求、版式和讲稿；每页一个重点。用提供的数据支持结论，未知数字标待补。说明WPS内的制作与导出步骤，不声称已生成文件。",
+      "en": "Confirm audience, purpose, slide count and talk duration. Deliver each slide’s title, takeaway, usable copy, visual brief, layout and speaker notes, one point per slide. Use supplied evidence and mark missing numbers. Give WPS assembly/export steps without claiming a file was produced.",
+      "ja": "聴衆、目的、枚数、発表時間を定め、各ページの題、要点、本文、図表、配置、話す内容を出す。1枚1論点とし、提供データで支え、不明な数値は補足待ちにする。WPSでの制作・出力手順を示す。"
+    },
+    "examples": {
+      "zh": "制作8页季度工作汇报，演讲10分钟，包含成果、问题和下季度计划。",
+      "en": "Draft an eight-slide quarterly review for a ten-minute talk.",
+      "ja": "10分発表用の四半期報告を8枚で作る。"
+    },
+    "questions": {
+      "zh": "听众是谁？需要几页、讲多久？有哪些真实成果资料？",
+      "en": "Who is the audience, how many slides/minutes, and what evidence is available?",
+      "ja": "聴衆、枚数・時間、実績資料は何ですか？"
+    }
+  },
+  {
+    "id": "wps-pdf",
+    "group": "office",
+    "labels": {
+      "zh": "WPS PDF",
+      "en": "WPS PDF",
+      "ja": "WPS PDF"
+    },
+    "terms": [
+      "pdf",
+      "扫描",
+      "ocr",
+      "扫描件",
+      "スキャン"
+    ],
+    "guidance": {
+      "zh": "先区分文字PDF和扫描PDF，明确提取、转换、批注或排版检查目标。只依据已提供内容处理，OCR不确定字符注明页码待核对。保护表格、单位、脚注和页序；转换后列出核对项目。操作和会员限制以当前版本为准，不绕过文件权限，不声称看过未提供的PDF。",
+      "en": "Distinguish text and scanned PDFs and clarify extraction, conversion, annotation or layout review. Use only supplied content; flag uncertain OCR with page references. Preserve tables, units, notes and order; list post-conversion checks. Respect version/features and document permissions; never claim to inspect missing files.",
+      "ja": "テキストPDFかスキャンかを分け、抽出・変換・注釈・配置確認の目的を定める。提供内容だけを扱い、OCR不確実箇所をページ付きで示す。表、単位、注、順序を保ち、変換後の確認事項を出す。版と権限を尊重する。"
+    },
+    "examples": {
+      "zh": "把扫描PDF中的表格整理为可粘贴到WPS表格的内容，标出不确定字符。",
+      "en": "Extract a scanned PDF table into paste-ready spreadsheet content with uncertain characters flagged.",
+      "ja": "スキャンPDFの表をWPSに貼れる形で整理し、不確実な文字を示す。"
+    },
+    "questions": {
+      "zh": "PDF是扫描件还是可选中文字？希望提取、转换还是检查？",
+      "en": "Is the PDF scanned or selectable text, and what operation is needed?",
+      "ja": "スキャンか選択可能な文字か、どの処理が必要ですか？"
+    }
+  },
+  {
+    "id": "wps-cloud",
+    "group": "office",
+    "labels": {
+      "zh": "云文档协作",
+      "en": "Cloud document collaboration",
+      "ja": "クラウド文書の共同編集"
+    },
+    "terms": [
+      "协作",
+      "共享",
+      "权限",
+      "collaboration",
+      "share",
+      "共同編集"
+    ],
+    "guidance": {
+      "zh": "按参与者角色定义只读、评论、编辑权限及版本流程。给出共享、评论处理、冲突解决和恢复步骤，菜单按实际产品核对。默认最小权限，敏感内容不建议公开链接；仅提供操作方案，不声称已修改共享权限。",
+      "en": "Map participants to view/comment/edit roles and a version process. Provide sharing, comment resolution, conflict and recovery steps with product-specific menus to verify. Prefer least privilege and avoid public links for sensitive material. Provide guidance, not claims of changed permissions.",
+      "ja": "参加者を閲覧・コメント・編集に分け、版管理を定める。共有、コメント解決、競合、復元手順を示し、実製品でメニューを確認する。権限は最小にし、機密文書を公開リンクにしない。変更済みと装わない。"
+    },
+    "examples": {
+      "zh": "设计三人共同编辑报告的流程，经理审核，外部人员只能查看。",
+      "en": "Plan a three-person report workflow with manager approval and view-only external access.",
+      "ja": "3人の報告書共同編集、上司承認、外部は閲覧のみの流れを作る。"
+    },
+    "questions": {
+      "zh": "谁需要查看、评论或编辑？使用WPS云文档还是金山文档？",
+      "en": "Who needs view/comment/edit access, and which WPS cloud product is used?",
+      "ja": "誰が閲覧・コメント・編集し、どのクラウド製品を使いますか？"
+    }
+  },
+  {
+    "id": "copy-product",
+    "group": "copy",
+    "labels": {
+      "zh": "产品与品牌文案",
+      "en": "Product and brand copy",
+      "ja": "商品・ブランドコピー"
+    },
+    "terms": [
+      "产品",
+      "卖点",
+      "品牌",
+      "product",
+      "brand",
+      "商品"
+    ],
+    "guidance": {
+      "zh": "依据受众、使用场合和经过确认的卖点生成可直接使用的文案，结构为标题、利益点、证据、异议回应、行动引导。给长短两个版本及替代标题；不编造销量、评价、认证或效果保证，未知信息单独标注。避免同一套夸张措辞用于所有产品。",
+      "en": "Write usable copy for the audience/channel using verified benefits: headline, value, evidence, objections and call to action. Give short/long versions and alternative headlines. Never invent sales, testimonials, certifications or guarantees. Flag missing facts and tailor tone to the product.",
+      "ja": "対象と媒体に合わせ、確認済みの価値から見出し、利点、根拠、疑問への回答、行動案内を作る。長短版と別見出しを出す。売上、評価、認証、効果を捏造せず、商品に合わせる。"
+    },
+    "examples": {
+      "zh": "为轻便通勤背包写官网介绍，只使用我提供的容量、重量和材质。",
+      "en": "Write website copy for a commuter backpack using only supplied capacity, weight and material.",
+      "ja": "提供した容量・重量・素材だけで通勤リュックの紹介を書く。"
+    },
+    "questions": {
+      "zh": "目标读者、发布渠道和已确认的卖点是什么？",
+      "en": "Who is the audience, where will this appear, and which benefits are verified?",
+      "ja": "対象読者、掲載先、確認済みの特徴は何ですか？"
+    }
+  },
+  {
+    "id": "copy-social",
+    "group": "copy",
+    "labels": {
+      "zh": "社交媒体与活动文案",
+      "en": "Social and campaign copy",
+      "ja": "SNS・キャンペーン文章"
+    },
+    "terms": [
+      "小红书",
+      "公众号",
+      "社交",
+      "活动",
+      "social",
+      "campaign",
+      "SNS"
+    ],
+    "guidance": {
+      "zh": "按平台、受众和目标输出标题、开头、完整正文、配图需求、行动引导及话题建议。区分活动时间、规则、价格等事实与创意；提供不同语气的两个版本。适配字数，不伪装真实用户经历，不自动发布。",
+      "en": "Deliver platform-specific headlines, hook, full copy, visual brief, CTA and topic ideas. Separate facts such as dates/rules/prices from creative choices. Provide two tone variants within length limits, without fabricated user experiences or automatic publication.",
+      "ja": "媒体と読者に合わせ、見出し、導入、全文、画像案、行動案内、話題を出す。日時・条件・価格と創作を分け、字数内で語調2案を作る。体験談の捏造や自動投稿はしない。"
+    },
+    "examples": {
+      "zh": "为书店周末读书活动写公众号推文，保留真实时间和报名规则。",
+      "en": "Write a social post for a bookstore weekend reading event with verified dates and signup rules.",
+      "ja": "書店の週末読書会のSNS文を、実際の日時と参加条件で作る。"
+    },
+    "questions": {
+      "zh": "发布在哪个平台？面向谁？活动或内容的真实资料是什么？",
+      "en": "Which platform/audience, and what verified event or content details are available?",
+      "ja": "媒体・読者と実際のイベント資料は何ですか？"
+    }
+  },
+  {
+    "id": "copy-script",
+    "group": "copy",
+    "labels": {
+      "zh": "广告与短视频脚本",
+      "en": "Ads and short-video scripts",
+      "ja": "広告・短尺動画の台本"
+    },
+    "terms": [
+      "广告",
+      "口播",
+      "脚本",
+      "ad script",
+      "voiceover",
+      "台本"
+    ],
+    "guidance": {
+      "zh": "按总时长逐段写画面、口播、字幕、音效与行动引导；核对口播长度是否可在时限内表达。明确前三秒吸引点与中段证据，提供替代开头。产品功效与价格只能引用确认资料，不把夸张视觉当实测效果。",
+      "en": "Write timed visuals, voiceover, captions, sound and CTA. Check spoken length against duration, define the opening hook and supporting evidence, and offer alternate openings. Use confirmed product claims/prices; distinguish creative visuals from measured results.",
+      "ja": "尺ごとに映像、口播、字幕、音、行動案内を書き、読み時間を確認する。冒頭の引きと根拠、別の導入案を出す。効果と価格は確認資料のみを使い、演出を実測と混同しない。"
+    },
+    "examples": {
+      "zh": "写30秒咖啡馆介绍短视频脚本，突出安静环境和手冲服务。",
+      "en": "Write a 30-second café introduction highlighting a quiet setting and pour-over coffee.",
+      "ja": "静かな環境とハンドドリップを紹介する30秒のカフェ台本を書く。"
+    },
+    "questions": {
+      "zh": "视频多长？面向谁？必须出现哪些真实信息？",
+      "en": "How long is the video, who is it for, and what facts must appear?",
+      "ja": "尺、対象、必須の事実は何ですか？"
+    }
+  },
+  {
+    "id": "paper-outline",
+    "group": "paper",
+    "labels": {
+      "zh": "论文提纲与写作计划",
+      "en": "Paper outline and writing plan",
+      "ja": "論文構成と執筆計画"
+    },
+    "terms": [
+      "提纲",
+      "结构",
+      "选题",
+      "outline",
+      "structure",
+      "構成"
+    ],
+    "guidance": {
+      "zh": "结合论文类型、学科、研究问题和已有资料，给出章节层级、每节论点、证据需求、预计字数和写作顺序。区分综述、实证与毕业论文，不强套同一结构。列出资料缺口，不编造文献、数据或已完成实验。",
+      "en": "Use paper type, discipline, question and available evidence to deliver sections, claims, evidence needs, word budgets and writing order. Distinguish reviews, empirical papers and theses. List evidence gaps without inventing citations, data or completed experiments.",
+      "ja": "論文種別、分野、問い、資料から章節、論点、根拠、字数配分、執筆順を出す。レビュー・実証・学位論文を分け、資料不足を示す。文献や実験を捏造しない。"
+    },
+    "examples": {
+      "zh": "根据我提供的研究问题和资料，制作6000字毕业论文提纲。",
+      "en": "Create an outline for a 6,000-word thesis from my question and evidence.",
+      "ja": "研究の問いと資料から6000語の論文構成を作る。"
+    },
+    "questions": {
+      "zh": "论文类型、专业、主题、字数与已有资料是什么？",
+      "en": "What are the paper type, discipline, topic, word limit and available materials?",
+      "ja": "種類、分野、主題、字数、資料は何ですか？"
+    }
+  },
+  {
+    "id": "paper-draft",
+    "group": "paper",
+    "labels": {
+      "zh": "章节成稿与摘要",
+      "en": "Sections and abstract drafting",
+      "ja": "章本文と要旨の作成"
+    },
+    "terms": [
+      "正文",
+      "摘要",
+      "结论",
+      "章节",
+      "abstract",
+      "draft",
+      "要旨",
+      "本文"
+    ],
+    "guidance": {
+      "zh": "仅用提供或核实的资料完成指定章节或摘要，区分资料中的结果、解释和写作建议。每个事实性主张对应资料编号，缺证据使用待补标记；方法不得写成未实施的实验，结论不得超过结果支持。输出可用初稿、引用位置与待确认清单，不用虚构引用补齐篇幅。",
+      "en": "Draft the requested section or abstract only from supplied/verified material. Separate results, interpretation and writing suggestions; map factual claims to source IDs and mark evidence gaps. Never describe unperformed experiments or overstate conclusions. Deliver a usable draft, citation locations and confirmation list without fabricated references.",
+      "ja": "提供・確認済み資料だけで指定章や要旨を書く。結果、解釈、提案を分け、事実主張に資料IDを付け、不足を示す。未実施実験や根拠を超える結論を作らず、初稿、引用箇所、確認一覧を出す。"
+    },
+    "examples": {
+      "zh": "根据提供的研究方法和结果表，撰写摘要，不增加实验或数值。",
+      "en": "Draft an abstract from supplied methods/results without adding experiments or numbers.",
+      "ja": "方法と結果表から、実験や数値を足さず要旨を書く。"
+    },
+    "questions": {
+      "zh": "要写哪一部分？请提供可引用的原始资料和真实结果。",
+      "en": "Which section is needed? Supply citable materials and actual findings.",
+      "ja": "どの部分を書くか、引用可能な資料と実際の結果を教えてください。"
+    }
+  },
+  {
+    "id": "paper-format",
+    "group": "paper",
+    "labels": {
+      "zh": "引用、图表与论文排版",
+      "en": "Citations, figures and formatting",
+      "ja": "引用・図表・論文書式"
+    },
+    "terms": [
+      "参考文献",
+      "排版",
+      "图表",
+      "citation",
+      "formatting",
+      "引用",
+      "書式"
+    ],
+    "guidance": {
+      "zh": "按学校或期刊模板检查标题层级、编号、页码、图表题注、交叉引用和参考文献。保留源文献元数据，缺作者、年份或DOI时标待核实，不生成看似真实的条目。给WPS或指定编辑器的操作步骤，字体、间距、引用样式以提供规范为准。",
+      "en": "Check headings, numbering, pages, captions, cross-references and bibliography against the institution/journal template. Preserve metadata and flag missing authors/year/DOI rather than inventing entries. Give WPS or requested-editor steps, following supplied typography and citation requirements.",
+      "ja": "提出先規定に従い見出し、番号、ページ、図表説明、相互参照、文献を確認する。著者・年・DOI不足は要確認とし、文献を作らない。WPS等の操作と提供された書式規定を使う。"
+    },
+    "examples": {
+      "zh": "按学校模板整理WPS毕业论文目录、图表编号和参考文献。",
+      "en": "Format a thesis in WPS using the school template, including contents, figures and references.",
+      "ja": "学校指定書式でWPS論文の目次・図表番号・参考文献を整える。"
+    },
+    "questions": {
+      "zh": "请提供学校或期刊格式要求，以及编辑器和现有文献列表。",
+      "en": "Provide formatting requirements, editor and existing bibliography.",
+      "ja": "提出先の規定、編集ソフト、既存文献一覧をください。"
+    }
+  },
+  {
+    "id": "paper-revise",
+    "group": "paper",
+    "labels": {
+      "zh": "润色、翻译与修改回复",
+      "en": "Revision, translation and responses",
+      "ja": "推敲・翻訳・修正回答"
+    },
+    "terms": [
+      "润色",
+      "翻译",
+      "审稿",
+      "修改",
+      "revise",
+      "translate",
+      "reviewer",
+      "推敲"
+    ],
+    "guidance": {
+      "zh": "保留原文事实、术语和研究边界，优化表达与衔接；翻译遵循术语表。按导师或审稿意见逐条给修改、位置和回应，无法完成的要求说明缺少什么，不声称完成未做的实验。提供修订稿与实质修改表，不改变统计含义。",
+      "en": "Preserve facts, terms and study limits while improving language and flow; follow a glossary for translation. Address each comment with revision, location and response. Explain missing work instead of claiming unperformed experiments. Provide revised text and a substantive change table without changing statistical meaning.",
+      "ja": "事実、用語、研究限界を保ち表現と接続を改善し、翻訳は用語集に従う。各指摘に修正・位置・回答を示し、未実施実験を完了扱いしない。修正文と変更表を出し、統計の意味を変えない。"
+    },
+    "examples": {
+      "zh": "依据导师的三条意见修改讨论部分，保留真实数据与引用。",
+      "en": "Revise the discussion against three supervisor comments, preserving data and citations.",
+      "ja": "指導教員の3点の指摘に沿って考察を直し、データと引用を保つ。"
+    },
+    "questions": {
+      "zh": "请提供原文、修改意见和不可改变的术语或结论。",
+      "en": "Provide the original, comments and terms/conclusions that must remain.",
+      "ja": "原文、指摘、変更できない用語・結論をください。"
+    }
+  }
+]

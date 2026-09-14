@@ -127,3 +127,9 @@ export const contentVersions = sqliteTable('content_versions', {
   id: text('id').primaryKey(),
   appliedAt: text('applied_at').notNull(),
 });
+export const skillResources = sqliteTable('skill_resources', {
+  id: text('id').primaryKey(), metadataJson: text('metadata_json').notNull(),
+});
+export const taskResources = sqliteTable('task_resources', {
+  id: text('id').primaryKey(), status: text('status').notNull(), metadataJson: text('metadata_json').notNull(),
+});

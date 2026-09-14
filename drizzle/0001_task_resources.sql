@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS skill_resources (id TEXT PRIMARY KEY NOT NULL, metadata_json TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS task_resources (id TEXT PRIMARY KEY NOT NULL, status TEXT NOT NULL, metadata_json TEXT NOT NULL);

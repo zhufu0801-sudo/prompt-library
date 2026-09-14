@@ -1,2 +1,7 @@
 # Preserve the pinned upstream byte hash on Windows and Linux.
 data/sources/prompts-chat/prompts.csv -text
+# Preserve upstream spacing and line endings for manifest hashes.
+data/sources/skills/** -text -whitespace
+data/sources/wps-formula-upstream/** -text -whitespace
+data/skill-adaptations/** text eol=lf
+public/downloads/** binary

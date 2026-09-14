@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import crypto from 'node:crypto';
 const origin = process.env.TEST_ORIGIN || 'http://localhost:3000';
 let cookieA = '',
   cookieB = '';
@@ -27,19 +29,36 @@ async function post(path, body, cookie = '', customOrigin = origin) {
   };
 }
 const all = await get('/api/catalog');
+const skills=JSON.parse(fs.readFileSync(new URL('../data/studio/skills.json',import.meta.url),'utf8'));
+for(const s of skills){
+ const response=await fetch(origin+s.download);
+ assert.equal(response.status,200);
+ const bytes=Buffer.from(await response.arrayBuffer());
+ assert.equal(bytes.length,s.bytes);
+ assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),s.sha256);
+}
 for (const locale of ['zh', 'en', 'ja']) {
   const studio = await get('/api/studio?locale=' + locale);
   assert.equal(studio.status, 200);
-  assert.equal(studio.body.templates.length, 2);
+  assert.equal(studio.body.templates.length, 6);
   assert.equal(studio.body.locale, locale);
+  for(const t of studio.body.templates.slice(2)){
+   const values=Object.fromEntries(t.fields.map(f=>[f.key,f.defaultValue]));
+   values.subject='Test brief '+locale;
+   if(t.id==='custom-image')values.skill_id='image';
+   const saved=await post('/api/plans',{templateId:t.id,title:'Six-module API test',values,locks:{},output:'Saved prompt '+locale},studio.cookie);
+   assert.equal(saved.status,200);
+   const plans=(await get('/api/plans',saved.cookie)).body.plans;
+   assert.ok(plans.some(p=>p.id===saved.body.id && p.values.subject===values.subject && p.values.skill_id===values.skill_id));
+  }
   assert.deepEqual(
     studio.body.templates.map((t) => t.id),
-    ['custom-programming', 'custom-animation'],
+    ['custom-programming', 'custom-animation','custom-image','custom-office','custom-copy','custom-paper-writing'],
   );
   const animation = studio.body.templates[1];
   assert.equal(
     animation.fields.find((f) => f.key === 'medium').options.length,
-    3,
+    2,
   );
   const values = Object.fromEntries(
     animation.fields.map((f) => [f.key, f.defaultValue]),
@@ -63,13 +82,13 @@ for (const locale of ['zh', 'en', 'ja']) {
 }
 assert.equal(all.status, 200);
 cookieA = all.cookie;
-assert.equal(all.body.total, 311);
+assert.equal(all.body.total, 315);
 assert.equal(all.body.categories.length, 10);
 assert.equal(all.body.ai.enabled, false);
 const userB = await get('/api/catalog');
 cookieB = userB.cookie;
 assert.notEqual(cookieA, cookieB);
-assert.equal((await get('/api/catalog?kind=custom')).body.total, 32);
+assert.equal((await get('/api/catalog?kind=custom')).body.total, 36);
 assert.equal((await get('/api/catalog?kind=imported')).body.total, 279);
 assert.equal(
   (await get('/api/catalog?kind=custom&category=programming')).body.total,
@@ -164,5 +183,5 @@ await post(
   cookieA,
 );
 console.log(
-  'PASS: 22 API assertions; catalog/search, source preservation, favorites, plan updates, cross-visitor isolation, CSRF, limits, disabled AI',
+  'PASS: six-module localized save/restore, Skill download hashes, catalog/search, source preservation, favorites, plan updates, visitor isolation, CSRF, limits, disabled AI',
 );

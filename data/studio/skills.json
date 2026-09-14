@@ -1,0 +1,346 @@
+[
+  {
+    "id": "systematic-debugging",
+    "tasks": [
+      "debug"
+    ],
+    "labels": {
+      "zh": "系统排错",
+      "en": "Systematic debugging",
+      "ja": "体系的デバッグ"
+    },
+    "repository": "https://github.com/obra/superpowers",
+    "source": "https://github.com/obra/superpowers/tree/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/systematic-debugging",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "license": "MIT",
+    "language": "en",
+    "edition": "upstream-documentation",
+    "review": "source-and-license-checked; not-runtime-tested",
+    "usage": {
+      "zh": "这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
+      "en": "This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
+      "ja": "上流の英語 Skill 文書と、中国語・英語・日本語の使用説明を収録。モデル、APIキー、実行スクリプト、インストーラーは含みません。展開後、SKILL.md 対応ツールの公式手順でフォルダーを取り込んでください。通常のチャットでは必要な指示と生成したプロンプトを貼り付け、日本語での回答を指定します。まず不足資料と機能を確認し、ファイル・媒体操作ができなければ本文と手順を出し、生成済みとしないこと。参照先の外部Skill、スクリプト、連携機能は別途必要です。モデル・料金・機能・コマンドは公式文書で確認。例示の統計値を事実として転用せず、秘密情報や環境変数を出力しないこと。操作と費用は利用者が確認します。"
+    },
+    "files": [
+      {
+        "path": "CREATION-LOG.md",
+        "sha256": "c24733a5b1821bd6bed1fc950261f0b9f4e90097e0bbb96459d8179713730789"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "808fc5717aa88ad65efff312b11c186294d3e6ee301afb584e2f86599b137787"
+      },
+      {
+        "path": "condition-based-waiting.md",
+        "sha256": "e89fec8400d6cd50f43407cec9fab50976ba4d55d0ec2eb51c0bd68036b54c26"
+      },
+      {
+        "path": "defense-in-depth.md",
+        "sha256": "1e175fb86fc357e58c6aebf5441e481e1b7868b4380c0456b63a17eefbd18ba7"
+      },
+      {
+        "path": "root-cause-tracing.md",
+        "sha256": "6b0622269e098ca1399e123e553fd385f0b6412d88ef0e9c4f5a8ea9cf1cec7b"
+      },
+      {
+        "path": "test-academic.md",
+        "sha256": "fe2ba480d78ac0d686dc025f41c2a32a43d642bf533f91b0c6053a04d35d6486"
+      },
+      {
+        "path": "test-pressure-1.md",
+        "sha256": "0b6a915db0054577819834c79be9eb614e97bddba10d73768e1fbe91cfed048a"
+      },
+      {
+        "path": "test-pressure-2.md",
+        "sha256": "b2030aeffba07050e8ad573ddf87486457c4a016a786bb326235bebd856f2016"
+      },
+      {
+        "path": "test-pressure-3.md",
+        "sha256": "96b50a52e2c7989c9cf20fb752c47c1e9a3a70dc362f8f7989f8f5b64dac7708"
+      }
+    ],
+    "download": "/downloads/skills/systematic-debugging-b36e0829c6d0.zip",
+    "sha256": "4f653c2fce572f1bac97f11e791755dfdc2c4f1c55626e0df9da11d5a7f41417",
+    "bytes": 22561
+  },
+  {
+    "id": "wps-formula",
+    "tasks": [
+      "wps-sheet"
+    ],
+    "labels": {
+      "zh": "WPS 表格公式（适配版）",
+      "en": "WPS formulas (adapted)",
+      "ja": "WPS数式（調整版）"
+    },
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "source": "https://github.com/Bwkyd/wps-skills/tree/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-formula",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "license": "MIT",
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "source-and-license-checked; not-runtime-tested",
+    "usage": {
+      "zh": "这是根据上游中文内容整理的英文适配 Skill 文档包；已移除笼统的函数版本断言，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
+      "en": "This package contains an English adaptation of the Chinese upstream Skill, with blanket function-version claims removed, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
+      "ja": "上流の中国語Skillを英語に調整し、一律の関数バージョン断定を除いた文書と、中国語・英語・日本語の使用説明を収録。モデル、APIキー、実行スクリプト、インストーラーは含みません。展開後、SKILL.md 対応ツールの公式手順でフォルダーを取り込んでください。通常のチャットでは必要な指示と生成したプロンプトを貼り付け、日本語での回答を指定します。まず不足資料と機能を確認し、ファイル・媒体操作ができなければ本文と手順を出し、生成済みとしないこと。参照先の外部Skill、スクリプト、連携機能は別途必要です。モデル・料金・機能・コマンドは公式文書で確認。例示の統計値を事実として転用せず、秘密情報や環境変数を出力しないこと。操作と費用は利用者が確認します。"
+    },
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "1d449291f665f230fe6638962d50ed565e3fbc328201c2ceb802d12d31ef301e"
+      }
+    ],
+    "download": "/downloads/skills/wps-formula-50b04859b776.zip",
+    "sha256": "5b10c6f8d44ca541cfb4d133ab6db4806f01b97f124451657529bcff34fcff95",
+    "bytes": 7135
+  },
+  {
+    "id": "scientific-writing",
+    "tasks": [
+      "paper-outline",
+      "paper-draft",
+      "paper-format",
+      "paper-revise"
+    ],
+    "labels": {
+      "zh": "科学论文写作",
+      "en": "Scientific writing",
+      "ja": "科学論文執筆"
+    },
+    "repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "source": "https://github.com/K-Dense-AI/claude-scientific-skills/tree/330c8e764435a731eff571e3efdda70b363d0792/skills/scientific-writing",
+    "commit": "330c8e764435a731eff571e3efdda70b363d0792",
+    "license": "MIT",
+    "language": "en",
+    "edition": "upstream-documentation",
+    "review": "source-and-license-checked; not-runtime-tested",
+    "usage": {
+      "zh": "这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
+      "en": "This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
+      "ja": "上流の英語 Skill 文書と、中国語・英語・日本語の使用説明を収録。モデル、APIキー、実行スクリプト、インストーラーは含みません。展開後、SKILL.md 対応ツールの公式手順でフォルダーを取り込んでください。通常のチャットでは必要な指示と生成したプロンプトを貼り付け、日本語での回答を指定します。まず不足資料と機能を確認し、ファイル・媒体操作ができなければ本文と手順を出し、生成済みとしないこと。参照先の外部Skill、スクリプト、連携機能は別途必要です。モデル・料金・機能・コマンドは公式文書で確認。例示の統計値を事実として転用せず、秘密情報や環境変数を出力しないこと。操作と費用は利用者が確認します。"
+    },
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "f6026e7d79cd3133e9343a7d6e6c5e06f4ad061888efb6a73fcb95e073eebf67"
+      },
+      {
+        "path": "assets/REPORT_FORMATTING_GUIDE.md",
+        "sha256": "2bb69499426ed6727c1701bae752c2e902151cbf69963f8bcf25b9e54cc20724"
+      },
+      {
+        "path": "assets/authorship_template.json",
+        "sha256": "04a590ac47ed61dcc7cd88a26d51243cf178fe6ada99d4000ca225e1b5f6f20a"
+      },
+      {
+        "path": "assets/claim_evidence_template.csv",
+        "sha256": "cfb7a9f44cd1e5ef47ccdb3e32ac0a25b72d30e51343faace9bf07c00e3a0659"
+      },
+      {
+        "path": "assets/consistency_manifest_template.json",
+        "sha256": "2ea6f468ab6fab45c4db3616fbaddcc2ae706b3a26d6745b4cf74ddb53266872"
+      },
+      {
+        "path": "assets/manuscript_manifest_template.json",
+        "sha256": "914052ff25b44072a07dce2ae8171524b717894ad7d2103054356115b9dd6c22"
+      },
+      {
+        "path": "assets/manuscript_scaffold.md",
+        "sha256": "55305ba311ff4e2459a31a99b3f1b9da44d79499332399a9216b5f92cb412ab2"
+      },
+      {
+        "path": "assets/reporting_coverage_template.json",
+        "sha256": "886ca599622c1dfaedde7649ec47e973b4fbe6081cac6a6afaf24ace899d46a9"
+      },
+      {
+        "path": "assets/reporting_guidelines.json",
+        "sha256": "9b3aacde9e4875bfb69a78688b0bf7988b5d22c464e21e5552f6e98d77af68d2"
+      },
+      {
+        "path": "assets/source_manifest_template.json",
+        "sha256": "fc6f65a8571b717691ac717f325825a608190f271e8b79650b711cc95f5b0a36"
+      },
+      {
+        "path": "references/authorship_ai_confidentiality.md",
+        "sha256": "b02b3aee6ab0d3e925f5c0333288d29f8ee4aac103c10c9aefff2e604d436c63"
+      },
+      {
+        "path": "references/citation_styles.md",
+        "sha256": "64401454dc70dc9603224495b62d241b18cb055134aeda55002b89e9e15e0c85"
+      },
+      {
+        "path": "references/cli_reference.md",
+        "sha256": "68390eea5952ee8b1c87142fc1be877fbbccde9efed4cb8c09aa77bba1eb616c"
+      },
+      {
+        "path": "references/evidence_workflow.md",
+        "sha256": "c7db56a223978307f9f43921eb393d87fef8c051a492c3d7e3c016c62b9e1409"
+      },
+      {
+        "path": "references/figures_tables.md",
+        "sha256": "212d10f3e7a01325d2518c4aab54a4fc04a67e4aa94e959cead199c425a0f4d6"
+      },
+      {
+        "path": "references/imrad_structure.md",
+        "sha256": "8a1201f8e58a045736a5bc65a47f239c894be6946716e969c0b77aa90a7e8e39"
+      },
+      {
+        "path": "references/journal_policies.md",
+        "sha256": "88461292ebde06f0db0e756b8e3c776cc2017eb313a8593636be264af2578ff1"
+      },
+      {
+        "path": "references/professional_report_formatting.md",
+        "sha256": "c269fd256bda6a9389bfd5ffefa8eff8876b96d92f8391e8a01fa80910bb35d3"
+      },
+      {
+        "path": "references/reporting_guidelines.md",
+        "sha256": "4a74d4613742bb26fe3d74596998b9e75ea8a2694a012222b6d9636e121a1f0d"
+      },
+      {
+        "path": "references/research_integrity_open_science.md",
+        "sha256": "f8f91010537acf4b78616d7410d23b85030f94d66e9d36db03d6e632ffb56100"
+      },
+      {
+        "path": "references/source_ledger.md",
+        "sha256": "cc2b3c801f4a350cab7e0b5261e4edda7e8d20274944e8b5590e62f0da42a0f6"
+      },
+      {
+        "path": "references/writing_principles.md",
+        "sha256": "58d4b32f63446c0b082f163314fdcf0d41a50568ad392d34ba992e24fadae764"
+      }
+    ],
+    "download": "/downloads/skills/scientific-writing-330c8e764435.zip",
+    "sha256": "7e14b82a09fa35844104f20c8bc3168c8b8a78ad76df113affa8daf6f82fd036",
+    "bytes": 46847
+  },
+  {
+    "id": "copywriting",
+    "tasks": [
+      "copy-product"
+    ],
+    "labels": {
+      "zh": "网站与产品文案",
+      "en": "Website and product copy",
+      "ja": "Web・商品コピー"
+    },
+    "repository": "https://github.com/coreyhaines31/marketingskills",
+    "source": "https://github.com/coreyhaines31/marketingskills/tree/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting",
+    "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+    "license": "MIT",
+    "language": "en",
+    "edition": "upstream-documentation",
+    "review": "source-and-license-checked; not-runtime-tested",
+    "usage": {
+      "zh": "这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
+      "en": "This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
+      "ja": "上流の英語 Skill 文書と、中国語・英語・日本語の使用説明を収録。モデル、APIキー、実行スクリプト、インストーラーは含みません。展開後、SKILL.md 対応ツールの公式手順でフォルダーを取り込んでください。通常のチャットでは必要な指示と生成したプロンプトを貼り付け、日本語での回答を指定します。まず不足資料と機能を確認し、ファイル・媒体操作ができなければ本文と手順を出し、生成済みとしないこと。参照先の外部Skill、スクリプト、連携機能は別途必要です。モデル・料金・機能・コマンドは公式文書で確認。例示の統計値を事実として転用せず、秘密情報や環境変数を出力しないこと。操作と費用は利用者が確認します。"
+    },
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "ce18137ae31ab37f261078501431649865ab6b403054d97490754e82acb002d8"
+      },
+      {
+        "path": "evals/evals.json",
+        "sha256": "f062a21fea6ec6eff7157caf051142fa376fbfe6284c7d1d185371de6acedb9b"
+      },
+      {
+        "path": "references/copy-frameworks.md",
+        "sha256": "d98818886525908bf17dd6412d0b72731b313d6eef3e1ab6b365828a3a342779"
+      },
+      {
+        "path": "references/natural-transitions.md",
+        "sha256": "4ff23f8943af2f65b072f26f1c53ce55f19cc26d7be211c11cae8e34b43e859f"
+      }
+    ],
+    "download": "/downloads/skills/copywriting-5b2c0007766c.zip",
+    "sha256": "949065a42fc447be01ece09ec4994cfd89b301025739f26d17336443c576a02f",
+    "bytes": 21995
+  },
+  {
+    "id": "image",
+    "tasks": [
+      "image"
+    ],
+    "labels": {
+      "zh": "营销图片工作流",
+      "en": "Marketing image workflow",
+      "ja": "マーケティング画像制作"
+    },
+    "repository": "https://github.com/coreyhaines31/marketingskills",
+    "source": "https://github.com/coreyhaines31/marketingskills/tree/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/image",
+    "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+    "license": "MIT",
+    "language": "en",
+    "edition": "upstream-documentation",
+    "review": "source-and-license-checked; not-runtime-tested",
+    "usage": {
+      "zh": "这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
+      "en": "This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
+      "ja": "上流の英語 Skill 文書と、中国語・英語・日本語の使用説明を収録。モデル、APIキー、実行スクリプト、インストーラーは含みません。展開後、SKILL.md 対応ツールの公式手順でフォルダーを取り込んでください。通常のチャットでは必要な指示と生成したプロンプトを貼り付け、日本語での回答を指定します。まず不足資料と機能を確認し、ファイル・媒体操作ができなければ本文と手順を出し、生成済みとしないこと。参照先の外部Skill、スクリプト、連携機能は別途必要です。モデル・料金・機能・コマンドは公式文書で確認。例示の統計値を事実として転用せず、秘密情報や環境変数を出力しないこと。操作と費用は利用者が確認します。"
+    },
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "c34b67e249e558410ee960043d0de3c1d188dc3b6ba36d7714c16ec6f1fad46e"
+      },
+      {
+        "path": "evals/evals.json",
+        "sha256": "61f38e67d5fa11016e97391e360402fa696e059015c754f422d061a361a3cead"
+      },
+      {
+        "path": "references/ai-image-prompting.md",
+        "sha256": "b090ad1be7adc2cd11d922183540bf0d4b7a36cb1d484e549e4dd3d67ce92186"
+      }
+    ],
+    "download": "/downloads/skills/image-5b2c0007766c.zip",
+    "sha256": "0c64c602db43c722554daf90ac8e861857f127a9c32e0e31eaacdcb5fc7b12ab",
+    "bytes": 18558
+  },
+  {
+    "id": "video",
+    "tasks": [
+      "clip",
+      "storyboard"
+    ],
+    "labels": {
+      "zh": "视频制作工作流",
+      "en": "Video production workflow",
+      "ja": "動画制作ワークフロー"
+    },
+    "repository": "https://github.com/coreyhaines31/marketingskills",
+    "source": "https://github.com/coreyhaines31/marketingskills/tree/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/video",
+    "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+    "license": "MIT",
+    "language": "en",
+    "edition": "upstream-documentation",
+    "review": "source-and-license-checked; not-runtime-tested",
+    "usage": {
+      "zh": "这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
+      "en": "This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
+      "ja": "上流の英語 Skill 文書と、中国語・英語・日本語の使用説明を収録。モデル、APIキー、実行スクリプト、インストーラーは含みません。展開後、SKILL.md 対応ツールの公式手順でフォルダーを取り込んでください。通常のチャットでは必要な指示と生成したプロンプトを貼り付け、日本語での回答を指定します。まず不足資料と機能を確認し、ファイル・媒体操作ができなければ本文と手順を出し、生成済みとしないこと。参照先の外部Skill、スクリプト、連携機能は別途必要です。モデル・料金・機能・コマンドは公式文書で確認。例示の統計値を事実として転用せず、秘密情報や環境変数を出力しないこと。操作と費用は利用者が確認します。"
+    },
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "3b6d4864bae49dd3d60e7f6218e0de0803633989d68bdcf093a3771307387ac2"
+      },
+      {
+        "path": "evals/evals.json",
+        "sha256": "9f935c91490d5fe9e0170e360baa69edac8dd586921ff631e0a83991b5afe636"
+      },
+      {
+        "path": "references/ai-video-prompting.md",
+        "sha256": "210eaecc05367aacbaf35660ed7352809e31fb326123d0cfd6ab03c09681d13e"
+      },
+      {
+        "path": "references/edit-anatomy.md",
+        "sha256": "51319196939e75b29fd1f00ef393e1772043e79dbf0a19c82145060cc62fde7f"
+      }
+    ],
+    "download": "/downloads/skills/video-5b2c0007766c.zip",
+    "sha256": "2221f2655454bfa0f97fbebb59630e08c6255bda6f0b4b66313bc8a96480f74a",
+    "bytes": 21572
+  }
+]

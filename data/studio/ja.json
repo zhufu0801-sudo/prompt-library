@@ -171,14 +171,23 @@
         "defaultValue": "",
         "options": [],
         "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
       }
     ]
   },
   {
     "id": "custom-animation",
     "slug": "animation",
-    "title": "AIアニメーション・画像制作",
-    "description": "画像生成プロンプト、またはアニメの絵コンテと動画生成プロンプトを作成します。",
+    "title": "AIアニメ制作",
+    "description": "単一カット動画・景別・絵コンテ。",
     "categoryId": "creative",
     "content": "あなたは具体的なタスクに合わせた成果物を納品する専門アシスタントです。\n\n目的：{{subject}}\nタスク：{{medium}}\n環境・画面比率・長さ：{{audience}}\nスタイル・納品形式：{{style}}\n重点：{{keywords}}\n既存資料：\n{{materials}}\n受け入れ基準：\n{{criteria}}\n制約と補足：\n{{constraints}}\n\nタスク別の納品要件：\n[[TASK_GUIDE]]\n\n---META---\n\n実行方針：目的、読み手、資料、制約、受け入れ基準を確認してください。情報が十分なら、計画だけでなく今回の回答で完成した初稿を納品します。重要でない不足は妥当な仮定を明示します。目的を変える不足、事実誤認につながる不足、実行を妨げる不足だけ、最も重要な質問を1つずつ尋ね、回答済みの質問は繰り返しません。要件の矛盾は取捨選択を説明します。提出前に全基準を確認して不足を直し、仮定・未検証事項・使い方を簡潔に示します。長い内部思考の説明は不要です。資料、モデル機能、実行結果を捏造せず、一度で成功する保証もしません。画像・動画モデル向けの最終プロンプトは質問や自己チェック指示と分離します。Runway Gen-4動画では肯定的な動作表現を使い、ネガティブプロンプトを付けません。",
     "translation": "",
@@ -200,9 +209,8 @@
         "label": "制作するもの",
         "type": "text",
         "required": false,
-        "defaultValue": "AI画像",
+        "defaultValue": "画像から動画・単一カット",
         "options": [
-          "AI画像",
           "画像から動画・単一カット",
           "複数カットのアニメ"
         ],
@@ -332,6 +340,577 @@
         "required": false,
         "defaultValue": "",
         "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-image",
+    "slug": "image-assistant",
+    "title": "AI画像制作",
+    "description": "構図・画風・人物と場面の一貫性。",
+    "categoryId": "creative",
+    "content": "あなたは具体的なタスクに合わせた成果物を納品する専門アシスタントです。\n\n目的：{{subject}}\nタスク：{{medium}}\n環境・画面比率・長さ：{{audience}}\nスタイル・納品形式：{{style}}\n重点：{{keywords}}\n既存資料：\n{{materials}}\n受け入れ基準：\n{{criteria}}\n制約と補足：\n{{constraints}}\n\nタスク別の納品要件：\n[[TASK_GUIDE]]\n\n---META---\n\n実行方針：目的、読み手、資料、制約、受け入れ基準を確認してください。情報が十分なら、計画だけでなく今回の回答で完成した初稿を納品します。重要でない不足は妥当な仮定を明示します。目的を変える不足、事実誤認につながる不足、実行を妨げる不足だけ、最も重要な質問を1つずつ尋ね、回答済みの質問は繰り返しません。要件の矛盾は取捨選択を説明します。提出前に全基準を確認して不足を直し、仮定・未検証事項・使い方を簡潔に示します。長い内部思考の説明は不要です。資料、モデル機能、実行結果を捏造せず、一度で成功する保証もしません。画像・動画モデル向けの最終プロンプトは質問や自己チェック指示と分離します。Runway Gen-4動画では肯定的な動作表現を使い、ネガティブプロンプトを付けません。",
+    "translation": "",
+    "tags": [
+      "構図",
+      "光",
+      "質感",
+      "被写体の一貫性"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 4,
+    "fields": [
+      {
+        "key": "medium",
+        "label": "制作するもの",
+        "type": "text",
+        "required": false,
+        "defaultValue": "AI画像",
+        "options": [
+          "AI画像"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "詳細シナリオ",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合",
+          "商品キービジュアル",
+          "キャラクター三面図",
+          "固定カメラの微細動作",
+          "複数カットの商品広告",
+          "幻想風景の構図",
+          "商品の9コマ構成",
+          "写真から9カット絵コンテ",
+          "6コマの物語",
+          "カートゥーンの単一動作",
+          "俯瞰図と9方向のカメラ設定",
+          "空間の連続性とカット設計",
+          "近景動画：表情と細部",
+          "中景動画：動作とやり取り",
+          "遠景動画：空間と動線"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用するAIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用 · Kling / 即夢 / その他の画像・動画ツール",
+        "options": [
+          "汎用 · Kling / 即夢 / その他の画像・動画ツール",
+          "Midjourney · 画像",
+          "Stable Diffusion / ComfyUI · 画像",
+          "Runway Gen-4 · 動画"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "物語・キャラクター・舞台",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [
+          "化粧品の商品画像を作成：中央にボトル1本、柔らかなサイド光、淡い背景。ラベルの領域を確保してください。",
+          "オリジナルキャラクターの正面・側面・背面図を作り、服装、比率、配色を統一してください。",
+          "森を探検するアニメを設計：子猫が光る種を発見します。各カットでは明確な動きを1つ描写してください。"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "画面比率・サイズ・長さ（アニメ）",
+        "type": "text",
+        "required": false,
+        "defaultValue": "16:9",
+        "options": [
+          "16:9",
+          "9:16",
+          "1:1",
+          "15秒 · 16:9",
+          "30秒 · 9:16",
+          "60秒 · 16:9"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "映像スタイル",
+        "type": "text",
+        "required": false,
+        "defaultValue": "手描き2D",
+        "options": [
+          "手描き2D",
+          "3Dカートゥーン",
+          "ストップモーション",
+          "水彩アニメ"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "カメラと一貫性の要件",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [
+          "キャラクターの一貫性",
+          "滑らかなカメラワーク"
+        ],
+        "options": [
+          "キャラクターの一貫性",
+          "滑らかなカメラワーク",
+          "照明の連続性",
+          "自然な動き"
+        ],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "セリフ・音・その他の制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "既存資料：コード・エラー・参考画像の説明・固定設定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "受け入れ基準：必須項目と完了の確認方法",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-office",
+    "slug": "office-assistant",
+    "title": "WPS Office アシスタント",
+    "description": "文書・表計算・スライド・PDF・共同編集。",
+    "categoryId": "office",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "WPS 文書",
+      "WPS 表計算",
+      "WPS プレゼン",
+      "WPS PDF",
+      "クラウド文書の共同編集"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "WPS 文書",
+        "options": [
+          "WPS 文書",
+          "WPS 表計算",
+          "WPS プレゼン",
+          "WPS PDF",
+          "クラウド文書の共同編集"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "中国版WPS Office PC版、バージョン未指定",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-copy",
+    "slug": "copy-assistant",
+    "title": "コピー・文章制作",
+    "description": "媒体・読者・確認済み情報に合わせた文章。",
+    "categoryId": "marketing",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "商品・ブランドコピー",
+      "SNS・キャンペーン文章",
+      "広告・短尺動画の台本"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "商品・ブランドコピー",
+        "options": [
+          "商品・ブランドコピー",
+          "SNS・キャンペーン文章",
+          "広告・短尺動画の台本"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-paper-writing",
+    "slug": "paper-writing-assistant",
+    "title": "論文執筆・制作",
+    "description": "資料から章本文・要旨・引用・書式まで。",
+    "categoryId": "study",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "論文構成と執筆計画",
+      "章本文と要旨の作成",
+      "引用・図表・論文書式",
+      "推敲・翻訳・修正回答"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "論文構成と執筆計画",
+        "options": [
+          "論文構成と執筆計画",
+          "章本文と要旨の作成",
+          "引用・図表・論文書式",
+          "推敲・翻訳・修正回答"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
         "maxSelections": 1
       }
     ]

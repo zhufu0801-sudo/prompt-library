@@ -5,6 +5,8 @@ import {
   composeStudio,
   taskFields,
   analyzeTask,
+  matchingSkills,
+  briefQuestion,
   toolAdapter,
   translateValues,
   localeOf,
@@ -12,6 +14,34 @@ import {
 } from '../lib/studio.ts';
 import { defaultValues } from '../lib/prompt.ts';
 const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.json',import.meta.url),'utf8'));
+test('six modules preserve user input, localize each new task and scope Skills',()=>{
+ const extended=JSON.parse(fs.readFileSync(new URL('../data/studio/extended-tasks.json',import.meta.url),'utf8'));
+ for(const locale of ['zh','en','ja']) {
+  for(const g of extended){
+   const template=load(locale).find(t=>t.id===({office:'custom-office',copy:'custom-copy',paper:'custom-paper-writing'})[g.group]);
+   const v={...defaultValues(template),task:g.labels[locale],subject:'My exact brief {{style}}'};
+   const output=composeStudio(template,v,locale);
+   assert.ok(output.includes(g.guidance[locale]));
+   assert.ok(output.includes(v.subject));
+   assert.ok(!output.includes('[[TASK_GUIDE]]'));
+   assert.equal(taskFields(template,v,locale).find(f=>f.key==='subject').placeholder,g.examples[locale]);
+   assert.equal(taskFields(template,v,locale).find(f=>f.key==='materials').label,({zh:'已有资料',en:'Available materials',ja:'提供資料'})[locale]);
+   assert.equal(briefQuestion(template,v,locale).text,g.questions[locale]);
+   assert.equal(briefQuestion(template,{...v,materials:'supplied'},locale),null);
+   const en=load('en').find(t=>t.id===template.id);
+   assert.equal(translateValues(template,en,v,{}).task,g.labels.en);
+   assert.ok(!taskFields(template,v,locale).some(f=>f.key==='skill_id'));
+  }
+  const image=load(locale)[2],animation=load(locale)[1];
+  assert.ok(!analyzeTask(image,{subject:'storyboard 分镜'},locale).candidates.some(c=>c.id==='storyboard'));
+  assert.ok(!analyzeTask(animation,{subject:'image 图片'},locale).candidates.some(c=>c.id==='image'));
+  const v={...defaultValues(image),subject:'A mountain',skill_id:'image'};
+  assert.ok(matchingSkills(image,v).some(s=>s.id==='image'));
+  assert.ok(composeStudio(image,v,locale).includes('/skills/image'));
+  assert.ok(!composeStudio(image,{...v,skill_id:'copywriting'},locale).includes('/skills/copywriting'));
+  assert.ok(!composeStudio(image,{...v,skill_id:''},locale).includes('GitHub'));
+ }
+});
 test('natural problem descriptions route to relevant tasks without weak or excluded matches',()=>{
  const cases=[['zh',0,'debug','登录后一直跳转','auth-expiry'],['en',0,'debug','same item appears twice','duplicate-list'],['ja',0,'debug','画面からはみ出す','responsive-layout'],['zh',1,'clip','想看手部细节','video-close'],['en',1,'clip','show the whole setting','video-wide'],['ja',1,'clip','二人のやり取り','video-medium'],['zh',1,'storyboard','前后镜头场景变了','spatial-continuity']];
  for(const [l,i,task,subject,id] of cases){
@@ -160,7 +190,7 @@ test('three languages share field identities, option positions and two featured 
       );
     });
     assert.ok(
-      items[1].fields.some((f) => f.key === 'medium' && f.options.length === 3),
+      items[1].fields.some((f) => f.key === 'medium' && f.options.length === 2),
     );
   }
   assert.equal(localeOf('de'), 'zh');
@@ -220,7 +250,7 @@ test('scenario guidance is task-scoped, optional and preserves literal user cont
   assert.equal(analyzeTask(t,{...values,subject:'address'},'en').scenarios.length,0);
   assert.equal(analyzeTask(t,{...values,subject:''},'en').candidates.length,0);
   for (const locale of ['zh','en','ja']) {
-    const template=load(locale)[1];
+    const template=load(locale)[2];
     const analysis=analyzeTask(template,{...defaultValues(template),subject:'turnaround 三视图 三面図'},locale);
     assert.equal(analysis.scenarios[0].id,'turnaround');
     assert.ok(analysis.scenarios[0].details[locale]);

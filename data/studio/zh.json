@@ -171,14 +171,23 @@
         "defaultValue": "",
         "options": [],
         "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
       }
     ]
   },
   {
     "id": "custom-animation",
     "slug": "animation",
-    "title": "AI 动画与图片制作",
-    "description": "把创意整理成图片提示词，或完整的动画分镜与视频提示词。",
+    "title": "AI 动画制作",
+    "description": "单镜头视频、景别与连续分镜。",
     "categoryId": "creative",
     "content": "你是一位根据具体任务交付成品的专业助手。\n\n任务：{{subject}}\n任务类型：{{medium}}\n环境、画幅或时长：{{audience}}\n风格或交付偏好：{{style}}\n重点：{{keywords}}\n已有资料：\n{{materials}}\n验收标准：\n{{criteria}}\n限制与补充：\n{{constraints}}\n\n针对本任务的交付规范：\n[[TASK_GUIDE]]\n\n---META---\n\n执行原则：先核对目标、对象、已有资料、限制和验收要求。信息足够时，在本次回答中直接交付完整初稿，不只给计划或建议。非关键缺项采用合理假设并明确列出；只有会改变目标、造成事实错误或无法完成任务的关键缺项才追问，每次只问一个最重要的问题，不重复询问已提供信息。识别互相冲突的要求并说明取舍。交付前逐项对照验收标准修正遗漏，最后简述假设、待验证事项和使用方式，不输出冗长思考过程。不要编造资料、模型能力、执行结果或保证一次成功。视觉生成的最终提示词单独放在可复制区，不混入问答和自检指令；Runway Gen-4 视频只用正向动作描述，不添加负面提示词。",
     "translation": "",
@@ -200,9 +209,8 @@
         "label": "制作类型",
         "type": "text",
         "required": false,
-        "defaultValue": "AI 图片",
+        "defaultValue": "图生视频 · 单镜头",
         "options": [
-          "AI 图片",
           "图生视频 · 单镜头",
           "多镜头动画"
         ],
@@ -332,6 +340,577 @@
         "required": false,
         "defaultValue": "",
         "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-image",
+    "slug": "image-assistant",
+    "title": "AI 图片制作",
+    "description": "构图、风格与角色场景一致性。",
+    "categoryId": "creative",
+    "content": "你是一位根据具体任务交付成品的专业助手。\n\n任务：{{subject}}\n任务类型：{{medium}}\n环境、画幅或时长：{{audience}}\n风格或交付偏好：{{style}}\n重点：{{keywords}}\n已有资料：\n{{materials}}\n验收标准：\n{{criteria}}\n限制与补充：\n{{constraints}}\n\n针对本任务的交付规范：\n[[TASK_GUIDE]]\n\n---META---\n\n执行原则：先核对目标、对象、已有资料、限制和验收要求。信息足够时，在本次回答中直接交付完整初稿，不只给计划或建议。非关键缺项采用合理假设并明确列出；只有会改变目标、造成事实错误或无法完成任务的关键缺项才追问，每次只问一个最重要的问题，不重复询问已提供信息。识别互相冲突的要求并说明取舍。交付前逐项对照验收标准修正遗漏，最后简述假设、待验证事项和使用方式，不输出冗长思考过程。不要编造资料、模型能力、执行结果或保证一次成功。视觉生成的最终提示词单独放在可复制区，不混入问答和自检指令；Runway Gen-4 视频只用正向动作描述，不添加负面提示词。",
+    "translation": "",
+    "tags": [
+      "构图",
+      "光线",
+      "材质",
+      "主体一致"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 4,
+    "fields": [
+      {
+        "key": "medium",
+        "label": "制作类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "AI 图片",
+        "options": [
+          "AI 图片"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配",
+          "产品主视觉",
+          "角色三视图",
+          "固定机位微动",
+          "多镜头产品广告",
+          "幻想场景构图",
+          "产品九宫格",
+          "照片转九镜头分镜",
+          "六格叙事",
+          "卡通单镜头动作",
+          "场景俯视图与九宫格机位",
+          "固定场景与连续分镜",
+          "近景视频：表情与细节",
+          "中景视频：动作与互动",
+          "远景视频：空间与走位"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的 AI 工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用 · 可灵 / 即梦 / 其他视觉工具",
+        "options": [
+          "通用 · 可灵 / 即梦 / 其他视觉工具",
+          "Midjourney · 图片",
+          "Stable Diffusion / ComfyUI · 图片",
+          "Runway Gen-4 · 视频"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "故事、角色与场景",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [
+          "制作一张护肤品展示图：单瓶居中、柔和侧光、浅色背景，保留包装文字区域。",
+          "设计一个原创角色的正面、侧面与背面设定，保持服装、比例和配色一致。",
+          "设计一段森林探险动画：小猫发现发光种子，每个镜头突出一个清晰动作。"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "画幅、尺寸与时长（动画）",
+        "type": "text",
+        "required": false,
+        "defaultValue": "16:9",
+        "options": [
+          "16:9",
+          "9:16",
+          "1:1",
+          "15秒 · 16:9",
+          "30秒 · 9:16",
+          "60秒 · 16:9"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "画面风格",
+        "type": "text",
+        "required": false,
+        "defaultValue": "二维手绘",
+        "options": [
+          "二维手绘",
+          "三维卡通",
+          "定格动画",
+          "水彩动画"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "镜头与一致性要求",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [
+          "角色一致",
+          "平滑运镜"
+        ],
+        "options": [
+          "角色一致",
+          "平滑运镜",
+          "光影连贯",
+          "动作自然"
+        ],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "对白、声音与其他限制",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料：代码、报错、参考图说明或关键设定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收标准：必须包含什么，如何判断完成",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-office",
+    "slug": "office-assistant",
+    "title": "WPS Office 办公助手",
+    "description": "文字、表格、演示、PDF与云文档协作。",
+    "categoryId": "office",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "WPS 文字",
+      "WPS 表格",
+      "WPS 演示",
+      "WPS PDF",
+      "云文档协作"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "WPS 文字",
+        "options": [
+          "WPS 文字",
+          "WPS 表格",
+          "WPS 演示",
+          "WPS PDF",
+          "云文档协作"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "WPS Office 国内电脑版；版本待补充",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-copy",
+    "slug": "copy-assistant",
+    "title": "文案创作",
+    "description": "按平台、受众与真实卖点制作可用文案。",
+    "categoryId": "marketing",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "产品与品牌文案",
+      "社交媒体与活动文案",
+      "广告与短视频脚本"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "产品与品牌文案",
+        "options": [
+          "产品与品牌文案",
+          "社交媒体与活动文案",
+          "广告与短视频脚本"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "custom-paper-writing",
+    "slug": "paper-writing-assistant",
+    "title": "论文写作与制作",
+    "description": "从资料到章节、摘要、引用与排版。",
+    "categoryId": "study",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "论文提纲与写作计划",
+      "章节成稿与摘要",
+      "引用、图表与论文排版",
+      "润色、翻译与修改回复"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "论文提纲与写作计划",
+        "options": [
+          "论文提纲与写作计划",
+          "章节成稿与摘要",
+          "引用、图表与论文排版",
+          "润色、翻译与修改回复"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
         "maxSelections": 1
       }
     ]

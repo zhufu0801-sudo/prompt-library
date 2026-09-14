@@ -1,21 +1,19 @@
 # AI Made Easy
 
 Open-source prompt studio / 三语提示词工作室 / 3言語対応プロンプトスタジオ。
-Newest batch: 12 everyday programming scenarios in three languages. Current catalog: **45 published + 8 drafts, 159 localizations**. See [everyday programming](docs/EVERYDAY-PROGRAMMING.md); counts below describe earlier batches.
-Current update: pagination, background jobs, upload review and close/medium/wide video prompts. Scenario catalog: **33 published + 8 drafts, 123 localizations**. See [code and shot-size notes](docs/CODE-AND-SHOT-SIZES.md). Counts in older batch notes describe their historical snapshots.
-Latest learning batch: request cancellation, timeout cleanup and stronger stale-response handling, based on reading Axios source and tests. Current scenario catalog: 27 published + 8 drafts, 105 localized entries. See [source review and continuation notes](docs/GITHUB-LEARNING-CANCELLATION.md). Earlier Playwright/FastAPI review remains in [batch 2](docs/GITHUB-LEARNING-2026-09-13.md).
+Current release (2026-09-14): **six homepage modules, 18 task types, 45 detailed scenarios, six downloadable GitHub-based Skill documentation packs**. All homepage prompts and usage instructions support Chinese, English and Japanese. See [release and content maintenance](docs/SIX-MODULES-AND-SKILLS.md).
 Original code and editorial content use the MIT license; upstream content retains its own notices (see LICENSE).
 
-2026-09-13: added scene-map/camera-grid and spatial-continuity workflows in Chinese, English and Japanese. The scenario catalog contains 24 published scenarios and 8 offline drafts (96 localized entries). Homepage modules remain programming and animation/images. See [spatial workflow notes](docs/SPATIAL-CONTINUITY.md). Prompt generation is rule-based; the site does not call a model or verify generated media.
+Prompt generation and matching are rule-based; the site does not call a model or create media. Earlier engineering and shot-size batches remain documented in [everyday programming](docs/EVERYDAY-PROGRAMMING.md), [code and shot sizes](docs/CODE-AND-SHOT-SIZES.md), and [spatial continuity](docs/SPATIAL-CONTINUITY.md).
 
-## 当前首页（2026-09-09）
+## 当前首页（2026-09-14）
 
-仅展示「编程助手」与「AI 动画与图片制作」两个精选模板。第二个模板可选图片或动画。
+展示编程、AI图片、AI动画、WPS Office、文案创作、论文写作与制作六个模块。图片与动画分开；WPS面向金山WPS Office。
 右上角支持中文、日文和英文切换，并记住偏好。模板正文、表单、选项和元提示词规则均提供三语版本。
 元提示词开关加入澄清问题、输出结构及自检规则；不调用 AI。用户输入和已锁定字段不会被语言切换自动翻译。
-历史 309 条模板保留，首页暂时隐藏；原有方案仍可打开与导出。
+历史 309 条模板保留，首页暂时隐藏；原有方案仍可打开与导出。Skill模式提供固定版本ZIP、来源、MIT许可、校验值和三语说明；普通模式无需下载。包内为上游文档或注明来源的适配版，执行脚本及外部依赖不包含，未做目标AI运行认证。
 新模板及翻译维护说明见 [data/studio/README.md](data/studio/README.md)。
-下方是完整内容库的原始说明，当前库共 311 条（32 条原创、279 条导入）。
+完整库共315条（36条原创、279条导入）。五个其他方向的关键词规则和八个学习草稿保留在数据库中，暂不上首页。
 
 一个可以自己维护的提示词网站：搜索数据库 → 填写模板 → 选择和锁定关键词 → 复制、收藏、保存方案。
 
@@ -95,7 +93,7 @@ pnpm build
 
 现有 `.openai/hosting.json` 指向当前 Sites 项目，D1 逻辑绑定为 `DB`。构建产物为 Cloudflare Worker。Sites 发布时先应用 Drizzle schema 迁移，首次请求按内容版本同步种子数据。
 
-GitHub 保存源码与初始数据库，不会自动部署线上网站。当前网站仍保持私有访问。不要把 `.env`、`.dev.vars`、`.wrangler`、用户数据备份、Token 或密钥上传 GitHub。
+GitHub 保存公开源码与参考数据库，不会自动部署线上网站。网站已公开访问。不要把 `.env`、`.dev.vars`、`.wrangler`、用户数据备份、Token 或密钥上传 GitHub。
 
 ## 来源与许可
 
