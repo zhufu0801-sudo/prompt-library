@@ -10,6 +10,7 @@ sources=[('systematic-debugging','obra/superpowers','b36e0829c6d0140e93cfef2ca59
  ('copywriting',['copy-product'],['网站与产品文案','Website and product copy','Web・商品コピー']),
  ('image',['image'],['营销图片工作流','Marketing image workflow','マーケティング画像制作']),
  ('video',['clip','storyboard'],['视频制作工作流','Video production workflow','動画制作ワークフロー'])]]]
+sources += [('frontend-design','anthropics/skills','34040c9c568585f6929bedeaad110ad08f079624','skills/frontend-design',['frontend-ui'],['前端与界面设计','Frontend design','フロントエンド設計']),('content-strategy','coreyhaines31/marketingskills','5b2c0007766c6a1cf1d53fd8fc73e979e0821022','skills/content-strategy',['content-roadmap'],['内容策略','Content strategy','コンテンツ戦略'])]
 catalog=[]
 usage={
  'zh':'这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。',
@@ -29,14 +30,15 @@ for id,repo,commit,directory,tasks,labels in sources:
    data=(root/'data/skill-adaptations/wps-formula/SKILL.md').read_bytes()
   rel=path[len(directory)+1:];target=dest/rel;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
   files.append({'path':rel,'sha256':hashlib.sha256(data).hexdigest()})
- license=fetch(base+('LICENSE.md' if repo.startswith('K-Dense-AI/') else 'LICENSE'));assert b'MIT License' in license
+ license_name='Apache-2.0' if id=='frontend-design' else 'MIT'
+ license=fetch(base+(directory+'/LICENSE.txt' if id=='frontend-design' else 'LICENSE.md' if repo.startswith('K-Dense-AI/') else 'LICENSE'));assert (b'Apache License' if id=='frontend-design' else b'MIT License') in license
  (dest/'LICENSE').write_bytes(license)
  if id=='wps-formula':(root/'data/sources/wps-formula-upstream/LICENSE').write_bytes(license)
- entry={'id':id,'tasks':tasks,'labels':dict(zip(['zh','en','ja'],labels)),'repository':f'https://github.com/{repo}','source':f'https://github.com/{repo}/tree/{commit}/{directory}','commit':commit,'license':'MIT','language':'en','edition':'upstream-documentation','review':'source-and-license-checked; not-runtime-tested','usage':usage,'files':files}
+ entry={'id':id,'tasks':tasks,'labels':dict(zip(['zh','en','ja'],labels)),'repository':f'https://github.com/{repo}','source':f'https://github.com/{repo}/tree/{commit}/{directory}','commit':commit,'license':license_name,'language':'en','edition':'upstream-documentation','review':'source-and-license-checked; not-runtime-tested','usage':usage,'files':files}
  if id=='wps-formula':
   entry['edition']='adapted-documentation'
   entry['usage']={l:body.replace({'zh':'这是上游英文 Skill 的文档包','en':'This package contains the original English Skill documents','ja':'上流の英語 Skill 文書'}[l],{'zh':'这是根据上游中文内容整理的英文适配 Skill 文档包；已移除笼统的函数版本断言','en':'This package contains an English adaptation of the Chinese upstream Skill, with blanket function-version claims removed','ja':'上流の中国語Skillを英語に調整し、一律の関数バージョン断定を除いた文書'}[l]) for l,body in usage.items()}
- for l,body in entry['usage'].items(): (dest/f'USAGE.{l}.md').write_text(f'# {entry["labels"][l]}\n\n{body}\n\nSource: {entry["source"]}\n\nCommit: {commit}\nLicense: MIT\n',encoding='utf-8')
+ for l,body in entry['usage'].items(): (dest/f'USAGE.{l}.md').write_text(f'# {entry["labels"][l]}\n\n{body}\n\nSource: {entry["source"]}\n\nCommit: {commit}\nLicense: {license_name}\n',encoding='utf-8')
  (dest/'manifest.json').write_text(json.dumps(entry,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
  name=f'{id}-{commit[:12]}.zip';archive=root/'public/downloads/skills'/name;archive.parent.mkdir(parents=True,exist_ok=True)
  with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:

@@ -1,6 +1,9 @@
 import type { Template, Values, Locks, Field } from './prompt';
 import baseGuides from '../data/studio/task-guides.json' with { type: 'json' };
-import extendedTasks from '../data/studio/extended-tasks.json' with { type: 'json' };
+import originalExtendedTasks from '../data/studio/extended-tasks.json' with { type: 'json' };
+import additionalTasks from '../data/studio/additional-tasks.json' with { type: 'json' };
+import { compose } from './prompt.ts';
+const extendedTasks = [...originalExtendedTasks, ...additionalTasks];
 import skillCatalog from '../data/studio/skills.json' with { type: 'json' };
 import skillFit from '../data/studio/skill-fit.json' with { type: 'json' };
 import inputs from '../data/studio/task-inputs.json' with { type: 'json' };
@@ -16,9 +19,9 @@ type Scenario = typeof originalScenarios[number] & {source?: typeof curatedScena
 const scenarios: Scenario[] = [...originalScenarios, ...curatedScenarios, ...spatialScenarios, ...engineeringScenarios, ...codeAndShots, ...everydayScenarios];
 const guides = [...baseGuides,...extendedTasks];
 export type Locale = 'zh' | 'en' | 'ja';
-export const studioIds = ['custom-programming', 'custom-animation', 'custom-image', 'custom-office', 'custom-copy', 'custom-paper-writing'];
+export const studioIds = ['custom-programming', 'custom-animation', 'custom-image', 'custom-office', 'custom-copy', 'custom-paper-writing', 'studio-writing', 'studio-learning', 'studio-language', 'studio-life', 'studio-creative', 'studio-business', 'studio-thinking'];
 export function taskKey(t:Template) {return ['custom-animation','custom-image'].includes(t.id)?'medium':'task';}
-export function moduleGroup(t:Template) {return ({'custom-office':'office','custom-copy':'copy','custom-paper-writing':'paper','custom-programming':'programming'} as Record<string,string>)[t.id] || 'visual';}
+export function moduleGroup(t:Template) {return t.id.startsWith('studio-') ? t.id.slice(7) : ({'custom-office':'office','custom-copy':'copy','custom-paper-writing':'paper','custom-programming':'programming'} as Record<string,string>)[t.id] || 'visual';}
 function visibleGuides(t:Template) {
  return guides.filter(g=>g.group===moduleGroup(t) && (t.id==='custom-image'?g.id==='image':t.id==='custom-animation'?g.id!=='image':true));
 }
@@ -31,6 +34,7 @@ export function composeStudio(
   locale: Locale,
   meta = true,
 ) {
+  if (!studioIds.includes(t.id)) return compose(t,values);
   const empty = {
     zh: '未提供；非关键内容可列明假设，关键缺项再询问',
     en: 'Not supplied; state assumptions for noncritical gaps and ask only about blockers',

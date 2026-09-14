@@ -4,6 +4,8 @@ import { json, visitor } from '@/lib/http';
 import { localeOf, studioIds } from '@/lib/studio';
 import en from '@/data/studio/en.json';
 import ja from '@/data/studio/ja.json';
+import additionalEn from '@/data/studio/additional/en.json';
+import additionalJa from '@/data/studio/additional/ja.json';
 export async function GET(request: Request) {
   try {
     await ensureContent();
@@ -15,7 +17,7 @@ export async function GET(request: Request) {
       .prepare('SELECT template_id FROM favorites WHERE visitor_id=?')
       .bind(user.id)
       .all();
-    const translated = locale === 'en' ? en : ja;
+    const translated = locale === 'en' ? [...en,...additionalEn] : [...ja,...additionalJa];
     return json(
       {
         templates: templates.map((t) =>

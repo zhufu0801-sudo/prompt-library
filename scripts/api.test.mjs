@@ -40,7 +40,7 @@ for(const s of skills){
 for (const locale of ['zh', 'en', 'ja']) {
   const studio = await get('/api/studio?locale=' + locale);
   assert.equal(studio.status, 200);
-  assert.equal(studio.body.templates.length, 6);
+  assert.equal(studio.body.templates.length, 13);
   assert.equal(studio.body.locale, locale);
   for(const t of studio.body.templates.slice(2)){
    const values=Object.fromEntries(t.fields.map(f=>[f.key,f.defaultValue]));
@@ -53,7 +53,7 @@ for (const locale of ['zh', 'en', 'ja']) {
   }
   assert.deepEqual(
     studio.body.templates.map((t) => t.id),
-    ['custom-programming', 'custom-animation','custom-image','custom-office','custom-copy','custom-paper-writing'],
+    ['custom-programming', 'custom-animation','custom-image','custom-office','custom-copy','custom-paper-writing','studio-writing','studio-learning','studio-language','studio-life','studio-creative','studio-business','studio-thinking'],
   );
   const animation = studio.body.templates[1];
   assert.equal(
@@ -82,13 +82,13 @@ for (const locale of ['zh', 'en', 'ja']) {
 }
 assert.equal(all.status, 200);
 cookieA = all.cookie;
-assert.equal(all.body.total, 315);
+assert.equal(all.body.total, 322);
 assert.equal(all.body.categories.length, 10);
 assert.equal(all.body.ai.enabled, false);
 const userB = await get('/api/catalog');
 cookieB = userB.cookie;
 assert.notEqual(cookieA, cookieB);
-assert.equal((await get('/api/catalog?kind=custom')).body.total, 36);
+assert.equal((await get('/api/catalog?kind=custom')).body.total, 43);
 assert.equal((await get('/api/catalog?kind=imported')).body.total, 279);
 assert.equal(
   (await get('/api/catalog?kind=custom&category=programming')).body.total,
@@ -183,5 +183,5 @@ await post(
   cookieA,
 );
 console.log(
-  'PASS: six-module localized save/restore, Skill download hashes, catalog/search, source preservation, favorites, plan updates, visitor isolation, CSRF, limits, disabled AI',
+  'PASS: 13-module localized save/restore, Skill download hashes, catalog/search, source preservation, favorites, plan updates, visitor isolation, CSRF, limits, disabled AI',
 );

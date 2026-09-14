@@ -342,5 +342,81 @@
     "download": "/downloads/skills/video-5b2c0007766c.zip",
     "sha256": "2221f2655454bfa0f97fbebb59630e08c6255bda6f0b4b66313bc8a96480f74a",
     "bytes": 21572
+  },
+  {
+    "id": "frontend-design",
+    "tasks": [
+      "frontend-ui"
+    ],
+    "labels": {
+      "zh": "前端与界面设计",
+      "en": "Frontend design",
+      "ja": "フロントエンド設計"
+    },
+    "repository": "https://github.com/anthropics/skills",
+    "source": "https://github.com/anthropics/skills/tree/34040c9c568585f6929bedeaad110ad08f079624/skills/frontend-design",
+    "commit": "34040c9c568585f6929bedeaad110ad08f079624",
+    "license": "Apache-2.0",
+    "language": "en",
+    "edition": "upstream-documentation",
+    "review": "source-and-license-checked; not-runtime-tested",
+    "usage": {
+      "zh": "这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
+      "en": "This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
+      "ja": "上流の英語 Skill 文書と、中国語・英語・日本語の使用説明を収録。モデル、APIキー、実行スクリプト、インストーラーは含みません。展開後、SKILL.md 対応ツールの公式手順でフォルダーを取り込んでください。通常のチャットでは必要な指示と生成したプロンプトを貼り付け、日本語での回答を指定します。まず不足資料と機能を確認し、ファイル・媒体操作ができなければ本文と手順を出し、生成済みとしないこと。参照先の外部Skill、スクリプト、連携機能は別途必要です。モデル・料金・機能・コマンドは公式文書で確認。例示の統計値を事実として転用せず、秘密情報や環境変数を出力しないこと。操作と費用は利用者が確認します。"
+    },
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+      }
+    ],
+    "download": "/downloads/skills/frontend-design-34040c9c5685.zip",
+    "sha256": "a9dd387a8ff043c7147b319a0d39f32f331c52945fe1cc3b4155f9549cc7d37b",
+    "bytes": 12701
+  },
+  {
+    "id": "content-strategy",
+    "tasks": [
+      "content-roadmap"
+    ],
+    "labels": {
+      "zh": "内容策略",
+      "en": "Content strategy",
+      "ja": "コンテンツ戦略"
+    },
+    "repository": "https://github.com/coreyhaines31/marketingskills",
+    "source": "https://github.com/coreyhaines31/marketingskills/tree/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/content-strategy",
+    "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+    "license": "MIT",
+    "language": "en",
+    "edition": "upstream-documentation",
+    "review": "source-and-license-checked; not-runtime-tested",
+    "usage": {
+      "zh": "这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
+      "en": "This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
+      "ja": "上流の英語 Skill 文書と、中国語・英語・日本語の使用説明を収録。モデル、APIキー、実行スクリプト、インストーラーは含みません。展開後、SKILL.md 対応ツールの公式手順でフォルダーを取り込んでください。通常のチャットでは必要な指示と生成したプロンプトを貼り付け、日本語での回答を指定します。まず不足資料と機能を確認し、ファイル・媒体操作ができなければ本文と手順を出し、生成済みとしないこと。参照先の外部Skill、スクリプト、連携機能は別途必要です。モデル・料金・機能・コマンドは公式文書で確認。例示の統計値を事実として転用せず、秘密情報や環境変数を出力しないこと。操作と費用は利用者が確認します。"
+    },
+    "files": [
+      {
+        "path": "SKILL.md",
+        "sha256": "0ad572d607884c561668810f77cd21bbe3e0508c64090f2997661a728360f946"
+      },
+      {
+        "path": "evals/evals.json",
+        "sha256": "10167e7125ee77cbabe4f03953750dd99ea147f7461027fdbb0cf8e089e5506d"
+      },
+      {
+        "path": "references/content-distribution.md",
+        "sha256": "1861a1aab0627ab29c279000879a9889242da1ba85e677acdc759c66a6241778"
+      },
+      {
+        "path": "references/headless-cms.md",
+        "sha256": "c0a7b87f47c8f7af907ce73facf1ed4721ade811e53f86ddf22f4bc0d7ca324e"
+      }
+    ],
+    "download": "/downloads/skills/content-strategy-5b2c0007766c.zip",
+    "sha256": "89533bec7f304acde593763968d12b87097d743de5a292217ab8cfd1ce6396cb",
+    "bytes": 23806
   }
 ]

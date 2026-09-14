@@ -58,6 +58,10 @@ import {
   localeOf,
   type Locale,
 } from '@/lib/studio';
+import FullLibrary from '@/components/FullLibrary';
+import { categoryNames } from '@/lib/categories';
+import { studioIds } from '@/lib/studio';
+import { validateValues } from '@/lib/prompt';
 import { ui } from '@/lib/studio-ui';
 async function api<T>(url: string, body?: unknown): Promise<T> {
   const r = await fetch(
@@ -99,25 +103,129 @@ export default function Home() {
     [help, setHelp] = useState(false),
     [custom, setCustom] = useState<Record<string, string>>({});
   const t = ui[locale];
+  const guided = !!active && studioIds.includes(active.id);
+  const catalogLabel = {
+    zh: '全部提示词',
+    en: 'All prompts',
+    ja: '全プロンプト',
+  }[locale];
   const fields = active ? taskFields(active, values, locale) : [];
-  const analysis = active ? analyzeTask(active, values, locale) : null;
-  const question = active ? briefQuestion(active,values,locale) : null;
-  const skills = active ? matchingSkills(active,values) : [];
-  const recommendations = active ? recommendedSkills(active,values,locale) : [];
-  const recommendText={
-    zh:{title:'推荐 Skill',matched:'按所选任务推荐',switch:'适用于',apply:'使用推荐',switchApply:'切换任务并使用',selected:'已附加',backup:'备用下载',locked:'请先解锁任务类型再应用推荐'},
-    en:{title:'Recommended Skills',matched:'Based on the selected task',switch:'For',apply:'Use recommendation',switchApply:'Switch task and use',selected:'Attached',backup:'Backup download',locked:'Unlock the task before applying this recommendation'},
-    ja:{title:'おすすめ Skill',matched:'選択タスクに基づく候補',switch:'対象',apply:'おすすめを使う',switchApply:'タスクを切り替えて使う',selected:'追加済み',backup:'予備ダウンロード',locked:'タスクのロックを解除してから適用してください'}
+  const analysis =
+    active && guided ? analyzeTask(active, values, locale) : null;
+  const question =
+    active && guided ? briefQuestion(active, values, locale) : null;
+  const skills = active ? matchingSkills(active, values) : [];
+  const recommendations = active
+    ? recommendedSkills(active, values, locale)
+    : [];
+  const recommendText = {
+    zh: {
+      title: '推荐 Skill',
+      matched: '按所选任务推荐',
+      switch: '适用于',
+      apply: '使用推荐',
+      switchApply: '切换任务并使用',
+      selected: '已附加',
+      backup: '备用下载',
+      locked: '请先解锁任务类型再应用推荐',
+    },
+    en: {
+      title: 'Recommended Skills',
+      matched: 'Based on the selected task',
+      switch: 'For',
+      apply: 'Use recommendation',
+      switchApply: 'Switch task and use',
+      selected: 'Attached',
+      backup: 'Backup download',
+      locked: 'Unlock the task before applying this recommendation',
+    },
+    ja: {
+      title: 'おすすめ Skill',
+      matched: '選択タスクに基づく候補',
+      switch: '対象',
+      apply: 'おすすめを使う',
+      switchApply: 'タスクを切り替えて使う',
+      selected: '追加済み',
+      backup: '予備ダウンロード',
+      locked: 'タスクのロックを解除してから適用してください',
+    },
   }[locale];
   const skillText = {
-   zh:{ordinary:'普通提示词',withSkill:'附带 Skill',empty:'暂未找到与这项需求相符的 Skill，仍可使用普通提示词。',download:'下载 Skill ZIP',source:'GitHub 来源',instructions:'使用方法与依赖',note:'GitHub 来源文档包或注明的适配版，附中英日使用说明。已核对来源和 MIT 许可，未在各 AI 工具中运行验证；不含模型或执行脚本。',next:'补充一项关键信息',fill:'前往填写'},
-   en:{ordinary:'Standard prompt',withSkill:'With Skill',empty:'No included Skill fits this request. The standard prompt remains available.',download:'Download Skill ZIP',source:'GitHub source',instructions:'Usage and dependencies',note:'GitHub-based documentation, original or labeled adaptation, with zh/en/ja instructions. Source and MIT license checked; not runtime-tested in each AI tool. No model or executable scripts included.',next:'One useful detail',fill:'Fill in'},
-   ja:{ordinary:'通常プロンプト',withSkill:'Skill 付き',empty:'この要件に合う Skill は見つかりません。通常プロンプトは利用できます。',download:'Skill ZIPを保存',source:'GitHub 出典',instructions:'使用方法・依存関係',note:'GitHubの原文または明記した調整版と、中英日の使用説明。出典とMIT許諾を確認済み。各AIでの動作検証は未実施。モデル・実行スクリプトは含みません。',next:'補足するとよい情報',fill:'入力する'}
+    zh: {
+      ordinary: '普通提示词',
+      withSkill: '附带 Skill',
+      empty: '暂未找到与这项需求相符的 Skill，仍可使用普通提示词。',
+      download: '下载 Skill ZIP',
+      source: 'GitHub 来源',
+      instructions: '使用方法与依赖',
+      note: 'GitHub 来源文档包或注明的适配版，附中英日使用说明。已核对来源和许可证，未在各 AI 工具中运行验证；不含模型或执行脚本。',
+      next: '补充一项关键信息',
+      fill: '前往填写',
+    },
+    en: {
+      ordinary: 'Standard prompt',
+      withSkill: 'With Skill',
+      empty:
+        'No included Skill fits this request. The standard prompt remains available.',
+      download: 'Download Skill ZIP',
+      source: 'GitHub source',
+      instructions: 'Usage and dependencies',
+      note: 'GitHub-based documentation, original or labeled adaptation, with zh/en/ja instructions. Source and license checked; not runtime-tested in each AI tool. No model or executable scripts included.',
+      next: 'One useful detail',
+      fill: 'Fill in',
+    },
+    ja: {
+      ordinary: '通常プロンプト',
+      withSkill: 'Skill 付き',
+      empty:
+        'この要件に合う Skill は見つかりません。通常プロンプトは利用できます。',
+      download: 'Skill ZIPを保存',
+      source: 'GitHub 出典',
+      instructions: '使用方法・依存関係',
+      note: 'GitHubの原文または明記した調整版と、中英日の使用説明。出典と許諾を確認済み。各AIでの動作検証は未実施。モデル・実行スクリプトは含みません。',
+      next: '補足するとよい情報',
+      fill: '入力する',
+    },
   }[locale];
   const analysisText = {
-    zh: {title:'需求细化',intro:'根据文字匹配候选场景，请核对后使用。不会自动理解代码或图片。',task:'可选任务',evidence:'匹配词',empty:'填写具体需求后，将显示匹配场景。未匹配时仍使用所选任务的基础规范。',missing:'可补充的信息（若已写在需求中，无需重复）',apply:'切换为',details:'细分交付要求已加入元提示词；关闭元提示词辅助可移除。'},
-    en: {title:'Refine your brief',intro:'Text-based scenario suggestions; check their relevance. Code and images are not automatically understood.',task:'Possible tasks',evidence:'Matched terms',empty:'Describe your goal to see matching scenarios. Otherwise, the selected task’s base rules apply.',missing:'Optional details to add (do not repeat information already in your goal)',apply:'Switch to',details:'Scenario deliverables are included with meta-prompt guidance. Turn it off to omit them.'},
-    ja: {title:'要件を具体化',intro:'入力文から候補を照合します。適合性をご確認ください。コードや画像を自動理解する機能ではありません。',task:'タスク候補',evidence:'一致した語',empty:'具体的な目的を入力すると候補が表示されます。一致しない場合は選択中タスクの基本要件を使用します。',missing:'補足できる項目（目的に記載済みなら重複不要）',apply:'切り替え',details:'詳細な納品要件はメタプロンプト補助に含まれます。オフにすると除外できます。'}
+    zh: {
+      title: '需求细化',
+      intro: '根据文字匹配候选场景，请核对后使用。不会自动理解代码或图片。',
+      task: '可选任务',
+      evidence: '匹配词',
+      empty:
+        '填写具体需求后，将显示匹配场景。未匹配时仍使用所选任务的基础规范。',
+      missing: '可补充的信息（若已写在需求中，无需重复）',
+      apply: '切换为',
+      details: '细分交付要求已加入元提示词；关闭元提示词辅助可移除。',
+    },
+    en: {
+      title: 'Refine your brief',
+      intro:
+        'Text-based scenario suggestions; check their relevance. Code and images are not automatically understood.',
+      task: 'Possible tasks',
+      evidence: 'Matched terms',
+      empty:
+        'Describe your goal to see matching scenarios. Otherwise, the selected task’s base rules apply.',
+      missing:
+        'Optional details to add (do not repeat information already in your goal)',
+      apply: 'Switch to',
+      details:
+        'Scenario deliverables are included with meta-prompt guidance. Turn it off to omit them.',
+    },
+    ja: {
+      title: '要件を具体化',
+      intro:
+        '入力文から候補を照合します。適合性をご確認ください。コードや画像を自動理解する機能ではありません。',
+      task: 'タスク候補',
+      evidence: '一致した語',
+      empty:
+        '具体的な目的を入力すると候補が表示されます。一致しない場合は選択中タスクの基本要件を使用します。',
+      missing: '補足できる項目（目的に記載済みなら重複不要）',
+      apply: '切り替え',
+      details:
+        '詳細な納品要件はメタプロンプト補助に含まれます。オフにすると除外できます。',
+    },
   }[locale];
   useEffect(() => {
     try {
@@ -211,8 +319,25 @@ export default function Home() {
   function update(key: string, value: string | string[]) {
     if (locks[key]) return;
     setValues((v) => {
-      const next={...v,[key]:value,...((key==='task'||key==='medium')&&!locks.scenario?{scenario:active?.fields.find(f=>f.key==='scenario')?.options[0]||''}:{}),...((key==='task'||key==='medium')?{skill_id:''}:{})};
-      if(active&&next.skill_id&&!locks.skill_id&&!matchingSkills(active,next).some(s=>s.id===next.skill_id))next.skill_id='';
+      const next = {
+        ...v,
+        [key]: value,
+        ...((key === 'task' || key === 'medium') && !locks.scenario
+          ? {
+              scenario:
+                active?.fields.find((f) => f.key === 'scenario')?.options[0] ||
+                '',
+            }
+          : {}),
+        ...(key === 'task' || key === 'medium' ? { skill_id: '' } : {}),
+      };
+      if (
+        active &&
+        next.skill_id &&
+        !locks.skill_id &&
+        !matchingSkills(active, next).some((s) => s.id === next.skill_id)
+      )
+        next.skill_id = '';
       return next;
     });
     setEdited(null);
@@ -260,7 +385,7 @@ export default function Home() {
   }
   async function save() {
     if (!active || busy) return;
-    if (!String(values.subject || '').trim()) {
+    if (validateValues(active, values).length) {
       setNotice(t.required);
       return;
     }
@@ -295,14 +420,14 @@ export default function Home() {
   }
   function example() {
     if (!active || locks.subject || String(values.subject || '').trim()) return;
-    const sample = fields.find(f => f.key === 'subject')?.options[0];
+    const sample = fields.find((f) => f.key === 'subject')?.options[0];
     if (sample) update('subject', sample);
   }
   const filtered = templates.filter(
     (x) =>
       (tab !== 'favorites' || favorites.includes(x.id)) &&
-      (category === 'all' || x.id === category) &&
-      [x.title, x.description, ...x.tags]
+      (category === 'all' || x.categoryId === category) &&
+      [x.title, x.description, ...x.tags, ...x.fields.flatMap((f) => f.options)]
         .join(' ')
         .toLowerCase()
         .includes(search.toLowerCase()),
@@ -311,7 +436,13 @@ export default function Home() {
     <Select value={locale} onValueChange={changeLocale}>
       <SelectTrigger aria-label={t.preference} className="studio-language">
         <Languages size={17} />
-        <SelectValue>{locale==='zh'?'简体中文':locale==='ja'?'日本語':'English'}</SelectValue>
+        <SelectValue>
+          {locale === 'zh'
+            ? '简体中文'
+            : locale === 'ja'
+              ? '日本語'
+              : 'English'}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="zh">简体中文</SelectItem>
@@ -328,19 +459,21 @@ export default function Home() {
           AI Made Easy
         </a>
         <nav>
-          {(['library', 'favorites', 'plans'] as const).map((key) => (
-            <button
-              key={key}
-              className={tab === key ? 'selected' : ''}
-              onClick={() => {
-                setTab(key);
-                setSearch('');
-                setCategory('all');
-              }}
-            >
-              {t[key]}
-            </button>
-          ))}
+          {(['library', 'catalog', 'favorites', 'plans'] as const).map(
+            (key) => (
+              <button
+                key={key}
+                className={tab === key ? 'selected' : ''}
+                onClick={() => {
+                  setTab(key);
+                  setSearch('');
+                  setCategory('all');
+                }}
+              >
+                {key === 'catalog' ? catalogLabel : t[key]}
+              </button>
+            ),
+          )}
         </nav>
         <div className="studio-header-tools">
           <label className="studio-toggle">
@@ -353,43 +486,66 @@ export default function Home() {
       <main className="studio-main">
         <div className="studio-heading">
           <div>
-            <span className="studio-eyebrow">AI MADE EASY</span>
             <h1>{t.title}</h1>
             <p>{t.intro}</p>
           </div>
           <button onClick={() => setHelp(true)}>{t.help}</button>
         </div>
-        <div className="studio-toolbar">
-          <div className="studio-filters">
-            <button
-              className={category === 'all' ? 'selected' : ''}
-              onClick={() => setCategory('all')}
+        {tab === 'library' && (
+          <div className="studio-toolbar">
+            <select
+              className="studio-mobile-category"
+              aria-label={t.all}
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
             >
-              {t.all}
-            </button>
-            {templates.map((x) => (
+              <option value="all">{t.all}</option>
+              {Object.entries(categoryNames[locale]).map(([id, label]) => (
+                <option key={id} value={id}>
+                  {label}
+                </option>
+              ))}
+            </select>
+            <div className="studio-filters">
               <button
-                key={x.id}
-                className={category === x.id ? 'selected' : ''}
-                onClick={() => setCategory(x.id)}
+                className={category === 'all' ? 'selected' : ''}
+                onClick={() => setCategory('all')}
               >
-                {x.title}
+                {t.all}
               </button>
-            ))}
+              {Object.entries(categoryNames[locale]).map(([id, label]) => (
+                <button
+                  key={id}
+                  className={category === id ? 'selected' : ''}
+                  onClick={() => setCategory(id)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            {
+              <label className="studio-search">
+                <Search size={18} />
+                <input
+                  aria-label={t.search}
+                  placeholder={t.search}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </label>
+            }
           </div>
-          {tab !== 'plans' && (
-            <label className="studio-search">
-              <Search size={18} />
-              <input
-                aria-label={t.search}
-                placeholder={t.search}
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </label>
-          )}
-        </div>
-        {failed ? (
+        )}
+        {tab === 'catalog' || tab === 'favorites' ? (
+          <FullLibrary
+            key={tab + favorites.join(',')}
+            locale={locale}
+            favoritesOnly={tab === 'favorites'}
+            onOpen={(item) =>
+              open(templates.find((t) => t.id === item.id) || item)
+            }
+          />
+        ) : failed ? (
           <div role="alert">
             {t.error}{' '}
             <button onClick={() => setRevision((x) => x + 1)}>{t.retry}</button>
@@ -415,7 +571,7 @@ export default function Home() {
           </>
         ) : (
           <div className="studio-grid">
-            {filtered.map((item, i) => (
+            {filtered.map((item) => (
               <article className="studio-card" key={item.id}>
                 <div className="studio-card-top">
                   <span
@@ -426,9 +582,21 @@ export default function Home() {
                   >
                     {item.id === 'custom-animation' ? (
                       <Clapperboard />
-                      ) : item.id==='custom-image'?<ImageIcon/>:item.id==='custom-office'?<FileText/>:item.id==='custom-copy'?<PenLine/>:item.id==='custom-paper-writing'?<GraduationCap/>:<Code2/>}
+                    ) : item.id === 'custom-image' ? (
+                      <ImageIcon />
+                    ) : item.id === 'custom-office' ? (
+                      <FileText />
+                    ) : item.id === 'custom-copy' ? (
+                      <PenLine />
+                    ) : item.id === 'custom-paper-writing' ? (
+                      <GraduationCap />
+                    ) : item.id === 'custom-programming' ? (
+                      <Code2 />
+                    ) : (
+                      <FileText />
+                    )}
                   </span>
-                  <span className="studio-index">0{i + 1}</span>
+
                   <button
                     disabled={busy}
                     aria-label={t.favorites + ' · ' + item.title}
@@ -445,11 +613,6 @@ export default function Home() {
                 </div>
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
-                <div className="studio-tags">
-                  {item.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
                 <div className="studio-card-bottom">
                   <span>
                     <Sparkles size={15} />
@@ -457,7 +620,6 @@ export default function Home() {
                   </span>
                   <button className="studio-primary" onClick={() => open(item)}>
                     {t.use}
-                    <ArrowUpRight size={17} />
                   </button>
                 </div>
               </article>
@@ -488,6 +650,21 @@ export default function Home() {
               <DialogTitle>{active?.title}</DialogTitle>
               <div className="studio-header-tools">
                 {languagePicker}
+                {active && (
+                  <button
+                    disabled={busy}
+                    aria-pressed={favorites.includes(active.id)}
+                    onClick={() => favorite(active.id)}
+                  >
+                    {t.favorites}{' '}
+                    <Star
+                      size={16}
+                      fill={
+                        favorites.includes(active.id) ? 'currentColor' : 'none'
+                      }
+                    />
+                  </button>
+                )}
                 <button onClick={() => setActive(null)}>{t.close}</button>
               </div>
             </div>
@@ -498,61 +675,236 @@ export default function Home() {
               <section>
                 <div className="studio-section-head">
                   <h3>{t.form}</h3>
-                  <button title={t.sampleHelp} onClick={example}>
-                    {t.sample}
-                  </button>
+                  {guided && (
+                    <button title={t.sampleHelp} onClick={example}>
+                      {t.sample}
+                    </button>
+                  )}
                 </div>
-                <div className="studio-meta">
-                  <label>
-                    <Switch
-                      checked={meta}
-                      onCheckedChange={(v) => {
-                        setMeta(v);
-                        setEdited(null);
-                      }}
-                    />
-                    {t.meta}
-                  </label>
-                  <p>{t.metaHelp}</p>
-                </div>
-                <div className="studio-skill">
-                  <div className="studio-options">
-                    <button aria-pressed={!skillMode} onClick={()=>{setSkillMode(false);update('skill_id','');}}>{skillText.ordinary}</button>
-                    <button aria-pressed={skillMode} onClick={()=>{setSkillMode(true);update('skill_id',skills[0]?.id||'');}}>{skillText.withSkill}</button>
-                  </div>
-                  <h3 className="studio-skill-title">{recommendText.title}</h3>
+                {guided && (
                   <>
-                    {recommendations.length===0?<p>{skillText.empty}</p>:recommendations.map(s=><div className="studio-skill-recommendation" key={s.id}>
-                      <strong>{s.labels[locale]}</strong>
-                      <p>{s.currentTask?recommendText.matched:recommendText.switch+': '+s.taskLabel}</p>
-                      <p>{s.scope}</p>
-                      <button disabled={!!locks.skill_id||(!s.currentTask&&!!locks[taskKey(active)])} aria-pressed={skillMode&&values.skill_id===s.id} onClick={()=>{setValues(v=>applySkillRecommendation(active,v,locks,locale,s.id));setSkillMode(true);setEdited(null);}}>{skillMode&&values.skill_id===s.id?recommendText.selected:s.currentTask?recommendText.apply:recommendText.switchApply}</button>
-                      {!s.currentTask&&locks[taskKey(active)]&&<p>{recommendText.locked}</p>}
-                      <p><a href={s.download} download>{skillText.download}</a> · <a href={'https://raw.githubusercontent.com/zhufu0801-sudo/prompt-library/main/public'+s.download} target="_blank" rel="noreferrer">{recommendText.backup}</a> · <a href={s.source} target="_blank" rel="noreferrer">{skillText.source}</a> · MIT · {Math.ceil(s.bytes/1024)} KB</p>
-                      <details><summary>{skillText.instructions}</summary><p>{skillText.note}</p><p>{s.usage[locale]}</p><p>SHA-256: <code className="studio-hash">{s.sha256}</code></p></details>
-                    </div>)}
+                    <div className="studio-meta">
+                      <label>
+                        <Switch
+                          checked={meta}
+                          onCheckedChange={(v) => {
+                            setMeta(v);
+                            setEdited(null);
+                          }}
+                        />
+                        {t.meta}
+                      </label>
+                      <p>{t.metaHelp}</p>
+                    </div>
+                    <details className="studio-skill">
+                      <summary>
+                        {recommendText.title} · {recommendations.length}
+                      </summary>
+                      <div className="studio-options">
+                        <button
+                          aria-pressed={!skillMode}
+                          onClick={() => {
+                            setSkillMode(false);
+                            update('skill_id', '');
+                          }}
+                        >
+                          {skillText.ordinary}
+                        </button>
+                        <button
+                          aria-pressed={skillMode}
+                          onClick={() => {
+                            setSkillMode(true);
+                            update('skill_id', skills[0]?.id || '');
+                          }}
+                        >
+                          {skillText.withSkill}
+                        </button>
+                      </div>
+                      <>
+                        {recommendations.length === 0 ? (
+                          <p>{skillText.empty}</p>
+                        ) : (
+                          recommendations.map((s) => (
+                            <div
+                              className="studio-skill-recommendation"
+                              key={s.id}
+                            >
+                              <strong>{s.labels[locale]}</strong>
+                              <p>
+                                {s.currentTask
+                                  ? recommendText.matched
+                                  : recommendText.switch + ': ' + s.taskLabel}
+                              </p>
+                              <p>{s.scope}</p>
+                              <button
+                                disabled={
+                                  !!locks.skill_id ||
+                                  (!s.currentTask && !!locks[taskKey(active)])
+                                }
+                                aria-pressed={
+                                  skillMode && values.skill_id === s.id
+                                }
+                                onClick={() => {
+                                  setValues((v) =>
+                                    applySkillRecommendation(
+                                      active,
+                                      v,
+                                      locks,
+                                      locale,
+                                      s.id,
+                                    ),
+                                  );
+                                  setSkillMode(true);
+                                  setEdited(null);
+                                }}
+                              >
+                                {skillMode && values.skill_id === s.id
+                                  ? recommendText.selected
+                                  : s.currentTask
+                                    ? recommendText.apply
+                                    : recommendText.switchApply}
+                              </button>
+                              {!s.currentTask && locks[taskKey(active)] && (
+                                <p>{recommendText.locked}</p>
+                              )}
+                              <p>
+                                <a href={s.download} download>
+                                  {skillText.download}
+                                </a>{' '}
+                                ·{' '}
+                                <a
+                                  href={
+                                    'https://raw.githubusercontent.com/zhufu0801-sudo/prompt-library/main/public' +
+                                    s.download
+                                  }
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  {recommendText.backup}
+                                </a>{' '}
+                                ·{' '}
+                                <a
+                                  href={s.source}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  {skillText.source}
+                                </a>{' '}
+                                · {s.license} · {Math.ceil(s.bytes / 1024)} KB
+                              </p>
+                              <details>
+                                <summary>{skillText.instructions}</summary>
+                                <p>{skillText.note}</p>
+                                <p>{s.usage[locale]}</p>
+                                <p>
+                                  SHA-256:{' '}
+                                  <code className="studio-hash">
+                                    {s.sha256}
+                                  </code>
+                                </p>
+                              </details>
+                            </div>
+                          ))
+                        )}
+                      </>
+                    </details>
                   </>
-                </div>
-                {question && <div className="studio-question"><strong>{skillText.next}</strong><p>{question.text}</p><button onClick={()=>document.getElementById('field-'+question.key)?.focus()}>{skillText.fill}</button></div>}
+                )}
+                {question && (
+                  <div className="studio-question">
+                    <strong>{skillText.next}</strong>
+                    <p>{question.text}</p>
+                    <button
+                      onClick={() =>
+                        document
+                          .getElementById('field-' + question.key)
+                          ?.focus()
+                      }
+                    >
+                      {skillText.fill}
+                    </button>
+                  </div>
+                )}
                 {analysis && (
                   <details className="studio-analysis">
                     <summary>{analysisText.title}</summary>
                     <p>{analysisText.intro}</p>
-                    {analysis.candidates.some(c=>c.id!==analysis.current) && <div className="studio-options">
-                      <span>{analysisText.task}: </span>
-                      {analysis.candidates.filter(c=>c.id!==analysis.current).map(c=><button key={c.id}
-                        disabled={!!locks[taskKey(active)]}
-                        title={analysisText.evidence+': '+c.evidence.join(', ')}
-                        onClick={()=>update(taskKey(active),c.label)}>{analysisText.apply} {c.label}</button>)}
-                    </div>}
-                    {analysis.scenarios.length ? <>
-                      {analysis.scenarios.map(s=><div key={s.id}><strong>{s.labels[locale]}</strong><p>{analysisText.evidence}: {s.evidence.join(' / ')}</p><p>{s.details[locale]}</p>{s.source && <a href={s.source.url} target="_blank" rel="noreferrer">Prompts.chat · {s.source.title} · CC0</a>}</div>)}
-                      {meta && <p>{analysisText.details}</p>}
-                    </> : <p>{analysisText.empty}</p>}
-                    {!!analysis.missing.length && <details><summary>{analysisText.missing}</summary>
-                      {analysis.missing.map(key=><p key={key}><strong>{fields.find(f=>f.key===key)?.label}: </strong>{fields.find(f=>f.key===key)?.placeholder}</p>)}
-                    </details>}
+                    {analysis.candidates.some(
+                      (c) => c.id !== analysis.current,
+                    ) && (
+                      <div className="studio-options">
+                        <span>{analysisText.task}: </span>
+                        {analysis.candidates
+                          .filter((c) => c.id !== analysis.current)
+                          .map((c) => (
+                            <button
+                              key={c.id}
+                              disabled={!!locks[taskKey(active)]}
+                              title={
+                                analysisText.evidence +
+                                ': ' +
+                                c.evidence.join(', ')
+                              }
+                              onClick={() => update(taskKey(active), c.label)}
+                            >
+                              {analysisText.apply} {c.label}
+                            </button>
+                          ))}
+                      </div>
+                    )}
+                    {analysis.scenarios.length ? (
+                      <>
+                        {analysis.scenarios.map((s) => (
+                          <div key={s.id}>
+                            <strong>{s.labels[locale]}</strong>
+                            <p>
+                              {analysisText.evidence}: {s.evidence.join(' / ')}
+                            </p>
+                            <p>{s.details[locale]}</p>
+                            {s.source && (
+                              <a
+                                href={s.source.url}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Prompts.chat · {s.source.title} · CC0
+                              </a>
+                            )}
+                          </div>
+                        ))}
+                        {meta && <p>{analysisText.details}</p>}
+                      </>
+                    ) : (
+                      <p>{analysisText.empty}</p>
+                    )}
+                    {!!analysis.missing.length && (
+                      <details>
+                        <summary>{analysisText.missing}</summary>
+                        {analysis.missing.map((key) => (
+                          <p key={key}>
+                            <strong>
+                              {fields.find((f) => f.key === key)?.label}:{' '}
+                            </strong>
+                            {fields.find((f) => f.key === key)?.placeholder}
+                          </p>
+                        ))}
+                      </details>
+                    )}
                   </details>
+                )}
+                {!guided && (
+                  <p>
+                    {active.sourceUrl && (
+                      <a
+                        href={active.sourceUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {skillText.source}
+                      </a>
+                    )}{' '}
+                    {active.translation}
+                  </p>
                 )}
                 {fields.map((f) => (
                   <div className="studio-field" key={f.key}>
@@ -590,10 +942,31 @@ export default function Home() {
                         value={String(values[f.key] || '')}
                         onChange={(e) => update(f.key, e.target.value)}
                       />
-                    ) : (f.key === 'scenario' || f.key === 'tool') ? (
-                      <select id={'field-'+f.key} disabled={!!locks[f.key]} value={String(values[f.key] || f.options[0])} onChange={e=>update(f.key,e.target.value)}>
-                        {!f.options.includes(String(values[f.key] || f.options[0])) && <option value={String(values[f.key])}>{String(values[f.key])} ({locale==='zh'?'当前任务不适用':locale==='ja'?'現在のタスク対象外':'not applicable to this task'})</option>}
-                        {f.options.map(o=><option key={o} value={o}>{o}</option>)}
+                    ) : f.key === 'scenario' || f.key === 'tool' ? (
+                      <select
+                        id={'field-' + f.key}
+                        disabled={!!locks[f.key]}
+                        value={String(values[f.key] || f.options[0])}
+                        onChange={(e) => update(f.key, e.target.value)}
+                      >
+                        {!f.options.includes(
+                          String(values[f.key] || f.options[0]),
+                        ) && (
+                          <option value={String(values[f.key])}>
+                            {String(values[f.key])} (
+                            {locale === 'zh'
+                              ? '当前任务不适用'
+                              : locale === 'ja'
+                                ? '現在のタスク対象外'
+                                : 'not applicable to this task'}
+                            )
+                          </option>
+                        )}
+                        {f.options.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
                       </select>
                     ) : f.type === 'text' ? (
                       <input
@@ -605,30 +978,36 @@ export default function Home() {
                         onChange={(e) => update(f.key, e.target.value)}
                       />
                     ) : null}
-                    {f.key==='tool' && <p className="studio-tool-help">{toolAdapter(active,values).guidance[locale]}</p>}
-                    {f.key!=='tool' && f.key!=='scenario' && <div className="studio-options">
-                      {[
-                        ...new Set([
-                          ...getOptions(f, values),
-                          ...(Array.isArray(values[f.key])
-                            ? (values[f.key] as string[])
-                            : []),
-                        ]),
-                      ].map((w) => (
-                        <button
-                          disabled={!!locks[f.key]}
-                          key={w}
-                          aria-pressed={
-                            Array.isArray(values[f.key])
-                              ? (values[f.key] as string[]).includes(w)
-                              : values[f.key] === w
-                          }
-                          onClick={() => word(f, w)}
-                        >
-                          {w}
-                        </button>
-                      ))}
-                    </div>}
+                    {f.key === 'tool' && (
+                      <p className="studio-tool-help">
+                        {toolAdapter(active, values).guidance[locale]}
+                      </p>
+                    )}
+                    {f.key !== 'tool' && f.key !== 'scenario' && (
+                      <div className="studio-options">
+                        {[
+                          ...new Set([
+                            ...getOptions(f, values),
+                            ...(Array.isArray(values[f.key])
+                              ? (values[f.key] as string[])
+                              : []),
+                          ]),
+                        ].map((w) => (
+                          <button
+                            disabled={!!locks[f.key]}
+                            key={w}
+                            aria-pressed={
+                              Array.isArray(values[f.key])
+                                ? (values[f.key] as string[]).includes(w)
+                                : values[f.key] === w
+                            }
+                            onClick={() => word(f, w)}
+                          >
+                            {w}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                     {f.type === 'multi' && (
                       <div className="studio-add">
                         <input
@@ -664,14 +1043,21 @@ export default function Home() {
                 <div className="studio-actions">
                   <button
                     onClick={() => {
-                      setValues(refreshValues({...active, fields}, values, {...locks,task:true,medium:true,scenario:true,tool:true}));
+                      setValues(
+                        refreshValues({ ...active, fields }, values, {
+                          ...locks,
+                          task: true,
+                          medium: true,
+                          scenario: true,
+                          tool: true,
+                        }),
+                      );
                       setEdited(null);
                     }}
                   >
                     <RefreshCw size={16} />
                     {t.refresh}
                   </button>
-
                 </div>
               </section>
               <section className="studio-preview">

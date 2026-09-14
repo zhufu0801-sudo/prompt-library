@@ -19,7 +19,7 @@ const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.js
 test('Skill recommendations are localized, task-scoped and respect locks and ordinary mode',()=>{
  for(const locale of ['zh','en','ja']){
   const expected=['systematic-debugging','video','image','wps-formula','copywriting','scientific-writing'];
-  for(const [i,t] of load(locale).entries()){
+  for(const [i,t] of load(locale).slice(0,6).entries()){
    const v={...defaultValues(t),subject:i===0?'debug error Keep {{code}} exact':i===3?'公式 formula Keep {{code}} exact':'Keep {{code}} exact',materials:'My original source'};
    const r=recommendedSkills(t,v,locale);
    assert.deepEqual(r.map(s=>s.id),[expected[i]]);
@@ -40,7 +40,7 @@ test('Skill suitability excludes specialized requests and unrelated task switche
   const t=load(locale)[index],v={...defaultValues(t),...(task?{task}:{}),subject};
   assert.equal(recommendedSkills(t,v,locale).length,0,subject);
  }
- const t=load('en')[0],v={...defaultValues(t),subject:'Build a new page'};
+ const t=load('en')[0],v={...defaultValues(t),subject:'Build a backend only data service'};
  assert.equal(recommendedSkills(t,v,'en').length,0);
  const image=load('zh')[2],iv={...defaultValues(image),subject:'角色三视图',skill_id:'image'};
  assert.ok(!composeStudio(image,iv,'zh').includes('Skill 辅助说明'));
@@ -184,13 +184,29 @@ test('each task emits only its own deliverable rules in all three languages', ()
   const old = composeStudio(load('zh')[1],{medium:'AI 动画',subject:'旧方案'},'zh');
   assert.ok(old.includes(guides.find(g=>g.id==='storyboard').guidance.zh));
 });
-const load = (l) =>
-  JSON.parse(
-    fs.readFileSync(
-      new URL('../data/studio/' + l + '.json', import.meta.url),
-      'utf8',
-    ),
-  );
+const load = (l) => ['', 'additional/'].flatMap(dir=>JSON.parse(fs.readFileSync(new URL('../data/studio/'+dir+l+'.json',import.meta.url),'utf8')));
+
+test('expanded tasks have distinct localized deliverables, examples and scoped Skills',()=>{
+ const tasks=JSON.parse(fs.readFileSync(new URL('../data/studio/additional-tasks.json',import.meta.url),'utf8'));
+ for(const locale of ['zh','en','ja'])for(const g of tasks){
+  const t=load(locale).find(t=>t.id===(g.group==='programming'?'custom-programming':'studio-'+g.group));
+  assert.ok(t);
+  const v={...defaultValues(t),task:g.labels[locale],subject:g.examples[locale]};
+  const output=composeStudio(t,v,locale);
+  assert.ok(output.includes(g.guidance[locale]));
+  assert.ok(!output.includes('[[TASK_GUIDE]]'));
+  assert.equal(taskFields(t,v,locale).find(f=>f.key==='subject').placeholder,g.examples[locale]);
+  for(const other of tasks.filter(x=>x.id!==g.id))assert.ok(!output.includes(other.guidance[locale]));
+  if(g.id==='frontend-ui')assert.ok(matchingSkills(t,v).some(s=>s.id==='frontend-design'));
+  if(g.id==='content-roadmap')assert.ok(matchingSkills(t,v).some(s=>s.id==='content-strategy'));
+ }
+});
+
+test('legacy templates compose their own fields without unrelated task guidance',()=>{
+ const t={...load('en')[0],id:'legacy-example',content:'Review {{code}}',fields:[]};
+ assert.equal(composeStudio(t,{code:'const x = "{{literal}}";'},'en'),'Review const x = "{{literal}}";');
+ assert.deepEqual(recommendedSkills(t,{},'en'),[]);
+});
 test('three languages share field identities, option positions and two featured templates', () => {
   const zh = load('zh');
   for (const locale of ['zh', 'en', 'ja']) {

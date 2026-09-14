@@ -9,6 +9,7 @@ const read = (p) =>
 const categories = read('data/categories.json');
 const templates = [
   ...read('data/studio/zh.json'),
+  ...read('data/studio/additional/zh.json'),
   ...fs
     .readdirSync('data/modules')
     .filter((f) => f.endsWith('.json'))
@@ -155,7 +156,7 @@ for (const t of templates) {
 }
 const skillFit=read('data/studio/skill-fit.json');
 for (const s of read('data/studio/skills.json')) upsert('skill_resources',{id:s.id,metadata_json:JSON.stringify({...s,fit:skillFit[s.id]})});
-for (const s of [...read('data/studio/extended-tasks.json').map(s=>({...s,status:'published'})),...read('data/research-library/topic-rules.json')]) upsert('task_resources',{id:s.id,status:s.status,metadata_json:JSON.stringify(s)});
+for (const s of [...[...read('data/studio/extended-tasks.json'),...read('data/studio/additional-tasks.json')].map(s=>({...s,status:'published'})),...read('data/research-library/topic-rules.json')]) upsert('task_resources',{id:s.id,status:s.status,metadata_json:JSON.stringify(s)});
 groups.push(group);
 group=[];
 const version = crypto

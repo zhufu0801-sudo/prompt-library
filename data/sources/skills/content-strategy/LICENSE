@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 AI Made Easy contributors
+Copyright (c) 2025 Corey Haines
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,17 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Third-party materials retain their respective licenses. AI Short content is
-covered by licenses/aishort-MIT.txt. Prompts.chat data is CC0-1.0; see
-data/sources/prompts-chat/LICENSE and LICENSE-CC0. This license does not
-relicense those upstream materials or referenced third-party videos.
-
-GitHub Skill documentation under data/sources/skills and public/downloads/skills
-retains the included upstream MIT notices (obra/superpowers,
-coreyhaines31/marketingskills, K-Dense-AI/claude-scientific-skills).
-The wps-formula adaptation retains the Bwkyd/wps-skills MIT notice.
-Each package includes its source commit, license, file hashes and usage notes.
-
-The Anthropic frontend-design documentation retains its Apache-2.0 license;
-see data/sources/skills/frontend-design/LICENSE.
