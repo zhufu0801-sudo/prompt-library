@@ -2,6 +2,7 @@ import type { Template, Values, Locks, Field } from './prompt';
 import baseGuides from '../data/studio/task-guides.json' with { type: 'json' };
 import extendedTasks from '../data/studio/extended-tasks.json' with { type: 'json' };
 import skillCatalog from '../data/studio/skills.json' with { type: 'json' };
+import skillFit from '../data/studio/skill-fit.json' with { type: 'json' };
 import inputs from '../data/studio/task-inputs.json' with { type: 'json' };
 import originalScenarios from '../data/studio/scenarios.json' with { type: 'json' };
 import curatedScenarios from '../data/studio/prompts-chat-curated.json' with { type: 'json' };
@@ -60,7 +61,26 @@ export function composeStudio(
    ja:'導入済みかつ対応ツールの場合だけ関連手順を適用し、それ以外は上記プロンプトに従う。提供事実を保ち、上流の例示数値を根拠扱いしない。現在の機能を確認し、承認なしの有料操作・コマンド実行・秘密情報出力をしない。日本語で回答する。'
   }[locale];
 }
-export function matchingSkills(t:Template,values:Values){return skillCatalog.filter(s=>s.tasks.includes(taskGuide(t,values).id));}
+function fitsBrief(id:string,values:Values){
+ const rule=skillFit[id as keyof typeof skillFit];
+ return !rule || !termEvidence(String(values.subject||''),rule.exclude).length;
+}
+export function matchingSkills(t:Template,values:Values){return skillCatalog.filter(s=>s.tasks.includes(taskGuide(t,values).id)&&fitsBrief(s.id,values));}
+export function recommendedSkills(t:Template,values:Values,locale:Locale){
+ if(!studioIds.includes(t.id)) return [];
+ const current=taskGuide(t,values),available=visibleGuides(t),subject=String(values.subject||'').trim();
+ const detected=subject?analyzeTask(t,values,locale).candidates:[];
+ return skillCatalog.flatMap(s=>{
+  const target=s.tasks.includes(current.id)?current:available.find(g=>s.tasks.includes(g.id));
+  if(!target || !fitsBrief(s.id,values) || (subject&&target.id!==current.id&&!detected.some(g=>s.tasks.includes(g.id))))return [];
+  return [{...s,task:target.id,taskLabel:target.labels[locale],currentTask:target.id===current.id,scope:skillFit[s.id as keyof typeof skillFit]?.scope[locale]||''}];
+ }).sort((a,b)=>Number(b.currentTask)-Number(a.currentTask));
+}
+export function applySkillRecommendation(t:Template,values:Values,locks:Locks,locale:Locale,id:string):Values {
+ const skill=recommendedSkills(t,values,locale).find(s=>s.id===id);
+ if(!skill || locks.skill_id || (!skill.currentTask && locks[taskKey(t)])) return values;
+ return {...values,skill_id:id,...(!skill.currentTask?{[taskKey(t)]:skill.taskLabel,...(!locks.scenario?{scenario:t.fields.find(f=>f.key==='scenario')?.options[0]||''}:{})}:{})};
+}
 // Translate only known defaults/options. Keep user prose and every locked value intact.
 export function translateValues(
   from: Template,

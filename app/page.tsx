@@ -51,6 +51,8 @@ import {
   taskKey,
   briefQuestion,
   matchingSkills,
+  recommendedSkills,
+  applySkillRecommendation,
   toolAdapter,
   translateValues,
   localeOf,
@@ -101,10 +103,16 @@ export default function Home() {
   const analysis = active ? analyzeTask(active, values, locale) : null;
   const question = active ? briefQuestion(active,values,locale) : null;
   const skills = active ? matchingSkills(active,values) : [];
+  const recommendations = active ? recommendedSkills(active,values,locale) : [];
+  const recommendText={
+    zh:{title:'推荐 Skill',matched:'按所选任务推荐',switch:'适用于',apply:'使用推荐',switchApply:'切换任务并使用',selected:'已附加',backup:'备用下载',locked:'请先解锁任务类型再应用推荐'},
+    en:{title:'Recommended Skills',matched:'Based on the selected task',switch:'For',apply:'Use recommendation',switchApply:'Switch task and use',selected:'Attached',backup:'Backup download',locked:'Unlock the task before applying this recommendation'},
+    ja:{title:'おすすめ Skill',matched:'選択タスクに基づく候補',switch:'対象',apply:'おすすめを使う',switchApply:'タスクを切り替えて使う',selected:'追加済み',backup:'予備ダウンロード',locked:'タスクのロックを解除してから適用してください'}
+  }[locale];
   const skillText = {
-   zh:{ordinary:'普通提示词',withSkill:'附带 Skill',empty:'这个任务暂未收录合适的 Skill，仍可使用普通提示词。',download:'下载 Skill ZIP',source:'GitHub 来源',instructions:'使用方法与依赖',note:'GitHub 来源文档包或注明的适配版，附中英日使用说明。已核对来源和 MIT 许可，未在各 AI 工具中运行验证；不含模型或执行脚本。',next:'补充一项关键信息',fill:'前往填写'},
-   en:{ordinary:'Standard prompt',withSkill:'With Skill',empty:'No suitable Skill is included for this task yet. The standard prompt remains available.',download:'Download Skill ZIP',source:'GitHub source',instructions:'Usage and dependencies',note:'GitHub-based documentation, original or labeled adaptation, with zh/en/ja instructions. Source and MIT license checked; not runtime-tested in each AI tool. No model or executable scripts included.',next:'One useful detail',fill:'Fill in'},
-   ja:{ordinary:'通常プロンプト',withSkill:'Skill 付き',empty:'このタスクに合う Skill は未収録です。通常プロンプトは利用できます。',download:'Skill ZIPを保存',source:'GitHub 出典',instructions:'使用方法・依存関係',note:'GitHubの原文または明記した調整版と、中英日の使用説明。出典とMIT許諾を確認済み。各AIでの動作検証は未実施。モデル・実行スクリプトは含みません。',next:'補足するとよい情報',fill:'入力する'}
+   zh:{ordinary:'普通提示词',withSkill:'附带 Skill',empty:'暂未找到与这项需求相符的 Skill，仍可使用普通提示词。',download:'下载 Skill ZIP',source:'GitHub 来源',instructions:'使用方法与依赖',note:'GitHub 来源文档包或注明的适配版，附中英日使用说明。已核对来源和 MIT 许可，未在各 AI 工具中运行验证；不含模型或执行脚本。',next:'补充一项关键信息',fill:'前往填写'},
+   en:{ordinary:'Standard prompt',withSkill:'With Skill',empty:'No included Skill fits this request. The standard prompt remains available.',download:'Download Skill ZIP',source:'GitHub source',instructions:'Usage and dependencies',note:'GitHub-based documentation, original or labeled adaptation, with zh/en/ja instructions. Source and MIT license checked; not runtime-tested in each AI tool. No model or executable scripts included.',next:'One useful detail',fill:'Fill in'},
+   ja:{ordinary:'通常プロンプト',withSkill:'Skill 付き',empty:'この要件に合う Skill は見つかりません。通常プロンプトは利用できます。',download:'Skill ZIPを保存',source:'GitHub 出典',instructions:'使用方法・依存関係',note:'GitHubの原文または明記した調整版と、中英日の使用説明。出典とMIT許諾を確認済み。各AIでの動作検証は未実施。モデル・実行スクリプトは含みません。',next:'補足するとよい情報',fill:'入力する'}
   }[locale];
   const analysisText = {
     zh: {title:'需求细化',intro:'根据文字匹配候选场景，请核对后使用。不会自动理解代码或图片。',task:'可选任务',evidence:'匹配词',empty:'填写具体需求后，将显示匹配场景。未匹配时仍使用所选任务的基础规范。',missing:'可补充的信息（若已写在需求中，无需重复）',apply:'切换为',details:'细分交付要求已加入元提示词；关闭元提示词辅助可移除。'},
@@ -202,7 +210,11 @@ export default function Home() {
   }
   function update(key: string, value: string | string[]) {
     if (locks[key]) return;
-    setValues((v) => ({ ...v, [key]: value, ...((key==='task'||key==='medium') && !locks.scenario ? {scenario:active?.fields.find(f=>f.key==='scenario')?.options[0] || ''} : {}), ...((key==='task'||key==='medium')?{skill_id:''}:{}) }));
+    setValues((v) => {
+      const next={...v,[key]:value,...((key==='task'||key==='medium')&&!locks.scenario?{scenario:active?.fields.find(f=>f.key==='scenario')?.options[0]||''}:{}),...((key==='task'||key==='medium')?{skill_id:''}:{})};
+      if(active&&next.skill_id&&!locks.skill_id&&!matchingSkills(active,next).some(s=>s.id===next.skill_id))next.skill_id='';
+      return next;
+    });
     setEdited(null);
   }
   function word(f: Field, value: string) {
@@ -508,14 +520,18 @@ export default function Home() {
                     <button aria-pressed={!skillMode} onClick={()=>{setSkillMode(false);update('skill_id','');}}>{skillText.ordinary}</button>
                     <button aria-pressed={skillMode} onClick={()=>{setSkillMode(true);update('skill_id',skills[0]?.id||'');}}>{skillText.withSkill}</button>
                   </div>
-                  {skillMode && <>
-                    <p>{skillText.note}</p>
-                    {skills.length===0?<p>{skillText.empty}</p>:skills.map(s=><div key={s.id}>
-                      <label><input type="radio" name="skill" checked={values.skill_id===s.id} onChange={()=>update('skill_id',s.id)}/> {s.labels[locale]}</label>
-                      <p><a href={s.download} download>{skillText.download}</a> · <a href={s.source} target="_blank" rel="noreferrer">{skillText.source}</a> · MIT · {Math.ceil(s.bytes/1024)} KB</p>
-                      <details><summary>{skillText.instructions}</summary><p>{s.usage[locale]}</p><p>SHA-256: <code className="studio-hash">{s.sha256}</code></p></details>
+                  <h3 className="studio-skill-title">{recommendText.title}</h3>
+                  <>
+                    {recommendations.length===0?<p>{skillText.empty}</p>:recommendations.map(s=><div className="studio-skill-recommendation" key={s.id}>
+                      <strong>{s.labels[locale]}</strong>
+                      <p>{s.currentTask?recommendText.matched:recommendText.switch+': '+s.taskLabel}</p>
+                      <p>{s.scope}</p>
+                      <button disabled={!!locks.skill_id||(!s.currentTask&&!!locks[taskKey(active)])} aria-pressed={skillMode&&values.skill_id===s.id} onClick={()=>{setValues(v=>applySkillRecommendation(active,v,locks,locale,s.id));setSkillMode(true);setEdited(null);}}>{skillMode&&values.skill_id===s.id?recommendText.selected:s.currentTask?recommendText.apply:recommendText.switchApply}</button>
+                      {!s.currentTask&&locks[taskKey(active)]&&<p>{recommendText.locked}</p>}
+                      <p><a href={s.download} download>{skillText.download}</a> · <a href={'https://raw.githubusercontent.com/zhufu0801-sudo/prompt-library/main/public'+s.download} target="_blank" rel="noreferrer">{recommendText.backup}</a> · <a href={s.source} target="_blank" rel="noreferrer">{skillText.source}</a> · MIT · {Math.ceil(s.bytes/1024)} KB</p>
+                      <details><summary>{skillText.instructions}</summary><p>{skillText.note}</p><p>{s.usage[locale]}</p><p>SHA-256: <code className="studio-hash">{s.sha256}</code></p></details>
                     </div>)}
-                  </>}
+                  </>
                 </div>
                 {question && <div className="studio-question"><strong>{skillText.next}</strong><p>{question.text}</p><button onClick={()=>document.getElementById('field-'+question.key)?.focus()}>{skillText.fill}</button></div>}
                 {analysis && (

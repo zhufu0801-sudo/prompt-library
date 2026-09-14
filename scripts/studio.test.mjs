@@ -6,6 +6,8 @@ import {
   taskFields,
   analyzeTask,
   matchingSkills,
+  recommendedSkills,
+  applySkillRecommendation,
   briefQuestion,
   toolAdapter,
   translateValues,
@@ -14,6 +16,35 @@ import {
 } from '../lib/studio.ts';
 import { defaultValues } from '../lib/prompt.ts';
 const guides = JSON.parse(fs.readFileSync(new URL('../data/studio/task-guides.json',import.meta.url),'utf8'));
+test('Skill recommendations are localized, task-scoped and respect locks and ordinary mode',()=>{
+ for(const locale of ['zh','en','ja']){
+  const expected=['systematic-debugging','video','image','wps-formula','copywriting','scientific-writing'];
+  for(const [i,t] of load(locale).entries()){
+   const v={...defaultValues(t),subject:i===0?'debug error Keep {{code}} exact':i===3?'公式 formula Keep {{code}} exact':'Keep {{code}} exact',materials:'My original source'};
+   const r=recommendedSkills(t,v,locale);
+   assert.deepEqual(r.map(s=>s.id),[expected[i]]);
+   const next=applySkillRecommendation(t,v,{},locale,r[0].id);
+   assert.equal(next.subject,v.subject);assert.equal(next.materials,v.materials);
+   assert.equal(next.skill_id,expected[i]);
+   assert.ok(composeStudio(t,next,locale).includes(r[0].source));
+   assert.ok(!composeStudio(t,{...next,skill_id:''},locale).includes(r[0].source));
+   assert.equal(applySkillRecommendation(t,v,{skill_id:true},locale,r[0].id),v);
+   if(!r[0].currentTask)assert.equal(applySkillRecommendation(t,v,{task:true},locale,r[0].id),v);
+   assert.equal(applySkillRecommendation(t,v,{},locale,'unknown'),v);
+  }
+ }
+});
+test('Skill suitability excludes specialized requests and unrelated task switches',()=>{
+ const cases=[['zh',3,'WPS 表格','做数据透视表'],['en',3,'WPS Spreadsheet','Make a pivot table'],['ja',3,'WPS 表計算','ピボットを作る'],['zh',2,'','制作角色三视图'],['en',2,'','character turnaround'],['ja',2,'','キャラクターの三面図'],['zh',4,'','写小红书社交媒体文案'],['en',4,'','Write a marketing email'],['ja',4,'','SNS投稿の文案'],['zh',5,'','写一篇小说']];
+ for(const [locale,index,task,subject] of cases){
+  const t=load(locale)[index],v={...defaultValues(t),...(task?{task}:{}),subject};
+  assert.equal(recommendedSkills(t,v,locale).length,0,subject);
+ }
+ const t=load('en')[0],v={...defaultValues(t),subject:'Build a new page'};
+ assert.equal(recommendedSkills(t,v,'en').length,0);
+ const image=load('zh')[2],iv={...defaultValues(image),subject:'角色三视图',skill_id:'image'};
+ assert.ok(!composeStudio(image,iv,'zh').includes('Skill 辅助说明'));
+});
 test('six modules preserve user input, localize each new task and scope Skills',()=>{
  const extended=JSON.parse(fs.readFileSync(new URL('../data/studio/extended-tasks.json',import.meta.url),'utf8'));
  for(const locale of ['zh','en','ja']) {

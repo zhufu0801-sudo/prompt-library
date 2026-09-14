@@ -13,7 +13,7 @@ db=sqlite3.connect(root/'database/scenario-library.sqlite')
 db.execute('PRAGMA foreign_keys=ON')
 db.executescript((root/'drizzle/0001_task_resources.sql').read_text(encoding='utf-8'))
 with db:
- for s in read('data/studio/skills.json'):db.execute('INSERT OR REPLACE INTO skill_resources VALUES(?,?)',(s['id'],json.dumps(s,ensure_ascii=False)))
+ for s in read('data/studio/skills.json'):db.execute('INSERT OR REPLACE INTO skill_resources VALUES(?,?)',(s['id'],json.dumps({**s,'fit':read('data/studio/skill-fit.json')[s['id']]},ensure_ascii=False)))
  for s in read('data/studio/extended-tasks.json'):db.execute('INSERT OR REPLACE INTO task_resources VALUES(?,?,?)',(s['id'],'published',json.dumps(s,ensure_ascii=False)))
  for s in read('data/research-library/topic-rules.json'):db.execute('INSERT OR REPLACE INTO task_resources VALUES(?,?,?)',(s['id'],'draft',json.dumps(s,ensure_ascii=False)))
 db.executescript('''

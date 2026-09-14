@@ -461,3 +461,5 @@
 .studio-skill label {display:flex;align-items:center;gap:8px;margin-top:12px;}
 .studio-dialog .studio-skill input[type=radio] {width:16px;height:16px;min-height:0;flex-shrink:0;padding:0;margin:0;}
 .studio-question button {padding:6px 12px;border:1px solid #cad5e5;border-radius:7px;}
+.studio-skill-title {margin:16px 0 12px!important;}
+.studio-skill-recommendation {padding-top:10px;border-top:1px solid #d9e1ed;}
