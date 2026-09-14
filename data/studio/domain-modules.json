@@ -1,0 +1,506 @@
+[
+  {
+    "id": "studio-operations",
+    "group": "operations",
+    "category": "office",
+    "labels": {
+      "zh": "流程管理与日常运营",
+      "en": "Process and daily operations",
+      "ja": "業務手順・日常運営"
+    },
+    "context": {
+      "zh": "一个需要减少订单漏处理的小团队",
+      "en": "a small team trying to prevent missed orders",
+      "ja": "注文の処理漏れを減らしたい小チーム"
+    },
+    "inputs": {
+      "zh": "现有步骤、角色、输入输出、异常样例和时效要求",
+      "en": "current steps, roles, inputs/outputs, exception samples and deadlines",
+      "ja": "現手順、役割、入出力、例外例、時間条件"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-procurement",
+    "group": "procurement",
+    "category": "business",
+    "labels": {
+      "zh": "采购与供应商沟通",
+      "en": "Procurement and supplier communication",
+      "ja": "調達・仕入先連絡"
+    },
+    "context": {
+      "zh": "为小型办公室采购十套桌椅",
+      "en": "buying ten desk-and-chair sets for a small office",
+      "ja": "小規模事務所用の机と椅子10セットの調達"
+    },
+    "inputs": {
+      "zh": "规格、数量、预算、交期、已有报价和验收要求",
+      "en": "specifications, quantity, budget, deadline, quotes and acceptance requirements",
+      "ja": "仕様、数量、予算、納期、見積、受入条件"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-accessibility",
+    "group": "accessibility",
+    "category": "language",
+    "labels": {
+      "zh": "易读表达与无障碍内容",
+      "en": "Plain language and accessible content",
+      "ja": "平易な表現・アクセシブルな内容"
+    },
+    "context": {
+      "zh": "一份需要让不同阅读能力用户理解的服务说明",
+      "en": "service instructions for readers with varied reading abilities",
+      "ja": "読解力の異なる利用者向けのサービス説明"
+    },
+    "inputs": {
+      "zh": "原文、读者需求、使用渠道、必须保留的信息和辅助技术场景",
+      "en": "source, reader needs, channel, required details and assistive-technology context",
+      "ja": "原文、読者の必要、媒体、必須情報、支援技術の利用場面"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-travel",
+    "group": "travel",
+    "category": "life",
+    "labels": {
+      "zh": "旅行安排与行前准备",
+      "en": "Travel logistics and preparation",
+      "ja": "旅行の段取り・準備"
+    },
+    "context": {
+      "zh": "一次带长辈同行、每天步行量有限的三日城市游",
+      "en": "a three-day city trip with an older relative and limited daily walking",
+      "ja": "歩行量を抑えたい年長家族との3日間の都市旅行"
+    },
+    "inputs": {
+      "zh": "目的地、日期、同行者需求、预算、住宿位置和已确认预订",
+      "en": "destination, dates, group needs, budget, lodging and confirmed bookings",
+      "ja": "行先、日程、同行者条件、予算、宿泊地、確定予約"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-cooking",
+    "group": "cooking",
+    "category": "life",
+    "labels": {
+      "zh": "家常烹饪与餐食安排",
+      "en": "Home cooking and meal planning",
+      "ja": "家庭料理・献立"
+    },
+    "context": {
+      "zh": "两人份、每晚只有30分钟准备时间的家常晚餐",
+      "en": "home dinners for two with 30 minutes of preparation each evening",
+      "ja": "毎晩30分で準備する2人分の家庭夕食"
+    },
+    "inputs": {
+      "zh": "现有食材、过敏或忌口、厨具、人数、时间和预算",
+      "en": "available ingredients, allergies/restrictions, equipment, servings, time and budget",
+      "ja": "食材、アレルギー・避ける物、器具、人数、時間、予算"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-home",
+    "group": "home",
+    "category": "life",
+    "labels": {
+      "zh": "居家收纳与植物记录",
+      "en": "Home organization and plant logs",
+      "ja": "住まいの整理・植物記録"
+    },
+    "context": {
+      "zh": "一个有工作桌、储物柜和阳台盆栽的小公寓",
+      "en": "a small apartment with a desk, storage and balcony plants",
+      "ja": "机、収納、ベランダの鉢植えがある小さな部屋"
+    },
+    "inputs": {
+      "zh": "空间尺寸、物品数量、使用频率、时间预算和相关照片",
+      "en": "dimensions, item counts, use frequency, time budget and photos",
+      "ja": "寸法、物量、使用頻度、時間枠、写真"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-research-methods",
+    "group": "research-methods",
+    "category": "study",
+    "labels": {
+      "zh": "研究设计与方法",
+      "en": "Research design and methods",
+      "ja": "研究設計・方法"
+    },
+    "context": {
+      "zh": "研究远程协作工具如何影响团队沟通的课程论文",
+      "en": "a course paper on how remote collaboration tools affect team communication",
+      "ja": "遠隔協働ツールとチーム連絡を扱う授業論文"
+    },
+    "inputs": {
+      "zh": "研究问题、可用数据、对象范围、时间、方法基础和要求",
+      "en": "question, available data, population, timeline, method experience and requirements",
+      "ja": "研究疑問、利用データ、対象、期間、方法経験、条件"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-surveys",
+    "group": "surveys",
+    "category": "study",
+    "labels": {
+      "zh": "问卷与访谈分析",
+      "en": "Surveys and interview analysis",
+      "ja": "質問票・面接分析"
+    },
+    "context": {
+      "zh": "了解学生使用学习应用时困难的小型调研",
+      "en": "a small study of difficulties students face with a learning app",
+      "ja": "学習アプリで学生が困る点を調べる小規模調査"
+    },
+    "inputs": {
+      "zh": "调研目标、对象、样本来源、问题数量、已有回答和隐私要求",
+      "en": "goals, participants, recruitment, question count, responses and privacy needs",
+      "ja": "目的、対象、募集元、設問数、回答、プライバシー条件"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-editorial",
+    "group": "editorial",
+    "category": "writing",
+    "labels": {
+      "zh": "事实写作与编辑",
+      "en": "Factual writing and editing",
+      "ja": "事実に基づく執筆・編集"
+    },
+    "context": {
+      "zh": "一篇根据活动记录撰写的社区报道",
+      "en": "a community report based on event records",
+      "ja": "行事記録を基にした地域レポート"
+    },
+    "inputs": {
+      "zh": "已核实事实、原始记录、读者、发布场景、篇幅和引用权限",
+      "en": "verified facts, records, audience, publication context, length and quote permissions",
+      "ja": "確認事実、記録、読者、掲載先、分量、引用許可"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-events",
+    "group": "events",
+    "category": "business",
+    "labels": {
+      "zh": "活动策划与执行",
+      "en": "Event planning and delivery",
+      "ja": "イベント企画・運営"
+    },
+    "context": {
+      "zh": "一场40人参加的两小时社区交流会",
+      "en": "a two-hour community meetup for 40 people",
+      "ja": "40人が参加する2時間の地域交流会"
+    },
+    "inputs": {
+      "zh": "目标、人数、场地、日期、预算、人员和限制",
+      "en": "goals, attendance, venue, date, budget, staff and constraints",
+      "ja": "目的、人数、会場、日付、予算、人員、制約"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-community",
+    "group": "community",
+    "category": "marketing",
+    "labels": {
+      "zh": "社群运营与互动",
+      "en": "Community operations",
+      "ja": "コミュニティ運営"
+    },
+    "context": {
+      "zh": "一个面向编程初学者的200人学习社群",
+      "en": "a 200-member community for beginner programmers",
+      "ja": "プログラミング初心者200人の学習コミュニティ"
+    },
+    "inputs": {
+      "zh": "社群目标、成员特点、平台、运营时间、规则和现有反馈",
+      "en": "goals, member profile, platform, staff time, rules and feedback",
+      "ja": "目的、参加者、媒体、運営時間、規則、意見"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-training",
+    "group": "training",
+    "category": "office",
+    "labels": {
+      "zh": "员工培训与知识交接",
+      "en": "Staff training and handover",
+      "ja": "研修・知識引継ぎ"
+    },
+    "context": {
+      "zh": "帮助新同事在两周内掌握订单处理的培训",
+      "en": "two-week onboarding for a new order-processing colleague",
+      "ja": "新人が2週間で注文処理を覚える研修"
+    },
+    "inputs": {
+      "zh": "岗位任务、已有流程、能力起点、可用时间、导师和验收标准",
+      "en": "role tasks, workflows, baseline skills, time, mentors and acceptance criteria",
+      "ja": "職務、既存手順、開始能力、時間、指導者、確認基準"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-games",
+    "group": "games",
+    "category": "programming",
+    "labels": {
+      "zh": "游戏机制与原型",
+      "en": "Game mechanics and prototypes",
+      "ja": "ゲーム機構・試作"
+    },
+    "context": {
+      "zh": "一个有背包与关卡的二维解谜小游戏",
+      "en": "a small 2D puzzle game with inventory and levels",
+      "ja": "持ち物とステージがある小規模2Dパズル"
+    },
+    "inputs": {
+      "zh": "引擎版本、目标平台、核心循环、资源限制和现有代码",
+      "en": "engine version, platform, core loop, asset limits and code",
+      "ja": "エンジン版、OS、基本ループ、素材制約、コード"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-assets3d",
+    "group": "assets3d",
+    "category": "creative",
+    "labels": {
+      "zh": "3D 资产与材质",
+      "en": "3D assets and materials",
+      "ja": "3D素材・マテリアル"
+    },
+    "context": {
+      "zh": "用于低多边形城市动画的街角咖啡店",
+      "en": "a corner café for a low-poly city animation",
+      "ja": "ローポリ都市アニメ用の街角カフェ"
+    },
+    "inputs": {
+      "zh": "用途、建模工具、尺度、面数预算、参考图和导出格式",
+      "en": "use case, modeling tool, scale, polygon budget, references and export format",
+      "ja": "用途、制作ツール、尺度、ポリゴン予算、参考、出力形式"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-photo",
+    "group": "photo",
+    "category": "creative",
+    "labels": {
+      "zh": "商品与空间作图",
+      "en": "Product and interior images",
+      "ja": "商品・空間の画像制作"
+    },
+    "context": {
+      "zh": "一款哑光陶瓷杯及其生活方式展示图",
+      "en": "a matte ceramic mug and lifestyle images",
+      "ja": "マットな陶器カップと使用場面の画像"
+    },
+    "inputs": {
+      "zh": "产品实物参考、不可改特征、尺寸、用途、画幅和目标工具",
+      "en": "product references, fixed features, dimensions, use case, aspect ratio and tool",
+      "ja": "商品参考、固定特徴、寸法、用途、縦横比、ツール"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-character",
+    "group": "character",
+    "category": "creative",
+    "labels": {
+      "zh": "角色与视觉设定",
+      "en": "Characters and visual development",
+      "ja": "キャラクター・視覚設定"
+    },
+    "context": {
+      "zh": "一位穿蓝色外套、携带旧相机的原创探险者",
+      "en": "an original explorer in a blue coat carrying an old camera",
+      "ja": "青い上着と古いカメラを持つオリジナル探検家"
+    },
+    "inputs": {
+      "zh": "角色设定、固定特征、画风、参考素材、画幅和目标软件",
+      "en": "character profile, fixed traits, style, references, aspect ratio and software",
+      "ja": "人物設定、固定特徴、画風、参考、縦横比、ソフト"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-editing",
+    "group": "editing",
+    "category": "creative",
+    "labels": {
+      "zh": "视频剪辑与后期",
+      "en": "Video editing and postproduction",
+      "ja": "動画編集・仕上げ"
+    },
+    "context": {
+      "zh": "由六段素材组成的45秒产品短片",
+      "en": "a 45-second product video assembled from six clips",
+      "ja": "六つの素材で作る45秒の商品動画"
+    },
+    "inputs": {
+      "zh": "素材清单或时间码、目标时长、叙事重点、配音和剪辑软件",
+      "en": "asset list/timecodes, duration, narrative focus, voice track and editor",
+      "ja": "素材一覧・時間コード、尺、重点、音声、編集ソフト"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-fiction",
+    "group": "fiction",
+    "category": "writing",
+    "labels": {
+      "zh": "小说与叙事创作",
+      "en": "Fiction and storytelling",
+      "ja": "小説・物語創作"
+    },
+    "context": {
+      "zh": "一篇围绕失踪相机展开的3000字原创悬疑故事",
+      "en": "an original 3,000-word mystery about a missing camera",
+      "ja": "消えたカメラを巡る約3000字のオリジナル短編ミステリー"
+    },
+    "inputs": {
+      "zh": "题材、篇幅、视角、人物目标、已有情节和内容边界",
+      "en": "genre, length, viewpoint, character goals, existing plot and boundaries",
+      "ja": "ジャンル、長さ、視点、人物目的、既存筋、内容範囲"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-security",
+    "group": "security",
+    "category": "programming",
+    "labels": {
+      "zh": "应用安全与权限",
+      "en": "Application security",
+      "ja": "アプリのセキュリティ"
+    },
+    "context": {
+      "zh": "一个含管理员与普通成员的团队文件应用",
+      "en": "a team file app with administrators and members",
+      "ja": "管理者と一般メンバーがいるファイル共有アプリ"
+    },
+    "inputs": {
+      "zh": "授权范围、角色、资源归属、登录流程和脱敏代码",
+      "en": "authorized scope, roles, resource ownership, login flow and redacted code",
+      "ja": "許可範囲、役割、所有権、ログイン手順、機密除去済みコード"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-performance",
+    "group": "performance",
+    "category": "programming",
+    "labels": {
+      "zh": "性能优化与并发",
+      "en": "Performance and concurrency",
+      "ja": "性能・並行処理"
+    },
+    "context": {
+      "zh": "一个高峰期列表查询变慢的商品服务",
+      "en": "a product service whose list queries slow down at peak load",
+      "ja": "ピーク時に一覧検索が遅くなる商品サービス"
+    },
+    "inputs": {
+      "zh": "运行环境、数据规模、基线耗时、分析记录和延迟目标",
+      "en": "runtime, data volume, baseline timings, profiles and latency targets",
+      "ja": "環境、データ量、基準時間、計測記録、遅延目標"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-mobile",
+    "group": "mobile",
+    "category": "programming",
+    "labels": {
+      "zh": "移动应用开发",
+      "en": "Mobile app development",
+      "ja": "モバイルアプリ開発"
+    },
+    "context": {
+      "zh": "需要弱网可用的活动报名应用",
+      "en": "an event registration app that must work on unreliable networks",
+      "ja": "不安定な回線でも使うイベント申込アプリ"
+    },
+    "inputs": {
+      "zh": "平台与框架版本、页面流程、设备范围、网络条件和代码",
+      "en": "platform/framework versions, flows, devices, network conditions and code",
+      "ja": "OS・構成の版、画面遷移、端末範囲、通信条件、コード"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-automation",
+    "group": "automation",
+    "category": "programming",
+    "labels": {
+      "zh": "脚本与文件自动化",
+      "en": "Scripts and file automation",
+      "ja": "スクリプト・ファイル自動化"
+    },
+    "context": {
+      "zh": "一个含重复文件与混合命名的资料目录",
+      "en": "a document directory with duplicates and inconsistent names",
+      "ja": "重複と命名揺れがある資料フォルダー"
+    },
+    "inputs": {
+      "zh": "操作系统、路径示例、输入输出规则、保留要求和脚本语言",
+      "en": "OS, sample paths, input/output rules, retention needs and language",
+      "ja": "OS、パス例、入出力規則、保存条件、言語"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-git",
+    "group": "git",
+    "category": "programming",
+    "labels": {
+      "zh": "Git 协作与发布",
+      "en": "Git collaboration and releases",
+      "ja": "Git共同開発・公開"
+    },
+    "context": {
+      "zh": "多人修改同一功能且准备发布的代码库",
+      "en": "a repository with concurrent changes preparing a release",
+      "ja": "複数人が同時変更し公開準備中のリポジトリ"
+    },
+    "inputs": {
+      "zh": "分支关系、工作区状态、冲突片段、团队约定和发布目标",
+      "en": "branch relationships, working-tree state, conflict excerpts, conventions and release target",
+      "ja": "ブランチ関係、作業状態、競合箇所、規約、公開先"
+    },
+    "sources": []
+  },
+  {
+    "id": "studio-integration",
+    "group": "integration",
+    "category": "programming",
+    "labels": {
+      "zh": "第三方 API 与集成",
+      "en": "Third-party API integration",
+      "ja": "外部API連携"
+    },
+    "context": {
+      "zh": "需要同步外部订单状态的内部工具",
+      "en": "an internal tool synchronizing external order status",
+      "ja": "外部の注文状態を同期する社内ツール"
+    },
+    "inputs": {
+      "zh": "官方接口文档、鉴权方式、限额、错误样例和同步方向",
+      "en": "official API docs, authentication, limits, error samples and sync direction",
+      "ja": "公式API資料、認証、制限、失敗例、同期方向"
+    },
+    "sources": []
+  }
+]

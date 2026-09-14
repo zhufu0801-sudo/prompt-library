@@ -1,31 +1,70 @@
 import { database, ensureContent } from '@/db/client';
 import type { Template, Field } from '@/lib/prompt';
 export async function getTemplate(id: string): Promise<Template | null> {
+  return (await getTemplates([id]))[0];
+}
+
+// Four set queries per chunk instead of four queries for every module.
+// Preserve requested order and missing IDs, and stay below D1's bind limit.
+export async function getTemplates(
+  ids: readonly string[],
+): Promise<(Template | null)[]> {
+  if (!ids.length) return [];
   await ensureContent();
   const db = database();
-  const r = await db
-    .prepare("SELECT * FROM templates WHERE id=? AND status='published'")
-    .bind(id)
-    .first<Record<string, unknown>>();
-  if (!r) return null;
-  const [{ results: tags }, { results: fields }, { results: suggestions }] =
-    await db.batch<Record<string, unknown>>([
+  const found = new Map<string, Template>();
+  const unique = [...new Set(ids)];
+  for (let start = 0; start < unique.length; start += 80) {
+    const chunk = unique.slice(start, start + 80);
+    const marks = chunk.map(() => '?').join(',');
+    const [
+      { results: rows },
+      { results: tags },
+      { results: fields },
+      { results: suggestions },
+    ] = await db.batch<Record<string, unknown>>([
       db
         .prepare(
-          'SELECT tags.label FROM tags JOIN template_tags ON tags.id=template_tags.tag_id WHERE template_tags.template_id=? ORDER BY tags.label',
+          `SELECT * FROM templates WHERE status='published' AND id IN (${marks})`,
         )
-        .bind(id),
+        .bind(...chunk),
       db
         .prepare(
-          'SELECT * FROM template_fields WHERE template_id=? ORDER BY sort_order',
+          `SELECT tt.template_id, tags.label FROM tags JOIN template_tags tt ON tags.id=tt.tag_id WHERE tt.template_id IN (${marks}) ORDER BY tags.label`,
         )
-        .bind(id),
+        .bind(...chunk),
       db
         .prepare(
-          'SELECT s.* FROM field_suggestions s JOIN template_fields f ON f.id=s.field_id WHERE f.template_id=? ORDER BY s.sort_order',
+          `SELECT * FROM template_fields WHERE template_id IN (${marks}) ORDER BY sort_order`,
         )
-        .bind(id),
+        .bind(...chunk),
+      db
+        .prepare(
+          `SELECT s.*, f.template_id FROM field_suggestions s JOIN template_fields f ON f.id=s.field_id WHERE f.template_id IN (${marks}) ORDER BY s.sort_order`,
+        )
+        .bind(...chunk),
     ]);
+    for (const row of rows) {
+      found.set(
+        String(row.id),
+        hydrate(
+          row,
+          tags.filter((x) => x.template_id === row.id),
+          fields.filter((x) => x.template_id === row.id),
+          suggestions.filter((x) => x.template_id === row.id),
+        ),
+      );
+    }
+  }
+  return ids.map((id) => found.get(id) ?? null);
+}
+
+function hydrate(
+  r: Record<string, unknown>,
+  tags: Record<string, unknown>[],
+  fields: Record<string, unknown>[],
+  suggestions: Record<string, unknown>[],
+): Template {
   return {
     id: String(r.id),
     slug: String(r.slug),

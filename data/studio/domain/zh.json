@@ -1,0 +1,3098 @@
+[
+  {
+    "id": "studio-operations",
+    "slug": "guided-operations",
+    "title": "流程管理与日常运营",
+    "description": "标准操作流程 / 流程瓶颈与改进实验 / 库存台账与补货规则",
+    "categoryId": "office",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "标准操作流程",
+      "流程瓶颈与改进实验",
+      "库存台账与补货规则"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "标准操作流程",
+        "options": [
+          "标准操作流程",
+          "流程瓶颈与改进实验",
+          "库存台账与补货规则"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-procurement",
+    "slug": "guided-procurement",
+    "title": "采购与供应商沟通",
+    "description": "采购需求与询价函 / 供应商报价对比 / 到货验收与差异沟通",
+    "categoryId": "business",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "采购需求与询价函",
+      "供应商报价对比",
+      "到货验收与差异沟通"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "采购需求与询价函",
+        "options": [
+          "采购需求与询价函",
+          "供应商报价对比",
+          "到货验收与差异沟通"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-accessibility",
+    "slug": "guided-accessibility",
+    "title": "易读表达与无障碍内容",
+    "description": "复杂说明简明化 / 图片替代文本 / 无障碍操作指引",
+    "categoryId": "language",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "复杂说明简明化",
+      "图片替代文本",
+      "无障碍操作指引"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "复杂说明简明化",
+        "options": [
+          "复杂说明简明化",
+          "图片替代文本",
+          "无障碍操作指引"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-travel",
+    "slug": "guided-travel",
+    "title": "旅行安排与行前准备",
+    "description": "按约束排日程 / 行李与出发检查 / 低步行与无障碍路线核查",
+    "categoryId": "life",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "按约束排日程",
+      "行李与出发检查",
+      "低步行与无障碍路线核查"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "按约束排日程",
+        "options": [
+          "按约束排日程",
+          "行李与出发检查",
+          "低步行与无障碍路线核查"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "参与者与个人偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "现有条件、资源与已确认信息",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "时间、预算与完成标准",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-cooking",
+    "slug": "guided-cooking",
+    "title": "家常烹饪与餐食安排",
+    "description": "按现有食材写食谱 / 一周菜单与购物清单 / 多道菜并行时间表",
+    "categoryId": "life",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "按现有食材写食谱",
+      "一周菜单与购物清单",
+      "多道菜并行时间表"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "按现有食材写食谱",
+        "options": [
+          "按现有食材写食谱",
+          "一周菜单与购物清单",
+          "多道菜并行时间表"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "参与者与个人偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "现有条件、资源与已确认信息",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "时间、预算与完成标准",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-home",
+    "slug": "guided-home",
+    "title": "居家收纳与植物记录",
+    "description": "小空间收纳规划 / 家务轮值与维护记录 / 盆栽观察与养护记录",
+    "categoryId": "life",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "小空间收纳规划",
+      "家务轮值与维护记录",
+      "盆栽观察与养护记录"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "小空间收纳规划",
+        "options": [
+          "小空间收纳规划",
+          "家务轮值与维护记录",
+          "盆栽观察与养护记录"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "参与者与个人偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "现有条件、资源与已确认信息",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "时间、预算与完成标准",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-research-methods",
+    "slug": "guided-research-methods",
+    "title": "研究设计与方法",
+    "description": "研究问题与变量 / 研究方案与流程 / 方法章节与可复现清单",
+    "categoryId": "study",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "研究问题与变量",
+      "研究方案与流程",
+      "方法章节与可复现清单"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "研究问题与变量",
+        "options": [
+          "研究问题与变量",
+          "研究方案与流程",
+          "方法章节与可复现清单"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "研究对象与阅读者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "原始资料、数据与已完成步骤",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "方法要求与交付格式",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-surveys",
+    "slug": "guided-surveys",
+    "title": "问卷与访谈分析",
+    "description": "问卷设计与预测试 / 半结构化访谈提纲 / 访谈编码与主题提炼",
+    "categoryId": "study",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "问卷设计与预测试",
+      "半结构化访谈提纲",
+      "访谈编码与主题提炼"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "问卷设计与预测试",
+        "options": [
+          "问卷设计与预测试",
+          "半结构化访谈提纲",
+          "访谈编码与主题提炼"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "研究对象与阅读者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "原始资料、数据与已完成步骤",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "方法要求与交付格式",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-editorial",
+    "slug": "guided-editorial",
+    "title": "事实写作与编辑",
+    "description": "事实报道与消息稿 / 主张与来源核查表 / 正式文稿精准润色",
+    "categoryId": "writing",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "事实报道与消息稿",
+      "主张与来源核查表",
+      "正式文稿精准润色"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "事实报道与消息稿",
+        "options": [
+          "事实报道与消息稿",
+          "主张与来源核查表",
+          "正式文稿精准润色"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-events",
+    "slug": "guided-events",
+    "title": "活动策划与执行",
+    "description": "活动流程与岗位表 / 活动预算与物料 / 活动异常与备用方案",
+    "categoryId": "business",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "活动流程与岗位表",
+      "活动预算与物料",
+      "活动异常与备用方案"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "活动流程与岗位表",
+        "options": [
+          "活动流程与岗位表",
+          "活动预算与物料",
+          "活动异常与备用方案"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-community",
+    "slug": "guided-community",
+    "title": "社群运营与互动",
+    "description": "入群欢迎与新手路径 / 社群话题与参与活动 / 社区规则与争议处理",
+    "categoryId": "marketing",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "入群欢迎与新手路径",
+      "社群话题与参与活动",
+      "社区规则与争议处理"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "入群欢迎与新手路径",
+        "options": [
+          "入群欢迎与新手路径",
+          "社群话题与参与活动",
+          "社区规则与争议处理"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-training",
+    "slug": "guided-training",
+    "title": "员工培训与知识交接",
+    "description": "新人上手计划 / 实操培训课程 / 岗位交接文档",
+    "categoryId": "office",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "新人上手计划",
+      "实操培训课程",
+      "岗位交接文档"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "新人上手计划",
+        "options": [
+          "新人上手计划",
+          "实操培训课程",
+          "岗位交接文档"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-games",
+    "slug": "guided-games",
+    "title": "游戏机制与原型",
+    "description": "角色状态机 / 关卡节奏与教学 / 存档与版本兼容",
+    "categoryId": "programming",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "角色状态机",
+      "关卡节奏与教学",
+      "存档与版本兼容"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "角色状态机",
+        "options": [
+          "角色状态机",
+          "关卡节奏与教学",
+          "存档与版本兼容"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技术栈与运行环境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "相关代码、接口、日志与约束",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "预期行为与验收测试",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-assets3d",
+    "slug": "guided-assets3d",
+    "title": "3D 资产与材质",
+    "description": "模型生成需求 / PBR 材质与贴图 / 资产交付与导出检查",
+    "categoryId": "creative",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "模型生成需求",
+      "PBR 材质与贴图",
+      "资产交付与导出检查"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "模型生成需求",
+        "options": [
+          "模型生成需求",
+          "PBR 材质与贴图",
+          "资产交付与导出检查"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "用途、受众与目标工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "参考素材与不可改变的设定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "画幅、时长、格式与一致性",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-photo",
+    "slug": "guided-photo",
+    "title": "商品与空间作图",
+    "description": "商品白底与细节图 / 生活方式场景图 / 室内布局与氛围图",
+    "categoryId": "creative",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "商品白底与细节图",
+      "生活方式场景图",
+      "室内布局与氛围图"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "商品白底与细节图",
+        "options": [
+          "商品白底与细节图",
+          "生活方式场景图",
+          "室内布局与氛围图"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "用途、受众与目标工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "参考素材与不可改变的设定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "画幅、时长、格式与一致性",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-character",
+    "slug": "guided-character",
+    "title": "角色与视觉设定",
+    "description": "角色三视图与设定表 / 表情与动作参考板 / 视觉风格规范",
+    "categoryId": "creative",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "角色三视图与设定表",
+      "表情与动作参考板",
+      "视觉风格规范"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "角色三视图与设定表",
+        "options": [
+          "角色三视图与设定表",
+          "表情与动作参考板",
+          "视觉风格规范"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "用途、受众与目标工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "参考素材与不可改变的设定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "画幅、时长、格式与一致性",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-editing",
+    "slug": "guided-editing",
+    "title": "视频剪辑与后期",
+    "description": "剪辑时间线与节奏 / 字幕排版与可读性 / 导出与多平台版本",
+    "categoryId": "creative",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "剪辑时间线与节奏",
+      "字幕排版与可读性",
+      "导出与多平台版本"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "剪辑时间线与节奏",
+        "options": [
+          "剪辑时间线与节奏",
+          "字幕排版与可读性",
+          "导出与多平台版本"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "用途、受众与目标工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "参考素材与不可改变的设定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "画幅、时长、格式与一致性",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-fiction",
+    "slug": "guided-fiction",
+    "title": "小说与叙事创作",
+    "description": "情节大纲与伏笔 / 场景与人物对话 / 故事设定与时间线核对",
+    "categoryId": "writing",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "情节大纲与伏笔",
+      "场景与人物对话",
+      "故事设定与时间线核对"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "情节大纲与伏笔",
+        "options": [
+          "情节大纲与伏笔",
+          "场景与人物对话",
+          "故事设定与时间线核对"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "使用环境与对象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "已有资料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "验收或格式要求",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-security",
+    "slug": "guided-security",
+    "title": "应用安全与权限",
+    "description": "越权与权限检查 / 登录与会话加固 / 依赖与密钥检查",
+    "categoryId": "programming",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "越权与权限检查",
+      "登录与会话加固",
+      "依赖与密钥检查"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "越权与权限检查",
+        "options": [
+          "越权与权限检查",
+          "登录与会话加固",
+          "依赖与密钥检查"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技术栈与运行环境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "相关代码、接口、日志与约束",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "预期行为与验收测试",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-performance",
+    "slug": "guided-performance",
+    "title": "性能优化与并发",
+    "description": "性能瓶颈定位 / 缓存设计与失效 / 竞态与并发错误",
+    "categoryId": "programming",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "性能瓶颈定位",
+      "缓存设计与失效",
+      "竞态与并发错误"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "性能瓶颈定位",
+        "options": [
+          "性能瓶颈定位",
+          "缓存设计与失效",
+          "竞态与并发错误"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技术栈与运行环境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "相关代码、接口、日志与约束",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "预期行为与验收测试",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-mobile",
+    "slug": "guided-mobile",
+    "title": "移动应用开发",
+    "description": "移动页面与导航 / 离线存储与同步 / 权限申请与通知",
+    "categoryId": "programming",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "移动页面与导航",
+      "离线存储与同步",
+      "权限申请与通知"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "移动页面与导航",
+        "options": [
+          "移动页面与导航",
+          "离线存储与同步",
+          "权限申请与通知"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技术栈与运行环境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "相关代码、接口、日志与约束",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "预期行为与验收测试",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-automation",
+    "slug": "guided-automation",
+    "title": "脚本与文件自动化",
+    "description": "批量文件整理 / 文档批量转换 / 定时任务与失败恢复",
+    "categoryId": "programming",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "批量文件整理",
+      "文档批量转换",
+      "定时任务与失败恢复"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "批量文件整理",
+        "options": [
+          "批量文件整理",
+          "文档批量转换",
+          "定时任务与失败恢复"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技术栈与运行环境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "相关代码、接口、日志与约束",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "预期行为与验收测试",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-git",
+    "slug": "guided-git",
+    "title": "Git 协作与发布",
+    "description": "合并冲突分析 / PR 说明与评审 / 版本说明与迁移指南",
+    "categoryId": "programming",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "合并冲突分析",
+      "PR 说明与评审",
+      "版本说明与迁移指南"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "合并冲突分析",
+        "options": [
+          "合并冲突分析",
+          "PR 说明与评审",
+          "版本说明与迁移指南"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技术栈与运行环境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "相关代码、接口、日志与约束",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "预期行为与验收测试",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-integration",
+    "slug": "guided-integration",
+    "title": "第三方 API 与集成",
+    "description": "API 客户端封装 / Webhook 验签与重放 / 系统数据映射与对账",
+    "categoryId": "programming",
+    "content": "根据具体任务交付可使用的内容。\n\n任务类型: {{task}}\n细分场景: {{scenario}}\n使用的AI工具: {{tool}}\n你的需求: {{subject}}\n使用环境与对象: {{audience}}\n输出偏好: {{style}}\n重点: {{keywords}}\n限制与补充: {{constraints}}\n已有资料: {{materials}}\n验收或格式要求: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n信息足够时直接交付完整初稿。只追问影响结果的关键缺项，不重复询问已提供的信息。未知事实明确标记，不编造来源、数据、软件功能或执行结果。保护原始资料，并说明验证步骤。",
+    "translation": "",
+    "tags": [
+      "API 客户端封装",
+      "Webhook 验签与重放",
+      "系统数据映射与对账"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "任务类型",
+        "type": "text",
+        "required": false,
+        "defaultValue": "API 客户端封装",
+        "options": [
+          "API 客户端封装",
+          "Webhook 验签与重放",
+          "系统数据映射与对账"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "细分场景",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自动匹配",
+        "options": [
+          "自动匹配"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "使用的AI工具",
+        "type": "text",
+        "required": false,
+        "defaultValue": "通用对话AI",
+        "options": [
+          "通用对话AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "你的需求",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技术栈与运行环境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "输出偏好",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "限制与补充",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "相关代码、接口、日志与约束",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "预期行为与验收测试",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  }
+]

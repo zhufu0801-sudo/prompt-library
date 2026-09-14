@@ -71,8 +71,8 @@ test('module IDs, variables and defaults validated by content compiler', () => {
       'utf8',
     ),
   );
-  assert.equal(seed.counts.templates, 342);
-  assert.equal(seed.counts.custom, 63);
+  assert.equal(seed.counts.templates, 366);
+  assert.equal(seed.counts.custom, 87);
   assert.equal(seed.counts.imported, 279);
   assert.equal(seed.counts.categories, 10);
 });

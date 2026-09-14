@@ -1,0 +1,3098 @@
+[
+  {
+    "id": "studio-operations",
+    "slug": "guided-operations",
+    "title": "業務手順・日常運営",
+    "description": "標準作業手順 / 業務ボトルネックの改善実験 / 在庫台帳・補充規則",
+    "categoryId": "office",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "標準作業手順",
+      "業務ボトルネックの改善実験",
+      "在庫台帳・補充規則"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "標準作業手順",
+        "options": [
+          "標準作業手順",
+          "業務ボトルネックの改善実験",
+          "在庫台帳・補充規則"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-procurement",
+    "slug": "guided-procurement",
+    "title": "調達・仕入先連絡",
+    "description": "調達要件・見積依頼 / 仕入先見積比較 / 納品確認・相違連絡",
+    "categoryId": "business",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "調達要件・見積依頼",
+      "仕入先見積比較",
+      "納品確認・相違連絡"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "調達要件・見積依頼",
+        "options": [
+          "調達要件・見積依頼",
+          "仕入先見積比較",
+          "納品確認・相違連絡"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-accessibility",
+    "slug": "guided-accessibility",
+    "title": "平易な表現・アクセシブルな内容",
+    "description": "難しい説明の平易化 / 画像の代替テキスト / 利用しやすい操作案内",
+    "categoryId": "language",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "難しい説明の平易化",
+      "画像の代替テキスト",
+      "利用しやすい操作案内"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "難しい説明の平易化",
+        "options": [
+          "難しい説明の平易化",
+          "画像の代替テキスト",
+          "利用しやすい操作案内"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-travel",
+    "slug": "guided-travel",
+    "title": "旅行の段取り・準備",
+    "description": "条件に合う日程 / 荷物・出発確認 / 歩行を抑える経路確認",
+    "categoryId": "life",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "条件に合う日程",
+      "荷物・出発確認",
+      "歩行を抑える経路確認"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "条件に合う日程",
+        "options": [
+          "条件に合う日程",
+          "荷物・出発確認",
+          "歩行を抑える経路確認"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "参加者・好み",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "条件・資源・確認情報",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "時間・予算・完了基準",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-cooking",
+    "slug": "guided-cooking",
+    "title": "家庭料理・献立",
+    "description": "手元の食材で作るレシピ / 週間献立・買物表 / 複数料理の進行表",
+    "categoryId": "life",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "手元の食材で作るレシピ",
+      "週間献立・買物表",
+      "複数料理の進行表"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "手元の食材で作るレシピ",
+        "options": [
+          "手元の食材で作るレシピ",
+          "週間献立・買物表",
+          "複数料理の進行表"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "参加者・好み",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "条件・資源・確認情報",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "時間・予算・完了基準",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-home",
+    "slug": "guided-home",
+    "title": "住まいの整理・植物記録",
+    "description": "小空間の収納計画 / 家事分担・手入れ記録 / 鉢植え観察・管理記録",
+    "categoryId": "life",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "小空間の収納計画",
+      "家事分担・手入れ記録",
+      "鉢植え観察・管理記録"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "小空間の収納計画",
+        "options": [
+          "小空間の収納計画",
+          "家事分担・手入れ記録",
+          "鉢植え観察・管理記録"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "参加者・好み",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "条件・資源・確認情報",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "時間・予算・完了基準",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-research-methods",
+    "slug": "guided-research-methods",
+    "title": "研究設計・方法",
+    "description": "研究課題・変数 / 研究計画・手順 / 方法章・再現性確認",
+    "categoryId": "study",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "研究課題・変数",
+      "研究計画・手順",
+      "方法章・再現性確認"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "研究課題・変数",
+        "options": [
+          "研究課題・変数",
+          "研究計画・手順",
+          "方法章・再現性確認"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "研究対象・読者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "原資料・データ・実施済み手順",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "方法の条件・出力形式",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-surveys",
+    "slug": "guided-surveys",
+    "title": "質問票・面接分析",
+    "description": "質問票・予備調査 / 半構造化面接ガイド / 面接のコード化・主題抽出",
+    "categoryId": "study",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "質問票・予備調査",
+      "半構造化面接ガイド",
+      "面接のコード化・主題抽出"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "質問票・予備調査",
+        "options": [
+          "質問票・予備調査",
+          "半構造化面接ガイド",
+          "面接のコード化・主題抽出"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "研究対象・読者",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "原資料・データ・実施済み手順",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "方法の条件・出力形式",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-editorial",
+    "slug": "guided-editorial",
+    "title": "事実に基づく執筆・編集",
+    "description": "事実報告・ニュース原稿 / 主張・出典の確認表 / 正式文書の精密推敲",
+    "categoryId": "writing",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "事実報告・ニュース原稿",
+      "主張・出典の確認表",
+      "正式文書の精密推敲"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "事実報告・ニュース原稿",
+        "options": [
+          "事実報告・ニュース原稿",
+          "主張・出典の確認表",
+          "正式文書の精密推敲"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-events",
+    "slug": "guided-events",
+    "title": "イベント企画・運営",
+    "description": "進行表・役割分担 / 行事予算・物品 / 行事の代替・例外対応",
+    "categoryId": "business",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "進行表・役割分担",
+      "行事予算・物品",
+      "行事の代替・例外対応"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "進行表・役割分担",
+        "options": [
+          "進行表・役割分担",
+          "行事予算・物品",
+          "行事の代替・例外対応"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-community",
+    "slug": "guided-community",
+    "title": "コミュニティ運営",
+    "description": "新規参加者の導入 / 話題・参加企画 / 規則・対立への対応",
+    "categoryId": "marketing",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "新規参加者の導入",
+      "話題・参加企画",
+      "規則・対立への対応"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "新規参加者の導入",
+        "options": [
+          "新規参加者の導入",
+          "話題・参加企画",
+          "規則・対立への対応"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-training",
+    "slug": "guided-training",
+    "title": "研修・知識引継ぎ",
+    "description": "新人導入計画 / 実践研修 / 業務引継ぎ書",
+    "categoryId": "office",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "新人導入計画",
+      "実践研修",
+      "業務引継ぎ書"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "新人導入計画",
+        "options": [
+          "新人導入計画",
+          "実践研修",
+          "業務引継ぎ書"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-games",
+    "slug": "guided-games",
+    "title": "ゲーム機構・試作",
+    "description": "キャラクター状態機械 / ステージ進行・導入 / セーブ・版互換",
+    "categoryId": "programming",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "キャラクター状態機械",
+      "ステージ進行・導入",
+      "セーブ・版互換"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "キャラクター状態機械",
+        "options": [
+          "キャラクター状態機械",
+          "ステージ進行・導入",
+          "セーブ・版互換"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技術構成・実行環境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "コード・API・ログ・制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "期待動作・受入テスト",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-assets3d",
+    "slug": "guided-assets3d",
+    "title": "3D素材・マテリアル",
+    "description": "モデル生成仕様 / PBR材質・テクスチャ仕様 / 素材納品・出力確認",
+    "categoryId": "creative",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "モデル生成仕様",
+      "PBR材質・テクスチャ仕様",
+      "素材納品・出力確認"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "モデル生成仕様",
+        "options": [
+          "モデル生成仕様",
+          "PBR材質・テクスチャ仕様",
+          "素材納品・出力確認"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "用途・対象者・ツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "参考素材・固定設定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "画幅・尺・形式・一貫性",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-photo",
+    "slug": "guided-photo",
+    "title": "商品・空間の画像制作",
+    "description": "白背景商品・詳細画像 / 商品利用シーン / 室内配置・雰囲気画像",
+    "categoryId": "creative",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "白背景商品・詳細画像",
+      "商品利用シーン",
+      "室内配置・雰囲気画像"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "白背景商品・詳細画像",
+        "options": [
+          "白背景商品・詳細画像",
+          "商品利用シーン",
+          "室内配置・雰囲気画像"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "用途・対象者・ツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "参考素材・固定設定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "画幅・尺・形式・一貫性",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-character",
+    "slug": "guided-character",
+    "title": "キャラクター・視覚設定",
+    "description": "キャラクター三面図 / 表情・ポーズ資料 / ビジュアル様式規約",
+    "categoryId": "creative",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "キャラクター三面図",
+      "表情・ポーズ資料",
+      "ビジュアル様式規約"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "キャラクター三面図",
+        "options": [
+          "キャラクター三面図",
+          "表情・ポーズ資料",
+          "ビジュアル様式規約"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "用途・対象者・ツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "参考素材・固定設定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "画幅・尺・形式・一貫性",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-editing",
+    "slug": "guided-editing",
+    "title": "動画編集・仕上げ",
+    "description": "編集タイムライン・テンポ / 字幕配置・可読性 / 書出し・媒体別版",
+    "categoryId": "creative",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "編集タイムライン・テンポ",
+      "字幕配置・可読性",
+      "書出し・媒体別版"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "編集タイムライン・テンポ",
+        "options": [
+          "編集タイムライン・テンポ",
+          "字幕配置・可読性",
+          "書出し・媒体別版"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "用途・対象者・ツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "参考素材・固定設定",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "画幅・尺・形式・一貫性",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-fiction",
+    "slug": "guided-fiction",
+    "title": "小説・物語創作",
+    "description": "筋書き・伏線 / 場面・会話の執筆 / 設定・時系列の照合",
+    "categoryId": "writing",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "筋書き・伏線",
+      "場面・会話の執筆",
+      "設定・時系列の照合"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "筋書き・伏線",
+        "options": [
+          "筋書き・伏線",
+          "場面・会話の執筆",
+          "設定・時系列の照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "環境・対象",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "提供資料",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "完成・書式条件",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-security",
+    "slug": "guided-security",
+    "title": "アプリのセキュリティ",
+    "description": "権限チェック / ログイン・セッション強化 / 依存関係・秘密情報の確認",
+    "categoryId": "programming",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "権限チェック",
+      "ログイン・セッション強化",
+      "依存関係・秘密情報の確認"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "権限チェック",
+        "options": [
+          "権限チェック",
+          "ログイン・セッション強化",
+          "依存関係・秘密情報の確認"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技術構成・実行環境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "コード・API・ログ・制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "期待動作・受入テスト",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-performance",
+    "slug": "guided-performance",
+    "title": "性能・並行処理",
+    "description": "ボトルネック調査 / キャッシュ設計・失効 / 競合状態の修正",
+    "categoryId": "programming",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "ボトルネック調査",
+      "キャッシュ設計・失効",
+      "競合状態の修正"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "ボトルネック調査",
+        "options": [
+          "ボトルネック調査",
+          "キャッシュ設計・失効",
+          "競合状態の修正"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技術構成・実行環境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "コード・API・ログ・制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "期待動作・受入テスト",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-mobile",
+    "slug": "guided-mobile",
+    "title": "モバイルアプリ開発",
+    "description": "画面・ナビゲーション / オフライン保存・同期 / 権限要求・通知",
+    "categoryId": "programming",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "画面・ナビゲーション",
+      "オフライン保存・同期",
+      "権限要求・通知"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "画面・ナビゲーション",
+        "options": [
+          "画面・ナビゲーション",
+          "オフライン保存・同期",
+          "権限要求・通知"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技術構成・実行環境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "コード・API・ログ・制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "期待動作・受入テスト",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-automation",
+    "slug": "guided-automation",
+    "title": "スクリプト・ファイル自動化",
+    "description": "ファイル一括整理 / 文書一括変換 / 定期処理・復旧",
+    "categoryId": "programming",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "ファイル一括整理",
+      "文書一括変換",
+      "定期処理・復旧"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "ファイル一括整理",
+        "options": [
+          "ファイル一括整理",
+          "文書一括変換",
+          "定期処理・復旧"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技術構成・実行環境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "コード・API・ログ・制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "期待動作・受入テスト",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-git",
+    "slug": "guided-git",
+    "title": "Git共同開発・公開",
+    "description": "マージ競合の解決 / PR説明・レビュー / リリースノート・移行案内",
+    "categoryId": "programming",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "マージ競合の解決",
+      "PR説明・レビュー",
+      "リリースノート・移行案内"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "マージ競合の解決",
+        "options": [
+          "マージ競合の解決",
+          "PR説明・レビュー",
+          "リリースノート・移行案内"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技術構成・実行環境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "コード・API・ログ・制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "期待動作・受入テスト",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-integration",
+    "slug": "guided-integration",
+    "title": "外部API連携",
+    "description": "APIクライアント実装 / Webhook検証・再送 / システム間対応・照合",
+    "categoryId": "programming",
+    "content": "具体的なタスクに使える内容を作成する。\n\nタスク: {{task}}\n場面: {{scenario}}\nAIツール: {{tool}}\n目的: {{subject}}\n環境・対象: {{audience}}\n出力の希望: {{style}}\n重点: {{keywords}}\n制約・補足: {{constraints}}\n提供資料: {{materials}}\n完成・書式条件: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\n情報が足りれば初稿を完成させる。重要な不足だけ質問し、既出情報を繰り返し聞かない。不明を明記し、資料、数値、機能、実行結果を捏造しない。原資料を保ち確認手順を示す。",
+    "translation": "",
+    "tags": [
+      "APIクライアント実装",
+      "Webhook検証・再送",
+      "システム間対応・照合"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "タスク",
+        "type": "text",
+        "required": false,
+        "defaultValue": "APIクライアント実装",
+        "options": [
+          "APIクライアント実装",
+          "Webhook検証・再送",
+          "システム間対応・照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "場面",
+        "type": "text",
+        "required": false,
+        "defaultValue": "自動照合",
+        "options": [
+          "自動照合"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AIツール",
+        "type": "text",
+        "required": false,
+        "defaultValue": "汎用対話AI",
+        "options": [
+          "汎用対話AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "目的",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "技術構成・実行環境",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "出力の希望",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "重点",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "制約・補足",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "コード・API・ログ・制約",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "期待動作・受入テスト",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  }
+]

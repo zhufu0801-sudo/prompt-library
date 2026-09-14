@@ -11,6 +11,7 @@ const templates = [
   ...read('data/studio/zh.json'),
   ...read('data/studio/additional/zh.json'),
   ...read('data/studio/practical/zh.json'),
+  ...read('data/studio/domain/zh.json'),
   ...fs
     .readdirSync('data/modules')
     .filter((f) => f.endsWith('.json'))
@@ -173,6 +174,7 @@ for (const s of [
     ...read('data/studio/extended-tasks.json'),
     ...read('data/studio/additional-tasks.json'),
     ...read('data/studio/practical-tasks.json'),
+    ...read('data/studio/domain-tasks.json'),
   ].map((s) => ({ ...s, status: 'published' })),
   ...read('data/research-library/topic-rules.json'),
 ]) {

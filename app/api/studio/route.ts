@@ -1,5 +1,5 @@
 import { database, ensureContent } from '@/db/client';
-import { getTemplate } from '@/db/queries';
+import { getTemplates } from '@/db/queries';
 import { json, visitor } from '@/lib/http';
 import { localeOf, studioIds } from '@/lib/studio';
 import en from '@/data/studio/en.json';
@@ -8,12 +8,14 @@ import additionalEn from '@/data/studio/additional/en.json';
 import additionalJa from '@/data/studio/additional/ja.json';
 import practicalEn from '@/data/studio/practical/en.json';
 import practicalJa from '@/data/studio/practical/ja.json';
+import domainEn from '@/data/studio/domain/en.json';
+import domainJa from '@/data/studio/domain/ja.json';
 export async function GET(request: Request) {
   try {
     await ensureContent();
     const locale = localeOf(new URL(request.url).searchParams.get('locale'));
     const user = await visitor(request);
-    const templates = await Promise.all(studioIds.map(getTemplate));
+    const templates = await getTemplates(studioIds);
     if (templates.some((t) => !t)) throw Error('Featured template missing');
     const { results } = await database()
       .prepare('SELECT template_id FROM favorites WHERE visitor_id=?')
@@ -21,8 +23,8 @@ export async function GET(request: Request) {
       .all();
     const translated =
       locale === 'en'
-        ? [...en, ...additionalEn, ...practicalEn]
-        : [...ja, ...additionalJa, ...practicalJa];
+        ? [...en, ...additionalEn, ...practicalEn, ...domainEn]
+        : [...ja, ...additionalJa, ...practicalJa, ...domainJa];
     return json(
       {
         templates: templates.map((t) =>

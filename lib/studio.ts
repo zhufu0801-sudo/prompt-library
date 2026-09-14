@@ -2,6 +2,8 @@ import type { Template, Values, Locks, Field } from './prompt';
 import baseGuides from '../data/studio/task-guides.json' with { type: 'json' };
 import originalExtendedTasks from '../data/studio/extended-tasks.json' with { type: 'json' };
 import additionalTasks from '../data/studio/additional-tasks.json' with { type: 'json' };
+import domainTasks from '../data/studio/domain-tasks.json' with { type: 'json' };
+import domainModules from '../data/studio/domain-modules.json' with { type: 'json' };
 import practicalTasks from '../data/studio/practical-tasks.json' with { type: 'json' };
 import practicalModules from '../data/studio/practical-modules.json' with { type: 'json' };
 import { compose } from './prompt.ts';
@@ -9,6 +11,7 @@ const extendedTasks = [
   ...originalExtendedTasks,
   ...additionalTasks,
   ...practicalTasks,
+  ...domainTasks,
 ];
 import skillCatalog from '../data/studio/skills.json' with { type: 'json' };
 import skillFit from '../data/studio/skill-fit.json' with { type: 'json' };
@@ -49,6 +52,7 @@ export const studioIds = [
   'studio-business',
   'studio-thinking',
   ...practicalModules.map((m) => m.id),
+  ...domainModules.map((m) => m.id),
 ];
 export function taskKey(t: Template) {
   return ['custom-animation', 'custom-image'].includes(t.id)

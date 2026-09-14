@@ -1,0 +1,3098 @@
+[
+  {
+    "id": "studio-operations",
+    "slug": "guided-operations",
+    "title": "Process and daily operations",
+    "description": "Standard operating procedure / Process bottleneck experiments / Inventory and replenishment rules",
+    "categoryId": "office",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Standard operating procedure",
+      "Process bottleneck experiments",
+      "Inventory and replenishment rules"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Standard operating procedure",
+        "options": [
+          "Standard operating procedure",
+          "Process bottleneck experiments",
+          "Inventory and replenishment rules"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-procurement",
+    "slug": "guided-procurement",
+    "title": "Procurement and supplier communication",
+    "description": "Requirements and RFQ / Supplier quote comparison / Delivery acceptance and discrepancies",
+    "categoryId": "business",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Requirements and RFQ",
+      "Supplier quote comparison",
+      "Delivery acceptance and discrepancies"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Requirements and RFQ",
+        "options": [
+          "Requirements and RFQ",
+          "Supplier quote comparison",
+          "Delivery acceptance and discrepancies"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-accessibility",
+    "slug": "guided-accessibility",
+    "title": "Plain language and accessible content",
+    "description": "Plain-language rewrite / Image alternative text / Accessible task instructions",
+    "categoryId": "language",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Plain-language rewrite",
+      "Image alternative text",
+      "Accessible task instructions"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Plain-language rewrite",
+        "options": [
+          "Plain-language rewrite",
+          "Image alternative text",
+          "Accessible task instructions"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-travel",
+    "slug": "guided-travel",
+    "title": "Travel logistics and preparation",
+    "description": "Constraint-based itinerary / Packing and departure checklist / Low-walking route checks",
+    "categoryId": "life",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Constraint-based itinerary",
+      "Packing and departure checklist",
+      "Low-walking route checks"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Constraint-based itinerary",
+        "options": [
+          "Constraint-based itinerary",
+          "Packing and departure checklist",
+          "Low-walking route checks"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Participants and preferences",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Resources, constraints and confirmed details",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Time, budget and completion criteria",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-cooking",
+    "slug": "guided-cooking",
+    "title": "Home cooking and meal planning",
+    "description": "Recipe from available ingredients / Weekly menu and shopping list / Multi-dish cooking schedule",
+    "categoryId": "life",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Recipe from available ingredients",
+      "Weekly menu and shopping list",
+      "Multi-dish cooking schedule"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Recipe from available ingredients",
+        "options": [
+          "Recipe from available ingredients",
+          "Weekly menu and shopping list",
+          "Multi-dish cooking schedule"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Participants and preferences",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Resources, constraints and confirmed details",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Time, budget and completion criteria",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-home",
+    "slug": "guided-home",
+    "title": "Home organization and plant logs",
+    "description": "Small-space organization / Chore rotation and maintenance log / Houseplant observation log",
+    "categoryId": "life",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Small-space organization",
+      "Chore rotation and maintenance log",
+      "Houseplant observation log"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Small-space organization",
+        "options": [
+          "Small-space organization",
+          "Chore rotation and maintenance log",
+          "Houseplant observation log"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Participants and preferences",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Resources, constraints and confirmed details",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Time, budget and completion criteria",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-research-methods",
+    "slug": "guided-research-methods",
+    "title": "Research design and methods",
+    "description": "Research questions and variables / Research protocol / Methods section and reproducibility",
+    "categoryId": "study",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Research questions and variables",
+      "Research protocol",
+      "Methods section and reproducibility"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Research questions and variables",
+        "options": [
+          "Research questions and variables",
+          "Research protocol",
+          "Methods section and reproducibility"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Study population and readers",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Sources, data and completed procedures",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Method requirements and output format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-surveys",
+    "slug": "guided-surveys",
+    "title": "Surveys and interview analysis",
+    "description": "Questionnaire and pilot test / Semi-structured interview guide / Interview coding and themes",
+    "categoryId": "study",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Questionnaire and pilot test",
+      "Semi-structured interview guide",
+      "Interview coding and themes"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Questionnaire and pilot test",
+        "options": [
+          "Questionnaire and pilot test",
+          "Semi-structured interview guide",
+          "Interview coding and themes"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Study population and readers",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Sources, data and completed procedures",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Method requirements and output format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-editorial",
+    "slug": "guided-editorial",
+    "title": "Factual writing and editing",
+    "description": "Factual report and news brief / Claims and source checklist / Precise formal editing",
+    "categoryId": "writing",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Factual report and news brief",
+      "Claims and source checklist",
+      "Precise formal editing"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Factual report and news brief",
+        "options": [
+          "Factual report and news brief",
+          "Claims and source checklist",
+          "Precise formal editing"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-events",
+    "slug": "guided-events",
+    "title": "Event planning and delivery",
+    "description": "Run of show and staffing / Event budget and materials / Event contingency plan",
+    "categoryId": "business",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Run of show and staffing",
+      "Event budget and materials",
+      "Event contingency plan"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Run of show and staffing",
+        "options": [
+          "Run of show and staffing",
+          "Event budget and materials",
+          "Event contingency plan"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-community",
+    "slug": "guided-community",
+    "title": "Community operations",
+    "description": "Member onboarding / Community discussion activities / Community rules and disputes",
+    "categoryId": "marketing",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Member onboarding",
+      "Community discussion activities",
+      "Community rules and disputes"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Member onboarding",
+        "options": [
+          "Member onboarding",
+          "Community discussion activities",
+          "Community rules and disputes"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-training",
+    "slug": "guided-training",
+    "title": "Staff training and handover",
+    "description": "New-starter plan / Hands-on workshop / Role handover document",
+    "categoryId": "office",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "New-starter plan",
+      "Hands-on workshop",
+      "Role handover document"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "New-starter plan",
+        "options": [
+          "New-starter plan",
+          "Hands-on workshop",
+          "Role handover document"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-games",
+    "slug": "guided-games",
+    "title": "Game mechanics and prototypes",
+    "description": "Character state machine / Level pacing and tutorials / Save files and compatibility",
+    "categoryId": "programming",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Character state machine",
+      "Level pacing and tutorials",
+      "Save files and compatibility"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Character state machine",
+        "options": [
+          "Character state machine",
+          "Level pacing and tutorials",
+          "Save files and compatibility"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Stack and runtime",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Code, APIs, logs and constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Expected behavior and acceptance tests",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-assets3d",
+    "slug": "guided-assets3d",
+    "title": "3D assets and materials",
+    "description": "Model generation brief / PBR material and texture brief / Asset export checklist",
+    "categoryId": "creative",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Model generation brief",
+      "PBR material and texture brief",
+      "Asset export checklist"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Model generation brief",
+        "options": [
+          "Model generation brief",
+          "PBR material and texture brief",
+          "Asset export checklist"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Use case, audience and target tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "References and fixed design constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Frame, duration, format and consistency",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-photo",
+    "slug": "guided-photo",
+    "title": "Product and interior images",
+    "description": "Product packshots and details / Lifestyle product scenes / Interior layout and mood images",
+    "categoryId": "creative",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Product packshots and details",
+      "Lifestyle product scenes",
+      "Interior layout and mood images"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Product packshots and details",
+        "options": [
+          "Product packshots and details",
+          "Lifestyle product scenes",
+          "Interior layout and mood images"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Use case, audience and target tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "References and fixed design constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Frame, duration, format and consistency",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-character",
+    "slug": "guided-character",
+    "title": "Characters and visual development",
+    "description": "Character turnaround sheet / Expression and pose board / Visual style guide",
+    "categoryId": "creative",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Character turnaround sheet",
+      "Expression and pose board",
+      "Visual style guide"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Character turnaround sheet",
+        "options": [
+          "Character turnaround sheet",
+          "Expression and pose board",
+          "Visual style guide"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Use case, audience and target tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "References and fixed design constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Frame, duration, format and consistency",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-editing",
+    "slug": "guided-editing",
+    "title": "Video editing and postproduction",
+    "description": "Edit timeline and pacing / Caption layout and readability / Export and platform variants",
+    "categoryId": "creative",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Edit timeline and pacing",
+      "Caption layout and readability",
+      "Export and platform variants"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Edit timeline and pacing",
+        "options": [
+          "Edit timeline and pacing",
+          "Caption layout and readability",
+          "Export and platform variants"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Use case, audience and target tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "References and fixed design constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Frame, duration, format and consistency",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-fiction",
+    "slug": "guided-fiction",
+    "title": "Fiction and storytelling",
+    "description": "Plot outline and foreshadowing / Scenes and dialogue / Story continuity audit",
+    "categoryId": "writing",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Plot outline and foreshadowing",
+      "Scenes and dialogue",
+      "Story continuity audit"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Plot outline and foreshadowing",
+        "options": [
+          "Plot outline and foreshadowing",
+          "Scenes and dialogue",
+          "Story continuity audit"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Environment and audience",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Available materials",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Acceptance or format",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-security",
+    "slug": "guided-security",
+    "title": "Application security",
+    "description": "Authorization review / Login and session hardening / Dependency and secret review",
+    "categoryId": "programming",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Authorization review",
+      "Login and session hardening",
+      "Dependency and secret review"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Authorization review",
+        "options": [
+          "Authorization review",
+          "Login and session hardening",
+          "Dependency and secret review"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Stack and runtime",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Code, APIs, logs and constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Expected behavior and acceptance tests",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-performance",
+    "slug": "guided-performance",
+    "title": "Performance and concurrency",
+    "description": "Bottleneck profiling / Caching and invalidation / Race conditions",
+    "categoryId": "programming",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Bottleneck profiling",
+      "Caching and invalidation",
+      "Race conditions"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Bottleneck profiling",
+        "options": [
+          "Bottleneck profiling",
+          "Caching and invalidation",
+          "Race conditions"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Stack and runtime",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Code, APIs, logs and constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Expected behavior and acceptance tests",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-mobile",
+    "slug": "guided-mobile",
+    "title": "Mobile app development",
+    "description": "Mobile screens and navigation / Offline storage and sync / Permissions and notifications",
+    "categoryId": "programming",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Mobile screens and navigation",
+      "Offline storage and sync",
+      "Permissions and notifications"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Mobile screens and navigation",
+        "options": [
+          "Mobile screens and navigation",
+          "Offline storage and sync",
+          "Permissions and notifications"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Stack and runtime",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Code, APIs, logs and constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Expected behavior and acceptance tests",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-automation",
+    "slug": "guided-automation",
+    "title": "Scripts and file automation",
+    "description": "Batch file organization / Batch document conversion / Scheduled jobs and recovery",
+    "categoryId": "programming",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Batch file organization",
+      "Batch document conversion",
+      "Scheduled jobs and recovery"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Batch file organization",
+        "options": [
+          "Batch file organization",
+          "Batch document conversion",
+          "Scheduled jobs and recovery"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Stack and runtime",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Code, APIs, logs and constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Expected behavior and acceptance tests",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-git",
+    "slug": "guided-git",
+    "title": "Git collaboration and releases",
+    "description": "Merge conflict resolution / Pull request description and review / Release notes and migration",
+    "categoryId": "programming",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "Merge conflict resolution",
+      "Pull request description and review",
+      "Release notes and migration"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Merge conflict resolution",
+        "options": [
+          "Merge conflict resolution",
+          "Pull request description and review",
+          "Release notes and migration"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Stack and runtime",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Code, APIs, logs and constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Expected behavior and acceptance tests",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  },
+  {
+    "id": "studio-integration",
+    "slug": "guided-integration",
+    "title": "Third-party API integration",
+    "description": "API client wrapper / Webhook verification and replay / System mapping and reconciliation",
+    "categoryId": "programming",
+    "content": "Deliver usable content for this specific task.\n\nTask: {{task}}\nScenario: {{scenario}}\nAI tool: {{tool}}\nYour goal: {{subject}}\nEnvironment and audience: {{audience}}\nOutput preference: {{style}}\nFocus: {{keywords}}\nConstraints: {{constraints}}\nAvailable materials: {{materials}}\nAcceptance or format: {{criteria}}\n\n[[TASK_GUIDE]]\n\n---META---\n\nDeliver a complete first draft when information is sufficient. Ask only about essential gaps; do not repeat supplied information. Mark unknowns and never invent sources, data, software capabilities or execution results. Preserve source material and explain verification.",
+    "translation": "",
+    "tags": [
+      "API client wrapper",
+      "Webhook verification and replay",
+      "System mapping and reconciliation"
+    ],
+    "kind": "custom",
+    "sourceId": "original",
+    "sourceRecordId": null,
+    "sourceUrl": null,
+    "status": "published",
+    "version": 1,
+    "fields": [
+      {
+        "key": "task",
+        "label": "Task",
+        "type": "text",
+        "required": false,
+        "defaultValue": "API client wrapper",
+        "options": [
+          "API client wrapper",
+          "Webhook verification and replay",
+          "System mapping and reconciliation"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "scenario",
+        "label": "Scenario",
+        "type": "text",
+        "required": false,
+        "defaultValue": "Automatic match",
+        "options": [
+          "Automatic match"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "tool",
+        "label": "AI tool",
+        "type": "text",
+        "required": false,
+        "defaultValue": "General chat AI",
+        "options": [
+          "General chat AI"
+        ],
+        "maxSelections": 1
+      },
+      {
+        "key": "subject",
+        "label": "Your goal",
+        "type": "textarea",
+        "required": true,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "audience",
+        "label": "Stack and runtime",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "style",
+        "label": "Output preference",
+        "type": "text",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "keywords",
+        "label": "Focus",
+        "type": "multi",
+        "required": false,
+        "defaultValue": [],
+        "options": [],
+        "maxSelections": 5
+      },
+      {
+        "key": "constraints",
+        "label": "Constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "materials",
+        "label": "Code, APIs, logs and constraints",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "criteria",
+        "label": "Expected behavior and acceptance tests",
+        "type": "textarea",
+        "required": false,
+        "defaultValue": "",
+        "options": [],
+        "maxSelections": 1
+      },
+      {
+        "key": "skill_id",
+        "label": "Skill",
+        "type": "text",
+        "required": false,
+        "options": [],
+        "defaultValue": "",
+        "maxSelections": 1
+      }
+    ]
+  }
+]
