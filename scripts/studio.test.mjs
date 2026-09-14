@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import {
   composeStudio,
   taskFields,
+  taskTemplates,
   analyzeTask,
   matchingSkills,
   recommendedSkills,
@@ -184,7 +185,7 @@ test('each task emits only its own deliverable rules in all three languages', ()
   const old = composeStudio(load('zh')[1],{medium:'AI 动画',subject:'旧方案'},'zh');
   assert.ok(old.includes(guides.find(g=>g.id==='storyboard').guidance.zh));
 });
-const load = (l) => ['', 'additional/'].flatMap(dir=>JSON.parse(fs.readFileSync(new URL('../data/studio/'+dir+l+'.json',import.meta.url),'utf8')));
+const load = (l) => ['', 'additional/', 'practical/'].flatMap(dir=>JSON.parse(fs.readFileSync(new URL('../data/studio/'+dir+l+'.json',import.meta.url),'utf8')));
 
 test('expanded tasks have distinct localized deliverables, examples and scoped Skills',()=>{
  const tasks=JSON.parse(fs.readFileSync(new URL('../data/studio/additional-tasks.json',import.meta.url),'utf8'));
@@ -206,6 +207,31 @@ test('legacy templates compose their own fields without unrelated task guidance'
  const t={...load('en')[0],id:'legacy-example',content:'Review {{code}}',fields:[]};
  assert.equal(composeStudio(t,{code:'const x = "{{literal}}";'},'en'),'Review const x = "{{literal}}";');
  assert.deepEqual(recommendedSkills(t,{},'en'),[]);
+});
+
+test('60 practical task templates resolve correctly in all languages and preserve source input',()=>{
+ const tasks=JSON.parse(fs.readFileSync(new URL('../data/studio/practical-tasks.json',import.meta.url),'utf8'));
+ const review=JSON.parse(fs.readFileSync(new URL('../data/research-library/practical-source-review.json',import.meta.url),'utf8'));
+ assert.equal(tasks.length,60);
+ for(const locale of ['zh','en','ja']){
+  const templates=load(locale),cards=taskTemplates(templates,locale);
+  assert.equal(cards.length,93);
+  assert.equal(new Set(cards.map(c=>c.id)).size,93);
+  for(const task of tasks){
+   const card=cards.find(c=>c.id===task.id);assert.ok(card);
+   const v={...defaultValues(card.template),[card.field]:card.value,subject:task.examples[locale],materials:'Keep {{user_text}} unchanged'};
+   const output=composeStudio(card.template,v,locale);
+   assert.ok(output.includes(task.guidance[locale]));assert.ok(output.includes('Keep {{user_text}} unchanged'));
+   assert.ok(!output.includes('[[TASK_GUIDE]]'));
+   assert.equal(analyzeTask(card.template,v,locale).current,task.id);
+   for(const other of tasks.filter(x=>x.group===task.group&&x.id!==task.id))assert.ok(!output.includes(other.guidance[locale]));
+   assert.ok(task.sourceReferences.every(id=>review.records.some(r=>r.id===id)));
+   const target=load('ja').find(t=>t.id===card.template.id),translated=translateValues(card.template,target,v,{});
+   assert.equal(translated.task,task.labels.ja);assert.equal(translated.materials,v.materials);
+  }
+ }
+ const seed=JSON.parse(fs.readFileSync(new URL('../data/seed.generated.json',import.meta.url),'utf8'));
+ assert.ok(seed.batches.every(b=>b.length<=90),'seed batches must remain bounded as task resources grow');
 });
 test('three languages share field identities, option positions and two featured templates', () => {
   const zh = load('zh');

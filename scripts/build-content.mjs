@@ -10,6 +10,7 @@ const categories = read('data/categories.json');
 const templates = [
   ...read('data/studio/zh.json'),
   ...read('data/studio/additional/zh.json'),
+  ...read('data/studio/practical/zh.json'),
   ...fs
     .readdirSync('data/modules')
     .filter((f) => f.endsWith('.json'))
@@ -91,7 +92,13 @@ group = [];
 const tagId = (tag) =>
   'tag-' + crypto.createHash('sha256').update(tag).digest('hex').slice(0, 20);
 const allTags = [...new Set(templates.flatMap((t) => t.tags))];
-for (const label of allTags) upsert('tags', { id: tagId(label), label });
+for (const label of allTags) {
+  upsert('tags', { id: tagId(label), label });
+  if (group.length >= 80) {
+    groups.push(group);
+    group = [];
+  }
+}
 groups.push(group);
 group = [];
 for (const t of templates) {
@@ -154,11 +161,33 @@ for (const t of templates) {
   groups.push(group);
   group = [];
 }
-const skillFit=read('data/studio/skill-fit.json');
-for (const s of read('data/studio/skills.json')) upsert('skill_resources',{id:s.id,metadata_json:JSON.stringify({...s,fit:skillFit[s.id]})});
-for (const s of [...[...read('data/studio/extended-tasks.json'),...read('data/studio/additional-tasks.json')].map(s=>({...s,status:'published'})),...read('data/research-library/topic-rules.json')]) upsert('task_resources',{id:s.id,status:s.status,metadata_json:JSON.stringify(s)});
+const skillFit = read('data/studio/skill-fit.json');
+for (const s of read('data/studio/skills.json'))
+  upsert('skill_resources', {
+    id: s.id,
+    metadata_json: JSON.stringify({ ...s, fit: skillFit[s.id] }),
+  });
+for (const s of [
+  ...[
+    ...read('data/studio/task-guides.json'),
+    ...read('data/studio/extended-tasks.json'),
+    ...read('data/studio/additional-tasks.json'),
+    ...read('data/studio/practical-tasks.json'),
+  ].map((s) => ({ ...s, status: 'published' })),
+  ...read('data/research-library/topic-rules.json'),
+]) {
+  upsert('task_resources', {
+    id: s.id,
+    status: s.status,
+    metadata_json: JSON.stringify(s),
+  });
+  if (group.length >= 80) {
+    groups.push(group);
+    group = [];
+  }
+}
 groups.push(group);
-group=[];
+group = [];
 const version = crypto
   .createHash('sha256')
   .update(JSON.stringify(groups))

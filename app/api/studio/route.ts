@@ -6,6 +6,8 @@ import en from '@/data/studio/en.json';
 import ja from '@/data/studio/ja.json';
 import additionalEn from '@/data/studio/additional/en.json';
 import additionalJa from '@/data/studio/additional/ja.json';
+import practicalEn from '@/data/studio/practical/en.json';
+import practicalJa from '@/data/studio/practical/ja.json';
 export async function GET(request: Request) {
   try {
     await ensureContent();
@@ -17,7 +19,10 @@ export async function GET(request: Request) {
       .prepare('SELECT template_id FROM favorites WHERE visitor_id=?')
       .bind(user.id)
       .all();
-    const translated = locale === 'en' ? [...en,...additionalEn] : [...ja,...additionalJa];
+    const translated =
+      locale === 'en'
+        ? [...en, ...additionalEn, ...practicalEn]
+        : [...ja, ...additionalJa, ...practicalJa];
     return json(
       {
         templates: templates.map((t) =>

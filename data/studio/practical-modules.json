@@ -1,0 +1,497 @@
+[
+  {
+    "id": "studio-backend",
+    "group": "backend",
+    "category": "programming",
+    "labels": {
+      "zh": "后端与数据库",
+      "en": "Backend and databases",
+      "ja": "バックエンド・DB"
+    },
+    "context": {
+      "zh": "支持分页和权限的团队任务API",
+      "en": "a team task API with pagination and permissions",
+      "ja": "ページ分割と権限を持つチームタスクAPI"
+    },
+    "inputs": {
+      "zh": "语言版本、接口需求、数据结构及权限规则",
+      "en": "language/version, API requirements, data model and access rules",
+      "ja": "言語・版、API要件、データ構造、権限"
+    },
+    "sources": [
+      "aishort-95",
+      "aishort-191",
+      "pc-search"
+    ]
+  },
+  {
+    "id": "studio-testing",
+    "group": "testing",
+    "category": "programming",
+    "labels": {
+      "zh": "软件测试与质量",
+      "en": "Testing and quality",
+      "ja": "ソフトウェアテスト"
+    },
+    "context": {
+      "zh": "带登录与购物车的示例网站",
+      "en": "a sample website with login and a cart",
+      "ja": "ログインとカートのあるサンプルサイト"
+    },
+    "inputs": {
+      "zh": "被测代码、预期行为、测试框架和已知问题",
+      "en": "code, expected behavior, test framework and known failures",
+      "ja": "対象コード、期待動作、テスト構成、既知の問題"
+    },
+    "sources": [
+      "aishort-97"
+    ]
+  },
+  {
+    "id": "studio-devops",
+    "group": "devops",
+    "category": "programming",
+    "labels": {
+      "zh": "部署与运维",
+      "en": "Deployment and operations",
+      "ja": "デプロイ・運用"
+    },
+    "context": {
+      "zh": "需要测试环境和生产环境的Node应用",
+      "en": "a Node app with staging and production",
+      "ja": "検証・本番環境を持つNodeアプリ"
+    },
+    "inputs": {
+      "zh": "运行环境、部署平台、构建命令、服务依赖和恢复目标",
+      "en": "runtime, hosting platform, build commands, dependencies and recovery goals",
+      "ja": "環境、配備先、ビルド手順、依存、復旧目標"
+    },
+    "sources": [
+      "aishort-95",
+      "aishort-201",
+      "pc-devops"
+    ]
+  },
+  {
+    "id": "studio-analytics",
+    "group": "analytics",
+    "category": "study",
+    "labels": {
+      "zh": "数据分析与图表",
+      "en": "Data analysis and charts",
+      "ja": "データ分析・グラフ"
+    },
+    "context": {
+      "zh": "含日期、渠道、金额和缺失值的销售表",
+      "en": "sales data with dates, channels, amounts and missing values",
+      "ja": "日付・チャネル・金額・欠損を含む売上表"
+    },
+    "inputs": {
+      "zh": "样例数据、字段含义、分析问题和使用软件",
+      "en": "sample data, field definitions, analysis questions and software",
+      "ja": "例データ、項目定義、分析課題、利用ソフト"
+    },
+    "sources": [
+      "aishort-85",
+      "aishort-134",
+      "pc-data"
+    ]
+  },
+  {
+    "id": "studio-product",
+    "group": "product",
+    "category": "business",
+    "labels": {
+      "zh": "产品设计与需求",
+      "en": "Product planning",
+      "ja": "プロダクト企画"
+    },
+    "context": {
+      "zh": "帮助新用户完成首次配置的功能",
+      "en": "a feature helping new users complete onboarding",
+      "ja": "新規利用者の初期設定を助ける機能"
+    },
+    "inputs": {
+      "zh": "目标用户、问题证据、功能边界、约束和成功指标",
+      "en": "target users, problem evidence, scope, constraints and success measures",
+      "ja": "対象者、課題の根拠、範囲、制約、成功指標"
+    },
+    "sources": [
+      "aishort-139",
+      "aishort-92"
+    ]
+  },
+  {
+    "id": "studio-project",
+    "group": "project",
+    "category": "office",
+    "labels": {
+      "zh": "项目管理与协作",
+      "en": "Project delivery",
+      "ja": "プロジェクト管理"
+    },
+    "context": {
+      "zh": "四周内上线一个小型知识库",
+      "en": "a four-week launch of a small knowledge base",
+      "ja": "4週間での小規模ナレッジ公開"
+    },
+    "inputs": {
+      "zh": "交付目标、团队角色、时间、依赖和资源限制",
+      "en": "deliverables, team roles, dates, dependencies and resource limits",
+      "ja": "成果物、役割、期間、依存、資源制約"
+    },
+    "sources": [
+      "aishort-201",
+      "aishort-279"
+    ]
+  },
+  {
+    "id": "studio-career",
+    "group": "career",
+    "category": "office",
+    "labels": {
+      "zh": "求职与职业发展",
+      "en": "Career and applications",
+      "ja": "就職・キャリア"
+    },
+    "context": {
+      "zh": "有两个真实项目经历的初级开发者",
+      "en": "a junior developer with two real project experiences",
+      "ja": "実在する2件のプロジェクト経験を持つ初級開発者"
+    },
+    "inputs": {
+      "zh": "目标职位、岗位描述、真实经历及可公开成果",
+      "en": "target role, job description, real experience and shareable outcomes",
+      "ja": "志望職、募集要件、実経験、公開可能な成果"
+    },
+    "sources": [
+      "aishort-22",
+      "aishort-46",
+      "aishort-145",
+      "aishort-253",
+      "pc-resume"
+    ]
+  },
+  {
+    "id": "studio-communication",
+    "group": "communication",
+    "category": "office",
+    "labels": {
+      "zh": "邮件会议与沟通",
+      "en": "Email, meetings and communication",
+      "ja": "メール・会議・伝達"
+    },
+    "context": {
+      "zh": "跨团队协调一次版本延期",
+      "en": "coordinating a release delay across teams",
+      "ja": "部門間での公開延期の調整"
+    },
+    "inputs": {
+      "zh": "收件人、背景事实、希望达成的决定和期限",
+      "en": "recipient, background facts, desired decision and deadline",
+      "ja": "相手、背景事実、必要な判断、期限"
+    },
+    "sources": [
+      "aishort-201",
+      "aishort-241"
+    ]
+  },
+  {
+    "id": "studio-support",
+    "group": "support",
+    "category": "office",
+    "labels": {
+      "zh": "客服与知识库",
+      "en": "Support and knowledge base",
+      "ja": "サポート・FAQ"
+    },
+    "context": {
+      "zh": "提供退款政策与使用说明的在线服务",
+      "en": "an online service with refund policies and user guides",
+      "ja": "返金方針と利用手順のあるオンラインサービス"
+    },
+    "inputs": {
+      "zh": "客户问题、已确认政策、产品版本和可采取操作",
+      "en": "customer issue, verified policy, product version and permitted actions",
+      "ja": "問い合わせ、確認済み方針、製品版、対応可能な操作"
+    },
+    "sources": [
+      "aishort-39",
+      "aishort-241",
+      "pc-support"
+    ]
+  },
+  {
+    "id": "studio-social",
+    "group": "social",
+    "category": "marketing",
+    "labels": {
+      "zh": "社交媒体与短内容",
+      "en": "Social content",
+      "ja": "SNS・短文制作"
+    },
+    "context": {
+      "zh": "介绍一款有真实使用记录的效率工具",
+      "en": "introducing a productivity tool with real usage notes",
+      "ja": "実際の利用記録がある効率化ツールの紹介"
+    },
+    "inputs": {
+      "zh": "平台、读者、素材事实、篇幅和行动目标",
+      "en": "platform, audience, factual material, length and desired action",
+      "ja": "媒体、読者、事実素材、長さ、行動目標"
+    },
+    "sources": [
+      "aishort-143",
+      "aishort-204",
+      "aishort-209"
+    ]
+  },
+  {
+    "id": "studio-commerce",
+    "group": "commerce",
+    "category": "marketing",
+    "labels": {
+      "zh": "电商商品内容",
+      "en": "E-commerce content",
+      "ja": "EC商品コンテンツ"
+    },
+    "context": {
+      "zh": "一款规格和售后政策已确认的桌面收纳盒",
+      "en": "a desk organizer with verified specifications and after-sales policy",
+      "ja": "仕様とサポート方針が確認済みの卓上収納箱"
+    },
+    "inputs": {
+      "zh": "商品参数、目标买家、平台规则、卖点证据和售后政策",
+      "en": "product specs, buyers, platform rules, claim evidence and support policy",
+      "ja": "仕様、購入者、媒体規則、訴求根拠、サポート方針"
+    },
+    "sources": [
+      "aishort-45",
+      "aishort-140",
+      "aishort-141",
+      "aishort-39"
+    ]
+  },
+  {
+    "id": "studio-seo",
+    "group": "seo",
+    "category": "marketing",
+    "labels": {
+      "zh": "搜索内容与SEO",
+      "en": "Search content and SEO",
+      "ja": "検索コンテンツ・SEO"
+    },
+    "context": {
+      "zh": "一个提供三语使用教程的小型网站",
+      "en": "a small site offering trilingual tutorials",
+      "ja": "3言語の使い方記事を提供する小規模サイト"
+    },
+    "inputs": {
+      "zh": "页面内容、目标读者、关键词资料及可用搜索数据",
+      "en": "page content, audience, keyword material and available search data",
+      "ja": "ページ内容、読者、キーワード資料、検索データ"
+    },
+    "sources": [
+      "aishort-38",
+      "aishort-40",
+      "pc-seo",
+      "pc-links"
+    ]
+  },
+  {
+    "id": "studio-slides",
+    "group": "slides",
+    "category": "office",
+    "labels": {
+      "zh": "演示文稿与讲稿",
+      "en": "Presentations and speaking",
+      "ja": "プレゼン・発表原稿"
+    },
+    "context": {
+      "zh": "向团队介绍知识库改版方案的十分钟汇报",
+      "en": "a ten-minute team presentation on a knowledge-base redesign",
+      "ja": "ナレッジ改修を紹介する10分のチーム発表"
+    },
+    "inputs": {
+      "zh": "听众、时长、核心结论、资料和目标软件",
+      "en": "audience, duration, key conclusion, material and target software",
+      "ja": "聴衆、時間、結論、素材、対象ソフト"
+    },
+    "sources": [
+      "aishort-187",
+      "aishort-195"
+    ]
+  },
+  {
+    "id": "studio-reading",
+    "group": "reading",
+    "category": "study",
+    "labels": {
+      "zh": "阅读与资料整理",
+      "en": "Reading and source synthesis",
+      "ja": "読書・資料整理"
+    },
+    "context": {
+      "zh": "三篇关于远程协作的已提供文章",
+      "en": "three supplied articles about remote collaboration",
+      "ja": "提供済みの遠隔協働に関する3記事"
+    },
+    "inputs": {
+      "zh": "原文或摘录、阅读目的、引用方式和输出篇幅",
+      "en": "source text/excerpts, reading goal, citation format and length",
+      "ja": "原文・抜粋、読書目的、引用方式、分量"
+    },
+    "sources": [
+      "aishort-47",
+      "aishort-215",
+      "aishort-240"
+    ]
+  },
+  {
+    "id": "studio-assessment",
+    "group": "assessment",
+    "category": "study",
+    "labels": {
+      "zh": "出题与学习评估",
+      "en": "Exercises and assessment",
+      "ja": "問題作成・学習評価"
+    },
+    "context": {
+      "zh": "初学者的Python循环与列表练习",
+      "en": "Python loop and list practice for beginners",
+      "ja": "初心者向けPythonのループとリスト演習"
+    },
+    "inputs": {
+      "zh": "学习目标、年龄或水平、知识范围、题型和评分要求",
+      "en": "learning goals, age/level, scope, question types and grading criteria",
+      "ja": "学習目標、年齢・水準、範囲、問題形式、採点条件"
+    },
+    "sources": [
+      "aishort-131",
+      "aishort-263"
+    ]
+  },
+  {
+    "id": "studio-localization",
+    "group": "localization",
+    "category": "language",
+    "labels": {
+      "zh": "软件与字幕本地化",
+      "en": "Software and subtitle localization",
+      "ja": "ソフト・字幕のローカライズ"
+    },
+    "context": {
+      "zh": "一个含按钮、报错和帮助文字的三语应用",
+      "en": "a trilingual app with buttons, errors and help text",
+      "ja": "ボタン・エラー・ヘルプ文を含む3言語アプリ"
+    },
+    "inputs": {
+      "zh": "原文文件、目标地区、术语表、变量与长度限制",
+      "en": "source files, target region, glossary, variables and length limits",
+      "ja": "原文ファイル、対象地域、用語、変数、文字数制限"
+    },
+    "sources": [
+      "aishort-1",
+      "aishort-246"
+    ]
+  },
+  {
+    "id": "studio-audio",
+    "group": "audio",
+    "category": "creative",
+    "labels": {
+      "zh": "播客配音与声音",
+      "en": "Podcast, voice and sound",
+      "ja": "ポッドキャスト・音声"
+    },
+    "context": {
+      "zh": "讲解一个真实城市故事的三分钟音频",
+      "en": "a three-minute audio story about a real city",
+      "ja": "実在する街の話を伝える3分音声"
+    },
+    "inputs": {
+      "zh": "受众、时长、已核实素材、发音要求和目标工具",
+      "en": "audience, duration, verified material, pronunciation needs and target tool",
+      "ja": "聴衆、尺、確認素材、発音条件、対象ツール"
+    },
+    "sources": [
+      "aishort-160",
+      "aishort-204",
+      "pc-podcast"
+    ]
+  },
+  {
+    "id": "studio-brand",
+    "group": "brand",
+    "category": "creative",
+    "labels": {
+      "zh": "品牌视觉与设计简报",
+      "en": "Brand visuals and briefs",
+      "ja": "ブランド視覚・制作要項"
+    },
+    "context": {
+      "zh": "面向年轻创作者的原创文具品牌",
+      "en": "an original stationery brand for young creators",
+      "ja": "若い制作者向けのオリジナル文具ブランド"
+    },
+    "inputs": {
+      "zh": "品牌定位、使用场景、现有素材、目标受众及限制",
+      "en": "positioning, use cases, existing assets, audience and constraints",
+      "ja": "位置付け、利用場面、既存素材、読者、制約"
+    },
+    "sources": [
+      "aishort-54",
+      "aishort-245",
+      "aishort-254"
+    ]
+  },
+  {
+    "id": "studio-production",
+    "group": "production",
+    "category": "creative",
+    "labels": {
+      "zh": "动画前期与连续性",
+      "en": "Animation preproduction",
+      "ja": "アニメ前制作・連続性"
+    },
+    "context": {
+      "zh": "同一角色从房间走到街道的短动画",
+      "en": "a short animation following one character from a room to a street",
+      "ja": "同一人物が部屋から通りへ歩く短編アニメ"
+    },
+    "inputs": {
+      "zh": "故事梗概、角色设定、场景图、时长和生成工具",
+      "en": "synopsis, character design, scene references, duration and generation tool",
+      "ja": "あらすじ、人物設定、場面資料、尺、生成ツール"
+    },
+    "sources": [
+      "aishort-16",
+      "aishort-274"
+    ]
+  },
+  {
+    "id": "studio-productivity",
+    "group": "productivity",
+    "category": "life",
+    "labels": {
+      "zh": "个人效率与信息整理",
+      "en": "Personal organization",
+      "ja": "個人の効率・情報整理"
+    },
+    "context": {
+      "zh": "工作与学习并行且每周可用时间有限的安排",
+      "en": "balancing work and study with limited weekly time",
+      "ja": "仕事と学習を限られた週時間で両立する計画"
+    },
+    "inputs": {
+      "zh": "现有任务、固定日程、目标、精力限制和工具",
+      "en": "current tasks, fixed commitments, goals, energy limits and tools",
+      "ja": "現タスク、固定予定、目標、体力制約、ツール"
+    },
+    "sources": [
+      "aishort-70",
+      "aishort-215",
+      "aishort-279"
+    ]
+  }
+]

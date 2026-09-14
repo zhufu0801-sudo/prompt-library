@@ -47,6 +47,7 @@ import {
 import {
   composeStudio,
   taskFields,
+  taskTemplates,
   analyzeTask,
   taskKey,
   briefQuestion,
@@ -92,6 +93,7 @@ export default function Home() {
     [planId, setPlanId] = useState<string | undefined>(),
     [title, setTitle] = useState('');
   const [tab, setTab] = useState('library'),
+    [libraryView, setLibraryView] = useState('tasks'),
     [search, setSearch] = useState(''),
     [category, setCategory] = useState('all'),
     [busy, setBusy] = useState(false),
@@ -103,6 +105,26 @@ export default function Home() {
     [help, setHelp] = useState(false),
     [custom, setCustom] = useState<Record<string, string>>({});
   const t = ui[locale];
+  const browseText = {
+    zh: {
+      modules: '按模块浏览',
+      tasks: '按细分模板浏览',
+      unit: '个模块',
+      count: '个细分模板',
+    },
+    en: {
+      modules: 'Browse modules',
+      tasks: 'Browse task templates',
+      unit: 'modules',
+      count: 'task templates',
+    },
+    ja: {
+      modules: 'モジュール別',
+      tasks: '具体的なタスク別',
+      unit: 'モジュール',
+      count: 'タスクテンプレート',
+    },
+  }[locale];
   const guided = !!active && studioIds.includes(active.id);
   const catalogLabel = {
     zh: '全部提示词',
@@ -423,6 +445,20 @@ export default function Home() {
     const sample = fields.find((f) => f.key === 'subject')?.options[0];
     if (sample) update('subject', sample);
   }
+  function openTask(task: ReturnType<typeof taskTemplates>[number]) {
+    open(task.template);
+    setValues({ ...defaultValues(task.template), [task.field]: task.value });
+    setTitle(task.label);
+  }
+  const workflows = taskTemplates(templates, locale);
+  const filteredWorkflows = workflows.filter(
+    (x) =>
+      (category === 'all' || x.template.categoryId === category) &&
+      [x.label, x.template.title, ...x.terms]
+        .join(' ')
+        .toLowerCase()
+        .includes(search.trim().toLowerCase()),
+  );
   const filtered = templates.filter(
     (x) =>
       (tab !== 'favorites' || favorites.includes(x.id)) &&
@@ -493,6 +529,28 @@ export default function Home() {
         </div>
         {tab === 'library' && (
           <div className="studio-toolbar">
+            <div className="studio-browse-mode">
+              <div>
+                <button
+                  className={libraryView === 'tasks' ? 'selected' : ''}
+                  aria-pressed={libraryView === 'tasks'}
+                  onClick={() => setLibraryView('tasks')}
+                >
+                  {browseText.tasks}
+                </button>
+                <button
+                  className={libraryView === 'modules' ? 'selected' : ''}
+                  aria-pressed={libraryView === 'modules'}
+                  onClick={() => setLibraryView('modules')}
+                >
+                  {browseText.modules}
+                </button>
+              </div>
+              <span>
+                {templates.length} {browseText.unit} · {workflows.length}{' '}
+                {browseText.count}
+              </span>
+            </div>
             <select
               className="studio-mobile-category"
               aria-label={t.all}
@@ -569,6 +627,28 @@ export default function Home() {
             </div>
             {!plans.length && <p>{t.empty}</p>}
           </>
+        ) : libraryView === 'tasks' ? (
+          <div className="studio-grid studio-task-grid">
+            {filteredWorkflows.map((task) => (
+              <article className="studio-card" key={task.id}>
+                <span className="studio-task-parent">
+                  {task.template.title}
+                </span>
+                <h2>{task.label}</h2>
+                <p className="studio-task-description">{task.description}</p>
+                <div className="studio-card-bottom">
+                  <span>{categoryNames[locale][task.template.categoryId]}</span>
+                  <button
+                    className="studio-primary"
+                    onClick={() => openTask(task)}
+                  >
+                    {t.use}
+                  </button>
+                </div>
+              </article>
+            ))}
+            {!filteredWorkflows.length && <p>{t.empty}</p>}
+          </div>
         ) : (
           <div className="studio-grid">
             {filtered.map((item) => (
@@ -613,6 +693,15 @@ export default function Home() {
                 </div>
                 <h2>{item.title}</h2>
                 <p>{item.description}</p>
+                <div className="studio-task-shortcuts">
+                  {workflows
+                    .filter((task) => task.template.id === item.id)
+                    .map((task) => (
+                      <button key={task.id} onClick={() => openTask(task)}>
+                        {task.label}
+                      </button>
+                    ))}
+                </div>
                 <div className="studio-card-bottom">
                   <span>
                     <Sparkles size={15} />

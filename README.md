@@ -1,19 +1,19 @@
 # AI Made Easy
 
 Open-source prompt studio / 三语提示词工作室 / 3言語対応プロンプトスタジオ。
-Current release (2026-09-14): **13 homepage modules, 33 task types, 45 detailed scenarios, eight downloadable GitHub-based Skill documentation packs**. All homepage prompts and usage instructions support Chinese, English and Japanese. See [release and content maintenance](docs/EXPANDED-LIBRARY.md).
+Current release (2026-09-14): **33 homepage modules, 93 task templates, 45 detailed scenarios, eight downloadable GitHub-based Skill documentation packs**. All homepage prompts and usage instructions support Chinese, English and Japanese. See [release and content maintenance](docs/PRACTICAL-LIBRARY.md).
 Original code and editorial content use the MIT license; upstream content retains its own notices (see LICENSE).
 
 Prompt generation and matching are rule-based; the site does not call a model or create media. Earlier engineering and shot-size batches remain documented in [everyday programming](docs/EVERYDAY-PROGRAMMING.md), [code and shot sizes](docs/CODE-AND-SHOT-SIZES.md), and [spatial continuity](docs/SPATIAL-CONTINUITY.md).
 
 ## 当前首页（2026-09-14）
 
-展示编程、AI图片、AI动画、WPS Office、文案、论文，以及长文、教学、翻译、生活、创意、商业、思考，共13个模块。图片与动画分开；WPS面向金山WPS Office。
+展示编程、AI图片、AI动画、WPS Office、文案、论文，以及长文、教学、翻译、生活、创意、商业、思考，并新增后端、测试、运维、数据分析、产品、项目、求职、沟通、客服、电商、SEO、演示、阅读、出题、本地化、音频、品牌、动画前期与效率等，共33个模块。图片与动画分开；WPS面向金山WPS Office。
 右上角支持中文、日文和英文切换，并记住偏好。模板正文、表单、选项和元提示词规则均提供三语版本。
 元提示词开关加入澄清问题、输出结构及自检规则；不调用 AI。用户输入和已锁定字段不会被语言切换自动翻译。
 历史 309 条模板通过“全部提示词”入口开放，保留原文；原有方案仍可打开与导出。Skill模式提供固定版本ZIP、来源、对应许可证、校验值和三语说明；普通模式无需下载。包内为上游文档或注明来源的适配版，执行脚本及外部依赖不包含，未做目标AI运行认证。
 新模板及翻译维护说明见 [data/studio/README.md](data/studio/README.md)。
-完整库共322条（43条原创、279条导入）。五个其他方向的关键词规则和八个学习草稿保留在数据库中，暂不上首页。
+完整库共342条（63条原创、279条导入）；首页可直接选择93个细分任务模板。五个其他方向的关键词规则和八个学习草稿保留在数据库中，暂不上首页。
 
 一个可以自己维护的提示词网站：搜索数据库 → 填写模板 → 选择和锁定关键词 → 复制、收藏、保存方案。
 

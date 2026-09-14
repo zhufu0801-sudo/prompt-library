@@ -770,6 +770,44 @@
 .studio-mobile-category {
   display: none;
 }
+.studio-browse-mode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.studio-browse-mode > div {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.studio-browse-mode > span,
+.studio-task-parent {
+  font-size: 0.8rem;
+  color: #5b657a;
+}
+.studio-task-grid .studio-card h2 {
+  margin-top: 9px;
+}
+.studio-task-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.studio-task-shortcuts {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0 0 20px;
+}
+.studio .studio-task-shortcuts button {
+  font-size: 0.8rem;
+  background: #f4f6fd;
+  border: 0;
+  text-align: left;
+}
 .studio-skill > summary {
   cursor: pointer;
   font-weight: 600;

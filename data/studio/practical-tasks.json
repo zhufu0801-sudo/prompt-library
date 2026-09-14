@@ -1,0 +1,2141 @@
+[
+  {
+    "id": "backend-api",
+    "group": "backend",
+    "labels": {
+      "zh": "API 接口实现",
+      "en": "API implementation",
+      "ja": "API実装"
+    },
+    "terms": [
+      "API",
+      "接口",
+      "endpoint",
+      "エンドポイント"
+    ],
+    "guidance": {
+      "zh": "先列出路径、方法、鉴权、请求与响应字段、状态码及错误格式，再按用户技术栈交付路由、校验和服务层代码。明确分页、排序稳定性、重复请求和资源不存在时的行为，给出正常与失败请求样例及测试命令。没有仓库访问时标明文件路径和集成步骤，不虚构运行结果。",
+      "en": "Specify routes, methods, authentication, request/response fields, status codes and error shapes before implementing handlers, validation and service logic in the chosen stack. Define stable pagination, duplicate requests and missing resources. Include success/failure examples and test commands; without repository access, provide file paths and integration steps without claiming execution.",
+      "ja": "経路、メソッド、認証、入出力項目、状態コード、エラー形式を定め、指定構成でハンドラー・検証・サービスを実装する。安定したページ分割、重複要求、対象なしを定義。成功・失敗例とテスト手順を示し、未実行の結果を作らない。"
+    },
+    "examples": {
+      "zh": "针对支持分页和权限的团队任务API，完成“API 接口实现”，给出可以直接使用的内容。",
+      "en": "Create api implementation for a team task API with pagination and permissions. Provide a usable deliverable.",
+      "ja": "ページ分割と権限を持つチームタスクAPIについて「API実装」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：语言版本、接口需求、数据结构及权限规则。已写在需求中的信息不必重复。",
+      "en": "Provide language/version, API requirements, data model and access rules. Do not repeat details already in the brief.",
+      "ja": "言語・版、API要件、データ構造、権限を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-95",
+      "aishort-191",
+      "pc-search"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "backend-schema",
+    "group": "backend",
+    "labels": {
+      "zh": "数据库建模与迁移",
+      "en": "Schema and migrations",
+      "ja": "DB設計・移行"
+    },
+    "terms": [
+      "建表",
+      "迁移",
+      "schema",
+      "migration",
+      "スキーマ",
+      "移行"
+    ],
+    "guidance": {
+      "zh": "从实体与查询需求推导主外键、唯一约束、空值和索引，提供字段字典、关系说明、目标数据库方言的建表和迁移脚本。分开结构迁移与数据回填，说明备份、回滚局限和上线顺序。用样例数据验证约束与核心查询，禁止把删除表作为默认迁移方法。",
+      "en": "Derive keys, uniqueness, nullability and indexes from entities and queries. Deliver a field dictionary, relationships and migrations in the target database dialect. Separate schema changes from backfills; explain backups, rollback limitations and rollout order. Demonstrate constraints and core queries with sample data; never default to destructive table replacement.",
+      "ja": "実体と検索要件から主外部キー、一意性、NULL、索引を設計し、項目辞書と対象DB方言の移行SQLを出す。構造変更と埋め戻しを分離し、バックアップ、ロールバックの限界、適用順を説明。例データで制約と検索を確認し、既定で表を削除しない。"
+    },
+    "examples": {
+      "zh": "针对支持分页和权限的团队任务API，完成“数据库建模与迁移”，给出可以直接使用的内容。",
+      "en": "Create schema and migrations for a team task API with pagination and permissions. Provide a usable deliverable.",
+      "ja": "ページ分割と権限を持つチームタスクAPIについて「DB設計・移行」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：语言版本、接口需求、数据结构及权限规则。已写在需求中的信息不必重复。",
+      "en": "Provide language/version, API requirements, data model and access rules. Do not repeat details already in the brief.",
+      "ja": "言語・版、API要件、データ構造、権限を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-95",
+      "aishort-191",
+      "pc-search"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "backend-import",
+    "group": "backend",
+    "labels": {
+      "zh": "批量导入与幂等处理",
+      "en": "Batch imports and idempotency",
+      "ja": "一括取込・冪等性"
+    },
+    "terms": [
+      "导入",
+      "幂等",
+      "import",
+      "idempotency",
+      "取込",
+      "冪等"
+    ],
+    "guidance": {
+      "zh": "明确输入格式、字段映射、唯一键和冲突策略，给出逐行校验、事务边界、分批处理与失败重试实现。输出成功、跳过、失败数量和带行号的错误报告；区分重试与重复创建。包含缺列、重复键、空文件、中断恢复的测试，不默认覆盖已有数据。",
+      "en": "Define input format, field mapping, unique keys and conflict policy. Implement row validation, transaction boundaries, batching and retries. Report accepted, skipped and failed counts with row-level errors. Distinguish safe retries from duplicate creation; test missing columns, duplicate keys, empty files and recovery without silently overwriting existing records.",
+      "ja": "形式、項目対応、一意キー、競合方針を定め、行検証、トランザクション、分割処理、再試行を実装する。成功・スキップ・失敗件数と行番号付きエラーを出し、再試行と二重登録を区別。欠列、重複、空ファイル、中断復旧を確認し、既存データを無断上書きしない。"
+    },
+    "examples": {
+      "zh": "针对支持分页和权限的团队任务API，完成“批量导入与幂等处理”，给出可以直接使用的内容。",
+      "en": "Create batch imports and idempotency for a team task API with pagination and permissions. Provide a usable deliverable.",
+      "ja": "ページ分割と権限を持つチームタスクAPIについて「一括取込・冪等性」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：语言版本、接口需求、数据结构及权限规则。已写在需求中的信息不必重复。",
+      "en": "Provide language/version, API requirements, data model and access rules. Do not repeat details already in the brief.",
+      "ja": "言語・版、API要件、データ構造、権限を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-95",
+      "aishort-191",
+      "pc-search"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "testing-unit",
+    "group": "testing",
+    "labels": {
+      "zh": "单元测试用例",
+      "en": "Unit test cases",
+      "ja": "単体テスト"
+    },
+    "terms": [
+      "单元",
+      "unit test",
+      "単体"
+    ],
+    "guidance": {
+      "zh": "根据函数契约列出输入分区、边界、异常及状态变化，使用项目已有框架编写测试。只替换外部依赖，避免模拟被测逻辑；每项断言对应可观察行为。给出最小夹具、运行方式及仍缺覆盖的分支，不通过复制实现计算期望值。",
+      "en": "Derive input partitions, boundaries, exceptions and state changes from the function contract. Write tests in the existing framework, mocking external dependencies rather than the behavior under test. Use observable assertions, minimal fixtures and explicit expected values; include execution instructions and uncovered branches without duplicating implementation logic.",
+      "ja": "関数契約から入力区分、境界、例外、状態変化を整理し既存フレームワークでテストする。外部依存のみ置換し、観察可能な動作を検証。最小データ、明示的な期待値、実行手順、未確認分岐を示し、実装の複製で期待値を計算しない。"
+    },
+    "examples": {
+      "zh": "针对带登录与购物车的示例网站，完成“单元测试用例”，给出可以直接使用的内容。",
+      "en": "Create unit test cases for a sample website with login and a cart. Provide a usable deliverable.",
+      "ja": "ログインとカートのあるサンプルサイトについて「単体テスト」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：被测代码、预期行为、测试框架和已知问题。已写在需求中的信息不必重复。",
+      "en": "Provide code, expected behavior, test framework and known failures. Do not repeat details already in the brief.",
+      "ja": "対象コード、期待動作、テスト構成、既知の問題を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-97"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "testing-journey",
+    "group": "testing",
+    "labels": {
+      "zh": "端到端用户流程测试",
+      "en": "End-to-end user journeys",
+      "ja": "E2Eユーザーフロー"
+    },
+    "terms": [
+      "端到端",
+      "E2E",
+      "journey",
+      "一連の操作"
+    ],
+    "guidance": {
+      "zh": "将关键用户流程拆成前置状态、操作、可见结果和清理步骤，使用语义定位器与状态等待。覆盖成功、失败、刷新恢复和权限隔离；测试数据使用独立账号或本地夹具。交付可执行脚本与失败证据采集方法，不使用固定长等待掩盖不稳定性。",
+      "en": "Turn critical journeys into setup, actions, visible assertions and cleanup. Use semantic locators and state-based waits. Cover success, failure, reload recovery and access isolation with isolated test accounts or local fixtures. Deliver runnable scripts and failure evidence capture; avoid long fixed sleeps that mask flakiness.",
+      "ja": "主要フローを前提状態、操作、可視結果、後片付けに分ける。意味的な要素指定と状態待機を使い、成功・失敗・再読込・権限分離を独立テストデータで確認。実行可能スクリプトと失敗証拠の収集方法を出し、固定長待機で不安定さを隠さない。"
+    },
+    "examples": {
+      "zh": "针对带登录与购物车的示例网站，完成“端到端用户流程测试”，给出可以直接使用的内容。",
+      "en": "Create end-to-end user journeys for a sample website with login and a cart. Provide a usable deliverable.",
+      "ja": "ログインとカートのあるサンプルサイトについて「E2Eユーザーフロー」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：被测代码、预期行为、测试框架和已知问题。已写在需求中的信息不必重复。",
+      "en": "Provide code, expected behavior, test framework and known failures. Do not repeat details already in the brief.",
+      "ja": "対象コード、期待動作、テスト構成、既知の問題を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-97"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "testing-report",
+    "group": "testing",
+    "labels": {
+      "zh": "缺陷报告与复现",
+      "en": "Bug reports and reproduction",
+      "ja": "不具合報告・再現"
+    },
+    "terms": [
+      "缺陷报告",
+      "复现报告",
+      "bug report",
+      "再現手順"
+    ],
+    "guidance": {
+      "zh": "把零散报错整理为标题、环境、最小复现步骤、实际与预期结果、频率及影响范围。区分观察证据与根因猜测，为每个猜测安排验证步骤。给出最小复现代码或待补资料清单，以及修复后的回归检查，不将未复现的问题标记为已解决。",
+      "en": "Convert scattered errors into a title, environment, minimal steps, expected/actual behavior, frequency and impact. Separate observed evidence from root-cause hypotheses and give a check for each hypothesis. Supply a minimal reproduction or missing-input list and post-fix regression checks; never label an unreproduced issue resolved.",
+      "ja": "断片的なエラーを題名、環境、最小手順、期待・実結果、頻度、影響に整理。観測事実と原因仮説を分け、仮説ごとの検証を示す。最小再現コードまたは不足資料、修正後の回帰項目を出し、未再現を解決済みにしない。"
+    },
+    "examples": {
+      "zh": "针对带登录与购物车的示例网站，完成“缺陷报告与复现”，给出可以直接使用的内容。",
+      "en": "Create bug reports and reproduction for a sample website with login and a cart. Provide a usable deliverable.",
+      "ja": "ログインとカートのあるサンプルサイトについて「不具合報告・再現」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：被测代码、预期行为、测试框架和已知问题。已写在需求中的信息不必重复。",
+      "en": "Provide code, expected behavior, test framework and known failures. Do not repeat details already in the brief.",
+      "ja": "対象コード、期待動作、テスト構成、既知の問題を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-97"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "devops-pipeline",
+    "group": "devops",
+    "labels": {
+      "zh": "CI/CD 流水线",
+      "en": "CI/CD pipeline",
+      "ja": "CI/CDパイプライン"
+    },
+    "terms": [
+      "CI/CD",
+      "流水线",
+      "pipeline",
+      "パイプライン"
+    ],
+    "guidance": {
+      "zh": "按触发条件、依赖安装、静态检查、测试、构建、制品和部署阶段交付配置。区分拉取请求验证与正式发布，给出最小权限、并发取消、缓存键及失败通知设计；密钥只引用变量名。说明回滚与环境审批点，不添加用户未指定的付费服务。",
+      "en": "Deliver pipeline configuration for triggers, installation, checks, tests, build, artifacts and deployment. Separate pull-request validation from releases. Define least privilege, cancellation, cache keys and failure notifications, referencing secrets only by variable name. Explain rollback and environment gates without adding unrequested paid services.",
+      "ja": "起動条件、依存導入、検査、テスト、ビルド、成果物、配備の設定を出す。PR検証と公開を分け、最小権限、並行取消、キャッシュキー、失敗通知を設計。秘密は変数名のみ参照し、復旧と環境承認箇所を説明。未指定の有料サービスを追加しない。"
+    },
+    "examples": {
+      "zh": "针对需要测试环境和生产环境的Node应用，完成“CI/CD 流水线”，给出可以直接使用的内容。",
+      "en": "Create ci/cd pipeline for a Node app with staging and production. Provide a usable deliverable.",
+      "ja": "検証・本番環境を持つNodeアプリについて「CI/CDパイプライン」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：运行环境、部署平台、构建命令、服务依赖和恢复目标。已写在需求中的信息不必重复。",
+      "en": "Provide runtime, hosting platform, build commands, dependencies and recovery goals. Do not repeat details already in the brief.",
+      "ja": "環境、配備先、ビルド手順、依存、復旧目標を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-95",
+      "aishort-201",
+      "pc-devops"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "devops-container",
+    "group": "devops",
+    "labels": {
+      "zh": "容器化与本地运行",
+      "en": "Containerization and local setup",
+      "ja": "コンテナ化・ローカル起動"
+    },
+    "terms": [
+      "Docker",
+      "容器",
+      "container",
+      "コンテナ"
+    ],
+    "guidance": {
+      "zh": "根据实际项目提供Dockerfile、忽略规则和必要的Compose配置，说明构建阶段、启动用户、端口、健康检查、持久化与环境变量。交付构建启动命令和日志排错步骤，区分开发与生产依赖。镜像版本需要核对，禁止把密钥复制进镜像或默认挂载宿主根目录。",
+      "en": "Provide a project-specific Dockerfile, ignore rules and necessary Compose configuration. Explain build stages, runtime user, ports, health checks, persistence and environment variables. Include build/start commands and log-based debugging, separating development and production dependencies. Verify image versions; never bake secrets into images or mount the host root by default.",
+      "ja": "対象プロジェクト用Dockerfile、除外規則、必要なComposeを作る。ビルド段階、実行ユーザー、ポート、健全性、永続化、変数を説明し、起動・ログ調査手順を添える。開発と本番依存を区別。版を確認し、秘密の埋込やホストルートの既定マウントをしない。"
+    },
+    "examples": {
+      "zh": "针对需要测试环境和生产环境的Node应用，完成“容器化与本地运行”，给出可以直接使用的内容。",
+      "en": "Create containerization and local setup for a Node app with staging and production. Provide a usable deliverable.",
+      "ja": "検証・本番環境を持つNodeアプリについて「コンテナ化・ローカル起動」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：运行环境、部署平台、构建命令、服务依赖和恢复目标。已写在需求中的信息不必重复。",
+      "en": "Provide runtime, hosting platform, build commands, dependencies and recovery goals. Do not repeat details already in the brief.",
+      "ja": "環境、配備先、ビルド手順、依存、復旧目標を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-95",
+      "aishort-201",
+      "pc-devops"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "devops-incident",
+    "group": "devops",
+    "labels": {
+      "zh": "故障排查运行手册",
+      "en": "Incident runbook",
+      "ja": "障害対応手順書"
+    },
+    "terms": [
+      "故障手册",
+      "runbook",
+      "incident",
+      "障害対応"
+    ],
+    "guidance": {
+      "zh": "围绕具体告警写触发条件、影响确认、只读诊断、分支判断、缓解、恢复验证和升级联系人。命令标明目标环境、预期输出及风险，先保存证据再提出变更；将重启、删除和回滚操作单独列出。最后给事件时间线与复盘模板，不假设故障已恢复。",
+      "en": "Write a runbook for a specific alert: trigger, impact, read-only diagnosis, decision branches, mitigation, recovery checks and escalation. Annotate commands with target environment, expected signals and risk. Preserve evidence before changes; separate restarts, deletions and rollbacks. Include an incident timeline and review template without claiming recovery.",
+      "ja": "具体的な警報に対し発火条件、影響、読取診断、分岐、緩和、復旧確認、連絡先を記述。コマンドに対象環境、期待兆候、リスクを添え、変更前に証拠保存。再起動・削除・巻戻しを分離し、時系列と振り返り様式を出す。復旧済みと決めつけない。"
+    },
+    "examples": {
+      "zh": "针对需要测试环境和生产环境的Node应用，完成“故障排查运行手册”，给出可以直接使用的内容。",
+      "en": "Create incident runbook for a Node app with staging and production. Provide a usable deliverable.",
+      "ja": "検証・本番環境を持つNodeアプリについて「障害対応手順書」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：运行环境、部署平台、构建命令、服务依赖和恢复目标。已写在需求中的信息不必重复。",
+      "en": "Provide runtime, hosting platform, build commands, dependencies and recovery goals. Do not repeat details already in the brief.",
+      "ja": "環境、配備先、ビルド手順、依存、復旧目標を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-95",
+      "aishort-201",
+      "pc-devops"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "analytics-clean",
+    "group": "analytics",
+    "labels": {
+      "zh": "数据清洗规则",
+      "en": "Data cleaning rules",
+      "ja": "データ整形規則"
+    },
+    "terms": [
+      "清洗",
+      "缺失值",
+      "cleaning",
+      "欠損",
+      "整形"
+    ],
+    "guidance": {
+      "zh": "先检查字段类型、单位、编码、重复、缺失与异常值，给出问题清单和逐列处理规则。保留原始数据，提供可复现脚本或表格步骤、修改日志与前后行数核对。对无法推断的值保留未知，不为图表好看而删除异常点。",
+      "en": "Audit types, units, encoding, duplicates, missing values and outliers. Deliver a problem inventory and column-specific rules. Preserve raw data and provide reproducible code or spreadsheet steps, a change log and row-count reconciliation. Keep unknowable values unknown; do not delete inconvenient outliers just to improve a chart.",
+      "ja": "型、単位、文字コード、重複、欠損、外れ値を調べ、問題一覧と列別規則を出す。原本を保ち、再現可能コードまたは表操作、変更記録、前後件数照合を添える。不明値は不明のままにし、見栄えのために外れ値を消さない。"
+    },
+    "examples": {
+      "zh": "针对含日期、渠道、金额和缺失值的销售表，完成“数据清洗规则”，给出可以直接使用的内容。",
+      "en": "Create data cleaning rules for sales data with dates, channels, amounts and missing values. Provide a usable deliverable.",
+      "ja": "日付・チャネル・金額・欠損を含む売上表について「データ整形規則」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：样例数据、字段含义、分析问题和使用软件。已写在需求中的信息不必重复。",
+      "en": "Provide sample data, field definitions, analysis questions and software. Do not repeat details already in the brief.",
+      "ja": "例データ、項目定義、分析課題、利用ソフトを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-85",
+      "aishort-134",
+      "pc-data"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "analytics-explore",
+    "group": "analytics",
+    "labels": {
+      "zh": "探索分析与结论",
+      "en": "Exploratory analysis",
+      "ja": "探索的分析"
+    },
+    "terms": [
+      "探索分析",
+      "EDA",
+      "exploratory",
+      "探索的"
+    ],
+    "guidance": {
+      "zh": "将业务问题映射到指标口径、分组、时间范围和计算方法，先做描述统计再讨论差异。输出分析表、必要图形、可复现计算和有依据的结论，说明样本偏差、缺失和相关不等于因果。没有数据时提供查询与分析方案，不生成看似真实的结果数字。",
+      "en": "Map questions to metric definitions, groups, date ranges and calculations. Start with descriptive statistics before interpreting differences. Deliver tables, necessary charts, reproducible calculations and supported findings. Explain sampling bias, missingness and correlation versus causation. Without data, give queries and an analysis plan rather than fabricated results.",
+      "ja": "課題を指標定義、集計区分、期間、計算に対応させ、記述統計の後に差を解釈する。表、必要な図、再現計算、根拠ある結論を出す。標本偏り、欠損、相関と因果の違いを説明。データなしなら計画やクエリを示し数値結果を作らない。"
+    },
+    "examples": {
+      "zh": "针对含日期、渠道、金额和缺失值的销售表，完成“探索分析与结论”，给出可以直接使用的内容。",
+      "en": "Create exploratory analysis for sales data with dates, channels, amounts and missing values. Provide a usable deliverable.",
+      "ja": "日付・チャネル・金額・欠損を含む売上表について「探索的分析」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：样例数据、字段含义、分析问题和使用软件。已写在需求中的信息不必重复。",
+      "en": "Provide sample data, field definitions, analysis questions and software. Do not repeat details already in the brief.",
+      "ja": "例データ、項目定義、分析課題、利用ソフトを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-85",
+      "aishort-134",
+      "pc-data"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "analytics-dashboard",
+    "group": "analytics",
+    "labels": {
+      "zh": "仪表盘与图表选型",
+      "en": "Dashboard and chart design",
+      "ja": "ダッシュボード設計"
+    },
+    "terms": [
+      "仪表盘",
+      "dashboard",
+      "图表选型",
+      "ダッシュボード"
+    ],
+    "guidance": {
+      "zh": "根据使用者要做的决策选择核心指标和图表类型，说明坐标、单位、时间粒度、筛选和刷新频率。给出布局、字段到图形的映射、空数据与错误状态，避免误导坐标和装饰性3D。交付目标工具可实现的配置或代码，并列出数据校验方法。",
+      "en": "Choose metrics and chart types around the user’s decisions. Define axes, units, time grain, filters and refresh frequency. Supply layout, field-to-chart mapping, empty/error states and tool-specific configuration or code. Avoid misleading scales and decorative 3D; include checks that reconcile displayed values to source data.",
+      "ja": "利用者の判断から指標と図を選び、軸、単位、時間粒度、絞込、更新頻度を定義。配置、項目対応、空・失敗状態、対象ツールの設定かコードを出す。誤解を招く軸や装飾3Dを避け、表示値と原データの照合方法を添える。"
+    },
+    "examples": {
+      "zh": "针对含日期、渠道、金额和缺失值的销售表，完成“仪表盘与图表选型”，给出可以直接使用的内容。",
+      "en": "Create dashboard and chart design for sales data with dates, channels, amounts and missing values. Provide a usable deliverable.",
+      "ja": "日付・チャネル・金額・欠損を含む売上表について「ダッシュボード設計」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：样例数据、字段含义、分析问题和使用软件。已写在需求中的信息不必重复。",
+      "en": "Provide sample data, field definitions, analysis questions and software. Do not repeat details already in the brief.",
+      "ja": "例データ、項目定義、分析課題、利用ソフトを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-85",
+      "aishort-134",
+      "pc-data"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "product-prd",
+    "group": "product",
+    "labels": {
+      "zh": "产品需求文档",
+      "en": "Product requirements document",
+      "ja": "製品要件書"
+    },
+    "terms": [
+      "PRD",
+      "产品需求",
+      "requirements document",
+      "要件書"
+    ],
+    "guidance": {
+      "zh": "从真实用户问题组织背景、目标、非目标、用户流程、功能规则、数据需求和验收标准。逐项说明成功、空态、错误、权限和边界行为，标出假设及待决策事项。输出可交给设计与开发的完整PRD；指标包含定义和采集方式，不虚构用户调研结论。",
+      "en": "Build a complete PRD around evidenced user problems: context, goals, non-goals, journeys, rules, data and acceptance. Specify success, empty, error, permission and boundary behavior. Mark assumptions and open decisions. Define metrics and collection methods so designers and engineers can use the document; never invent research findings.",
+      "ja": "根拠ある利用課題から背景、目標、非目標、導線、規則、データ、受入条件をまとめる。成功・空・失敗・権限・境界を具体化し、仮定と未決事項を明示。設計開発へ渡せる要件書と指標定義・収集方法を出し、調査結果を捏造しない。"
+    },
+    "examples": {
+      "zh": "针对帮助新用户完成首次配置的功能，完成“产品需求文档”，给出可以直接使用的内容。",
+      "en": "Create product requirements document for a feature helping new users complete onboarding. Provide a usable deliverable.",
+      "ja": "新規利用者の初期設定を助ける機能について「製品要件書」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：目标用户、问题证据、功能边界、约束和成功指标。已写在需求中的信息不必重复。",
+      "en": "Provide target users, problem evidence, scope, constraints and success measures. Do not repeat details already in the brief.",
+      "ja": "対象者、課題の根拠、範囲、制約、成功指標を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-139",
+      "aishort-92"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "product-stories",
+    "group": "product",
+    "labels": {
+      "zh": "用户故事与验收",
+      "en": "User stories and acceptance",
+      "ja": "ユーザーストーリー・受入条件"
+    },
+    "terms": [
+      "用户故事",
+      "user story",
+      "acceptance",
+      "受入条件"
+    ],
+    "guidance": {
+      "zh": "把需求拆成能独立验证的小故事，每项说明角色、目标、价值、前提及Given/When/Then验收例。包含失败和权限场景，标记依赖与范围外内容。按用户价值与实施约束解释优先级，不用故事点冒充确定工期。",
+      "en": "Split requirements into independently verifiable stories with actor, goal, value, preconditions and Given/When/Then examples. Include failure and permission cases, dependencies and exclusions. Explain priority through user value and implementation constraints; do not present story points as guaranteed calendar estimates.",
+      "ja": "要件を独立検証できる話に分け、役割、目的、価値、前提、Given/When/Then例を示す。失敗と権限、依存、対象外を含める。価値と制約で優先度を説明し、ポイントを確定工期として扱わない。"
+    },
+    "examples": {
+      "zh": "针对帮助新用户完成首次配置的功能，完成“用户故事与验收”，给出可以直接使用的内容。",
+      "en": "Create user stories and acceptance for a feature helping new users complete onboarding. Provide a usable deliverable.",
+      "ja": "新規利用者の初期設定を助ける機能について「ユーザーストーリー・受入条件」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：目标用户、问题证据、功能边界、约束和成功指标。已写在需求中的信息不必重复。",
+      "en": "Provide target users, problem evidence, scope, constraints and success measures. Do not repeat details already in the brief.",
+      "ja": "対象者、課題の根拠、範囲、制約、成功指標を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-139",
+      "aishort-92"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "product-usability",
+    "group": "product",
+    "labels": {
+      "zh": "可用性测试计划",
+      "en": "Usability study plan",
+      "ja": "ユーザビリティ調査計画"
+    },
+    "terms": [
+      "可用性",
+      "usability",
+      "用户访谈",
+      "利用者調査"
+    ],
+    "guidance": {
+      "zh": "围绕需要验证的假设设计参与者条件、任务脚本、主持提示、观察表和成功标准。问题保持中性，任务描述不给操作答案，区分行为证据与主观偏好。输出记录模板、问题严重度规则与改进排序，不编造受访者发言或研究结论。",
+      "en": "Translate hypotheses into participant criteria, neutral task scripts, facilitator prompts, observation sheets and success criteria. Avoid leading questions or revealing task solutions. Separate observed behavior from preferences. Deliver recording templates, severity rules and prioritization without inventing participants’ statements or findings.",
+      "ja": "仮説から参加条件、中立なタスク台本、進行の問い、観察表、成功条件を設計する。誘導質問や正解操作を避け、行動事実と好みを区別。記録様式、重大度基準、改善順を示し、参加者の発言や結果を作らない。"
+    },
+    "examples": {
+      "zh": "针对帮助新用户完成首次配置的功能，完成“可用性测试计划”，给出可以直接使用的内容。",
+      "en": "Create usability study plan for a feature helping new users complete onboarding. Provide a usable deliverable.",
+      "ja": "新規利用者の初期設定を助ける機能について「ユーザビリティ調査計画」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：目标用户、问题证据、功能边界、约束和成功指标。已写在需求中的信息不必重复。",
+      "en": "Provide target users, problem evidence, scope, constraints and success measures. Do not repeat details already in the brief.",
+      "ja": "対象者、課題の根拠、範囲、制約、成功指標を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-139",
+      "aishort-92"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "project-plan",
+    "group": "project",
+    "labels": {
+      "zh": "任务拆解与里程碑",
+      "en": "Work breakdown and milestones",
+      "ja": "作業分解・節目"
+    },
+    "terms": [
+      "WBS",
+      "里程碑",
+      "milestone",
+      "work breakdown",
+      "工程"
+    ],
+    "guidance": {
+      "zh": "按可验收成果拆分任务，标明负责人角色、输入、输出、前置依赖、估算依据和完成条件。给出里程碑、关键路径假设、缓冲和每周检查点，区分日历工期与工作量。团队或时间不足时提出删减范围方案，不用假定人数制造可行性。",
+      "en": "Break work into verifiable deliverables with owner role, inputs, outputs, dependencies, estimation basis and completion criteria. Include milestones, critical-path assumptions, buffers and weekly checkpoints. Distinguish elapsed time from effort; propose scope reductions when resources are insufficient instead of inventing team capacity.",
+      "ja": "受入可能な成果物に分解し、担当役割、入出力、依存、見積根拠、完了条件を付ける。節目、重要経路の仮定、余裕、週次確認を示す。期間と工数を区別し、資源不足なら架空の人員でなく範囲削減を提案する。"
+    },
+    "examples": {
+      "zh": "针对四周内上线一个小型知识库，完成“任务拆解与里程碑”，给出可以直接使用的内容。",
+      "en": "Create work breakdown and milestones for a four-week launch of a small knowledge base. Provide a usable deliverable.",
+      "ja": "4週間での小規模ナレッジ公開について「作業分解・節目」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：交付目标、团队角色、时间、依赖和资源限制。已写在需求中的信息不必重复。",
+      "en": "Provide deliverables, team roles, dates, dependencies and resource limits. Do not repeat details already in the brief.",
+      "ja": "成果物、役割、期間、依存、資源制約を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-201",
+      "aishort-279"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "project-risk",
+    "group": "project",
+    "labels": {
+      "zh": "风险登记与应对",
+      "en": "Risk register",
+      "ja": "リスク一覧・対応"
+    },
+    "terms": [
+      "风险登记",
+      "risk register",
+      "リスク登録"
+    ],
+    "guidance": {
+      "zh": "用原因—事件—影响描述项目风险，区分已发生问题与未来风险。逐项给概率依据、影响、负责人角色、预警信号、预防、应急和复查日期。明确评分只是排序工具，并附升级阈值；不凭空填写精确损失或发生概率。",
+      "en": "Describe risks as cause, event and impact, separating future risks from existing issues. Include likelihood basis, impact, owner role, warning signals, prevention, contingency and review date. Explain scores as prioritization aids with escalation thresholds; do not invent precise loss amounts or probabilities.",
+      "ja": "原因・事象・影響でリスクを記述し、既発生問題と区別。可能性の根拠、影響、担当役割、予兆、予防、緊急策、再確認日を示す。点数は優先付け用と説明し、架空の精密な確率や損失を出さない。"
+    },
+    "examples": {
+      "zh": "针对四周内上线一个小型知识库，完成“风险登记与应对”，给出可以直接使用的内容。",
+      "en": "Create risk register for a four-week launch of a small knowledge base. Provide a usable deliverable.",
+      "ja": "4週間での小規模ナレッジ公開について「リスク一覧・対応」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：交付目标、团队角色、时间、依赖和资源限制。已写在需求中的信息不必重复。",
+      "en": "Provide deliverables, team roles, dates, dependencies and resource limits. Do not repeat details already in the brief.",
+      "ja": "成果物、役割、期間、依存、資源制約を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-201",
+      "aishort-279"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "project-retro",
+    "group": "project",
+    "labels": {
+      "zh": "复盘与行动计划",
+      "en": "Retrospective and actions",
+      "ja": "振り返り・改善行動"
+    },
+    "terms": [
+      "复盘",
+      "retrospective",
+      "振り返り"
+    ],
+    "guidance": {
+      "zh": "从时间线与证据重建目标、结果和偏差，分别列出有效做法、障碍及可控原因。避免把推测写成人员责任，给每项改进设置负责人角色、截止日期、成功信号和复查方式。交付复盘正文与行动表，限制同时推进事项以便落实。",
+      "en": "Reconstruct goals, outcomes and gaps from a timeline and evidence. Separate effective practices, obstacles and controllable causes without assigning personal blame from speculation. Give improvements owner roles, deadlines, success signals and review methods. Deliver a retrospective and a small actionable follow-up list.",
+      "ja": "時系列と証拠から目標、結果、差を整理し、有効な方法、障害、制御可能な原因を分ける。憶測で個人責任を決めず、改善ごとに役割、期限、成功兆候、確認方法を付ける。本文と実行可能な少数の行動表を出す。"
+    },
+    "examples": {
+      "zh": "针对四周内上线一个小型知识库，完成“复盘与行动计划”，给出可以直接使用的内容。",
+      "en": "Create retrospective and actions for a four-week launch of a small knowledge base. Provide a usable deliverable.",
+      "ja": "4週間での小規模ナレッジ公開について「振り返り・改善行動」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：交付目标、团队角色、时间、依赖和资源限制。已写在需求中的信息不必重复。",
+      "en": "Provide deliverables, team roles, dates, dependencies and resource limits. Do not repeat details already in the brief.",
+      "ja": "成果物、役割、期間、依存、資源制約を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-201",
+      "aishort-279"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "career-resume",
+    "group": "career",
+    "labels": {
+      "zh": "简历与求职信",
+      "en": "Resume and cover letter",
+      "ja": "履歴書・応募文"
+    },
+    "terms": [
+      "简历",
+      "求职信",
+      "resume",
+      "cover letter",
+      "履歴書"
+    ],
+    "guidance": {
+      "zh": "先将岗位要求对应到用户真实经历，标出有证据、待补证据和缺口，再改写摘要、项目要点与求职信。要点呈现行动、方法和实际结果，没有量化数据时不编数字。保留任职时间与技能边界，输出可复制版本及修改理由，不承诺通过ATS或录用。",
+      "en": "Map job requirements to real experience, marking supported claims, evidence gaps and missing qualifications. Rewrite the summary, project bullets and cover letter around actions, methods and actual outcomes. Preserve dates and skill boundaries; never invent metrics. Deliver copyable drafts and rationale without promising ATS success or hiring.",
+      "ja": "募集要件と実経験を対応させ、証拠あり・不足・未経験を明示。行動、方法、実結果で要約、実績、応募文を改稿し、期間や技能範囲を保つ。数字を作らず、貼付用文と変更理由を示す。選考通過を保証しない。"
+    },
+    "examples": {
+      "zh": "针对有两个真实项目经历的初级开发者，完成“简历与求职信”，给出可以直接使用的内容。",
+      "en": "Create resume and cover letter for a junior developer with two real project experiences. Provide a usable deliverable.",
+      "ja": "実在する2件のプロジェクト経験を持つ初級開発者について「履歴書・応募文」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：目标职位、岗位描述、真实经历及可公开成果。已写在需求中的信息不必重复。",
+      "en": "Provide target role, job description, real experience and shareable outcomes. Do not repeat details already in the brief.",
+      "ja": "志望職、募集要件、実経験、公開可能な成果を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-22",
+      "aishort-46",
+      "aishort-145",
+      "aishort-253",
+      "pc-resume"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "career-interview",
+    "group": "career",
+    "labels": {
+      "zh": "岗位模拟面试",
+      "en": "Role-specific interview practice",
+      "ja": "職種別模擬面接"
+    },
+    "terms": [
+      "面试",
+      "interview",
+      "面接"
+    ],
+    "guidance": {
+      "zh": "根据岗位要求与候选人背景设计问题顺序，先问一题并等待回答，再追问证据与取舍。每轮反馈内容完整性、技术准确性和表达结构，给更好的回答框架但不替用户编经历。结束时总结优势、薄弱点和练习建议，模拟反馈不代表招聘判断。",
+      "en": "Sequence questions around the role and candidate background. Ask one question, wait, then probe evidence and tradeoffs. Give feedback on completeness, technical accuracy and structure, offering a better response framework without inventing experience. Finish with strengths, gaps and practice steps; simulated feedback is not a hiring judgment.",
+      "ja": "職務と背景に合う質問を順序化し、一問ずつ回答を待って根拠や判断を掘り下げる。完全性、技術の正確さ、構成を評価し、架空経験でなく回答の組立てを示す。強み、課題、練習で締め、採用判断と混同しない。"
+    },
+    "examples": {
+      "zh": "针对有两个真实项目经历的初级开发者，完成“岗位模拟面试”，给出可以直接使用的内容。",
+      "en": "Create role-specific interview practice for a junior developer with two real project experiences. Provide a usable deliverable.",
+      "ja": "実在する2件のプロジェクト経験を持つ初級開発者について「職種別模擬面接」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：目标职位、岗位描述、真实经历及可公开成果。已写在需求中的信息不必重复。",
+      "en": "Provide target role, job description, real experience and shareable outcomes. Do not repeat details already in the brief.",
+      "ja": "志望職、募集要件、実経験、公開可能な成果を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-22",
+      "aishort-46",
+      "aishort-145",
+      "aishort-253",
+      "pc-resume"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "career-gap",
+    "group": "career",
+    "labels": {
+      "zh": "技能差距与成长路线",
+      "en": "Skills gap and growth plan",
+      "ja": "スキル差・成長計画"
+    },
+    "terms": [
+      "技能差距",
+      "career plan",
+      "skills gap",
+      "スキル差"
+    ],
+    "guidance": {
+      "zh": "把目标岗位拆成必备能力和加分项，根据用户证据确定当前水平与待验证项。为每项差距安排练习项目、产出、验收和学习顺序，适配可用时间与预算。引用当前岗位信息时标明来源日期，不以热门标签代替真实技能路径。",
+      "en": "Separate required and optional role skills, using evidence to assess current ability and unknowns. Assign each gap a practice project, deliverable, acceptance check and learning sequence within available time and budget. Date any current job-market sources; replace trend labels with demonstrable skills and realistic milestones.",
+      "ja": "必須能力と加点要素を分け、証拠から現状と未確認を評価。差ごとに練習課題、成果物、受入確認、学習順を時間・予算内で設計する。求人情報には確認日と出典を付け、流行語でなく実証可能な技能を示す。"
+    },
+    "examples": {
+      "zh": "针对有两个真实项目经历的初级开发者，完成“技能差距与成长路线”，给出可以直接使用的内容。",
+      "en": "Create skills gap and growth plan for a junior developer with two real project experiences. Provide a usable deliverable.",
+      "ja": "実在する2件のプロジェクト経験を持つ初級開発者について「スキル差・成長計画」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：目标职位、岗位描述、真实经历及可公开成果。已写在需求中的信息不必重复。",
+      "en": "Provide target role, job description, real experience and shareable outcomes. Do not repeat details already in the brief.",
+      "ja": "志望職、募集要件、実経験、公開可能な成果を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-22",
+      "aishort-46",
+      "aishort-145",
+      "aishort-253",
+      "pc-resume"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "communication-email",
+    "group": "communication",
+    "labels": {
+      "zh": "商务邮件与跟进",
+      "en": "Business email and follow-up",
+      "ja": "業務メール・フォロー"
+    },
+    "terms": [
+      "邮件",
+      "email",
+      "follow-up",
+      "メール"
+    ],
+    "guidance": {
+      "zh": "围绕收件人需要知道和采取的行动写主题、开场、事实、请求与期限。按关系与场景控制正式程度，给初次邮件和未回复跟进版本。保留用户承诺边界，不添加不存在的附件、会议约定或付款承诺；长信息用清晰段落压缩。",
+      "en": "Write subject, opening, facts, requested action and deadline around the recipient’s needs. Match formality to the relationship and provide initial and follow-up versions. Preserve commitment boundaries: invent no attachments, meeting agreements or payment promises. Condense long context into clear paragraphs.",
+      "ja": "相手が知り実行すべき点を軸に件名、導入、事実、依頼、期限を書く。関係に合わせた丁寧さで初回と催促の文を出す。存在しない添付、会議合意、支払約束を加えず、長い背景を明快な段落にする。"
+    },
+    "examples": {
+      "zh": "针对跨团队协调一次版本延期，完成“商务邮件与跟进”，给出可以直接使用的内容。",
+      "en": "Create business email and follow-up for coordinating a release delay across teams. Provide a usable deliverable.",
+      "ja": "部門間での公開延期の調整について「業務メール・フォロー」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：收件人、背景事实、希望达成的决定和期限。已写在需求中的信息不必重复。",
+      "en": "Provide recipient, background facts, desired decision and deadline. Do not repeat details already in the brief.",
+      "ja": "相手、背景事実、必要な判断、期限を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-201",
+      "aishort-241"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "communication-minutes",
+    "group": "communication",
+    "labels": {
+      "zh": "会议纪要与待办",
+      "en": "Meeting notes and actions",
+      "ja": "議事録・アクション"
+    },
+    "terms": [
+      "会议纪要",
+      "minutes",
+      "meeting notes",
+      "議事録"
+    ],
+    "guidance": {
+      "zh": "从提供的记录提取议题、事实、决定、异议、待定问题和行动项。行动项逐条标明负责人、期限与完成标准；未明确的内容标注待确认。保留关键数字和原话出处，不把讨论建议当成已批准决定，输出简版纪要与可追踪待办表。",
+      "en": "Extract agenda, facts, decisions, dissent, open questions and actions from supplied notes. Assign each action an owner, deadline and completion test, marking unspecified values unconfirmed. Preserve key numbers and quote locations. Distinguish suggestions from approved decisions; provide concise minutes and a trackable action table.",
+      "ja": "記録から議題、事実、決定、異論、未決、行動を抽出。行動に担当、期限、完了基準を付け、不明は要確認とする。数値と発言箇所を保ち、提案を承認済みとしない。簡潔な議事録と追跡表を出す。"
+    },
+    "examples": {
+      "zh": "针对跨团队协调一次版本延期，完成“会议纪要与待办”，给出可以直接使用的内容。",
+      "en": "Create meeting notes and actions for coordinating a release delay across teams. Provide a usable deliverable.",
+      "ja": "部門間での公開延期の調整について「議事録・アクション」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：收件人、背景事实、希望达成的决定和期限。已写在需求中的信息不必重复。",
+      "en": "Provide recipient, background facts, desired decision and deadline. Do not repeat details already in the brief.",
+      "ja": "相手、背景事実、必要な判断、期限を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-201",
+      "aishort-241"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "communication-alignment",
+    "group": "communication",
+    "labels": {
+      "zh": "分歧沟通与协调",
+      "en": "Disagreement and alignment",
+      "ja": "意見相違の調整"
+    },
+    "terms": [
+      "分歧",
+      "协调",
+      "alignment",
+      "disagreement",
+      "意見相違"
+    ],
+    "guidance": {
+      "zh": "分开各方事实、诉求、约束和误解，先找共同目标，再提出可协商选项及其代价。给开场、澄清问题、回应异议和结束确认的具体话术，避免指责、威胁或虚假共识。最终列出已同意、未同意与下一次确认事项。",
+      "en": "Separate facts, interests, constraints and misunderstandings for each party. Identify a shared goal and negotiable options with costs. Provide concrete openings, clarifying questions, objection responses and closing confirmations without blame, threats or invented agreement. Record agreed, unresolved and next-confirmation items.",
+      "ja": "双方の事実、目的、制約、誤解を分け、共通目標と代価付きの選択肢を出す。導入、確認質問、異論への返答、終了確認の具体文を示し、非難・脅し・架空合意を避ける。合意、未合意、次回確認を整理する。"
+    },
+    "examples": {
+      "zh": "针对跨团队协调一次版本延期，完成“分歧沟通与协调”，给出可以直接使用的内容。",
+      "en": "Create disagreement and alignment for coordinating a release delay across teams. Provide a usable deliverable.",
+      "ja": "部門間での公開延期の調整について「意見相違の調整」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：收件人、背景事实、希望达成的决定和期限。已写在需求中的信息不必重复。",
+      "en": "Provide recipient, background facts, desired decision and deadline. Do not repeat details already in the brief.",
+      "ja": "相手、背景事実、必要な判断、期限を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-201",
+      "aishort-241"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "support-reply",
+    "group": "support",
+    "labels": {
+      "zh": "工单回复与升级",
+      "en": "Ticket response and escalation",
+      "ja": "問い合わせ回答・引継ぎ"
+    },
+    "terms": [
+      "工单",
+      "ticket",
+      "客服回复",
+      "問い合わせ回答"
+    ],
+    "guidance": {
+      "zh": "识别问题类型与客户诉求，用简短确认、已知事实、具体步骤和下一步组成回复。引用提供的政策，超出权限时写清升级原因及需补资料。不得承诺不存在的退款、补偿或解决时间；内部排查备注与发给客户的正文分开。",
+      "en": "Identify issue type and customer need, then write acknowledgement, verified facts, steps and next action. Apply supplied policy and explain escalation with only necessary missing information. Promise no unsupported refunds, compensation or resolution times. Separate internal troubleshooting notes from the customer-facing response.",
+      "ja": "問題と要望を特定し、受止め、確認事実、手順、次の対応で回答する。提供方針を用い、権限外なら引継理由と必要情報を示す。根拠のない返金・補償・解決期限を約束せず、内部メモと顧客文を分ける。"
+    },
+    "examples": {
+      "zh": "针对提供退款政策与使用说明的在线服务，完成“工单回复与升级”，给出可以直接使用的内容。",
+      "en": "Create ticket response and escalation for an online service with refund policies and user guides. Provide a usable deliverable.",
+      "ja": "返金方針と利用手順のあるオンラインサービスについて「問い合わせ回答・引継ぎ」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：客户问题、已确认政策、产品版本和可采取操作。已写在需求中的信息不必重复。",
+      "en": "Provide customer issue, verified policy, product version and permitted actions. Do not repeat details already in the brief.",
+      "ja": "問い合わせ、確認済み方針、製品版、対応可能な操作を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-39",
+      "aishort-241",
+      "pc-support"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "support-faq",
+    "group": "support",
+    "labels": {
+      "zh": "常见问题与答案",
+      "en": "Frequently asked questions",
+      "ja": "よくある質問と回答"
+    },
+    "terms": [
+      "FAQ",
+      "常见问题",
+      "よくある質問"
+    ],
+    "guidance": {
+      "zh": "按用户任务归类真实高频问题，合并同义问法，给每题直接答案、适用条件、操作步骤和例外。答案只依据提供的政策或文档，未知处标记待核实，附来源位置与维护负责人字段。避免把营销口号写成答案。",
+      "en": "Group genuine recurring questions by user task and merge equivalent wording. Give direct answers, conditions, steps and exceptions from supplied policies or documents. Mark unknowns for verification and include source locations and maintenance-owner fields. Do not substitute marketing slogans for useful answers.",
+      "ja": "実際の頻出質問を利用目的別に分類し同義を統合。提供方針・文書から直接回答、条件、手順、例外を作る。不明は要確認とし、出典箇所と保守担当欄を付け、広告文句を答えにしない。"
+    },
+    "examples": {
+      "zh": "针对提供退款政策与使用说明的在线服务，完成“常见问题与答案”，给出可以直接使用的内容。",
+      "en": "Create frequently asked questions for an online service with refund policies and user guides. Provide a usable deliverable.",
+      "ja": "返金方針と利用手順のあるオンラインサービスについて「よくある質問と回答」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：客户问题、已确认政策、产品版本和可采取操作。已写在需求中的信息不必重复。",
+      "en": "Provide customer issue, verified policy, product version and permitted actions. Do not repeat details already in the brief.",
+      "ja": "問い合わせ、確認済み方針、製品版、対応可能な操作を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-39",
+      "aishort-241",
+      "pc-support"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "support-guide",
+    "group": "support",
+    "labels": {
+      "zh": "帮助中心操作指南",
+      "en": "Help-center how-to",
+      "ja": "ヘルプ操作ガイド"
+    },
+    "terms": [
+      "帮助中心",
+      "操作指南",
+      "how-to",
+      "help center",
+      "操作ガイド"
+    ],
+    "guidance": {
+      "zh": "给出适用人群、前提条件和完成目标，再将操作拆为编号步骤，每步说明位置、动作与可见结果。补充常见失败、撤销方式和版本差异，优先使用用户提供的界面名称。没有截图时只列截图需求，不编造按钮或不存在的功能。",
+      "en": "State audience, prerequisites and completion goal, then write numbered steps with location, action and visible outcome. Include common failures, undo options and version differences, using supplied UI names. Without screenshots, list needed captures instead of inventing buttons or unsupported features.",
+      "ja": "対象者、前提、完成状態を示し、場所・操作・見える結果を番号順に書く。失敗例、取消、版差を補足し、提供された画面名を優先。画面資料がなければ撮影要件を列挙し、架空のボタンや機能を作らない。"
+    },
+    "examples": {
+      "zh": "针对提供退款政策与使用说明的在线服务，完成“帮助中心操作指南”，给出可以直接使用的内容。",
+      "en": "Create help-center how-to for an online service with refund policies and user guides. Provide a usable deliverable.",
+      "ja": "返金方針と利用手順のあるオンラインサービスについて「ヘルプ操作ガイド」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：客户问题、已确认政策、产品版本和可采取操作。已写在需求中的信息不必重复。",
+      "en": "Provide customer issue, verified policy, product version and permitted actions. Do not repeat details already in the brief.",
+      "ja": "問い合わせ、確認済み方針、製品版、対応可能な操作を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-39",
+      "aishort-241",
+      "pc-support"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "social-posts",
+    "group": "social",
+    "labels": {
+      "zh": "平台图文帖",
+      "en": "Platform-specific posts",
+      "ja": "媒体別投稿文"
+    },
+    "terms": [
+      "图文帖",
+      "post",
+      "小红书",
+      "投稿文"
+    ],
+    "guidance": {
+      "zh": "按平台阅读方式给标题、开头、主体、结尾与必要标签，保留真实体验和信息密度。提供三个不同切入角度，并为其中最合适的一个写完整正文。避免假装亲测、编造用户评论、夸大效果或机械堆表情，说明需要配图的位置与内容。",
+      "en": "Write titles, opening, body, ending and relevant tags for the platform’s reading style. Offer three distinct angles and fully draft the best fit using real experience and dense information. Invent no first-hand use, reviews or outcomes. Avoid emoji clutter and describe purposeful image placements.",
+      "ja": "媒体の読み方に合わせ題名、導入、本文、結び、必要タグを作る。異なる3つの切口を示し最適案を実体験の範囲で完成。架空体験・口コミ・効果誇張や絵文字過多を避け、画像位置と内容を説明する。"
+    },
+    "examples": {
+      "zh": "针对介绍一款有真实使用记录的效率工具，完成“平台图文帖”，给出可以直接使用的内容。",
+      "en": "Create platform-specific posts for introducing a productivity tool with real usage notes. Provide a usable deliverable.",
+      "ja": "実際の利用記録がある効率化ツールの紹介について「媒体別投稿文」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：平台、读者、素材事实、篇幅和行动目标。已写在需求中的信息不必重复。",
+      "en": "Provide platform, audience, factual material, length and desired action. Do not repeat details already in the brief.",
+      "ja": "媒体、読者、事実素材、長さ、行動目標を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-143",
+      "aishort-204",
+      "aishort-209"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "social-short-video",
+    "group": "social",
+    "labels": {
+      "zh": "短视频口播脚本",
+      "en": "Short-video spoken script",
+      "ja": "短尺動画の話し言葉台本"
+    },
+    "terms": [
+      "口播",
+      "short video",
+      "spoken script",
+      "短尺動画"
+    ],
+    "guidance": {
+      "zh": "按目标时长编排开场、问题、演示、证据和结尾行动，逐段标注秒数、口播、画面、字幕及音效。用适合朗读的短句并核对总时长，给可删除的压缩段落。没有实测数据时不写效果承诺，不把脚本交付说成视频已经生成。",
+      "en": "Fit a hook, problem, demonstration, evidence and closing action to the duration. Mark seconds, speech, visuals, captions and sound per segment. Use speakable sentences, check total timing and identify optional cuts. Avoid unsupported performance claims and never describe a script as an already generated video.",
+      "ja": "尺に合わせ導入、課題、実演、証拠、結びを配置し、秒数、発話、画、字幕、音を段別に示す。話しやすい短文で全体時間を確認し削れる部分を示す。未検証効果を保証せず、台本を動画生成済みとしない。"
+    },
+    "examples": {
+      "zh": "针对介绍一款有真实使用记录的效率工具，完成“短视频口播脚本”，给出可以直接使用的内容。",
+      "en": "Create short-video spoken script for introducing a productivity tool with real usage notes. Provide a usable deliverable.",
+      "ja": "実際の利用記録がある効率化ツールの紹介について「短尺動画の話し言葉台本」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：平台、读者、素材事实、篇幅和行动目标。已写在需求中的信息不必重复。",
+      "en": "Provide platform, audience, factual material, length and desired action. Do not repeat details already in the brief.",
+      "ja": "媒体、読者、事実素材、長さ、行動目標を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-143",
+      "aishort-204",
+      "aishort-209"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "social-repurpose",
+    "group": "social",
+    "labels": {
+      "zh": "长内容拆分复用",
+      "en": "Repurpose long-form content",
+      "ja": "長文の再構成・再利用"
+    },
+    "terms": [
+      "拆分复用",
+      "repurpose",
+      "再利用"
+    ],
+    "guidance": {
+      "zh": "从原文提取可独立成立的观点与证据，分别改成短帖、邮件摘要和口播版本，保留原意与来源。每份内容独立可读，标出被省略的限定条件，避免断章取义。提供渠道、角度、素材需求和发布先后建议，但不代替用户发布。",
+      "en": "Extract self-contained claims and evidence from the source, then adapt them into short posts, an email summary and a spoken version. Preserve meaning and attribution, marking omitted qualifications so excerpts do not mislead. Provide channels, angles, asset needs and sequence suggestions without publishing on the user’s behalf.",
+      "ja": "原文の独立した主張と根拠を抽出し、短文投稿、メール要約、口播にする。意味と出典を保ち、省略条件を明記して切取誤解を避ける。媒体、切口、素材、順序を提案するが、利用者に代わって投稿しない。"
+    },
+    "examples": {
+      "zh": "针对介绍一款有真实使用记录的效率工具，完成“长内容拆分复用”，给出可以直接使用的内容。",
+      "en": "Create repurpose long-form content for introducing a productivity tool with real usage notes. Provide a usable deliverable.",
+      "ja": "実際の利用記録がある効率化ツールの紹介について「長文の再構成・再利用」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：平台、读者、素材事实、篇幅和行动目标。已写在需求中的信息不必重复。",
+      "en": "Provide platform, audience, factual material, length and desired action. Do not repeat details already in the brief.",
+      "ja": "媒体、読者、事実素材、長さ、行動目標を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-143",
+      "aishort-204",
+      "aishort-209"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "commerce-listing",
+    "group": "commerce",
+    "labels": {
+      "zh": "商品详情与卖点",
+      "en": "Product listing and benefits",
+      "ja": "商品詳細・訴求点"
+    },
+    "terms": [
+      "商品详情",
+      "listing",
+      "卖点",
+      "商品詳細"
+    ],
+    "guidance": {
+      "zh": "把参数转成有依据的使用利益，输出标题、要点、完整描述、规格表、适用与不适用人群。区分已证实特点和待确认信息，单位与型号保持一致；不写虚假销量、限时稀缺或认证。补充主图和细节图的信息需求，适配指定平台篇幅。",
+      "en": "Translate specifications into evidenced benefits and deliver title, bullets, description, spec table and suitable/unsuitable users. Separate verified features from unknowns, preserving units and model names. Invent no sales numbers, scarcity or certifications. Include information needs for hero/detail images within platform length limits.",
+      "ja": "仕様を根拠ある利点に変え、題名、要点、説明、仕様表、適合・不適合利用者を出す。確認済みと不明を区別し単位・型番を保つ。売上、希少性、認証を捏造せず、媒体長に合わせ主画像・詳細画像の情報要件を添える。"
+    },
+    "examples": {
+      "zh": "针对一款规格和售后政策已确认的桌面收纳盒，完成“商品详情与卖点”，给出可以直接使用的内容。",
+      "en": "Create product listing and benefits for a desk organizer with verified specifications and after-sales policy. Provide a usable deliverable.",
+      "ja": "仕様とサポート方針が確認済みの卓上収納箱について「商品詳細・訴求点」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：商品参数、目标买家、平台规则、卖点证据和售后政策。已写在需求中的信息不必重复。",
+      "en": "Provide product specs, buyers, platform rules, claim evidence and support policy. Do not repeat details already in the brief.",
+      "ja": "仕様、購入者、媒体規則、訴求根拠、サポート方針を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-45",
+      "aishort-140",
+      "aishort-141",
+      "aishort-39"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "commerce-compare",
+    "group": "commerce",
+    "labels": {
+      "zh": "商品对比选购",
+      "en": "Product comparison guide",
+      "ja": "商品比較ガイド"
+    },
+    "terms": [
+      "商品对比",
+      "comparison guide",
+      "商品比較"
+    ],
+    "guidance": {
+      "zh": "按买家的用途与限制建立比较维度，对每款商品列相同口径的参数、优点、限制和适合场景。价格、库存和兼容性标注核实日期，资料缺失时不推测。给条件式建议而非绝对最好，说明结论依赖哪些输入。",
+      "en": "Build comparison criteria from buyer needs and constraints. Compare products on consistent specifications, advantages, limits and suitable situations. Date price, availability and compatibility checks; do not infer missing data. Give conditional recommendations instead of an absolute winner and state which inputs drive the conclusion.",
+      "ja": "用途と制約から比較軸を作り、同じ定義の仕様、長所、制限、適用場面で比べる。価格、在庫、互換性に確認日を付け、不明は推測しない。絶対的な最良でなく条件別提案と判断に使った情報を示す。"
+    },
+    "examples": {
+      "zh": "针对一款规格和售后政策已确认的桌面收纳盒，完成“商品对比选购”，给出可以直接使用的内容。",
+      "en": "Create product comparison guide for a desk organizer with verified specifications and after-sales policy. Provide a usable deliverable.",
+      "ja": "仕様とサポート方針が確認済みの卓上収納箱について「商品比較ガイド」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：商品参数、目标买家、平台规则、卖点证据和售后政策。已写在需求中的信息不必重复。",
+      "en": "Provide product specs, buyers, platform rules, claim evidence and support policy. Do not repeat details already in the brief.",
+      "ja": "仕様、購入者、媒体規則、訴求根拠、サポート方針を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-45",
+      "aishort-140",
+      "aishort-141",
+      "aishort-39"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "commerce-questions",
+    "group": "commerce",
+    "labels": {
+      "zh": "售前问答与异议",
+      "en": "Pre-sales questions",
+      "ja": "購入前FAQ・懸念対応"
+    },
+    "terms": [
+      "售前",
+      "pre-sales",
+      "购买疑问",
+      "購入前"
+    ],
+    "guidance": {
+      "zh": "收集尺寸、兼容、使用、配送、退换等购买疑问，逐题用已确认参数或政策给直接答案。对无法保证的效果写清边界，提供核实步骤或转人工条件。给简短版和详细版回复，不诱导隐瞒限制或虚构购买紧迫性。",
+      "en": "Address size, compatibility, use, shipping and returns using verified specs or policies. State limits on unguaranteed outcomes and provide checks or escalation conditions. Deliver concise and detailed answers without concealing limitations or manufacturing urgency.",
+      "ja": "寸法、互換、使用、配送、返品の疑問に確認済み仕様・方針で答える。保証不能な効果の境界、確認手順、引継条件を示す。短文・詳細版を出し、制限を隠したり緊急性を作ったりしない。"
+    },
+    "examples": {
+      "zh": "针对一款规格和售后政策已确认的桌面收纳盒，完成“售前问答与异议”，给出可以直接使用的内容。",
+      "en": "Create pre-sales questions for a desk organizer with verified specifications and after-sales policy. Provide a usable deliverable.",
+      "ja": "仕様とサポート方針が確認済みの卓上収納箱について「購入前FAQ・懸念対応」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：商品参数、目标买家、平台规则、卖点证据和售后政策。已写在需求中的信息不必重复。",
+      "en": "Provide product specs, buyers, platform rules, claim evidence and support policy. Do not repeat details already in the brief.",
+      "ja": "仕様、購入者、媒体規則、訴求根拠、サポート方針を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-45",
+      "aishort-140",
+      "aishort-141",
+      "aishort-39"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "seo-keywords",
+    "group": "seo",
+    "labels": {
+      "zh": "搜索意图与选题",
+      "en": "Search intent and topics",
+      "ja": "検索意図・テーマ設計"
+    },
+    "terms": [
+      "搜索意图",
+      "keyword",
+      "search intent",
+      "検索意図"
+    ],
+    "guidance": {
+      "zh": "按用户问题、搜索意图和主题关系组织关键词，合并近义词但保留不同意图。输出主题簇、对应页面、优先级理由和内容缺口。搜索量与难度必须来自给定工具数据，缺失时标为未知；不以关键词数量或堆砌保证排名。",
+      "en": "Group keywords by user question, intent and topic relationships, merging synonyms without collapsing distinct intents. Deliver clusters, target pages, priority rationale and content gaps. Use supplied tool data for volume/difficulty or mark them unknown; neither keyword count nor stuffing guarantees rankings.",
+      "ja": "質問、意図、テーマ関係で語を分類し、同義をまとめつつ異なる意図は残す。クラスタ、対応ページ、優先理由、内容不足を示す。検索量・難度は提供データに限り、不明を明記。語数や詰込で順位を保証しない。"
+    },
+    "examples": {
+      "zh": "针对一个提供三语使用教程的小型网站，完成“搜索意图与选题”，给出可以直接使用的内容。",
+      "en": "Create search intent and topics for a small site offering trilingual tutorials. Provide a usable deliverable.",
+      "ja": "3言語の使い方記事を提供する小規模サイトについて「検索意図・テーマ設計」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：页面内容、目标读者、关键词资料及可用搜索数据。已写在需求中的信息不必重复。",
+      "en": "Provide page content, audience, keyword material and available search data. Do not repeat details already in the brief.",
+      "ja": "ページ内容、読者、キーワード資料、検索データを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-38",
+      "aishort-40",
+      "pc-seo",
+      "pc-links"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "seo-brief",
+    "group": "seo",
+    "labels": {
+      "zh": "搜索页面内容简报",
+      "en": "Search page content brief",
+      "ja": "検索ページ制作要項"
+    },
+    "terms": [
+      "内容简报",
+      "content brief",
+      "制作要項"
+    ],
+    "guidance": {
+      "zh": "明确页面服务的读者问题与核心答案，给标题、段落任务、需补证据、图表和相关内链。按阅读顺序组织内容，而不是机械重复关键词；为作者写出具体交付要求和事实核对清单。没有实际检索时不编造竞品排名或搜索结果特征。",
+      "en": "Define the reader’s question and core answer, then specify title, section purposes, required evidence, visuals and relevant internal links. Organize for reading rather than repetition. Give writers concrete deliverables and fact checks; without actual search, invent no competitor rankings or result-page features.",
+      "ja": "読者の疑問と中核回答を定め、題名、各節の役割、根拠、図、関連内リンクを指定。語の反復でなく読む順に構成し、執筆者に具体成果と事実確認を示す。検索未実施なら競合順位や結果画面の特徴を作らない。"
+    },
+    "examples": {
+      "zh": "针对一个提供三语使用教程的小型网站，完成“搜索页面内容简报”，给出可以直接使用的内容。",
+      "en": "Create search page content brief for a small site offering trilingual tutorials. Provide a usable deliverable.",
+      "ja": "3言語の使い方記事を提供する小規模サイトについて「検索ページ制作要項」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：页面内容、目标读者、关键词资料及可用搜索数据。已写在需求中的信息不必重复。",
+      "en": "Provide page content, audience, keyword material and available search data. Do not repeat details already in the brief.",
+      "ja": "ページ内容、読者、キーワード資料、検索データを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-38",
+      "aishort-40",
+      "pc-seo",
+      "pc-links"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "seo-metadata",
+    "group": "seo",
+    "labels": {
+      "zh": "标题描述与内链",
+      "en": "Metadata and internal links",
+      "ja": "タイトル・説明・内部リンク"
+    },
+    "terms": [
+      "meta",
+      "内链",
+      "internal link",
+      "メタ",
+      "内部リンク"
+    ],
+    "guidance": {
+      "zh": "依据页面真实内容提供多组准确的标题和描述，给出字符长度并保留品牌与语言习惯。仅从提供且相关的页面建议内链与自然锚文本，检查重复、空链接和意图偏差。说明描述可能被搜索引擎改写，不保证收录或排名。",
+      "en": "Create accurate title/description variants from actual content, with character counts and natural brand/language usage. Recommend relevant internal links only from supplied pages, using descriptive anchors and checking duplicates, missing destinations and intent mismatch. Note that search engines may rewrite snippets; guarantee no indexing or ranking.",
+      "ja": "実内容に沿う題名・説明案と文字数を示し、ブランドと自然な言葉を保つ。提供された関連ページだけへ説明的な内部リンクを提案し、重複、宛先欠落、意図ずれを点検。説明文の書換可能性を述べ、登録や順位を保証しない。"
+    },
+    "examples": {
+      "zh": "针对一个提供三语使用教程的小型网站，完成“标题描述与内链”，给出可以直接使用的内容。",
+      "en": "Create metadata and internal links for a small site offering trilingual tutorials. Provide a usable deliverable.",
+      "ja": "3言語の使い方記事を提供する小規模サイトについて「タイトル・説明・内部リンク」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：页面内容、目标读者、关键词资料及可用搜索数据。已写在需求中的信息不必重复。",
+      "en": "Provide page content, audience, keyword material and available search data. Do not repeat details already in the brief.",
+      "ja": "ページ内容、読者、キーワード資料、検索データを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-38",
+      "aishort-40",
+      "pc-seo",
+      "pc-links"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "slides-proposal",
+    "group": "slides",
+    "labels": {
+      "zh": "方案汇报PPT",
+      "en": "Proposal presentation",
+      "ja": "提案プレゼン"
+    },
+    "terms": [
+      "方案汇报",
+      "pitch deck",
+      "proposal slides",
+      "提案発表"
+    ],
+    "guidance": {
+      "zh": "按需要促成的决定构建问题、证据、方案、取舍、计划和请求，逐页给结论式标题、正文、图形建议及讲者备注。核对页数与时长，每页只推进一个主要观点；不虚构业绩和预测。输出可粘贴到WPS演示或PowerPoint的完整内容。",
+      "en": "Build problem, evidence, proposal, tradeoffs, plan and requested decision. For each slide, supply a claim-led title, complete copy, visual suggestion and speaker notes. Fit slide count to duration with one main idea per slide. Invent no performance results or forecasts; deliver content ready for WPS Presentation or PowerPoint.",
+      "ja": "必要な判断へ向け課題、根拠、提案、比較、計画、依頼を構成。各頁に結論型見出し、本文、図案、話者メモを付け、枚数と時間を合わせ一頁一論点にする。実績・予測を作らず、WPSやPowerPointに使える内容を出す。"
+    },
+    "examples": {
+      "zh": "针对向团队介绍知识库改版方案的十分钟汇报，完成“方案汇报PPT”，给出可以直接使用的内容。",
+      "en": "Create proposal presentation for a ten-minute team presentation on a knowledge-base redesign. Provide a usable deliverable.",
+      "ja": "ナレッジ改修を紹介する10分のチーム発表について「提案プレゼン」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：听众、时长、核心结论、资料和目标软件。已写在需求中的信息不必重复。",
+      "en": "Provide audience, duration, key conclusion, material and target software. Do not repeat details already in the brief.",
+      "ja": "聴衆、時間、結論、素材、対象ソフトを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-187",
+      "aishort-195"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "slides-training",
+    "group": "slides",
+    "labels": {
+      "zh": "培训课件",
+      "en": "Training slide content",
+      "ja": "研修スライド"
+    },
+    "terms": [
+      "培训课件",
+      "training deck",
+      "研修資料"
+    ],
+    "guidance": {
+      "zh": "以学习者能完成的操作为目标安排概念、演示、练习、反馈和总结。逐页写正文、案例、互动问题和参考答案，给练习时间与主持提示。对新手提供解释，对熟练者提供延伸，不只交付目录或把整篇讲义塞入一页。",
+      "en": "Organize concepts, demonstration, practice, feedback and recap around observable learner actions. Supply slide copy, examples, interactive questions, answer keys, practice timing and facilitator prompts. Include beginner support and extensions without delivering only an outline or cramming an entire handout onto one slide.",
+      "ja": "習得後の操作を目標に概念、実演、練習、返答、まとめを配置。各頁の本文、例、問い、解答、時間、進行メモを作る。初心者補助と発展を用意し、目次だけや一頁への全文詰込を避ける。"
+    },
+    "examples": {
+      "zh": "针对向团队介绍知识库改版方案的十分钟汇报，完成“培训课件”，给出可以直接使用的内容。",
+      "en": "Create training slide content for a ten-minute team presentation on a knowledge-base redesign. Provide a usable deliverable.",
+      "ja": "ナレッジ改修を紹介する10分のチーム発表について「研修スライド」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：听众、时长、核心结论、资料和目标软件。已写在需求中的信息不必重复。",
+      "en": "Provide audience, duration, key conclusion, material and target software. Do not repeat details already in the brief.",
+      "ja": "聴衆、時間、結論、素材、対象ソフトを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-187",
+      "aishort-195"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "slides-speech",
+    "group": "slides",
+    "labels": {
+      "zh": "逐页讲稿与问答",
+      "en": "Speaker notes and Q&A",
+      "ja": "発表原稿・質疑応答"
+    },
+    "terms": [
+      "讲稿",
+      "speaker notes",
+      "Q&A",
+      "発表原稿"
+    ],
+    "guidance": {
+      "zh": "根据现有幻灯片写逐页自然口语讲稿，包含开场、转场、强调与结束，并分配时间。预测听众可能追问的事实和取舍，给基于已有资料的回答及未知时的回应。不要新增幻灯片里没有依据的数字，提供超时可删版本。",
+      "en": "Turn existing slides into natural spoken notes with opening, transitions, emphasis, close and timing. Anticipate questions on facts and tradeoffs, answering from supplied material and acknowledging unknowns. Add no unsupported numbers; provide optional cuts for a shorter delivery.",
+      "ja": "既存スライドから導入、つなぎ、強調、締め、時間を含む自然な原稿を作る。事実や取捨への質問を予想し、提供資料で回答、不明時の返しも示す。根拠なしの数値を加えず短縮版を用意する。"
+    },
+    "examples": {
+      "zh": "针对向团队介绍知识库改版方案的十分钟汇报，完成“逐页讲稿与问答”，给出可以直接使用的内容。",
+      "en": "Create speaker notes and q&a for a ten-minute team presentation on a knowledge-base redesign. Provide a usable deliverable.",
+      "ja": "ナレッジ改修を紹介する10分のチーム発表について「発表原稿・質疑応答」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：听众、时长、核心结论、资料和目标软件。已写在需求中的信息不必重复。",
+      "en": "Provide audience, duration, key conclusion, material and target software. Do not repeat details already in the brief.",
+      "ja": "聴衆、時間、結論、素材、対象ソフトを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-187",
+      "aishort-195"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "reading-notes",
+    "group": "reading",
+    "labels": {
+      "zh": "阅读笔记与行动",
+      "en": "Reading notes and application",
+      "ja": "読書ノート・応用"
+    },
+    "terms": [
+      "读书笔记",
+      "reading notes",
+      "読書ノート"
+    ],
+    "guidance": {
+      "zh": "提取中心问题、关键观点、论证链、例子和适用边界，区分作者主张与自己的解释。用原文位置支撑摘要，给概念关系和可尝试的小行动。不因只有书名而假装读过全文；资料不全时只处理提供部分。",
+      "en": "Extract the core question, claims, reasoning, examples and applicability limits, separating author claims from interpretation. Ground notes in source locations and include concept relationships and small practical experiments. A title alone is not evidence of reading the book; process only supplied material when sources are incomplete.",
+      "ja": "中心疑問、主張、論証、例、適用範囲を抽出し、著者の意見と解釈を分ける。原文位置を根拠に概念関係と小さな応用行動を示す。書名だけで通読済みとせず、資料不足なら提供範囲のみ扱う。"
+    },
+    "examples": {
+      "zh": "针对三篇关于远程协作的已提供文章，完成“阅读笔记与行动”，给出可以直接使用的内容。",
+      "en": "Create reading notes and application for three supplied articles about remote collaboration. Provide a usable deliverable.",
+      "ja": "提供済みの遠隔協働に関する3記事について「読書ノート・応用」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：原文或摘录、阅读目的、引用方式和输出篇幅。已写在需求中的信息不必重复。",
+      "en": "Provide source text/excerpts, reading goal, citation format and length. Do not repeat details already in the brief.",
+      "ja": "原文・抜粋、読書目的、引用方式、分量を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-47",
+      "aishort-215",
+      "aishort-240"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "reading-synthesis",
+    "group": "reading",
+    "labels": {
+      "zh": "多来源对照综述",
+      "en": "Compare and synthesize sources",
+      "ja": "複数資料の比較統合"
+    },
+    "terms": [
+      "多来源",
+      "synthesis",
+      "source comparison",
+      "資料比較"
+    ],
+    "guidance": {
+      "zh": "建立来源、日期、研究或观点类型、主张、证据和限制对照表，识别一致、冲突与信息缺口。围绕主题综合而非逐篇拼接，并为结论标明具体出处。无法消解的冲突保留，不能把来源数量当成正确性证明。",
+      "en": "Compare source, date, type, claims, evidence and limitations. Identify agreement, conflict and gaps, synthesizing by theme rather than concatenating summaries. Attribute each conclusion to specific sources. Preserve unresolved disagreements and do not treat source count as proof of correctness.",
+      "ja": "出典、日付、種別、主張、証拠、制限を対照し、一致、対立、不足を見つける。記事順の連結でなく主題別に統合し、結論に出典を付ける。未解消の対立を残し、資料数を正しさの証明にしない。"
+    },
+    "examples": {
+      "zh": "针对三篇关于远程协作的已提供文章，完成“多来源对照综述”，给出可以直接使用的内容。",
+      "en": "Create compare and synthesize sources for three supplied articles about remote collaboration. Provide a usable deliverable.",
+      "ja": "提供済みの遠隔協働に関する3記事について「複数資料の比較統合」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：原文或摘录、阅读目的、引用方式和输出篇幅。已写在需求中的信息不必重复。",
+      "en": "Provide source text/excerpts, reading goal, citation format and length. Do not repeat details already in the brief.",
+      "ja": "原文・抜粋、読書目的、引用方式、分量を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-47",
+      "aishort-215",
+      "aishort-240"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "reading-summary",
+    "group": "reading",
+    "labels": {
+      "zh": "长文分层摘要",
+      "en": "Layered long-document summary",
+      "ja": "長文の階層要約"
+    },
+    "terms": [
+      "长文摘要",
+      "executive summary",
+      "long summary",
+      "長文要約"
+    ],
+    "guidance": {
+      "zh": "先给一句话主旨和短摘要，再给按原文结构的详细摘要、关键数字、条件和待办。保留否定、概率和限制条件，逐项核对不得改变结论强度。标明覆盖的章节与省略范围，超长材料分批建立可合并摘要，不声称读取未提供部分。",
+      "en": "Provide a one-sentence thesis, short summary, structural detailed summary, key figures, conditions and actions. Preserve negation, uncertainty and qualifications without strengthening claims. State covered sections and omissions. For long inputs, create mergeable chunk summaries without claiming access to unsupplied text.",
+      "ja": "一文主旨、短要約、構造別詳細、数値、条件、行動の順に出す。否定、不確実性、限定を保ち主張を強めない。対象章と省略範囲を明示し、長大なら統合可能な部分要約に分け、未提供箇所を読んだとしない。"
+    },
+    "examples": {
+      "zh": "针对三篇关于远程协作的已提供文章，完成“长文分层摘要”，给出可以直接使用的内容。",
+      "en": "Create layered long-document summary for three supplied articles about remote collaboration. Provide a usable deliverable.",
+      "ja": "提供済みの遠隔協働に関する3記事について「長文の階層要約」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：原文或摘录、阅读目的、引用方式和输出篇幅。已写在需求中的信息不必重复。",
+      "en": "Provide source text/excerpts, reading goal, citation format and length. Do not repeat details already in the brief.",
+      "ja": "原文・抜粋、読書目的、引用方式、分量を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-47",
+      "aishort-215",
+      "aishort-240"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "assessment-bank",
+    "group": "assessment",
+    "labels": {
+      "zh": "分层题库与解析",
+      "en": "Question bank with explanations",
+      "ja": "段階別問題・解説"
+    },
+    "terms": [
+      "题库",
+      "question bank",
+      "問題集"
+    ],
+    "guidance": {
+      "zh": "按知识点和认知难度设计题目分布，输出完整题干、选项、答案、解析和考查点。选择题确保唯一最优答案，干扰项对应常见误解；主观题给示例而非唯一表述。检查题目重复、泄露答案线索及超出教学范围的问题。",
+      "en": "Distribute questions by topic and cognitive demand, providing full stems, options, answers, explanations and assessed skills. Multiple-choice items need one best answer and misconception-based distractors; open responses need examples rather than a single wording. Check duplication, answer cues and scope violations.",
+      "ja": "知識点と認知難度で配分し、問題、選択肢、解答、解説、評価項目を出す。選択式は最良解一つと誤解に基づく誤答、記述式は唯一表現でなく例を用意。重複、答えの手掛り、範囲外を点検する。"
+    },
+    "examples": {
+      "zh": "针对初学者的Python循环与列表练习，完成“分层题库与解析”，给出可以直接使用的内容。",
+      "en": "Create question bank with explanations for Python loop and list practice for beginners. Provide a usable deliverable.",
+      "ja": "初心者向けPythonのループとリスト演習について「段階別問題・解説」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：学习目标、年龄或水平、知识范围、题型和评分要求。已写在需求中的信息不必重复。",
+      "en": "Provide learning goals, age/level, scope, question types and grading criteria. Do not repeat details already in the brief.",
+      "ja": "学習目標、年齢・水準、範囲、問題形式、採点条件を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-131",
+      "aishort-263"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "assessment-rubric",
+    "group": "assessment",
+    "labels": {
+      "zh": "评分量规与反馈",
+      "en": "Rubric and feedback",
+      "ja": "採点基準・フィードバック"
+    },
+    "terms": [
+      "量规",
+      "rubric",
+      "grading",
+      "採点基準"
+    ],
+    "guidance": {
+      "zh": "从任务目标推导评分维度、权重和各水平可观察的表现，给示例锚点与扣分边界。对提供的作答逐项引用证据，说明得分和改进动作；不凭文字推断学生人格或潜力。标明这是辅助反馈，保留教师最终判断。",
+      "en": "Derive dimensions, weights and observable performance levels from the task goal, including examples and deduction boundaries. For supplied work, cite evidence per criterion and explain scores with actionable improvements. Infer no personality or potential from text; label feedback as assistance with final judgment left to the teacher.",
+      "ja": "目標から観点、配点、観察可能な水準、例、減点境界を設計。答案の証拠を観点別に引用し、点数と改善行動を説明する。文章から人格や将来性を推断せず、教師の最終判断を残す補助評価とする。"
+    },
+    "examples": {
+      "zh": "针对初学者的Python循环与列表练习，完成“评分量规与反馈”，给出可以直接使用的内容。",
+      "en": "Create rubric and feedback for Python loop and list practice for beginners. Provide a usable deliverable.",
+      "ja": "初心者向けPythonのループとリスト演習について「採点基準・フィードバック」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：学习目标、年龄或水平、知识范围、题型和评分要求。已写在需求中的信息不必重复。",
+      "en": "Provide learning goals, age/level, scope, question types and grading criteria. Do not repeat details already in the brief.",
+      "ja": "学習目標、年齢・水準、範囲、問題形式、採点条件を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-131",
+      "aishort-263"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "assessment-misconceptions",
+    "group": "assessment",
+    "labels": {
+      "zh": "错题诊断与补练",
+      "en": "Error diagnosis and practice",
+      "ja": "誤答分析・補充演習"
+    },
+    "terms": [
+      "错题",
+      "misconception",
+      "error diagnosis",
+      "誤答分析"
+    ],
+    "guidance": {
+      "zh": "比较学生步骤与正确思路，定位最早偏离的知识点，区分概念误解、计算疏漏与题意误读。先用提示引导订正，再给同知识点的变式题和答案解析。证据不足时列出可能原因与诊断问题，不仅复述标准答案。",
+      "en": "Compare the learner’s steps with valid reasoning to locate the earliest divergence. Distinguish conceptual errors, slips and misread questions. Use hints before correction, then give varied practice and worked answers. When evidence is insufficient, offer hypotheses and diagnostic questions instead of merely repeating the answer key.",
+      "ja": "解答過程と正しい筋道を比べ最初のずれを特定し、概念誤解、計算ミス、読違いを分ける。ヒントから訂正へ導き、変形問題と解説を出す。根拠不足なら仮説と診断質問を示し、模範解答の反復だけにしない。"
+    },
+    "examples": {
+      "zh": "针对初学者的Python循环与列表练习，完成“错题诊断与补练”，给出可以直接使用的内容。",
+      "en": "Create error diagnosis and practice for Python loop and list practice for beginners. Provide a usable deliverable.",
+      "ja": "初心者向けPythonのループとリスト演習について「誤答分析・補充演習」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：学习目标、年龄或水平、知识范围、题型和评分要求。已写在需求中的信息不必重复。",
+      "en": "Provide learning goals, age/level, scope, question types and grading criteria. Do not repeat details already in the brief.",
+      "ja": "学習目標、年齢・水準、範囲、問題形式、採点条件を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-131",
+      "aishort-263"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "localization-ui",
+    "group": "localization",
+    "labels": {
+      "zh": "界面文案本地化",
+      "en": "UI string localization",
+      "ja": "UI文言翻訳"
+    },
+    "terms": [
+      "界面翻译",
+      "UI strings",
+      "JSON",
+      "UI翻訳"
+    ],
+    "guidance": {
+      "zh": "只翻译显示给用户的字符串，保持JSON键、变量、占位符、转义、链接和结构不变。按按钮、错误、帮助等语境选择自然短句，处理复数、单位和日期格式。输出可解析文件及术语检查报告，列出缺少语境的条目，不擅自改业务含义。",
+      "en": "Translate user-visible strings only, preserving JSON keys, variables, placeholders, escapes, links and structure. Use natural concise wording for buttons, errors and help, handling plurals, units and dates. Deliver parseable content and a terminology report, flagging missing context without changing business meaning.",
+      "ja": "表示文字列のみ訳し、JSONキー、変数、プレースホルダー、エスケープ、リンク、構造を保つ。ボタン・エラー・ヘルプの文脈で簡潔にし、複数形、単位、日付に配慮。解析可能な内容と用語点検を出し、文脈不足を明記する。"
+    },
+    "examples": {
+      "zh": "针对一个含按钮、报错和帮助文字的三语应用，完成“界面文案本地化”，给出可以直接使用的内容。",
+      "en": "Create ui string localization for a trilingual app with buttons, errors and help text. Provide a usable deliverable.",
+      "ja": "ボタン・エラー・ヘルプ文を含む3言語アプリについて「UI文言翻訳」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：原文文件、目标地区、术语表、变量与长度限制。已写在需求中的信息不必重复。",
+      "en": "Provide source files, target region, glossary, variables and length limits. Do not repeat details already in the brief.",
+      "ja": "原文ファイル、対象地域、用語、変数、文字数制限を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-1",
+      "aishort-246"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "localization-subtitles",
+    "group": "localization",
+    "labels": {
+      "zh": "字幕翻译与断句",
+      "en": "Subtitle translation and segmentation",
+      "ja": "字幕翻訳・改行"
+    },
+    "terms": [
+      "字幕",
+      "subtitle",
+      "SRT",
+      "字幕翻訳"
+    ],
+    "guidance": {
+      "zh": "保留字幕编号、时间码和说话人信息，按目标语言阅读速度与每行限制翻译断句。不跨段挪动事实，标记无法在时长内自然表达的条目并给短版。输出原格式字幕与待检查清单，没有音视频时不声称验证了口型或听感。",
+      "en": "Preserve subtitle indices, timecodes and speaker information while translating for target-language reading speed and line limits. Do not move facts across segments. Flag overcrowded cues and suggest shorter versions. Return the original subtitle format plus checks; without media, claim no lip-sync or audio verification.",
+      "ja": "番号、時間コード、話者を保ち、読速と一行制限に合わせ翻訳・改行する。事実を別区間へ移さず、収まらない字幕に短縮案を付ける。元形式と確認一覧を出し、映像音声なしで口形や聴感を確認済みにしない。"
+    },
+    "examples": {
+      "zh": "针对一个含按钮、报错和帮助文字的三语应用，完成“字幕翻译与断句”，给出可以直接使用的内容。",
+      "en": "Create subtitle translation and segmentation for a trilingual app with buttons, errors and help text. Provide a usable deliverable.",
+      "ja": "ボタン・エラー・ヘルプ文を含む3言語アプリについて「字幕翻訳・改行」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：原文文件、目标地区、术语表、变量与长度限制。已写在需求中的信息不必重复。",
+      "en": "Provide source files, target region, glossary, variables and length limits. Do not repeat details already in the brief.",
+      "ja": "原文ファイル、対象地域、用語、変数、文字数制限を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-1",
+      "aishort-246"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "localization-glossary",
+    "group": "localization",
+    "labels": {
+      "zh": "术语表与一致性检查",
+      "en": "Glossary and consistency audit",
+      "ja": "用語集・一貫性確認"
+    },
+    "terms": [
+      "术语表",
+      "glossary",
+      "terminology",
+      "用語集"
+    ],
+    "guidance": {
+      "zh": "从源文抽取专有名词、产品词和高频概念，建立原词、推荐译法、禁用变体、定义和语境例句表。对已有译文查找不一致并给逐项修改理由。保留客户确定的术语，对无法判断的词给候选及确认问题，不用机械同词同译忽略语境。",
+      "en": "Extract names, product terms and recurring concepts into a table of source term, preferred translation, disallowed variants, definition and contextual examples. Audit existing translations with specific corrections and rationale. Preserve approved terminology; offer alternatives and questions for ambiguity rather than enforcing context-blind word substitution.",
+      "ja": "固有名詞、製品語、頻出概念を原語、推奨訳、避ける形、定義、例文で整理。既訳の不一致に修正理由を付ける。承認済み用語を保ち、曖昧語は候補と質問を示す。文脈を無視した一律置換をしない。"
+    },
+    "examples": {
+      "zh": "针对一个含按钮、报错和帮助文字的三语应用，完成“术语表与一致性检查”，给出可以直接使用的内容。",
+      "en": "Create glossary and consistency audit for a trilingual app with buttons, errors and help text. Provide a usable deliverable.",
+      "ja": "ボタン・エラー・ヘルプ文を含む3言語アプリについて「用語集・一貫性確認」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：原文文件、目标地区、术语表、变量与长度限制。已写在需求中的信息不必重复。",
+      "en": "Provide source files, target region, glossary, variables and length limits. Do not repeat details already in the brief.",
+      "ja": "原文ファイル、対象地域、用語、変数、文字数制限を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-1",
+      "aishort-246"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "audio-podcast",
+    "group": "audio",
+    "labels": {
+      "zh": "播客单集脚本",
+      "en": "Podcast episode script",
+      "ja": "ポッドキャスト台本"
+    },
+    "terms": [
+      "播客",
+      "podcast",
+      "ポッドキャスト"
+    ],
+    "guidance": {
+      "zh": "设计开场、叙事推进、访谈问题或独白、转场与结尾，标注时间、主持词、资料依据和必要声音提示。问题应针对嘉宾已知经历，不能预先编造其回答。提供节目简介与标题方案，控制总时长并标记需要授权的素材。",
+      "en": "Structure an opening, narrative progression, interview questions or monologue, transitions and close with timing, host copy, source basis and sound cues. Tailor questions to known guest experience without inventing answers. Include show notes and titles, check duration and identify material requiring permission.",
+      "ja": "導入、展開、質問または独白、つなぎ、締めに時間、進行文、根拠、音の指示を付ける。既知の経験に質問を合わせ、ゲストの答えを作らない。概要と題名を出し、尺と利用許諾が必要な素材を確認する。"
+    },
+    "examples": {
+      "zh": "针对讲解一个真实城市故事的三分钟音频，完成“播客单集脚本”，给出可以直接使用的内容。",
+      "en": "Create podcast episode script for a three-minute audio story about a real city. Provide a usable deliverable.",
+      "ja": "実在する街の話を伝える3分音声について「ポッドキャスト台本」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：受众、时长、已核实素材、发音要求和目标工具。已写在需求中的信息不必重复。",
+      "en": "Provide audience, duration, verified material, pronunciation needs and target tool. Do not repeat details already in the brief.",
+      "ja": "聴衆、尺、確認素材、発音条件、対象ツールを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-160",
+      "aishort-204",
+      "pc-podcast"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "audio-voice",
+    "group": "audio",
+    "labels": {
+      "zh": "配音稿与语气标注",
+      "en": "Voice-over script and direction",
+      "ja": "ナレーション原稿・演出"
+    },
+    "terms": [
+      "配音",
+      "voice-over",
+      "narration",
+      "ナレーション"
+    ],
+    "guidance": {
+      "zh": "把原文调整为易朗读的句子，明确数字、缩写、多音字和专名读法，并标注停顿、重音、语速与情绪转折。给纯文本版和工具支持时的标记版，保留事实含义。不要冒用真实人物声线，未生成音频时仅交付脚本与参数建议。",
+      "en": "Make the text speakable, clarifying numbers, abbreviations and names, with pauses, emphasis, pace and emotional changes. Provide plain text and a markup version only when supported, preserving meaning. Do not impersonate a real person’s voice; if no audio is generated, deliver a script and parameter suggestions only.",
+      "ja": "数字、略語、固有名詞の読みを明確にし、間、強調、速度、感情変化付きの話しやすい原稿にする。本文と対応時のみマークアップを出し意味を保つ。実在人物の声をなりすまさず、音声未生成なら原稿と設定案と明記。"
+    },
+    "examples": {
+      "zh": "针对讲解一个真实城市故事的三分钟音频，完成“配音稿与语气标注”，给出可以直接使用的内容。",
+      "en": "Create voice-over script and direction for a three-minute audio story about a real city. Provide a usable deliverable.",
+      "ja": "実在する街の話を伝える3分音声について「ナレーション原稿・演出」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：受众、时长、已核实素材、发音要求和目标工具。已写在需求中的信息不必重复。",
+      "en": "Provide audience, duration, verified material, pronunciation needs and target tool. Do not repeat details already in the brief.",
+      "ja": "聴衆、尺、確認素材、発音条件、対象ツールを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-160",
+      "aishort-204",
+      "pc-podcast"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "audio-sound",
+    "group": "audio",
+    "labels": {
+      "zh": "音效与配乐提示词",
+      "en": "Sound effects and music briefs",
+      "ja": "効果音・音楽プロンプト"
+    },
+    "terms": [
+      "音效",
+      "sound design",
+      "music brief",
+      "効果音"
+    ],
+    "guidance": {
+      "zh": "按场景建立声音层次：主体声、环境、过渡和音乐，说明时长、节奏、音色、强弱、空间感与循环需求。逐条给可复制的生成提示词和禁用元素，标出对白需留出的空间。避免引用特定受保护旋律，不声称已经完成混音或版权清理。",
+      "en": "Define foreground, ambience, transitions and music per scene, specifying duration, rhythm, timbre, dynamics, space and looping. Give copyable generation prompts and exclusions while preserving room for dialogue. Avoid requesting a specific protected melody; do not claim completed mixing or rights clearance.",
+      "ja": "主音、環境、移行、音楽の層を場面ごとに設計し、長さ、リズム、音色、強弱、空間、ループを指定。生成用文と除外要素、台詞の余地を示す。特定の保護旋律を求めず、ミックスや権利確認済みとしない。"
+    },
+    "examples": {
+      "zh": "针对讲解一个真实城市故事的三分钟音频，完成“音效与配乐提示词”，给出可以直接使用的内容。",
+      "en": "Create sound effects and music briefs for a three-minute audio story about a real city. Provide a usable deliverable.",
+      "ja": "実在する街の話を伝える3分音声について「効果音・音楽プロンプト」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：受众、时长、已核实素材、发音要求和目标工具。已写在需求中的信息不必重复。",
+      "en": "Provide audience, duration, verified material, pronunciation needs and target tool. Do not repeat details already in the brief.",
+      "ja": "聴衆、尺、確認素材、発音条件、対象ツールを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-160",
+      "aishort-204",
+      "pc-podcast"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "brand-mood",
+    "group": "brand",
+    "labels": {
+      "zh": "情绪板与视觉方向",
+      "en": "Moodboard and visual direction",
+      "ja": "ムードボード・視覚方針"
+    },
+    "terms": [
+      "情绪板",
+      "moodboard",
+      "ムードボード"
+    ],
+    "guidance": {
+      "zh": "从品牌目标提炼三种有区别的视觉方向，分别说明颜色、字体性格、构图、材质与参考类型。给每个方向可复制的图片提示词、适用场景和取舍，不用形容词堆砌代替画面描述。无法查看参考图时明确依据的是文字描述。",
+      "en": "Develop three distinct visual directions from brand goals, explaining palette, typographic character, composition, materials and reference types. Provide image-generation prompts, use cases and tradeoffs for each. Describe concrete imagery rather than adjective piles; when references are unseen, state that interpretation is based on text.",
+      "ja": "目標から異なる3方向を作り、配色、書体の性格、構図、質感、参考種を説明。各方向に画像生成文、用途、取捨を付け、形容詞の羅列でなく具体画面を記述。画像未確認なら文章からの解釈と明示する。"
+    },
+    "examples": {
+      "zh": "针对面向年轻创作者的原创文具品牌，完成“情绪板与视觉方向”，给出可以直接使用的内容。",
+      "en": "Create moodboard and visual direction for an original stationery brand for young creators. Provide a usable deliverable.",
+      "ja": "若い制作者向けのオリジナル文具ブランドについて「ムードボード・視覚方針」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：品牌定位、使用场景、现有素材、目标受众及限制。已写在需求中的信息不必重复。",
+      "en": "Provide positioning, use cases, existing assets, audience and constraints. Do not repeat details already in the brief.",
+      "ja": "位置付け、利用場面、既存素材、読者、制約を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-54",
+      "aishort-245",
+      "aishort-254"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "brand-logo",
+    "group": "brand",
+    "labels": {
+      "zh": "标志与图标设计简报",
+      "en": "Logo and icon brief",
+      "ja": "ロゴ・アイコン制作要項"
+    },
+    "terms": [
+      "标志",
+      "logo",
+      "icon brief",
+      "ロゴ"
+    ],
+    "guidance": {
+      "zh": "明确标志表达的概念与应用尺寸，给符号结构、字标关系、单色版、深浅背景和小尺寸可辨识性要求。提出不同概念方案及生成提示词，避免模仿现有品牌。区分草案与可交付矢量文件，并列商标检索和人工修整待办。",
+      "en": "Define concept and application sizes, then specify symbol structure, wordmark relationship, monochrome use, light/dark backgrounds and small-size legibility. Offer distinct concepts and generation prompts without imitating existing brands. Separate drafts from deliverable vector files and list trademark checks and manual refinement needs.",
+      "ja": "概念と利用寸法から記号構造、文字との関係、単色、明暗背景、小サイズ判読性を定める。既存ブランドを模倣しない複数案と生成文を出す。草案と納品ベクターを区別し、商標調査と手修正を待作業として示す。"
+    },
+    "examples": {
+      "zh": "针对面向年轻创作者的原创文具品牌，完成“标志与图标设计简报”，给出可以直接使用的内容。",
+      "en": "Create logo and icon brief for an original stationery brand for young creators. Provide a usable deliverable.",
+      "ja": "若い制作者向けのオリジナル文具ブランドについて「ロゴ・アイコン制作要項」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：品牌定位、使用场景、现有素材、目标受众及限制。已写在需求中的信息不必重复。",
+      "en": "Provide positioning, use cases, existing assets, audience and constraints. Do not repeat details already in the brief.",
+      "ja": "位置付け、利用場面、既存素材、読者、制約を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-54",
+      "aishort-245",
+      "aishort-254"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "brand-guide",
+    "group": "brand",
+    "labels": {
+      "zh": "轻量品牌规范",
+      "en": "Compact brand guide",
+      "ja": "小規模ブランドガイド"
+    },
+    "terms": [
+      "品牌规范",
+      "brand guide",
+      "ブランド規則"
+    ],
+    "guidance": {
+      "zh": "将已选方向整理成颜色值、字体替代、间距、图像风格、图标和语气规则，配正确与错误使用例。说明网页、社交图片和演示页的应用差异，给可复用设计变量。缺少正式素材时标明临时建议，不把生成图当作最终品牌资产。",
+      "en": "Turn the chosen direction into color values, font fallbacks, spacing, imagery, icons and voice rules with do/don’t examples. Explain web, social-image and slide applications and provide reusable design tokens. Label provisional choices when approved assets are missing; generated images are not automatically final brand assets.",
+      "ja": "選定方向を色値、代替書体、余白、画像、アイコン、語調の規則と良否例にまとめる。Web・SNS画像・スライドの差と再利用変数を示す。正式素材なしなら暫定案と明記し、生成画像を最終資産と決めない。"
+    },
+    "examples": {
+      "zh": "针对面向年轻创作者的原创文具品牌，完成“轻量品牌规范”，给出可以直接使用的内容。",
+      "en": "Create compact brand guide for an original stationery brand for young creators. Provide a usable deliverable.",
+      "ja": "若い制作者向けのオリジナル文具ブランドについて「小規模ブランドガイド」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：品牌定位、使用场景、现有素材、目标受众及限制。已写在需求中的信息不必重复。",
+      "en": "Provide positioning, use cases, existing assets, audience and constraints. Do not repeat details already in the brief.",
+      "ja": "位置付け、利用場面、既存素材、読者、制約を補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-54",
+      "aishort-245",
+      "aishort-254"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "production-bible",
+    "group": "production",
+    "labels": {
+      "zh": "角色与场景设定册",
+      "en": "Character and scene bible",
+      "ja": "人物・場面設定集"
+    },
+    "terms": [
+      "设定册",
+      "character bible",
+      "场景设定",
+      "設定集"
+    ],
+    "guidance": {
+      "zh": "建立稳定ID与不可变特征，描述角色比例、服装、道具、材质和场景方位、出入口、光源及时间。区分固定设定和每镜可变状态，提供正侧背视图与场景俯视图提示词。遇到参考冲突先列差异，不为丰富画面随意改变人物或空间。",
+      "en": "Assign stable IDs and invariant traits for proportions, clothing, props and materials, plus scene orientation, entrances, lighting and time. Separate fixed design from shot-specific state. Supply front/side/back and overhead-reference prompts. Flag conflicting references instead of changing characters or geography for visual variety.",
+      "ja": "固定IDと不変特徴を設け、体型、服、道具、質感、方位、出入口、光源、時刻を記述。固定設定とカット別状態を分離し、三面図と俯瞰図の生成文を出す。参照矛盾を明記し、見映えで人物や空間を変えない。"
+    },
+    "examples": {
+      "zh": "针对同一角色从房间走到街道的短动画，完成“角色与场景设定册”，给出可以直接使用的内容。",
+      "en": "Create character and scene bible for a short animation following one character from a room to a street. Provide a usable deliverable.",
+      "ja": "同一人物が部屋から通りへ歩く短編アニメについて「人物・場面設定集」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：故事梗概、角色设定、场景图、时长和生成工具。已写在需求中的信息不必重复。",
+      "en": "Provide synopsis, character design, scene references, duration and generation tool. Do not repeat details already in the brief.",
+      "ja": "あらすじ、人物設定、場面資料、尺、生成ツールを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-16",
+      "aishort-274"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "production-shots",
+    "group": "production",
+    "labels": {
+      "zh": "景别与镜头清单",
+      "en": "Shot sizes and shot list",
+      "ja": "画角・ショットリスト"
+    },
+    "terms": [
+      "镜头清单",
+      "shot list",
+      "景别",
+      "ショットリスト"
+    ],
+    "guidance": {
+      "zh": "按叙事目的安排远景交代空间、中景呈现动作、近景表达细节，避免机械轮流使用。每镜给编号、时长、人物位置、视线、动作起止、机位、运动和转场；汇总时长。把静态画面提示词和视频运动提示词分开，并延续场景与角色ID。",
+      "en": "Choose wide shots for geography, medium shots for action and close-ups for detail according to narrative purpose, not a mechanical cycle. For each shot, specify ID, duration, positions, eyelines, start/end action, camera, motion and transition. Reconcile runtime and separate still-image prompts from motion prompts using stable character/scene IDs.",
+      "ja": "物語の目的で遠景は空間、中景は動作、近景は詳細に使い、機械的交替を避ける。番号、尺、位置、視線、動作前後、カメラ、移動、つなぎを各カットに記す。合計尺を確認し、固定IDで静止画文と動画運動文を分ける。"
+    },
+    "examples": {
+      "zh": "针对同一角色从房间走到街道的短动画，完成“景别与镜头清单”，给出可以直接使用的内容。",
+      "en": "Create shot sizes and shot list for a short animation following one character from a room to a street. Provide a usable deliverable.",
+      "ja": "同一人物が部屋から通りへ歩く短編アニメについて「画角・ショットリスト」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：故事梗概、角色设定、场景图、时长和生成工具。已写在需求中的信息不必重复。",
+      "en": "Provide synopsis, character design, scene references, duration and generation tool. Do not repeat details already in the brief.",
+      "ja": "あらすじ、人物設定、場面資料、尺、生成ツールを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-16",
+      "aishort-274"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "production-continuity",
+    "group": "production",
+    "labels": {
+      "zh": "跨镜头连续性检查",
+      "en": "Cross-shot continuity checks",
+      "ja": "カット間連続性の点検"
+    },
+    "terms": [
+      "连续性",
+      "continuity",
+      "穿帮",
+      "連続性"
+    ],
+    "guidance": {
+      "zh": "用镜头对照表检查服装、道具归属、位置、动作、视线、轴线、光线和时间的延续。逐项列问题、证据、影响镜头和最小修正提示词，区分刻意跳切与错误。没有实际帧图时检查文字计划并标注待视觉复核，不能声称已消除穿帮。",
+      "en": "Compare shots for costume, prop ownership, position, action, eyelines, axis, lighting and time. List issue, evidence, affected shots and minimal corrective prompts, distinguishing intentional cuts from mistakes. Without frames, review the textual plan and flag visual checks still needed; do not claim continuity defects are eliminated.",
+      "ja": "衣装、道具、位置、動作、視線、軸、光、時刻をカット対照表で点検。問題、証拠、対象、最小修正文を示し意図的カットと誤りを分ける。実フレームなしなら文字計画の確認とし、目視待ちを残す。"
+    },
+    "examples": {
+      "zh": "针对同一角色从房间走到街道的短动画，完成“跨镜头连续性检查”，给出可以直接使用的内容。",
+      "en": "Create cross-shot continuity checks for a short animation following one character from a room to a street. Provide a usable deliverable.",
+      "ja": "同一人物が部屋から通りへ歩く短編アニメについて「カット間連続性の点検」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：故事梗概、角色设定、场景图、时长和生成工具。已写在需求中的信息不必重复。",
+      "en": "Provide synopsis, character design, scene references, duration and generation tool. Do not repeat details already in the brief.",
+      "ja": "あらすじ、人物設定、場面資料、尺、生成ツールを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-16",
+      "aishort-274"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "productivity-review",
+    "group": "productivity",
+    "labels": {
+      "zh": "每周复盘与安排",
+      "en": "Weekly review and planning",
+      "ja": "週次レビュー・計画"
+    },
+    "terms": [
+      "每周复盘",
+      "weekly review",
+      "週次レビュー"
+    ],
+    "guidance": {
+      "zh": "对照目标回顾已完成、延期与取消事项，分析时间消耗和阻塞，不做道德化评判。选出下周少量重点，安排可用时段、缓冲和最小行动，并写明确的放弃或顺延清单。计划总量不得超过用户提供的时间。",
+      "en": "Review completed, delayed and cancelled tasks against goals, examining time and blockers without moral judgment. Choose a small set of priorities, schedule available time with buffers and minimum actions, and state what will be dropped or deferred. Keep planned effort within the supplied time budget.",
+      "ja": "目標に対し完了、延期、中止を見直し、時間と障害を道徳的評価なしで分析。翌週の少数重点、空き枠、余裕、最小行動を決め、行わない項目を明示。作業量は提供された時間を超えない。"
+    },
+    "examples": {
+      "zh": "针对工作与学习并行且每周可用时间有限的安排，完成“每周复盘与安排”，给出可以直接使用的内容。",
+      "en": "Create weekly review and planning for balancing work and study with limited weekly time. Provide a usable deliverable.",
+      "ja": "仕事と学習を限られた週時間で両立する計画について「週次レビュー・計画」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：现有任务、固定日程、目标、精力限制和工具。已写在需求中的信息不必重复。",
+      "en": "Provide current tasks, fixed commitments, goals, energy limits and tools. Do not repeat details already in the brief.",
+      "ja": "現タスク、固定予定、目標、体力制約、ツールを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-70",
+      "aishort-215",
+      "aishort-279"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "productivity-checklist",
+    "group": "productivity",
+    "labels": {
+      "zh": "可复用检查清单",
+      "en": "Reusable checklists",
+      "ja": "再利用チェックリスト"
+    },
+    "terms": [
+      "检查清单",
+      "checklist",
+      "チェックリスト"
+    ],
+    "guidance": {
+      "zh": "把重复任务拆成准备、执行、核对与收尾，每项写成可观察的单一动作。加入触发条件、异常分支和完成证据，标明必做与可选；删除无法勾选的空泛要求。提供适合打印或粘贴到任务软件的版本。",
+      "en": "Break a recurring task into preparation, execution, verification and closure, with one observable action per item. Add triggers, exception branches and completion evidence; distinguish required from optional steps and remove vague uncheckable advice. Provide a printable or task-app-ready version.",
+      "ja": "反復作業を準備、実行、確認、終了に分け、一項目一つの観察可能な行動にする。条件、例外、完了証拠、必須・任意を付け、チェック不能な抽象助言を除く。印刷やタスクアプリに使える形式を出す。"
+    },
+    "examples": {
+      "zh": "针对工作与学习并行且每周可用时间有限的安排，完成“可复用检查清单”，给出可以直接使用的内容。",
+      "en": "Create reusable checklists for balancing work and study with limited weekly time. Provide a usable deliverable.",
+      "ja": "仕事と学習を限られた週時間で両立する計画について「再利用チェックリスト」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：现有任务、固定日程、目标、精力限制和工具。已写在需求中的信息不必重复。",
+      "en": "Provide current tasks, fixed commitments, goals, energy limits and tools. Do not repeat details already in the brief.",
+      "ja": "現タスク、固定予定、目標、体力制約、ツールを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-70",
+      "aishort-215",
+      "aishort-279"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  },
+  {
+    "id": "productivity-knowledge",
+    "group": "productivity",
+    "labels": {
+      "zh": "个人知识库整理",
+      "en": "Personal knowledge organization",
+      "ja": "個人ナレッジ整理"
+    },
+    "terms": [
+      "知识库整理",
+      "knowledge organization",
+      "笔记分类",
+      "ノート整理"
+    ],
+    "guidance": {
+      "zh": "按检索和复用目的设计少量稳定分类、标签和命名规则，给示例笔记的归类、摘要、关联与后续行动。区分原始资料、个人理解和待核实信息，设置来源字段和去重规则。先给迁移映射与预览，不默认删除原文件或重排全部资料。",
+      "en": "Design a small stable set of categories, tags and naming rules around retrieval and reuse. Classify sample notes with summaries, links and follow-up actions. Separate source material, interpretation and unverified information, including provenance and deduplication rules. Provide migration mapping and preview before any file changes.",
+      "ja": "検索・再利用を軸に少数の安定分類、タグ、命名規則を作り、例ノートの分類、要約、関連、次の行動を示す。原資料、解釈、未確認を分け出典と重複規則を付ける。変更前に移行対応とプレビューを出し原本を削除しない。"
+    },
+    "examples": {
+      "zh": "针对工作与学习并行且每周可用时间有限的安排，完成“个人知识库整理”，给出可以直接使用的内容。",
+      "en": "Create personal knowledge organization for balancing work and study with limited weekly time. Provide a usable deliverable.",
+      "ja": "仕事と学習を限られた週時間で両立する計画について「個人ナレッジ整理」を、使える具体的な内容で作成してください。"
+    },
+    "questions": {
+      "zh": "请补充：现有任务、固定日程、目标、精力限制和工具。已写在需求中的信息不必重复。",
+      "en": "Provide current tasks, fixed commitments, goals, energy limits and tools. Do not repeat details already in the brief.",
+      "ja": "現タスク、固定予定、目標、体力制約、ツールを補足してください。要望に記載済みなら繰り返し不要です。"
+    },
+    "sourceReferences": [
+      "aishort-70",
+      "aishort-215",
+      "aishort-279"
+    ],
+    "editorialStatus": "reviewed-original-adaptation"
+  }
+]
