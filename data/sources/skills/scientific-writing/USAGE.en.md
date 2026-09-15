@@ -1,8 +1,9 @@
-# Scientific writing
+# Scientific writing (instruction-only)
 
-This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.
+Instruction-only adaptation for outlines, drafts, captions and reviewer responses. The entrypoint needs no Python or external Skill. Upstream commands in reference documents are outside this edition. Evidence verification requires original sources or research tools; this does not certify factual accuracy or submission compliance.
+
+Extract into a tool supporting SKILL.md, or paste SKILL.md and your generated prompt into chat with shareable research material. Specify the response language. No model or file-generation tools are included.
 
 Source: https://github.com/K-Dense-AI/claude-scientific-skills/tree/330c8e764435a731eff571e3efdda70b363d0792/skills/scientific-writing
-
 Commit: 330c8e764435a731eff571e3efdda70b363d0792
 License: MIT

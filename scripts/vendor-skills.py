@@ -49,3 +49,7 @@ for id,repo,commit,directory,tasks,labels in sources:
  catalog.append(entry)
 (root/'data/studio/skills.json').write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('Packaged documentation Skills:',[(x['id'],x['bytes']) for x in catalog])
+
+# Preserve reviewed adaptations after every upstream refresh.
+import runpy
+runpy.run_path(str(root / "scripts/repair-skill-packages.py"), run_name="__main__")

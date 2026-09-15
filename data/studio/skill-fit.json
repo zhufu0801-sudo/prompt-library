@@ -80,9 +80,9 @@
       "小学生の作文"
     ],
     "scope": {
-      "zh": "适合依据真实资料制作科研论文、章节、引用和修改回复；不生成虚构数据或参考文献。可选Python审查工具需另外安装。",
-      "en": "For evidence-based research papers, sections, citations and revisions; never invented data or references. Optional Python audit tools require a separate installation.",
-      "ja": "実資料に基づく研究論文・章・引用・修正向け。データや文献を捏造しません。任意のPython監査ツールは別途必要です。"
+      "zh": "适合依据真实资料制作科研论文、章节、图表说明和修改回复；无脚本适配版，不生成虚构数据或参考文献。",
+      "en": "Instruction-only workflow for scientific manuscripts, sections, captions and reviewer responses grounded in supplied evidence; no fabricated data or references.",
+      "ja": "実資料に基づく科学論文・章・図表説明・査読回答向けのスクリプト不要版。データや文献を捏造しません。"
     },
     "additionalTasks": [
       "paper-focused-limitations",
