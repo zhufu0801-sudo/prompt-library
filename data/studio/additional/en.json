@@ -153,7 +153,10 @@
         "defaultValue": "Lessons and teaching plans",
         "options": [
           "Lessons and teaching plans",
-          "Study plans and practice"
+          "Study plans and practice",
+          "Explain with everyday analogies",
+          "Active recall cards",
+          "Learn through a small project"
         ],
         "maxSelections": 1
       },

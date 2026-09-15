@@ -1,0 +1,1922 @@
+[
+  {
+    "id": "security-focused-upload",
+    "group": "security",
+    "labels": {
+      "zh": "文件上传安全",
+      "en": "File upload security",
+      "ja": "アップロード検証"
+    },
+    "terms": [
+      "文件上传安全",
+      "File upload security",
+      "アップロード検証",
+      "upload"
+    ],
+    "guidance": {
+      "zh": "核对扩展名、实际类型、大小、存储路径和下载权限；交付校验代码及伪装类型、超限、路径穿越测试，上传内容不可默认执行。",
+      "en": "Validate extension, actual type, size, storage path and access. Supply code and spoofed-type, oversized and traversal tests; uploaded content must not execute by default.",
+      "ja": "拡張子、実形式、容量、保存先、権限を検証。形式偽装、超過、パス逸脱のテストとコードを出し、内容を自動実行しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：文件上传安全. 核对扩展名、实际类型、大小、存储路径和下载权限；交付校验代码及伪装类型、超限、路径穿越测试，上传内容不可默认执行",
+      "en": "Using my supplied material, deliver: File upload security. Validate extension, actual type, size, storage path and access. Supply code and spoofed-type, oversized and traversal tests; uploaded content must not execute by default.",
+      "ja": "提供資料に基づき作成してください：アップロード検証. 拡張子、実形式、容量、保存先、権限を検証"
+    },
+    "questions": {
+      "zh": "请提供与“文件上传安全”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For file upload security, provide source material, target software/use case and fixed constraints.",
+      "ja": "「アップロード検証」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "security-focused-redaction",
+    "group": "security",
+    "labels": {
+      "zh": "日志脱敏与隐私",
+      "en": "Log redaction",
+      "ja": "ログの機密除去"
+    },
+    "terms": [
+      "日志脱敏与隐私",
+      "Log redaction",
+      "ログの機密除去",
+      "redaction"
+    ],
+    "guidance": {
+      "zh": "列出日志中必要字段与不该记录的字段，给结构化脱敏实现和嵌套对象测试；保留排错线索，禁止打印密码、令牌和完整身份信息。",
+      "en": "Define necessary and prohibited log fields. Implement structured redaction with nested-object tests while retaining debugging signals. Never print passwords, tokens or full identity data.",
+      "ja": "必要・禁止項目を分け、入れ子も扱う機密除去とテストを実装。調査情報を残し、パスワード、トークン、本人情報を出さない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：日志脱敏与隐私. 列出日志中必要字段与不该记录的字段，给结构化脱敏实现和嵌套对象测试；保留排错线索，禁止打印密码、令牌和完整身份信息",
+      "en": "Using my supplied material, deliver: Log redaction. Define necessary and prohibited log fields. Implement structured redaction with nested-object tests while retaining debugging signals. Never print passwords, tokens or full identity data.",
+      "ja": "提供資料に基づき作成してください：ログの機密除去. 必要・禁止項目を分け、入れ子も扱う機密除去とテストを実装"
+    },
+    "questions": {
+      "zh": "请提供与“日志脱敏与隐私”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For log redaction, provide source material, target software/use case and fixed constraints.",
+      "ja": "「ログの機密除去」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "security-focused-validation",
+    "group": "security",
+    "labels": {
+      "zh": "输入校验与错误边界",
+      "en": "Input validation boundaries",
+      "ja": "入力検証の境界"
+    },
+    "terms": [
+      "输入校验与错误边界",
+      "Input validation boundaries",
+      "入力検証の境界",
+      "validation"
+    ],
+    "guidance": {
+      "zh": "给信任边界、字段规则、长度与枚举限制，区分校验和输出转义。交付服务端实现及空值、超长、嵌套异常测试，不只靠前端限制。",
+      "en": "Define trust boundaries, field rules, lengths and enums. Separate validation from output escaping. Deliver server-side checks for nulls, oversized inputs and malformed nesting, not frontend limits alone.",
+      "ja": "信頼境界、項目、長さ、列挙を定義。検証と出力エスケープを分け、空値、超長、異常入れ子をサーバーでテストする。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：输入校验与错误边界. 给信任边界、字段规则、长度与枚举限制，区分校验和输出转义",
+      "en": "Using my supplied material, deliver: Input validation boundaries. Define trust boundaries, field rules, lengths and enums. Separate validation from output escaping. Deliver server-side checks for nulls, oversized inputs and malformed nesting, not frontend limits alone.",
+      "ja": "提供資料に基づき作成してください：入力検証の境界. 信頼境界、項目、長さ、列挙を定義"
+    },
+    "questions": {
+      "zh": "请提供与“输入校验与错误边界”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For input validation boundaries, provide source material, target software/use case and fixed constraints.",
+      "ja": "「入力検証の境界」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "performance-focused-memory",
+    "group": "performance",
+    "labels": {
+      "zh": "内存泄漏定位",
+      "en": "Memory leak investigation",
+      "ja": "メモリリーク調査"
+    },
+    "terms": [
+      "内存泄漏定位",
+      "Memory leak investigation",
+      "メモリリーク調査",
+      "memory"
+    ],
+    "guidance": {
+      "zh": "给可重复的内存增长实验，检查监听器、定时器、缓存和引用释放。按堆快照证据给修复与稳定性复测；没有快照只列假设，不把正常缓存判为泄漏。",
+      "en": "Design a repeatable growth experiment and inspect listeners, timers, caches and retained references. Base fixes on heap evidence and retest stability; distinguish normal caching from leaks.",
+      "ja": "再現実験でリスナー、タイマー、キャッシュ、参照解放を調べる。ヒープ証拠に基づき修正・再計測し、通常キャッシュを漏れと断定しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：内存泄漏定位. 给可重复的内存增长实验，检查监听器、定时器、缓存和引用释放",
+      "en": "Using my supplied material, deliver: Memory leak investigation. Design a repeatable growth experiment and inspect listeners, timers, caches and retained references. Base fixes on heap evidence and retest stability; distinguish normal caching from leaks.",
+      "ja": "提供資料に基づき作成してください：メモリリーク調査. 再現実験でリスナー、タイマー、キャッシュ、参照解放を調べる"
+    },
+    "questions": {
+      "zh": "请提供与“内存泄漏定位”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For memory leak investigation, provide source material, target software/use case and fixed constraints.",
+      "ja": "「メモリリーク調査」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "performance-focused-query",
+    "group": "performance",
+    "labels": {
+      "zh": "慢查询与执行计划",
+      "en": "Slow query analysis",
+      "ja": "遅いクエリの解析"
+    },
+    "terms": [
+      "慢查询与执行计划",
+      "Slow query analysis",
+      "遅いクエリの解析",
+      "query"
+    ],
+    "guidance": {
+      "zh": "根据实际SQL与执行计划解释扫描、连接和排序成本，提出索引与查询改写。给等价性、读写代价和前后耗时核对，不能只凭字段名猜最优索引。",
+      "en": "Explain scans, joins and sorts from actual SQL and plans. Propose indexes and rewrites with equivalence, write-cost and timing checks; field names alone cannot prove the best index.",
+      "ja": "実SQLと計画から走査、結合、ソートを説明。索引・書換えに同値性、書込費用、時間比較を添え、名前だけで最適としない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：慢查询与执行计划. 根据实际SQL与执行计划解释扫描、连接和排序成本，提出索引与查询改写",
+      "en": "Using my supplied material, deliver: Slow query analysis. Explain scans, joins and sorts from actual SQL and plans. Propose indexes and rewrites with equivalence, write-cost and timing checks; field names alone cannot prove the best index.",
+      "ja": "提供資料に基づき作成してください：遅いクエリの解析. 実SQLと計画から走査、結合、ソートを説明"
+    },
+    "questions": {
+      "zh": "请提供与“慢查询与执行计划”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For slow query analysis, provide source material, target software/use case and fixed constraints.",
+      "ja": "「遅いクエリの解析」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "performance-focused-render",
+    "group": "performance",
+    "labels": {
+      "zh": "前端渲染卡顿",
+      "en": "UI rendering jank",
+      "ja": "描画の引っ掛かり"
+    },
+    "terms": [
+      "前端渲染卡顿",
+      "UI rendering jank",
+      "描画の引っ掛かり",
+      "render"
+    ],
+    "guidance": {
+      "zh": "用性能记录区分长任务、布局抖动与重复渲染，给最小组件修正。验证输入响应、滚动和低端设备表现，不为优化引入过度缓存或破坏可访问性。",
+      "en": "Use traces to distinguish long tasks, layout thrashing and redundant renders. Make minimal fixes and verify input, scroll and slower-device behavior without excessive caching or accessibility regressions.",
+      "ja": "記録から長時間処理、レイアウト反復、再描画を分け最小修正。入力、スクロール、低性能端末を確認し、過剰キャッシュや利用障害を避ける。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：前端渲染卡顿. 用性能记录区分长任务、布局抖动与重复渲染，给最小组件修正",
+      "en": "Using my supplied material, deliver: UI rendering jank. Use traces to distinguish long tasks, layout thrashing and redundant renders. Make minimal fixes and verify input, scroll and slower-device behavior without excessive caching or accessibility regressions.",
+      "ja": "提供資料に基づき作成してください：描画の引っ掛かり. 記録から長時間処理、レイアウト反復、再描画を分け最小修正"
+    },
+    "questions": {
+      "zh": "请提供与“前端渲染卡顿”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For ui rendering jank, provide source material, target software/use case and fixed constraints.",
+      "ja": "「描画の引っ掛かり」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "mobile-focused-forms",
+    "group": "mobile",
+    "labels": {
+      "zh": "移动表单与键盘",
+      "en": "Mobile forms and keyboards",
+      "ja": "モバイルフォーム・キーボード"
+    },
+    "terms": [
+      "移动表单与键盘",
+      "Mobile forms and keyboards",
+      "モバイルフォーム・キーボード",
+      "forms"
+    ],
+    "guidance": {
+      "zh": "为实际字段设置键盘、焦点顺序、错误文案与提交状态，处理键盘遮挡和离开提醒。给目标框架代码与辅助技术操作检查，保留已输入内容。",
+      "en": "Set keyboard types, focus order, errors and submission states per field. Handle occlusion and leaving warnings, preserving input. Supply framework code and assistive-technology checks.",
+      "ja": "項目別キーボード、焦点、エラー、送信状態を設定。遮蔽と離脱確認を扱い入力を保持し、コードと支援技術確認を出す。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：移动表单与键盘. 为实际字段设置键盘、焦点顺序、错误文案与提交状态，处理键盘遮挡和离开提醒",
+      "en": "Using my supplied material, deliver: Mobile forms and keyboards. Set keyboard types, focus order, errors and submission states per field. Handle occlusion and leaving warnings, preserving input. Supply framework code and assistive-technology checks.",
+      "ja": "提供資料に基づき作成してください：モバイルフォーム・キーボード. 項目別キーボード、焦点、エラー、送信状態を設定"
+    },
+    "questions": {
+      "zh": "请提供与“移动表单与键盘”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For mobile forms and keyboards, provide source material, target software/use case and fixed constraints.",
+      "ja": "「モバイルフォーム・キーボード」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "mobile-focused-images",
+    "group": "mobile",
+    "labels": {
+      "zh": "移动图片加载",
+      "en": "Mobile image loading",
+      "ja": "モバイル画像読込み"
+    },
+    "terms": [
+      "移动图片加载",
+      "Mobile image loading",
+      "モバイル画像読込み",
+      "images"
+    ],
+    "guidance": {
+      "zh": "按屏幕尺寸设计缩略图、缓存、占位与失败重试，避免一次解码大图。给取消过期请求、内存释放和列表滚动测试，保留原图下载的明确入口。",
+      "en": "Design thumbnails, caching, placeholders and retries for screen size. Avoid full-resolution decoding, cancel stale requests and test memory release and scrolling. Keep original downloads explicit.",
+      "ja": "画面に合う縮小図、キャッシュ、仮表示、再試行を設計。大画像一括展開を避け、旧要求取消、解放、スクロールを確認する。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：移动图片加载. 按屏幕尺寸设计缩略图、缓存、占位与失败重试，避免一次解码大图",
+      "en": "Using my supplied material, deliver: Mobile image loading. Design thumbnails, caching, placeholders and retries for screen size. Avoid full-resolution decoding, cancel stale requests and test memory release and scrolling. Keep original downloads explicit.",
+      "ja": "提供資料に基づき作成してください：モバイル画像読込み. 画面に合う縮小図、キャッシュ、仮表示、再試行を設計"
+    },
+    "questions": {
+      "zh": "请提供与“移动图片加载”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For mobile image loading, provide source material, target software/use case and fixed constraints.",
+      "ja": "「モバイル画像読込み」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "mobile-focused-deeplink",
+    "group": "mobile",
+    "labels": {
+      "zh": "深链与登录返回",
+      "en": "Deep links and login return",
+      "ja": "ディープリンク・ログイン復帰"
+    },
+    "terms": [
+      "深链与登录返回",
+      "Deep links and login return",
+      "ディープリンク・ログイン復帰",
+      "deeplink"
+    ],
+    "guidance": {
+      "zh": "定义合法链接、参数校验和未登录重定向，登录后回到原目标。覆盖不存在资源、过期链接和外部链接，防开放重定向，不假设客户端参数可信。",
+      "en": "Validate allowed links and parameters, preserve the destination through login, and handle missing resources and expired links. Prevent open redirects; client parameters are not trusted.",
+      "ja": "許可リンクと引数を検証しログイン後の目的地を保持。対象なし、期限切れ、外部遷移を扱い、無制限リダイレクトを防ぐ。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：深链与登录返回. 定义合法链接、参数校验和未登录重定向，登录后回到原目标",
+      "en": "Using my supplied material, deliver: Deep links and login return. Validate allowed links and parameters, preserve the destination through login, and handle missing resources and expired links. Prevent open redirects; client parameters are not trusted.",
+      "ja": "提供資料に基づき作成してください：ディープリンク・ログイン復帰. 許可リンクと引数を検証しログイン後の目的地を保持"
+    },
+    "questions": {
+      "zh": "请提供与“深链与登录返回”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For deep links and login return, provide source material, target software/use case and fixed constraints.",
+      "ja": "「ディープリンク・ログイン復帰」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "automation-focused-encoding",
+    "group": "automation",
+    "labels": {
+      "zh": "乱码与编码修复",
+      "en": "Text encoding repair",
+      "ja": "文字化けの修正"
+    },
+    "terms": [
+      "乱码与编码修复",
+      "Text encoding repair",
+      "文字化けの修正",
+      "encoding"
+    ],
+    "guidance": {
+      "zh": "检查原始字节、声明编码和解码路径，保留原文件后给转换脚本与抽样核对。无法恢复的字符标记未知，不能通过重复转码掩盖数据丢失。",
+      "en": "Inspect bytes, declared encoding and decoding paths. Preserve originals and provide conversion plus sample checks. Mark unrecoverable characters; repeated transcoding cannot restore lost data.",
+      "ja": "バイト、宣言、復号経路を確認し原本を保った変換と抽出照合を出す。復元不能文字は不明とし再変換で損失を隠さない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：乱码与编码修复. 检查原始字节、声明编码和解码路径，保留原文件后给转换脚本与抽样核对",
+      "en": "Using my supplied material, deliver: Text encoding repair. Inspect bytes, declared encoding and decoding paths. Preserve originals and provide conversion plus sample checks. Mark unrecoverable characters; repeated transcoding cannot restore lost data.",
+      "ja": "提供資料に基づき作成してください：文字化けの修正. バイト、宣言、復号経路を確認し原本を保った変換と抽出照合を出す"
+    },
+    "questions": {
+      "zh": "请提供与“乱码与编码修复”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For text encoding repair, provide source material, target software/use case and fixed constraints.",
+      "ja": "「文字化けの修正」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "automation-focused-dedupe",
+    "group": "automation",
+    "labels": {
+      "zh": "重复文件识别预览",
+      "en": "Duplicate file preview",
+      "ja": "重複ファイルの確認"
+    },
+    "terms": [
+      "重复文件识别预览",
+      "Duplicate file preview",
+      "重複ファイルの確認",
+      "dedupe"
+    ],
+    "guidance": {
+      "zh": "按文件大小与内容哈希分组，输出路径、时间和保留候选。默认仅生成报告，分开完全重复与近似文件；处理符号链接和权限错误，不自动删除。",
+      "en": "Group by size and content hash, listing paths, dates and retention candidates. Default to a report, distinguish exact from similar files, and handle symlinks/permissions without automatic deletion.",
+      "ja": "容量と内容ハッシュで分類し、パス、日時、保存候補を報告。完全一致と類似を分け、リンクと権限を扱い自動削除しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：重复文件识别预览. 按文件大小与内容哈希分组，输出路径、时间和保留候选",
+      "en": "Using my supplied material, deliver: Duplicate file preview. Group by size and content hash, listing paths, dates and retention candidates. Default to a report, distinguish exact from similar files, and handle symlinks/permissions without automatic deletion.",
+      "ja": "提供資料に基づき作成してください：重複ファイルの確認. 容量と内容ハッシュで分類し、パス、日時、保存候補を報告"
+    },
+    "questions": {
+      "zh": "请提供与“重复文件识别预览”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For duplicate file preview, provide source material, target software/use case and fixed constraints.",
+      "ja": "「重複ファイルの確認」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "automation-focused-extract",
+    "group": "automation",
+    "labels": {
+      "zh": "文本提取与正则",
+      "en": "Text extraction and regex",
+      "ja": "文字抽出・正規表現"
+    },
+    "terms": [
+      "文本提取与正则",
+      "Text extraction and regex",
+      "文字抽出・正規表現",
+      "extract"
+    ],
+    "guidance": {
+      "zh": "从样例定义提取目标与排除项，给目标语言正则、解释和边界用例。保留行号及未匹配报告，说明正则不适合的嵌套结构并选解析器，不用贪婪匹配吞掉正文。",
+      "en": "Define extraction and exclusions from samples. Provide language-specific regex, explanation and edge tests with line numbers and unmatched reports. Use parsers for unsuitable nested structures.",
+      "ja": "例から抽出・除外を定め、言語別正規表現、説明、境界テスト、行番号、未一致を出す。複雑な入れ子はパーサーを選ぶ。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：文本提取与正则. 从样例定义提取目标与排除项，给目标语言正则、解释和边界用例",
+      "en": "Using my supplied material, deliver: Text extraction and regex. Define extraction and exclusions from samples. Provide language-specific regex, explanation and edge tests with line numbers and unmatched reports. Use parsers for unsuitable nested structures.",
+      "ja": "提供資料に基づき作成してください：文字抽出・正規表現. 例から抽出・除外を定め、言語別正規表現、説明、境界テスト、行番号、未一致を出す"
+    },
+    "questions": {
+      "zh": "请提供与“文本提取与正则”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For text extraction and regex, provide source material, target software/use case and fixed constraints.",
+      "ja": "「文字抽出・正規表現」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "git-focused-bisect",
+    "group": "git",
+    "labels": {
+      "zh": "定位引入问题的提交",
+      "en": "Find a regression commit",
+      "ja": "不具合導入コミットの特定"
+    },
+    "terms": [
+      "定位引入问题的提交",
+      "Find a regression commit",
+      "不具合導入コミットの特定",
+      "bisect"
+    ],
+    "guidance": {
+      "zh": "定义可靠的好坏判断命令与已知边界，给bisect步骤、跳过不构建提交及退出恢复方法。保留工作区，最终用最小复现核实提交，不把相关当根因。",
+      "en": "Define a reliable good/bad command and known bounds. Provide bisect, skip and reset steps while preserving work. Confirm the candidate with a minimal reproduction rather than equating correlation with cause.",
+      "ja": "良否判定と境界を定め、bisect、スキップ、復帰を示す。作業を保ち最小再現で候補を確認し、相関を原因としない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：定位引入问题的提交. 定义可靠的好坏判断命令与已知边界，给bisect步骤、跳过不构建提交及退出恢复方法",
+      "en": "Using my supplied material, deliver: Find a regression commit. Define a reliable good/bad command and known bounds. Provide bisect, skip and reset steps while preserving work. Confirm the candidate with a minimal reproduction rather than equating correlation with cause.",
+      "ja": "提供資料に基づき作成してください：不具合導入コミットの特定. 良否判定と境界を定め、bisect、スキップ、復帰を示す"
+    },
+    "questions": {
+      "zh": "请提供与“定位引入问题的提交”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For find a regression commit, provide source material, target software/use case and fixed constraints.",
+      "ja": "「不具合導入コミットの特定」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "git-focused-revert",
+    "group": "git",
+    "labels": {
+      "zh": "安全撤销与恢复",
+      "en": "Safe undo and recovery",
+      "ja": "変更取消・復元"
+    },
+    "terms": [
+      "安全撤销与恢复",
+      "Safe undo and recovery",
+      "変更取消・復元",
+      "revert"
+    ],
+    "guidance": {
+      "zh": "先区分未提交、已提交未推送与共享历史，按状态选择恢复方案。给备份分支、预览与验证步骤，解释revert和reset影响，不默认丢弃改动或改写共享历史。",
+      "en": "Distinguish uncommitted, local commits and shared history before choosing recovery. Provide backups, previews and checks, explaining revert/reset effects without default data loss or shared-history rewriting.",
+      "ja": "未コミット、ローカル履歴、共有履歴を分け復元を選ぶ。予備、プレビュー、確認とrevert/resetの影響を示し、既定で作業を捨てない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：安全撤销与恢复. 先区分未提交、已提交未推送与共享历史，按状态选择恢复方案",
+      "en": "Using my supplied material, deliver: Safe undo and recovery. Distinguish uncommitted, local commits and shared history before choosing recovery. Provide backups, previews and checks, explaining revert/reset effects without default data loss or shared-history rewriting.",
+      "ja": "提供資料に基づき作成してください：変更取消・復元. 未コミット、ローカル履歴、共有履歴を分け復元を選ぶ"
+    },
+    "questions": {
+      "zh": "请提供与“安全撤销与恢复”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For safe undo and recovery, provide source material, target software/use case and fixed constraints.",
+      "ja": "「変更取消・復元」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "git-focused-commit",
+    "group": "git",
+    "labels": {
+      "zh": "拆分提交与变更说明",
+      "en": "Split commits and explain changes",
+      "ja": "コミット分割・変更説明"
+    },
+    "terms": [
+      "拆分提交与变更说明",
+      "Split commits and explain changes",
+      "コミット分割・変更説明",
+      "commit"
+    ],
+    "guidance": {
+      "zh": "按独立行为把差异分组，给分批暂存与提交说明，保留测试和实现的关联。检查临时文件与秘密，不能声称已提交；未知工作区先读状态。",
+      "en": "Group diffs by independent behavior, with staging steps and commit messages. Keep tests with implementation and check temporary files/secrets. Inspect unknown state and do not claim commits were made.",
+      "ja": "独立動作で差分を分け、段階的追加と説明を作る。テストと実装の関係、仮ファイル・秘密を確認し、実行済みとしない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：拆分提交与变更说明. 按独立行为把差异分组，给分批暂存与提交说明，保留测试和实现的关联",
+      "en": "Using my supplied material, deliver: Split commits and explain changes. Group diffs by independent behavior, with staging steps and commit messages. Keep tests with implementation and check temporary files/secrets. Inspect unknown state and do not claim commits were made.",
+      "ja": "提供資料に基づき作成してください：コミット分割・変更説明. 独立動作で差分を分け、段階的追加と説明を作る"
+    },
+    "questions": {
+      "zh": "请提供与“拆分提交与变更说明”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For split commits and explain changes, provide source material, target software/use case and fixed constraints.",
+      "ja": "「コミット分割・変更説明」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "integration-focused-oauth",
+    "group": "integration",
+    "labels": {
+      "zh": "OAuth 回调与令牌刷新",
+      "en": "OAuth callbacks and refresh",
+      "ja": "OAuthコールバック・更新"
+    },
+    "terms": [
+      "OAuth 回调与令牌刷新",
+      "OAuth callbacks and refresh",
+      "OAuthコールバック・更新",
+      "oauth"
+    ],
+    "guidance": {
+      "zh": "根据官方协议和应用类型说明state、PKCE、回调白名单与令牌存储。给失败分支、撤销和刷新竞态测试，密钥不进浏览器，不自创授权协议。",
+      "en": "Use official protocol and app type to define state, PKCE, redirect allowlists and token storage. Test failures, revocation and refresh races; keep secrets out of browsers.",
+      "ja": "公式方式とアプリ種別からstate、PKCE、許可先、保存を定める。失敗、取消、更新競合をテストし秘密をブラウザーに置かない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：OAuth 回调与令牌刷新. 根据官方协议和应用类型说明state、PKCE、回调白名单与令牌存储",
+      "en": "Using my supplied material, deliver: OAuth callbacks and refresh. Use official protocol and app type to define state, PKCE, redirect allowlists and token storage. Test failures, revocation and refresh races; keep secrets out of browsers.",
+      "ja": "提供資料に基づき作成してください：OAuthコールバック・更新. 公式方式とアプリ種別からstate、PKCE、許可先、保存を定める"
+    },
+    "questions": {
+      "zh": "请提供与“OAuth 回调与令牌刷新”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For oauth callbacks and refresh, provide source material, target software/use case and fixed constraints.",
+      "ja": "「OAuthコールバック・更新」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "integration-focused-pagination",
+    "group": "integration",
+    "labels": {
+      "zh": "分页拉取与断点续传",
+      "en": "Paginated fetch and resume",
+      "ja": "ページ取得・再開"
+    },
+    "terms": [
+      "分页拉取与断点续传",
+      "Paginated fetch and resume",
+      "ページ取得・再開",
+      "pagination"
+    ],
+    "guidance": {
+      "zh": "定义游标持久化、稳定排序、限速和检查点，给中断恢复代码。处理重复页、游标失效、空页及新增记录，不默认页码能保证完整性。",
+      "en": "Define persisted cursors, stable order, limits and checkpoints. Implement recovery for repeated/empty pages, expired cursors and new records; page numbers alone do not ensure completeness.",
+      "ja": "カーソル保存、安定順序、制限、確認点を定義。重複・空ページ、失効、追加レコードを扱い、ページ番号だけで完全性を保証しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：分页拉取与断点续传. 定义游标持久化、稳定排序、限速和检查点，给中断恢复代码",
+      "en": "Using my supplied material, deliver: Paginated fetch and resume. Define persisted cursors, stable order, limits and checkpoints. Implement recovery for repeated/empty pages, expired cursors and new records; page numbers alone do not ensure completeness.",
+      "ja": "提供資料に基づき作成してください：ページ取得・再開. カーソル保存、安定順序、制限、確認点を定義"
+    },
+    "questions": {
+      "zh": "请提供与“分页拉取与断点续传”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For paginated fetch and resume, provide source material, target software/use case and fixed constraints.",
+      "ja": "「ページ取得・再開」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "integration-focused-mock",
+    "group": "integration",
+    "labels": {
+      "zh": "接口模拟与契约验证",
+      "en": "API mocks and contracts",
+      "ja": "APIモック・契約確認"
+    },
+    "terms": [
+      "接口模拟与契约验证",
+      "API mocks and contracts",
+      "APIモック・契約確認",
+      "mock"
+    ],
+    "guidance": {
+      "zh": "根据真实接口定义生成成功与错误样例、类型及模拟处理器。验证请求响应契约和版本差异，明确模拟数据；不将模拟通过当作生产服务已连通。",
+      "en": "Generate typed success/error fixtures and mock handlers from real contracts. Validate request/response shape and version differences. Label simulated data; passing mocks does not prove production connectivity.",
+      "ja": "実契約から型付き成功・失敗例とモックを作る。入出力と版差を検証し、模擬成功を本番接続としない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：接口模拟与契约验证. 根据真实接口定义生成成功与错误样例、类型及模拟处理器",
+      "en": "Using my supplied material, deliver: API mocks and contracts. Generate typed success/error fixtures and mock handlers from real contracts. Validate request/response shape and version differences. Label simulated data; passing mocks does not prove production connectivity.",
+      "ja": "提供資料に基づき作成してください：APIモック・契約確認. 実契約から型付き成功・失敗例とモックを作る"
+    },
+    "questions": {
+      "zh": "请提供与“接口模拟与契约验证”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For api mocks and contracts, provide source material, target software/use case and fixed constraints.",
+      "ja": "「APIモック・契約確認」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "games-focused-inventory",
+    "group": "games",
+    "labels": {
+      "zh": "背包与物品堆叠",
+      "en": "Inventory and item stacking",
+      "ja": "持ち物・スタック"
+    },
+    "terms": [
+      "背包与物品堆叠",
+      "Inventory and item stacking",
+      "持ち物・スタック",
+      "inventory"
+    ],
+    "guidance": {
+      "zh": "定义物品ID、容量、堆叠上限和装备规则，交付增删移动代码及溢出测试。区分物品定义和实例，处理存档升级，不复制同一引用产生重复物品。",
+      "en": "Define item IDs, capacity, stack limits and equipment rules. Implement add/remove/move and overflow tests, separating definitions from instances and handling save upgrades.",
+      "ja": "ID、容量、重ね上限、装備を定め、追加・削除・移動と超過テストを実装。定義と個体を分け、保存版の更新も扱う。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：背包与物品堆叠. 定义物品ID、容量、堆叠上限和装备规则，交付增删移动代码及溢出测试",
+      "en": "Using my supplied material, deliver: Inventory and item stacking. Define item IDs, capacity, stack limits and equipment rules. Implement add/remove/move and overflow tests, separating definitions from instances and handling save upgrades.",
+      "ja": "提供資料に基づき作成してください：持ち物・スタック. ID、容量、重ね上限、装備を定め、追加・削除・移動と超過テストを実装"
+    },
+    "questions": {
+      "zh": "请提供与“背包与物品堆叠”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For inventory and item stacking, provide source material, target software/use case and fixed constraints.",
+      "ja": "「持ち物・スタック」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "games-focused-input",
+    "group": "games",
+    "labels": {
+      "zh": "输入重映射与手柄",
+      "en": "Input remapping and controllers",
+      "ja": "入力変更・コントローラー"
+    },
+    "terms": [
+      "输入重映射与手柄",
+      "Input remapping and controllers",
+      "入力変更・コントローラー",
+      "input"
+    ],
+    "guidance": {
+      "zh": "建立动作映射、死区、设备切换和冲突提示，给目标引擎实现。覆盖断连、暂停、菜单与游戏输入隔离，并保存用户配置，不把按键写死。",
+      "en": "Implement action maps, dead zones, device changes and binding conflicts. Test disconnects, pause and menu/gameplay separation; persist user settings instead of hard-coding keys.",
+      "ja": "動作対応、遊び幅、機器切替、割当競合を実装。切断、一時停止、メニュー分離を確認し、キーを固定せず設定保存する。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：输入重映射与手柄. 建立动作映射、死区、设备切换和冲突提示，给目标引擎实现",
+      "en": "Using my supplied material, deliver: Input remapping and controllers. Implement action maps, dead zones, device changes and binding conflicts. Test disconnects, pause and menu/gameplay separation; persist user settings instead of hard-coding keys.",
+      "ja": "提供資料に基づき作成してください：入力変更・コントローラー. 動作対応、遊び幅、機器切替、割当競合を実装"
+    },
+    "questions": {
+      "zh": "请提供与“输入重映射与手柄”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For input remapping and controllers, provide source material, target software/use case and fixed constraints.",
+      "ja": "「入力変更・コントローラー」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "games-focused-balance",
+    "group": "games",
+    "labels": {
+      "zh": "数值平衡小实验",
+      "en": "Game balance experiment",
+      "ja": "ゲーム調整の小実験"
+    },
+    "terms": [
+      "数值平衡小实验",
+      "Game balance experiment",
+      "ゲーム調整の小実験",
+      "balance"
+    ],
+    "guidance": {
+      "zh": "列玩法目标、可调参数与观测指标，用显式假设构建小规模对照。给配置表、试玩问题和修改范围，不伪造玩家数据或把理论计算当真实乐趣。",
+      "en": "Define goals, parameters and metrics for a small controlled balance experiment. Provide configurations, playtest questions and adjustment bounds without invented player data or equating calculations with fun.",
+      "ja": "目的、変数、指標を定め小さな比較実験を作る。設定、試遊質問、変更幅を示し、架空プレイヤーデータや計算上の楽しさを断定しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：数值平衡小实验. 列玩法目标、可调参数与观测指标，用显式假设构建小规模对照",
+      "en": "Using my supplied material, deliver: Game balance experiment. Define goals, parameters and metrics for a small controlled balance experiment. Provide configurations, playtest questions and adjustment bounds without invented player data or equating calculations with fun.",
+      "ja": "提供資料に基づき作成してください：ゲーム調整の小実験. 目的、変数、指標を定め小さな比較実験を作る"
+    },
+    "questions": {
+      "zh": "请提供与“数值平衡小实验”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For game balance experiment, provide source material, target software/use case and fixed constraints.",
+      "ja": "「ゲーム調整の小実験」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "backend-focused-transactions",
+    "group": "backend",
+    "labels": {
+      "zh": "事务与回滚边界",
+      "en": "Transactions and rollback",
+      "ja": "トランザクション境界"
+    },
+    "terms": [
+      "事务与回滚边界",
+      "Transactions and rollback",
+      "トランザクション境界",
+      "transactions"
+    ],
+    "guidance": {
+      "zh": "标明必须原子完成的写入、隔离级别与外部副作用，提供事务代码和中途失败测试。解释回滚不能撤销已发邮件等外部动作，并设计补偿。",
+      "en": "Identify atomic writes, isolation and external effects. Supply transaction code and mid-operation failures. Explain why rollback cannot undo sent messages and design compensation.",
+      "ja": "原子的書込、隔離、外部作用を定めコードと途中失敗テストを出す。送信済み通知などが巻戻らない理由と補償を示す。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：事务与回滚边界. 标明必须原子完成的写入、隔离级别与外部副作用，提供事务代码和中途失败测试",
+      "en": "Using my supplied material, deliver: Transactions and rollback. Identify atomic writes, isolation and external effects. Supply transaction code and mid-operation failures. Explain why rollback cannot undo sent messages and design compensation.",
+      "ja": "提供資料に基づき作成してください：トランザクション境界. 原子的書込、隔離、外部作用を定めコードと途中失敗テストを出す"
+    },
+    "questions": {
+      "zh": "请提供与“事务与回滚边界”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For transactions and rollback, provide source material, target software/use case and fixed constraints.",
+      "ja": "「トランザクション境界」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "backend-focused-jobs",
+    "group": "backend",
+    "labels": {
+      "zh": "后台队列与重试",
+      "en": "Background queues and retries",
+      "ja": "バックグラウンド処理・再試行"
+    },
+    "terms": [
+      "后台队列与重试",
+      "Background queues and retries",
+      "バックグラウンド処理・再試行",
+      "jobs"
+    ],
+    "guidance": {
+      "zh": "定义任务状态、幂等键、重试退避与死信处理，给消费者代码与观测字段。覆盖重复投递和进程中断，区分至少一次与恰好一次，不空口保证不重复。",
+      "en": "Define states, idempotency keys, backoff and dead letters. Implement consumers and observability, testing duplicates and crashes. Distinguish at-least-once delivery from exactly-once effects.",
+      "ja": "状態、冪等キー、再試行間隔、失敗保管を定め、消費処理と観測を実装。重複と停止を確認し配送保証と副作用を分ける。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：后台队列与重试. 定义任务状态、幂等键、重试退避与死信处理，给消费者代码与观测字段",
+      "en": "Using my supplied material, deliver: Background queues and retries. Define states, idempotency keys, backoff and dead letters. Implement consumers and observability, testing duplicates and crashes. Distinguish at-least-once delivery from exactly-once effects.",
+      "ja": "提供資料に基づき作成してください：バックグラウンド処理・再試行. 状態、冪等キー、再試行間隔、失敗保管を定め、消費処理と観測を実装"
+    },
+    "questions": {
+      "zh": "请提供与“后台队列与重试”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For background queues and retries, provide source material, target software/use case and fixed constraints.",
+      "ja": "「バックグラウンド処理・再試行」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "backend-focused-search",
+    "group": "backend",
+    "labels": {
+      "zh": "站内搜索与排序",
+      "en": "Site search and ranking",
+      "ja": "サイト検索・順位付け"
+    },
+    "terms": [
+      "站内搜索与排序",
+      "Site search and ranking",
+      "サイト検索・順位付け",
+      "search"
+    ],
+    "guidance": {
+      "zh": "定义分词、字段权重、拼写差异、过滤与稳定排序，给查询代码和相关性样例。核对空查询、无结果、权限过滤与分页，保留可解释匹配证据。",
+      "en": "Define tokenization, field weights, spelling variation, filters and stable ranking. Deliver query code and relevance examples, checking empty queries, no results, permissions and pagination with explainable matches.",
+      "ja": "分割、項目重み、表記揺れ、絞込、安定順位を定義。空、該当なし、権限、ページを検証し、一致根拠付きのクエリを出す。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：站内搜索与排序. 定义分词、字段权重、拼写差异、过滤与稳定排序，给查询代码和相关性样例",
+      "en": "Using my supplied material, deliver: Site search and ranking. Define tokenization, field weights, spelling variation, filters and stable ranking. Deliver query code and relevance examples, checking empty queries, no results, permissions and pagination with explainable matches.",
+      "ja": "提供資料に基づき作成してください：サイト検索・順位付け. 分割、項目重み、表記揺れ、絞込、安定順位を定義"
+    },
+    "questions": {
+      "zh": "请提供与“站内搜索与排序”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For site search and ranking, provide source material, target software/use case and fixed constraints.",
+      "ja": "「サイト検索・順位付け」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "testing-focused-flaky",
+    "group": "testing",
+    "labels": {
+      "zh": "不稳定测试排查",
+      "en": "Flaky test diagnosis",
+      "ja": "不安定テストの調査"
+    },
+    "terms": [
+      "不稳定测试排查",
+      "Flaky test diagnosis",
+      "不安定テストの調査",
+      "flaky"
+    ],
+    "guidance": {
+      "zh": "收集重复运行的失败模式，区分时序、共享状态、随机性与外部依赖。给最小修复和复测矩阵，不靠增加长等待或关闭断言取得绿灯。",
+      "en": "Classify repeated failures as timing, shared state, randomness or external dependency issues. Provide minimal fixes and rerun matrices without long sleeps or removed assertions.",
+      "ja": "反復失敗を時序、共有状態、乱数、外部依存に分け最小修正と再試験を出す。長待機や検証削除で合格にしない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：不稳定测试排查. 收集重复运行的失败模式，区分时序、共享状态、随机性与外部依赖",
+      "en": "Using my supplied material, deliver: Flaky test diagnosis. Classify repeated failures as timing, shared state, randomness or external dependency issues. Provide minimal fixes and rerun matrices without long sleeps or removed assertions.",
+      "ja": "提供資料に基づき作成してください：不安定テストの調査. 反復失敗を時序、共有状態、乱数、外部依存に分け最小修正と再試験を出す"
+    },
+    "questions": {
+      "zh": "请提供与“不稳定测试排查”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For flaky test diagnosis, provide source material, target software/use case and fixed constraints.",
+      "ja": "「不安定テストの調査」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "testing-focused-boundaries",
+    "group": "testing",
+    "labels": {
+      "zh": "日期金额边界测试",
+      "en": "Date and money boundary tests",
+      "ja": "日付・金額の境界テスト"
+    },
+    "terms": [
+      "日期金额边界测试",
+      "Date and money boundary tests",
+      "日付・金額の境界テスト",
+      "boundaries"
+    ],
+    "guidance": {
+      "zh": "围绕时区、闰日、月末、精度和舍入列输入及明确期待值，使用目标业务规则。控制时间来源，金额用适当表示，不复制实现计算预期。",
+      "en": "Test timezones, leap days, month ends, precision and rounding with explicit business expectations. Control clocks and monetary representations without duplicating implementation to calculate answers.",
+      "ja": "時差、閏日、月末、精度、丸めの明示期待値を業務規則で作る。時刻源と金額表現を管理し、実装複製で期待値を出さない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：日期金额边界测试. 围绕时区、闰日、月末、精度和舍入列输入及明确期待值，使用目标业务规则",
+      "en": "Using my supplied material, deliver: Date and money boundary tests. Test timezones, leap days, month ends, precision and rounding with explicit business expectations. Control clocks and monetary representations without duplicating implementation to calculate answers.",
+      "ja": "提供資料に基づき作成してください：日付・金額の境界テスト. 時差、閏日、月末、精度、丸めの明示期待値を業務規則で作る"
+    },
+    "questions": {
+      "zh": "请提供与“日期金额边界测试”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For date and money boundary tests, provide source material, target software/use case and fixed constraints.",
+      "ja": "「日付・金額の境界テスト」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "testing-focused-accessibility",
+    "group": "testing",
+    "labels": {
+      "zh": "键盘与读屏测试",
+      "en": "Keyboard and screen-reader tests",
+      "ja": "キーボード・読み上げテスト"
+    },
+    "terms": [
+      "键盘与读屏测试",
+      "Keyboard and screen-reader tests",
+      "キーボード・読み上げテスト",
+      "accessibility"
+    ],
+    "guidance": {
+      "zh": "按焦点顺序、可访问名称、对话框、错误提示和状态更新设计操作测试。区分自动检查与人工读屏项目，记录证据和未测范围，不凭扫描分数宣称全面合规。",
+      "en": "Test focus order, accessible names, dialogs, errors and status updates. Separate automated checks from manual screen-reader tasks, recording evidence and untested scope rather than claiming compliance from a score.",
+      "ja": "焦点順、名称、ダイアログ、エラー、状態通知をテスト。自動と手動読上げを分け、証拠と未確認を記し点数だけで適合宣言しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：键盘与读屏测试. 按焦点顺序、可访问名称、对话框、错误提示和状态更新设计操作测试",
+      "en": "Using my supplied material, deliver: Keyboard and screen-reader tests. Test focus order, accessible names, dialogs, errors and status updates. Separate automated checks from manual screen-reader tasks, recording evidence and untested scope rather than claiming compliance from a score.",
+      "ja": "提供資料に基づき作成してください：キーボード・読み上げテスト. 焦点順、名称、ダイアログ、エラー、状態通知をテスト"
+    },
+    "questions": {
+      "zh": "请提供与“键盘与读屏测试”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For keyboard and screen-reader tests, provide source material, target software/use case and fixed constraints.",
+      "ja": "「キーボード・読み上げテスト」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "devops-focused-env",
+    "group": "devops",
+    "labels": {
+      "zh": "环境差异与配置排错",
+      "en": "Environment configuration debugging",
+      "ja": "環境差・設定の調査"
+    },
+    "terms": [
+      "环境差异与配置排错",
+      "Environment configuration debugging",
+      "環境差・設定の調査",
+      "env"
+    ],
+    "guidance": {
+      "zh": "对照本地与部署环境的版本、构建参数、变量名和运行入口，给脱敏差异表。按证据定位缺失配置与缓存问题，不打印变量值或无关秘密。",
+      "en": "Compare versions, build options, variable names and entrypoints across local/deployed environments. Produce a redacted diff and evidence-based checks for missing configuration and stale caches without printing secrets.",
+      "ja": "ローカルと配備先の版、設定、変数名、入口を比較。機密除去した差分で不足・古いキャッシュを調べ、値や秘密を出さない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：环境差异与配置排错. 对照本地与部署环境的版本、构建参数、变量名和运行入口，给脱敏差异表",
+      "en": "Using my supplied material, deliver: Environment configuration debugging. Compare versions, build options, variable names and entrypoints across local/deployed environments. Produce a redacted diff and evidence-based checks for missing configuration and stale caches without printing secrets.",
+      "ja": "提供資料に基づき作成してください：環境差・設定の調査. ローカルと配備先の版、設定、変数名、入口を比較"
+    },
+    "questions": {
+      "zh": "请提供与“环境差异与配置排错”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For environment configuration debugging, provide source material, target software/use case and fixed constraints.",
+      "ja": "「環境差・設定の調査」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "devops-focused-backup",
+    "group": "devops",
+    "labels": {
+      "zh": "备份与恢复演练",
+      "en": "Backup restoration drill",
+      "ja": "バックアップ復元演習"
+    },
+    "terms": [
+      "备份与恢复演练",
+      "Backup restoration drill",
+      "バックアップ復元演習",
+      "backup"
+    ],
+    "guidance": {
+      "zh": "以恢复目标定义备份范围、频率、加密和保留，给隔离环境恢复步骤及完整性验证。记录实测恢复时间与未测项，不把备份任务成功当恢复成功。",
+      "en": "Define scope, frequency, encryption and retention from recovery objectives. Restore in an isolated environment and validate integrity, recording measured times and gaps. Backup success is not restoration success.",
+      "ja": "復旧目標から範囲、周期、暗号、保存を決め隔離環境で復元・整合性確認。実時間と未確認を記し、保存成功を復元成功としない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：备份与恢复演练. 以恢复目标定义备份范围、频率、加密和保留，给隔离环境恢复步骤及完整性验证",
+      "en": "Using my supplied material, deliver: Backup restoration drill. Define scope, frequency, encryption and retention from recovery objectives. Restore in an isolated environment and validate integrity, recording measured times and gaps. Backup success is not restoration success.",
+      "ja": "提供資料に基づき作成してください：バックアップ復元演習. 復旧目標から範囲、周期、暗号、保存を決め隔離環境で復元・整合性確認"
+    },
+    "questions": {
+      "zh": "请提供与“备份与恢复演练”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For backup restoration drill, provide source material, target software/use case and fixed constraints.",
+      "ja": "「バックアップ復元演習」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "devops-focused-monitor",
+    "group": "devops",
+    "labels": {
+      "zh": "监控告警降噪",
+      "en": "Actionable monitoring alerts",
+      "ja": "対応可能な監視通知"
+    },
+    "terms": [
+      "监控告警降噪",
+      "Actionable monitoring alerts",
+      "対応可能な監視通知",
+      "monitor"
+    ],
+    "guidance": {
+      "zh": "从用户影响定义指标、阈值、持续时间和负责人，给告警内容与运行手册链接规则。区分症状和原因、去重与静默，核对误报和漏报，不默认每个异常都通知。",
+      "en": "Define metrics, thresholds, duration and owners from user impact. Design actionable alerts and runbook links with grouping and silencing. Check false positives and misses instead of alerting on every anomaly.",
+      "ja": "利用者影響から指標、閾値、継続時間、担当を定め通知と手順参照を作る。集約・抑制と誤報・見逃しを確認する。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：监控告警降噪. 从用户影响定义指标、阈值、持续时间和负责人，给告警内容与运行手册链接规则",
+      "en": "Using my supplied material, deliver: Actionable monitoring alerts. Define metrics, thresholds, duration and owners from user impact. Design actionable alerts and runbook links with grouping and silencing. Check false positives and misses instead of alerting on every anomaly.",
+      "ja": "提供資料に基づき作成してください：対応可能な監視通知. 利用者影響から指標、閾値、継続時間、担当を定め通知と手順参照を作る"
+    },
+    "questions": {
+      "zh": "请提供与“监控告警降噪”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For actionable monitoring alerts, provide source material, target software/use case and fixed constraints.",
+      "ja": "「対応可能な監視通知」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "photo-focused-restore",
+    "group": "photo",
+    "labels": {
+      "zh": "老照片修复描述",
+      "en": "Old-photo restoration brief",
+      "ja": "古い写真の修復指示"
+    },
+    "terms": [
+      "老照片修复描述",
+      "Old-photo restoration brief",
+      "古い写真の修復指示",
+      "restore"
+    ],
+    "guidance": {
+      "zh": "描述划痕、褪色和破损修复范围，锁定脸部身份、服饰与构图。区分清晰度改善和猜测重建，未知细节不要捏造；给保守修复与可选上色两版，保留原件。",
+      "en": "Specify scratches, fading and damage while preserving identity, clothing and framing. Separate enhancement from speculative reconstruction. Keep originals and provide conservative restoration plus optional colorization.",
+      "ja": "傷、退色、破損の範囲を示し顔、服、構図を固定。鮮明化と推測再構築を分け、原本を保つ控えめ修復と任意着色を出す。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：老照片修复描述. 描述划痕、褪色和破损修复范围，锁定脸部身份、服饰与构图",
+      "en": "Using my supplied material, deliver: Old-photo restoration brief. Specify scratches, fading and damage while preserving identity, clothing and framing. Separate enhancement from speculative reconstruction. Keep originals and provide conservative restoration plus optional colorization.",
+      "ja": "提供資料に基づき作成してください：古い写真の修復指示. 傷、退色、破損の範囲を示し顔、服、構図を固定"
+    },
+    "questions": {
+      "zh": "请提供与“老照片修复描述”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For old-photo restoration brief, provide source material, target software/use case and fixed constraints.",
+      "ja": "「古い写真の修復指示」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "photo-focused-background",
+    "group": "photo",
+    "labels": {
+      "zh": "商品换背景与落影",
+      "en": "Product background replacement",
+      "ja": "商品背景・影の置換"
+    },
+    "terms": [
+      "商品换背景与落影",
+      "Product background replacement",
+      "商品背景・影の置換",
+      "background"
+    ],
+    "guidance": {
+      "zh": "固定商品形状、色彩和比例，只改指定背景；说明接触阴影、反射、光向和景深。提供遮罩范围及边缘检查，不重绘用户要求保留的标签。",
+      "en": "Preserve shape, color and scale while replacing only the specified background. Define contact shadows, reflections, light and depth, with mask/edge checks. Do not redraw protected labels.",
+      "ja": "形、色、比率を固定し指定背景だけ変える。接地影、反射、光、奥行きとマスク・縁確認を示し、保持ラベルを描き直さない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：商品换背景与落影. 固定商品形状、色彩和比例，只改指定背景；说明接触阴影、反射、光向和景深",
+      "en": "Using my supplied material, deliver: Product background replacement. Preserve shape, color and scale while replacing only the specified background. Define contact shadows, reflections, light and depth, with mask/edge checks. Do not redraw protected labels.",
+      "ja": "提供資料に基づき作成してください：商品背景・影の置換. 形、色、比率を固定し指定背景だけ変える"
+    },
+    "questions": {
+      "zh": "请提供与“商品换背景与落影”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For product background replacement, provide source material, target software/use case and fixed constraints.",
+      "ja": "「商品背景・影の置換」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "photo-focused-series",
+    "group": "photo",
+    "labels": {
+      "zh": "同款商品系列图",
+      "en": "Consistent product image set",
+      "ja": "同一商品の画像セット"
+    },
+    "terms": [
+      "同款商品系列图",
+      "Consistent product image set",
+      "同一商品の画像セット",
+      "series"
+    ],
+    "guidance": {
+      "zh": "建立固定商品ID和共有参数，分别给不同用途图片的独立提示词。统一颜色与材质，改变机位或场景时注明可变项；输出逐张验收表，不用同一段提示词机械复制。",
+      "en": "Create a stable product ID and shared parameters, then distinct prompts per use case. Keep materials/colors consistent and specify allowed camera/scene changes. Include per-image checks rather than identical prompts.",
+      "ja": "商品IDと共通条件を決め用途別の独立文を作る。色・材質を保ち機位や場面の可変範囲と個別確認を記す。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：同款商品系列图. 建立固定商品ID和共有参数，分别给不同用途图片的独立提示词",
+      "en": "Using my supplied material, deliver: Consistent product image set. Create a stable product ID and shared parameters, then distinct prompts per use case. Keep materials/colors consistent and specify allowed camera/scene changes. Include per-image checks rather than identical prompts.",
+      "ja": "提供資料に基づき作成してください：同一商品の画像セット. 商品IDと共通条件を決め用途別の独立文を作る"
+    },
+    "questions": {
+      "zh": "请提供与“同款商品系列图”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For consistent product image set, provide source material, target software/use case and fixed constraints.",
+      "ja": "「同一商品の画像セット」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "character-focused-wardrobe",
+    "group": "character",
+    "labels": {
+      "zh": "角色换装保持身份",
+      "en": "Character wardrobe variations",
+      "ja": "同一人物の衣装変更"
+    },
+    "terms": [
+      "角色换装保持身份",
+      "Character wardrobe variations",
+      "同一人物の衣装変更",
+      "wardrobe"
+    ],
+    "guidance": {
+      "zh": "区分面部、体型、发型等固定特征与衣服可变项，给三套符合情节的服装描述。保留角色ID和比例，检查配饰归属，不把换装变成换人。",
+      "en": "Separate fixed face, body and hair from clothing changes. Describe three story-appropriate outfits with stable ID/proportions and accessory ownership; a wardrobe change must not change the character.",
+      "ja": "顔、体型、髪を固定し、物語に合う衣装三案を作る。ID、比率、小物を保ち、別人にしない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：角色换装保持身份. 区分面部、体型、发型等固定特征与衣服可变项，给三套符合情节的服装描述",
+      "en": "Using my supplied material, deliver: Character wardrobe variations. Separate fixed face, body and hair from clothing changes. Describe three story-appropriate outfits with stable ID/proportions and accessory ownership; a wardrobe change must not change the character.",
+      "ja": "提供資料に基づき作成してください：同一人物の衣装変更. 顔、体型、髪を固定し、物語に合う衣装三案を作る"
+    },
+    "questions": {
+      "zh": "请提供与“角色换装保持身份”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For character wardrobe variations, provide source material, target software/use case and fixed constraints.",
+      "ja": "「同一人物の衣装変更」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "character-focused-duo",
+    "group": "character",
+    "labels": {
+      "zh": "双人互动与位置",
+      "en": "Two-character interaction",
+      "ja": "二人の動作・位置"
+    },
+    "terms": [
+      "双人互动与位置",
+      "Two-character interaction",
+      "二人の動作・位置",
+      "duo"
+    ],
+    "guidance": {
+      "zh": "给每个人物ID、左右位置、朝向、视线与动作接触点，写前中后景及遮挡关系。分开两人的衣服道具，避免手臂融合与身份互换，附检查清单。",
+      "en": "Specify each ID, position, orientation, eyeline and contact point, with depth and occlusion. Keep costumes/props separate and check fused limbs or swapped identities.",
+      "ja": "各ID、左右、向き、視線、接触、奥行き、遮蔽を指定。衣服・小物を分け、腕の融合や人物入替を確認する。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：双人互动与位置. 给每个人物ID、左右位置、朝向、视线与动作接触点，写前中后景及遮挡关系",
+      "en": "Using my supplied material, deliver: Two-character interaction. Specify each ID, position, orientation, eyeline and contact point, with depth and occlusion. Keep costumes/props separate and check fused limbs or swapped identities.",
+      "ja": "提供資料に基づき作成してください：二人の動作・位置. 各ID、左右、向き、視線、接触、奥行き、遮蔽を指定"
+    },
+    "questions": {
+      "zh": "请提供与“双人互动与位置”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For two-character interaction, provide source material, target software/use case and fixed constraints.",
+      "ja": "「二人の動作・位置」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "character-focused-grid",
+    "group": "character",
+    "labels": {
+      "zh": "九宫格逐格分镜",
+      "en": "Nine-panel character board",
+      "ja": "九分割の人物ボード"
+    },
+    "terms": [
+      "九宫格逐格分镜",
+      "Nine-panel character board",
+      "九分割の人物ボード",
+      "grid"
+    ],
+    "guidance": {
+      "zh": "先锁定角色与场景，再为九格分别写格号、景别、动作和构图。各格只表达一个时刻，连续镜头保持方位；同时提供单格生成文本，防多格拥挤。",
+      "en": "Lock character and setting, then define panel number, shot scale, action and composition for nine panels. Use one moment per panel and stable geography, with separate single-panel prompts.",
+      "ja": "人物と場面を固定し九格の番号、画角、動作、構図を指定。一格一時点で方位を保ち、個別生成文も出す。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：九宫格逐格分镜. 先锁定角色与场景，再为九格分别写格号、景别、动作和构图",
+      "en": "Using my supplied material, deliver: Nine-panel character board. Lock character and setting, then define panel number, shot scale, action and composition for nine panels. Use one moment per panel and stable geography, with separate single-panel prompts.",
+      "ja": "提供資料に基づき作成してください：九分割の人物ボード. 人物と場面を固定し九格の番号、画角、動作、構図を指定"
+    },
+    "questions": {
+      "zh": "请提供与“九宫格逐格分镜”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For nine-panel character board, provide source material, target software/use case and fixed constraints.",
+      "ja": "「九分割の人物ボード」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "editing-focused-transition",
+    "group": "editing",
+    "labels": {
+      "zh": "镜头衔接与转场",
+      "en": "Shot transitions",
+      "ja": "カット接続・転換"
+    },
+    "terms": [
+      "镜头衔接与转场",
+      "Shot transitions",
+      "カット接続・転換",
+      "transition"
+    ],
+    "guidance": {
+      "zh": "根据相邻镜头结束与开始状态设计动作、视线或声音衔接，说明切点和转场时长。优先服务叙事，区分硬切与镜内运动，不用花哨特效掩盖连续性错误。",
+      "en": "Match adjacent end/start states through action, eyeline or audio, specifying cut points and transition duration. Serve the story and distinguish cuts from in-shot motion rather than hiding continuity errors with effects.",
+      "ja": "前後状態を動作・視線・音でつなぎ切点と尺を指定。物語を優先し、切替と鏡内移動を分け、効果で矛盾を隠さない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：镜头衔接与转场. 根据相邻镜头结束与开始状态设计动作、视线或声音衔接，说明切点和转场时长",
+      "en": "Using my supplied material, deliver: Shot transitions. Match adjacent end/start states through action, eyeline or audio, specifying cut points and transition duration. Serve the story and distinguish cuts from in-shot motion rather than hiding continuity errors with effects.",
+      "ja": "提供資料に基づき作成してください：カット接続・転換. 前後状態を動作・視線・音でつなぎ切点と尺を指定"
+    },
+    "questions": {
+      "zh": "请提供与“镜头衔接与转场”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For shot transitions, provide source material, target software/use case and fixed constraints.",
+      "ja": "「カット接続・転換」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "editing-focused-audio",
+    "group": "editing",
+    "labels": {
+      "zh": "对白与背景音平衡",
+      "en": "Dialogue and background sound",
+      "ja": "台詞・背景音の調整"
+    },
+    "terms": [
+      "对白与背景音平衡",
+      "Dialogue and background sound",
+      "台詞・背景音の調整",
+      "audio"
+    ],
+    "guidance": {
+      "zh": "按对白清晰度安排音乐压低、音效层次和静音段，给时间线标注与监听检查。目标响度依据交付要求，未听音频只给方案，不声称已消除噪声。",
+      "en": "Plan music ducking, effects and silence around dialogue, with timeline notes and listening checks. Follow delivery loudness requirements; without audio, offer a plan rather than claiming noise removal.",
+      "ja": "台詞を軸に音楽抑制、効果、無音を配置し時間線と試聴確認を出す。音量は納品条件に従い、未聴取で除去済みとしない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：对白与背景音平衡. 按对白清晰度安排音乐压低、音效层次和静音段，给时间线标注与监听检查",
+      "en": "Using my supplied material, deliver: Dialogue and background sound. Plan music ducking, effects and silence around dialogue, with timeline notes and listening checks. Follow delivery loudness requirements; without audio, offer a plan rather than claiming noise removal.",
+      "ja": "提供資料に基づき作成してください：台詞・背景音の調整. 台詞を軸に音楽抑制、効果、無音を配置し時間線と試聴確認を出す"
+    },
+    "questions": {
+      "zh": "请提供与“对白与背景音平衡”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For dialogue and background sound, provide source material, target software/use case and fixed constraints.",
+      "ja": "「台詞・背景音の調整」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "editing-focused-shorten",
+    "group": "editing",
+    "labels": {
+      "zh": "长视频压缩成短片",
+      "en": "Condense a long video",
+      "ja": "長尺から短編への編集"
+    },
+    "terms": [
+      "长视频压缩成短片",
+      "Condense a long video",
+      "長尺から短編への編集",
+      "shorten"
+    ],
+    "guidance": {
+      "zh": "从逐字稿或镜头表选核心信息，给保留片段、删除理由与新顺序。核对总尺、语义完整和出处，缺少画面时列补镜需求，不把断章取义当高效。",
+      "en": "Select key information from transcripts/shot lists with retained sections, deletion reasons and new order. Check duration, meaning and attribution, listing missing coverage rather than distorting context.",
+      "ja": "文字起こし・カット表から核心を選び、保持、削除理由、新順序を示す。尺、意味、出典を確認し不足画面を列挙する。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：长视频压缩成短片. 从逐字稿或镜头表选核心信息，给保留片段、删除理由与新顺序",
+      "en": "Using my supplied material, deliver: Condense a long video. Select key information from transcripts/shot lists with retained sections, deletion reasons and new order. Check duration, meaning and attribution, listing missing coverage rather than distorting context.",
+      "ja": "提供資料に基づき作成してください：長尺から短編への編集. 文字起こし・カット表から核心を選び、保持、削除理由、新順序を示す"
+    },
+    "questions": {
+      "zh": "请提供与“长视频压缩成短片”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For condense a long video, provide source material, target software/use case and fixed constraints.",
+      "ja": "「長尺から短編への編集」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "assets3d-focused-uv",
+    "group": "assets3d",
+    "labels": {
+      "zh": "UV 与贴图接缝规划",
+      "en": "UV and seam planning",
+      "ja": "UV・継ぎ目設計"
+    },
+    "terms": [
+      "UV 与贴图接缝规划",
+      "UV and seam planning",
+      "UV・継ぎ目設計",
+      "uv"
+    ],
+    "guidance": {
+      "zh": "按模型用途与可见面分配纹素密度、接缝、镜像和重叠策略，给检查步骤与导出要求。缺少网格时只给规划，不声称已展开或修复UV。",
+      "en": "Plan texel density, seams, mirroring and overlaps around use and visible surfaces, with checks/export requirements. Without a mesh, deliver a plan rather than claiming UV unwrapping or repair.",
+      "ja": "用途と可視面で密度、継ぎ目、反転、重複を設計し確認・出力を示す。メッシュなしで展開や修正済みとしない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：UV 与贴图接缝规划. 按模型用途与可见面分配纹素密度、接缝、镜像和重叠策略，给检查步骤与导出要求",
+      "en": "Using my supplied material, deliver: UV and seam planning. Plan texel density, seams, mirroring and overlaps around use and visible surfaces, with checks/export requirements. Without a mesh, deliver a plan rather than claiming UV unwrapping or repair.",
+      "ja": "提供資料に基づき作成してください：UV・継ぎ目設計. 用途と可視面で密度、継ぎ目、反転、重複を設計し確認・出力を示す"
+    },
+    "questions": {
+      "zh": "请提供与“UV 与贴图接缝规划”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For uv and seam planning, provide source material, target software/use case and fixed constraints.",
+      "ja": "「UV・継ぎ目設計」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "assets3d-focused-lighting",
+    "group": "assets3d",
+    "labels": {
+      "zh": "3D 场景灯光方案",
+      "en": "3D scene lighting plan",
+      "ja": "3D照明設計"
+    },
+    "terms": [
+      "3D 场景灯光方案",
+      "3D scene lighting plan",
+      "3D照明設計",
+      "lighting"
+    ],
+    "guidance": {
+      "zh": "定义主光、补光、轮廓光的位置、色温关系和阴影目的，给目标渲染器可用设置。分开艺术效果与物理参数，核对曝光及材质高光，不随意保证渲染速度。",
+      "en": "Define key, fill and rim placement, color relationships and shadow purpose with renderer-supported settings. Separate artistic intent from physical parameters and check exposure/highlights without speed guarantees.",
+      "ja": "主光、補光、輪郭光の位置、色関係、影目的を定め対応設定を出す。演出と物理値を分け、露出・反射を確認する。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：3D 场景灯光方案. 定义主光、补光、轮廓光的位置、色温关系和阴影目的，给目标渲染器可用设置",
+      "en": "Using my supplied material, deliver: 3D scene lighting plan. Define key, fill and rim placement, color relationships and shadow purpose with renderer-supported settings. Separate artistic intent from physical parameters and check exposure/highlights without speed guarantees.",
+      "ja": "提供資料に基づき作成してください：3D照明設計. 主光、補光、輪郭光の位置、色関係、影目的を定め対応設定を出す"
+    },
+    "questions": {
+      "zh": "请提供与“3D 场景灯光方案”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For 3d scene lighting plan, provide source material, target software/use case and fixed constraints.",
+      "ja": "「3D照明設計」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "assets3d-focused-rig",
+    "group": "assets3d",
+    "labels": {
+      "zh": "骨骼绑定需求与检查",
+      "en": "Rigging brief and checks",
+      "ja": "リグ仕様・確認"
+    },
+    "terms": [
+      "骨骼绑定需求与检查",
+      "Rigging brief and checks",
+      "リグ仕様・確認",
+      "rig"
+    ],
+    "guidance": {
+      "zh": "按动作范围定义骨骼、控制器、命名和变形重点，列关节极限姿势测试。给模型准备与权重检查清单，不把文字方案当已完成绑定，说明目标引擎限制。",
+      "en": "Define bones, controls, names and deformation priorities from motion needs. Test extreme joint poses and list mesh/weight preparation, noting engine limits. A written brief is not a completed rig.",
+      "ja": "動作範囲から骨、操作子、命名、変形を定義。関節限界の姿勢、モデル・重み確認、エンジン制限を示し、文章を完成リグとしない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：骨骼绑定需求与检查. 按动作范围定义骨骼、控制器、命名和变形重点，列关节极限姿势测试",
+      "en": "Using my supplied material, deliver: Rigging brief and checks. Define bones, controls, names and deformation priorities from motion needs. Test extreme joint poses and list mesh/weight preparation, noting engine limits. A written brief is not a completed rig.",
+      "ja": "提供資料に基づき作成してください：リグ仕様・確認. 動作範囲から骨、操作子、命名、変形を定義"
+    },
+    "questions": {
+      "zh": "请提供与“骨骼绑定需求与检查”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For rigging brief and checks, provide source material, target software/use case and fixed constraints.",
+      "ja": "「リグ仕様・確認」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "production-focused-vertical",
+    "group": "production",
+    "labels": {
+      "zh": "竖屏动画分镜",
+      "en": "Vertical animation storyboard",
+      "ja": "縦型アニメ絵コンテ"
+    },
+    "terms": [
+      "竖屏动画分镜",
+      "Vertical animation storyboard",
+      "縦型アニメ絵コンテ",
+      "vertical"
+    ],
+    "guidance": {
+      "zh": "在竖屏安全区设计人物层级、字幕空间和远中近景，逐镜给时长、动作与运镜。保持纵向构图和角色ID，避免把横屏分镜直接裁切。",
+      "en": "Design hierarchy, caption space and shot scales for portrait framing. Specify duration, action and camera per shot with stable IDs, rather than cropping a landscape storyboard.",
+      "ja": "縦画面で人物階層、字幕域、画角を設計。各尺、動作、カメラと固定IDを示し、横画面の切抜きで済ませない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：竖屏动画分镜. 在竖屏安全区设计人物层级、字幕空间和远中近景，逐镜给时长、动作与运镜",
+      "en": "Using my supplied material, deliver: Vertical animation storyboard. Design hierarchy, caption space and shot scales for portrait framing. Specify duration, action and camera per shot with stable IDs, rather than cropping a landscape storyboard.",
+      "ja": "提供資料に基づき作成してください：縦型アニメ絵コンテ. 縦画面で人物階層、字幕域、画角を設計"
+    },
+    "questions": {
+      "zh": "请提供与“竖屏动画分镜”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For vertical animation storyboard, provide source material, target software/use case and fixed constraints.",
+      "ja": "「縦型アニメ絵コンテ」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "production-focused-loop",
+    "group": "production",
+    "labels": {
+      "zh": "无缝循环动画",
+      "en": "Seamless animation loop",
+      "ja": "シームレスループ"
+    },
+    "terms": [
+      "无缝循环动画",
+      "Seamless animation loop",
+      "シームレスループ",
+      "loop"
+    ],
+    "guidance": {
+      "zh": "明确首尾人物位置、光线、运动相位与镜头状态，给单一循环动作时间轴。分开生成提示词和剪辑衔接方案，检查首尾帧，不保证工具一定输出完美循环。",
+      "en": "Match start/end position, light, motion phase and camera. Provide one cyclic action timeline, separating generation prompts from edit solutions. Check endpoint frames without guaranteeing perfect model output.",
+      "ja": "始終点の位置、光、運動位相、カメラを合わせ一循環の時系列を出す。生成文と編集を分け、完全生成を保証しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：无缝循环动画. 明确首尾人物位置、光线、运动相位与镜头状态，给单一循环动作时间轴",
+      "en": "Using my supplied material, deliver: Seamless animation loop. Match start/end position, light, motion phase and camera. Provide one cyclic action timeline, separating generation prompts from edit solutions. Check endpoint frames without guaranteeing perfect model output.",
+      "ja": "提供資料に基づき作成してください：シームレスループ. 始終点の位置、光、運動位相、カメラを合わせ一循環の時系列を出す"
+    },
+    "questions": {
+      "zh": "请提供与“无缝循环动画”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For seamless animation loop, provide source material, target software/use case and fixed constraints.",
+      "ja": "「シームレスループ」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "production-focused-repair",
+    "group": "production",
+    "labels": {
+      "zh": "动画穿帮修正提示词",
+      "en": "Animation defect repair prompts",
+      "ja": "アニメ不整合の修正文"
+    },
+    "terms": [
+      "动画穿帮修正提示词",
+      "Animation defect repair prompts",
+      "アニメ不整合の修正文",
+      "repair"
+    ],
+    "guidance": {
+      "zh": "按提供帧图定位人物、道具、背景和运动异常，给只改问题区域的最小提示词。锁定正确部分，区分可重生成与需后期修复；未看到帧图先索要证据。",
+      "en": "Locate character, prop, background and motion defects from supplied frames. Write minimal repair prompts locking correct areas, distinguishing regeneration from postproduction. Request evidence when frames are absent.",
+      "ja": "提供フレームから人物、小物、背景、動作の異常を特定。正しい部分を固定した最小修正文を出し、再生成と後処理を分ける。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：动画穿帮修正提示词. 按提供帧图定位人物、道具、背景和运动异常，给只改问题区域的最小提示词",
+      "en": "Using my supplied material, deliver: Animation defect repair prompts. Locate character, prop, background and motion defects from supplied frames. Write minimal repair prompts locking correct areas, distinguishing regeneration from postproduction. Request evidence when frames are absent.",
+      "ja": "提供資料に基づき作成してください：アニメ不整合の修正文. 提供フレームから人物、小物、背景、動作の異常を特定"
+    },
+    "questions": {
+      "zh": "请提供与“动画穿帮修正提示词”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For animation defect repair prompts, provide source material, target software/use case and fixed constraints.",
+      "ja": "「アニメ不整合の修正文」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "office-focused-formula-error",
+    "group": "office",
+    "labels": {
+      "zh": "WPS 公式报错定位",
+      "en": "WPS formula error diagnosis",
+      "ja": "WPS数式エラー調査"
+    },
+    "terms": [
+      "WPS 公式报错定位",
+      "WPS formula error diagnosis",
+      "WPS数式エラー調査",
+      "formula error"
+    ],
+    "guidance": {
+      "zh": "根据实际公式、单元格值和报错定位引用、类型、分隔符或函数兼容问题。给可粘贴修正式、期望结果与空值测试；核对版本，不把Excel独有能力默认套用。",
+      "en": "Use the formula, cell values and error to isolate reference, type, separator or compatibility issues. Give a paste-ready fix, expected results and blank tests, verifying the WPS version.",
+      "ja": "式、セル値、エラーから参照、型、区切り、対応を調べる。貼付式、期待値、空欄テストを出しWPS版を確認する。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：WPS 公式报错定位. 根据实际公式、单元格值和报错定位引用、类型、分隔符或函数兼容问题",
+      "en": "Using my supplied material, deliver: WPS formula error diagnosis. Use the formula, cell values and error to isolate reference, type, separator or compatibility issues. Give a paste-ready fix, expected results and blank tests, verifying the WPS version.",
+      "ja": "提供資料に基づき作成してください：WPS数式エラー調査. 式、セル値、エラーから参照、型、区切り、対応を調べる"
+    },
+    "questions": {
+      "zh": "请提供与“WPS 公式报错定位”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For wps formula error diagnosis, provide source material, target software/use case and fixed constraints.",
+      "ja": "「WPS数式エラー調査」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "office-focused-merge-docs",
+    "group": "office",
+    "labels": {
+      "zh": "WPS 长文目录与编号",
+      "en": "WPS headings and numbering",
+      "ja": "WPS見出し・番号"
+    },
+    "terms": [
+      "WPS 长文目录与编号",
+      "WPS headings and numbering",
+      "WPS見出し・番号",
+      "merge docs"
+    ],
+    "guidance": {
+      "zh": "按文档层级设计标题样式、自动目录、图表编号和交叉引用，给逐步操作与更新检查。保留正文内容，区分手打编号与字段，菜单随版本核实。",
+      "en": "Map document hierarchy to heading styles, automatic contents, figure numbering and cross-references. Give steps and update checks while preserving text; distinguish manual numbers from fields and verify menus.",
+      "ja": "階層から見出し、目次、図表番号、相互参照を設計。本文を保つ操作と更新確認を出し、手入力とフィールドを分けメニューを確認する。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：WPS 长文目录与编号. 按文档层级设计标题样式、自动目录、图表编号和交叉引用，给逐步操作与更新检查",
+      "en": "Using my supplied material, deliver: WPS headings and numbering. Map document hierarchy to heading styles, automatic contents, figure numbering and cross-references. Give steps and update checks while preserving text; distinguish manual numbers from fields and verify menus.",
+      "ja": "提供資料に基づき作成してください：WPS見出し・番号. 階層から見出し、目次、図表番号、相互参照を設計"
+    },
+    "questions": {
+      "zh": "请提供与“WPS 长文目录与编号”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For wps headings and numbering, provide source material, target software/use case and fixed constraints.",
+      "ja": "「WPS見出し・番号」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "office-focused-pivot",
+    "group": "office",
+    "labels": {
+      "zh": "WPS 数据透视表",
+      "en": "WPS pivot tables",
+      "ja": "WPSピボットテーブル"
+    },
+    "terms": [
+      "WPS 数据透视表",
+      "WPS pivot tables",
+      "WPSピボットテーブル",
+      "pivot"
+    ],
+    "guidance": {
+      "zh": "从列名和业务问题指定行列、值、聚合与筛选，给创建、刷新和源数据核对步骤。处理重复、空值与日期分组，检查实际WPS支持，不虚构数据结果。",
+      "en": "Map columns and questions to rows, columns, values, aggregation and filters. Provide setup, refresh and source checks for duplicates, blanks and dates, verifying WPS support without invented results.",
+      "ja": "列と課題から行列、値、集計、絞込を決め、作成・更新・照合を示す。重複、空欄、日付、WPS対応を確認する。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：WPS 数据透视表. 从列名和业务问题指定行列、值、聚合与筛选，给创建、刷新和源数据核对步骤",
+      "en": "Using my supplied material, deliver: WPS pivot tables. Map columns and questions to rows, columns, values, aggregation and filters. Provide setup, refresh and source checks for duplicates, blanks and dates, verifying WPS support without invented results.",
+      "ja": "提供資料に基づき作成してください：WPSピボットテーブル. 列と課題から行列、値、集計、絞込を決め、作成・更新・照合を示す"
+    },
+    "questions": {
+      "zh": "请提供与“WPS 数据透视表”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For wps pivot tables, provide source material, target software/use case and fixed constraints.",
+      "ja": "「WPSピボットテーブル」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "paper-focused-limitations",
+    "group": "paper",
+    "labels": {
+      "zh": "论文局限与讨论",
+      "en": "Paper limitations and discussion",
+      "ja": "論文の限界・考察"
+    },
+    "terms": [
+      "论文局限与讨论",
+      "Paper limitations and discussion",
+      "論文の限界・考察",
+      "limitations"
+    ],
+    "guidance": {
+      "zh": "从实际设计和结果识别偏差、测量局限及外推边界，写讨论段落并关联证据。区分解释、推测和未来研究，不能用空泛套话遮掩真实问题。",
+      "en": "Use actual design/results to discuss bias, measurement limits and generalization. Link paragraphs to evidence, separating interpretation, speculation and future work rather than generic disclaimers.",
+      "ja": "実設計・結果から偏り、測定限界、一般化を考察し根拠を結ぶ。解釈、推測、今後を分け定型文で問題を隠さない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：论文局限与讨论. 从实际设计和结果识别偏差、测量局限及外推边界，写讨论段落并关联证据",
+      "en": "Using my supplied material, deliver: Paper limitations and discussion. Use actual design/results to discuss bias, measurement limits and generalization. Link paragraphs to evidence, separating interpretation, speculation and future work rather than generic disclaimers.",
+      "ja": "提供資料に基づき作成してください：論文の限界・考察. 実設計・結果から偏り、測定限界、一般化を考察し根拠を結ぶ"
+    },
+    "questions": {
+      "zh": "请提供与“论文局限与讨论”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For paper limitations and discussion, provide source material, target software/use case and fixed constraints.",
+      "ja": "「論文の限界・考察」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "paper-focused-figures",
+    "group": "paper",
+    "labels": {
+      "zh": "论文图表说明与交叉核对",
+      "en": "Paper figure captions and checks",
+      "ja": "論文図表の説明・照合"
+    },
+    "terms": [
+      "论文图表说明与交叉核对",
+      "Paper figure captions and checks",
+      "論文図表の説明・照合",
+      "figures"
+    ],
+    "guidance": {
+      "zh": "依据已提供图表写标题、变量、单位、样本与误差说明，逐项核对正文数字和编号。缺少统计定义明确待补，不猜误差条含义或补造显著性。",
+      "en": "Write captions from supplied figures: variables, units, sample and error definitions. Cross-check text values and numbering. Flag missing statistics instead of guessing error bars or significance.",
+      "ja": "提供図表から題、変数、単位、標本、誤差を記し本文値と番号を照合。不明統計を補作せず誤差棒や有意差を推測しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：论文图表说明与交叉核对. 依据已提供图表写标题、变量、单位、样本与误差说明，逐项核对正文数字和编号",
+      "en": "Using my supplied material, deliver: Paper figure captions and checks. Write captions from supplied figures: variables, units, sample and error definitions. Cross-check text values and numbering. Flag missing statistics instead of guessing error bars or significance.",
+      "ja": "提供資料に基づき作成してください：論文図表の説明・照合. 提供図表から題、変数、単位、標本、誤差を記し本文値と番号を照合"
+    },
+    "questions": {
+      "zh": "请提供与“论文图表说明与交叉核对”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For paper figure captions and checks, provide source material, target software/use case and fixed constraints.",
+      "ja": "「論文図表の説明・照合」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "paper-focused-response",
+    "group": "paper",
+    "labels": {
+      "zh": "逐条审稿意见回复",
+      "en": "Point-by-point reviewer response",
+      "ja": "査読への逐条回答"
+    },
+    "terms": [
+      "逐条审稿意见回复",
+      "Point-by-point reviewer response",
+      "査読への逐条回答",
+      "response"
+    ],
+    "guidance": {
+      "zh": "按意见原文列回应、修改内容和真实位置，未采纳时说明有证据的理由。分开已改与计划实验，不捏造页码或新结果；给回复信与修改追踪表。",
+      "en": "Map each comment to response, change and actual location, with evidence for disagreements. Separate completed revisions from planned experiments. Provide a response letter and tracker without fabricated pages or results.",
+      "ja": "指摘ごとに回答、変更、実位置を示し不同意には根拠を付ける。完了と実験計画を分け、架空頁・結果なしで回答書と追跡表を出す。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：逐条审稿意见回复. 按意见原文列回应、修改内容和真实位置，未采纳时说明有证据的理由",
+      "en": "Using my supplied material, deliver: Point-by-point reviewer response. Map each comment to response, change and actual location, with evidence for disagreements. Separate completed revisions from planned experiments. Provide a response letter and tracker without fabricated pages or results.",
+      "ja": "提供資料に基づき作成してください：査読への逐条回答. 指摘ごとに回答、変更、実位置を示し不同意には根拠を付ける"
+    },
+    "questions": {
+      "zh": "请提供与“逐条审稿意见回复”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For point-by-point reviewer response, provide source material, target software/use case and fixed constraints.",
+      "ja": "「査読への逐条回答」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "copy-focused-headlines",
+    "group": "copy",
+    "labels": {
+      "zh": "标题多角度改写",
+      "en": "Headline variations",
+      "ja": "見出しの切口別改稿"
+    },
+    "terms": [
+      "标题多角度改写",
+      "Headline variations",
+      "見出しの切口別改稿",
+      "headlines"
+    ],
+    "guidance": {
+      "zh": "围绕真实利益点写信息型、问题型和场景型标题，说明适合读者和区别。遵守字数，保留事实，不制造恐慌、虚假稀缺或不实效果；给一条选择理由。",
+      "en": "Create informative, question-led and situational headlines from real benefits, explaining audience and differences. Respect length without fearmongering, fake scarcity or false effects, and recommend one with reasons.",
+      "ja": "実利点から情報、質問、場面の見出しを作り読者と差を説明。字数を守り恐怖・偽希少性・虚偽効果を避け選択理由を付ける。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：标题多角度改写. 围绕真实利益点写信息型、问题型和场景型标题，说明适合读者和区别",
+      "en": "Using my supplied material, deliver: Headline variations. Create informative, question-led and situational headlines from real benefits, explaining audience and differences. Respect length without fearmongering, fake scarcity or false effects, and recommend one with reasons.",
+      "ja": "提供資料に基づき作成してください：見出しの切口別改稿. 実利点から情報、質問、場面の見出しを作り読者と差を説明"
+    },
+    "questions": {
+      "zh": "请提供与“标题多角度改写”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For headline variations, provide source material, target software/use case and fixed constraints.",
+      "ja": "「見出しの切口別改稿」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "copy-focused-tone",
+    "group": "copy",
+    "labels": {
+      "zh": "文案语气与品牌一致",
+      "en": "Brand voice consistency",
+      "ja": "語調・ブランド一貫性"
+    },
+    "terms": [
+      "文案语气与品牌一致",
+      "Brand voice consistency",
+      "語調・ブランド一貫性",
+      "tone"
+    ],
+    "guidance": {
+      "zh": "提炼提供样例的用词、句长和表达边界，重写目标文案并列主要变化。保留事实、价格和条件，区分品牌规则与个人偏好，不套统一营销腔。",
+      "en": "Extract vocabulary, sentence rhythm and boundaries from samples, then rewrite with a change summary. Preserve facts, prices and conditions; distinguish brand rules from preferences rather than imposing generic sales tone.",
+      "ja": "例文から語彙、長さ、境界を抽出し対象文を改稿。事実、価格、条件を保ち規則と好みを分け、一律の販売口調を避ける。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：文案语气与品牌一致. 提炼提供样例的用词、句长和表达边界，重写目标文案并列主要变化",
+      "en": "Using my supplied material, deliver: Brand voice consistency. Extract vocabulary, sentence rhythm and boundaries from samples, then rewrite with a change summary. Preserve facts, prices and conditions; distinguish brand rules from preferences rather than imposing generic sales tone.",
+      "ja": "提供資料に基づき作成してください：語調・ブランド一貫性. 例文から語彙、長さ、境界を抽出し対象文を改稿"
+    },
+    "questions": {
+      "zh": "请提供与“文案语气与品牌一致”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For brand voice consistency, provide source material, target software/use case and fixed constraints.",
+      "ja": "「語調・ブランド一貫性」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "copy-focused-offer",
+    "group": "copy",
+    "labels": {
+      "zh": "活动规则清晰表达",
+      "en": "Clear campaign terms",
+      "ja": "キャンペーン条件の明確化"
+    },
+    "terms": [
+      "活动规则清晰表达",
+      "Clear campaign terms",
+      "キャンペーン条件の明確化",
+      "offer"
+    ],
+    "guidance": {
+      "zh": "按真实时间、对象、门槛、优惠和排除项写完整活动文案，给短版与FAQ。核对数字和条件一致，不能隐藏限制或擅自承诺退款与名额。",
+      "en": "Write campaign copy from actual dates, eligibility, thresholds, benefits and exclusions, plus a short version and FAQ. Reconcile numbers and conditions without hiding limits or inventing refunds/availability.",
+      "ja": "実日時、対象、条件、特典、除外から全文・短文・FAQを作る。数字と条件を合わせ制限を隠さず返金や枠を約束しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：活动规则清晰表达. 按真实时间、对象、门槛、优惠和排除项写完整活动文案，给短版与FAQ",
+      "en": "Using my supplied material, deliver: Clear campaign terms. Write campaign copy from actual dates, eligibility, thresholds, benefits and exclusions, plus a short version and FAQ. Reconcile numbers and conditions without hiding limits or inventing refunds/availability.",
+      "ja": "提供資料に基づき作成してください：キャンペーン条件の明確化. 実日時、対象、条件、特典、除外から全文・短文・FAQを作る"
+    },
+    "questions": {
+      "zh": "请提供与“活动规则清晰表达”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For clear campaign terms, provide source material, target software/use case and fixed constraints.",
+      "ja": "「キャンペーン条件の明確化」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "analytics-focused-cohort",
+    "group": "analytics",
+    "labels": {
+      "zh": "留存与分群口径",
+      "en": "Retention and cohort definitions",
+      "ja": "継続率・コホート定義"
+    },
+    "terms": [
+      "留存与分群口径",
+      "Retention and cohort definitions",
+      "継続率・コホート定義",
+      "cohort"
+    ],
+    "guidance": {
+      "zh": "明确入组事件、活跃定义、时间窗和分母，给分群SQL与小样例手算。处理时区、未满观察期和重复用户，区分滚动留存与固定日留存。",
+      "en": "Define cohort event, activity, window and denominator. Provide SQL and a hand-worked sample, handling timezones, incomplete observation and duplicates. Distinguish rolling from fixed-day retention.",
+      "ja": "起点、活動、窓、分母を定めSQLと手計算例を出す。時差、観察不足、重複を扱い、累積と特定日継続を分ける。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：留存与分群口径. 明确入组事件、活跃定义、时间窗和分母，给分群SQL与小样例手算",
+      "en": "Using my supplied material, deliver: Retention and cohort definitions. Define cohort event, activity, window and denominator. Provide SQL and a hand-worked sample, handling timezones, incomplete observation and duplicates. Distinguish rolling from fixed-day retention.",
+      "ja": "提供資料に基づき作成してください：継続率・コホート定義. 起点、活動、窓、分母を定めSQLと手計算例を出す"
+    },
+    "questions": {
+      "zh": "请提供与“留存与分群口径”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For retention and cohort definitions, provide source material, target software/use case and fixed constraints.",
+      "ja": "「継続率・コホート定義」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "analytics-focused-experiment",
+    "group": "analytics",
+    "labels": {
+      "zh": "A/B 实验结果解读",
+      "en": "A/B experiment interpretation",
+      "ja": "A/B実験の解釈"
+    },
+    "terms": [
+      "A/B 实验结果解读",
+      "A/B experiment interpretation",
+      "A/B実験の解釈",
+      "experiment"
+    ],
+    "guidance": {
+      "zh": "根据分组、样本、指标和停止规则核对实验有效性，给效应与不确定性解释。检查多重比较、分流异常和实际意义，数据不足不强下胜负结论。",
+      "en": "Check assignment, sample, metrics and stopping rules. Explain effects and uncertainty, including multiple comparisons, allocation anomalies and practical significance. Do not force a winner from insufficient data.",
+      "ja": "割付、標本、指標、停止規則を確認し効果と不確実性を説明。多重比較、分流異常、実用意味を見て不足時は勝敗を断定しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：A/B 实验结果解读. 根据分组、样本、指标和停止规则核对实验有效性，给效应与不确定性解释",
+      "en": "Using my supplied material, deliver: A/B experiment interpretation. Check assignment, sample, metrics and stopping rules. Explain effects and uncertainty, including multiple comparisons, allocation anomalies and practical significance. Do not force a winner from insufficient data.",
+      "ja": "提供資料に基づき作成してください：A/B実験の解釈. 割付、標本、指標、停止規則を確認し効果と不確実性を説明"
+    },
+    "questions": {
+      "zh": "请提供与“A/B 实验结果解读”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For a/b experiment interpretation, provide source material, target software/use case and fixed constraints.",
+      "ja": "「A/B実験の解釈」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "analytics-focused-reconcile",
+    "group": "analytics",
+    "labels": {
+      "zh": "报表数字对不上",
+      "en": "Report reconciliation",
+      "ja": "集計値の不一致調査"
+    },
+    "terms": [
+      "报表数字对不上",
+      "Report reconciliation",
+      "集計値の不一致調査",
+      "reconcile"
+    ],
+    "guidance": {
+      "zh": "逐层核对时间范围、过滤、去重、连接和舍入，给差异拆解表与定位查询。用相同口径复算并保留证据，不以手改汇总值掩盖根因。",
+      "en": "Compare dates, filters, deduplication, joins and rounding. Provide a discrepancy breakdown and diagnostic queries, recalculating on equal definitions without manually patching totals.",
+      "ja": "期間、絞込、重複除去、結合、丸めを段階比較。差異表と調査クエリで同条件再計算し、合計手修正で原因を隠さない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：报表数字对不上. 逐层核对时间范围、过滤、去重、连接和舍入，给差异拆解表与定位查询",
+      "en": "Using my supplied material, deliver: Report reconciliation. Compare dates, filters, deduplication, joins and rounding. Provide a discrepancy breakdown and diagnostic queries, recalculating on equal definitions without manually patching totals.",
+      "ja": "提供資料に基づき作成してください：集計値の不一致調査. 期間、絞込、重複除去、結合、丸めを段階比較"
+    },
+    "questions": {
+      "zh": "请提供与“报表数字对不上”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For report reconciliation, provide source material, target software/use case and fixed constraints.",
+      "ja": "「集計値の不一致調査」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "learning-focused-analogies",
+    "group": "learning",
+    "labels": {
+      "zh": "用生活例子讲概念",
+      "en": "Explain with everyday analogies",
+      "ja": "身近なたとえで説明"
+    },
+    "terms": [
+      "用生活例子讲概念",
+      "Explain with everyday analogies",
+      "身近なたとえで説明",
+      "analogies"
+    ],
+    "guidance": {
+      "zh": "先给概念准确含义，再选贴近学习者的类比，并说明类比哪里不成立。给一个反例和小练习，避免为了通俗改变概念本质或按年龄低估理解力。",
+      "en": "Define the concept accurately, then use a familiar analogy with explicit limits. Add a counterexample and practice without distorting the concept or assuming ability from age.",
+      "ja": "正確な定義から身近な比喩と成立しない範囲を示す。反例と練習を付け、本質変更や年齢による過小評価を避ける。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：用生活例子讲概念. 先给概念准确含义，再选贴近学习者的类比，并说明类比哪里不成立",
+      "en": "Using my supplied material, deliver: Explain with everyday analogies. Define the concept accurately, then use a familiar analogy with explicit limits. Add a counterexample and practice without distorting the concept or assuming ability from age.",
+      "ja": "提供資料に基づき作成してください：身近なたとえで説明. 正確な定義から身近な比喩と成立しない範囲を示す"
+    },
+    "questions": {
+      "zh": "请提供与“用生活例子讲概念”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For explain with everyday analogies, provide source material, target software/use case and fixed constraints.",
+      "ja": "「身近なたとえで説明」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "learning-focused-recall",
+    "group": "learning",
+    "labels": {
+      "zh": "主动回忆与复习卡",
+      "en": "Active recall cards",
+      "ja": "能動想起・復習カード"
+    },
+    "terms": [
+      "主动回忆与复习卡",
+      "Active recall cards",
+      "能動想起・復習カード",
+      "recall"
+    ],
+    "guidance": {
+      "zh": "从提供材料提取单一知识点，制作问题、答案、出处和易错提醒。安排间隔复习建议，答案可独立核对，不把长段摘抄伪装成记忆卡。",
+      "en": "Create single-concept cards from supplied material with question, answer, source and pitfall. Suggest spaced review and independently checkable answers rather than long copied paragraphs.",
+      "ja": "提供資料から一概念の問い、答え、出典、誤解注意をカード化。間隔復習と照合可能な答えを出し、長文引用で代用しない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：主动回忆与复习卡. 从提供材料提取单一知识点，制作问题、答案、出处和易错提醒",
+      "en": "Using my supplied material, deliver: Active recall cards. Create single-concept cards from supplied material with question, answer, source and pitfall. Suggest spaced review and independently checkable answers rather than long copied paragraphs.",
+      "ja": "提供資料に基づき作成してください：能動想起・復習カード. 提供資料から一概念の問い、答え、出典、誤解注意をカード化"
+    },
+    "questions": {
+      "zh": "请提供与“主动回忆与复习卡”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For active recall cards, provide source material, target software/use case and fixed constraints.",
+      "ja": "「能動想起・復習カード」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "learning-focused-project",
+    "group": "learning",
+    "labels": {
+      "zh": "用小项目学技能",
+      "en": "Learn through a small project",
+      "ja": "小プロジェクトで学ぶ"
+    },
+    "terms": [
+      "用小项目学技能",
+      "Learn through a small project",
+      "小プロジェクトで学ぶ",
+      "project"
+    ],
+    "guidance": {
+      "zh": "按基础和可用时间定义一个最小项目，拆成可演示成果与检查点。每步给提示、示例和验收方式，卡住时先缩小问题；不以完成教程等同独立掌握。",
+      "en": "Scope a minimal project around prior knowledge and time, with demonstrable milestones. Supply hints, examples and acceptance checks; narrow blockers and distinguish tutorial completion from independent mastery.",
+      "ja": "基礎と時間に合う最小課題を成果・確認点に分ける。ヒント、例、受入を示し障害を絞る。教材完了を自立習得としない。"
+    },
+    "examples": {
+      "zh": "请根据我提供的材料完成：用小项目学技能. 按基础和可用时间定义一个最小项目，拆成可演示成果与检查点",
+      "en": "Using my supplied material, deliver: Learn through a small project. Scope a minimal project around prior knowledge and time, with demonstrable milestones. Supply hints, examples and acceptance checks; narrow blockers and distinguish tutorial completion from independent mastery.",
+      "ja": "提供資料に基づき作成してください：小プロジェクトで学ぶ. 基礎と時間に合う最小課題を成果・確認点に分ける"
+    },
+    "questions": {
+      "zh": "请提供与“用小项目学技能”有关的原始资料、目标软件或使用场景，以及不能改变的要求。",
+      "en": "For learn through a small project, provide source material, target software/use case and fixed constraints.",
+      "ja": "「小プロジェクトで学ぶ」に関する原資料、対象ソフト・用途、変更不可の条件を補足してください。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  }
+]

@@ -2,6 +2,7 @@ import type { Template, Values, Locks, Field } from './prompt';
 import baseGuides from '../data/studio/task-guides.json' with { type: 'json' };
 import originalExtendedTasks from '../data/studio/extended-tasks.json' with { type: 'json' };
 import additionalTasks from '../data/studio/additional-tasks.json' with { type: 'json' };
+import deepTasks from '../data/studio/deep-tasks.json' with { type: 'json' };
 import domainTasks from '../data/studio/domain-tasks.json' with { type: 'json' };
 import domainModules from '../data/studio/domain-modules.json' with { type: 'json' };
 import practicalTasks from '../data/studio/practical-tasks.json' with { type: 'json' };
@@ -12,6 +13,7 @@ const extendedTasks = [
   ...additionalTasks,
   ...practicalTasks,
   ...domainTasks,
+  ...deepTasks,
 ];
 import skillCatalog from '../data/studio/skills.json' with { type: 'json' };
 import skillFit from '../data/studio/skill-fit.json' with { type: 'json' };
@@ -169,12 +171,26 @@ export function composeStudio(
 function fitsBrief(id: string, values: Values) {
   const rule = skillFit[id as keyof typeof skillFit];
   return (
-    !rule || !termEvidence(String(values.subject || ''), rule.exclude).length
+    !rule ||
+    !termEvidence(
+      ['subject', 'constraints', 'materials', 'criteria', 'keywords']
+        .map((k) => String(values[k] || ''))
+        .join(' '),
+      rule.exclude,
+    ).length
   );
+}
+function skillTasks(s: (typeof skillCatalog)[number]) {
+  const rule = skillFit[s.id as keyof typeof skillFit] as {
+    additionalTasks?: string[];
+  };
+  return [...s.tasks, ...(rule?.additionalTasks ?? [])];
 }
 export function matchingSkills(t: Template, values: Values) {
   return skillCatalog.filter(
-    (s) => s.tasks.includes(taskGuide(t, values).id) && fitsBrief(s.id, values),
+    (s) =>
+      skillTasks(s).includes(taskGuide(t, values).id) &&
+      fitsBrief(s.id, values),
   );
 }
 export function recommendedSkills(t: Template, values: Values, locale: Locale) {
@@ -185,15 +201,15 @@ export function recommendedSkills(t: Template, values: Values, locale: Locale) {
   const detected = subject ? analyzeTask(t, values, locale).candidates : [];
   return skillCatalog
     .flatMap((s) => {
-      const target = s.tasks.includes(current.id)
+      const target = skillTasks(s).includes(current.id)
         ? current
-        : available.find((g) => s.tasks.includes(g.id));
+        : available.find((g) => skillTasks(s).includes(g.id));
       if (
         !target ||
         !fitsBrief(s.id, values) ||
         (subject &&
           target.id !== current.id &&
-          !detected.some((g) => s.tasks.includes(g.id)))
+          !detected.some((g) => skillTasks(s).includes(g.id)))
       )
         return [];
       return [

@@ -1576,7 +1576,10 @@
         "options": [
           "Character state machine",
           "Level pacing and tutorials",
-          "Save files and compatibility"
+          "Save files and compatibility",
+          "Inventory and item stacking",
+          "Input remapping and controllers",
+          "Game balance experiment"
         ],
         "maxSelections": 1
       },
@@ -1705,7 +1708,10 @@
         "options": [
           "Model generation brief",
           "PBR material and texture brief",
-          "Asset export checklist"
+          "Asset export checklist",
+          "UV and seam planning",
+          "3D scene lighting plan",
+          "Rigging brief and checks"
         ],
         "maxSelections": 1
       },
@@ -1834,7 +1840,10 @@
         "options": [
           "Product packshots and details",
           "Lifestyle product scenes",
-          "Interior layout and mood images"
+          "Interior layout and mood images",
+          "Old-photo restoration brief",
+          "Product background replacement",
+          "Consistent product image set"
         ],
         "maxSelections": 1
       },
@@ -1963,7 +1972,10 @@
         "options": [
           "Character turnaround sheet",
           "Expression and pose board",
-          "Visual style guide"
+          "Visual style guide",
+          "Character wardrobe variations",
+          "Two-character interaction",
+          "Nine-panel character board"
         ],
         "maxSelections": 1
       },
@@ -2092,7 +2104,10 @@
         "options": [
           "Edit timeline and pacing",
           "Caption layout and readability",
-          "Export and platform variants"
+          "Export and platform variants",
+          "Shot transitions",
+          "Dialogue and background sound",
+          "Condense a long video"
         ],
         "maxSelections": 1
       },
@@ -2350,7 +2365,10 @@
         "options": [
           "Authorization review",
           "Login and session hardening",
-          "Dependency and secret review"
+          "Dependency and secret review",
+          "File upload security",
+          "Log redaction",
+          "Input validation boundaries"
         ],
         "maxSelections": 1
       },
@@ -2479,7 +2497,10 @@
         "options": [
           "Bottleneck profiling",
           "Caching and invalidation",
-          "Race conditions"
+          "Race conditions",
+          "Memory leak investigation",
+          "Slow query analysis",
+          "UI rendering jank"
         ],
         "maxSelections": 1
       },
@@ -2608,7 +2629,10 @@
         "options": [
           "Mobile screens and navigation",
           "Offline storage and sync",
-          "Permissions and notifications"
+          "Permissions and notifications",
+          "Mobile forms and keyboards",
+          "Mobile image loading",
+          "Deep links and login return"
         ],
         "maxSelections": 1
       },
@@ -2737,7 +2761,10 @@
         "options": [
           "Batch file organization",
           "Batch document conversion",
-          "Scheduled jobs and recovery"
+          "Scheduled jobs and recovery",
+          "Text encoding repair",
+          "Duplicate file preview",
+          "Text extraction and regex"
         ],
         "maxSelections": 1
       },
@@ -2866,7 +2893,10 @@
         "options": [
           "Merge conflict resolution",
           "Pull request description and review",
-          "Release notes and migration"
+          "Release notes and migration",
+          "Find a regression commit",
+          "Safe undo and recovery",
+          "Split commits and explain changes"
         ],
         "maxSelections": 1
       },
@@ -2995,7 +3025,10 @@
         "options": [
           "API client wrapper",
           "Webhook verification and replay",
-          "System mapping and reconciliation"
+          "System mapping and reconciliation",
+          "OAuth callbacks and refresh",
+          "Paginated fetch and resume",
+          "API mocks and contracts"
         ],
         "maxSelections": 1
       },

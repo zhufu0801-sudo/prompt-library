@@ -15,7 +15,7 @@
     "db:generate": "drizzle-kit generate",
     "db:local": "wrangler d1 migrations apply DB --local --config wrangler.local.json",
     "typecheck": "tsc --noEmit",
-    "test": "node --experimental-strip-types --test scripts/prompt.test.mjs scripts/studio.test.mjs",
+    "test": "node --experimental-strip-types --test scripts/prompt.test.mjs scripts/studio.test.mjs scripts/care.test.mjs",
     "test:api": "node scripts/api.test.mjs",
     "prebuild": "node scripts/build-content.mjs"
   },

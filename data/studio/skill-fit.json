@@ -9,7 +9,10 @@
       "zh": "适合复现故障、定位根因和验证修复；不替代从零开发或全面代码审查。",
       "en": "For reproduction, root-cause analysis and fix verification; not a substitute for new development or a full code review.",
       "ja": "再現・原因究明・修正確認向け。新規開発や総合コードレビューの代替ではありません。"
-    }
+    },
+    "additionalTasks": [
+      "testing-focused-flaky"
+    ]
   },
   "wps-formula": {
     "exclude": [
@@ -33,7 +36,10 @@
       "zh": "适合查找、条件汇总、文本日期公式和公式排错；不提供透视表、图表、数据清洗或宏自动化。需核对实际WPS版本。",
       "en": "For lookups, conditional totals, text/date formulas and formula errors; not pivot tables, charts, data cleaning or macros. Verify the actual WPS version.",
       "ja": "検索・条件集計・文字列/日付数式・数式エラー向け。ピボット・グラフ・データ整形・マクロは対象外。WPSの版を確認してください。"
-    }
+    },
+    "additionalTasks": [
+      "office-focused-formula-error"
+    ]
   },
   "copywriting": {
     "exclude": [
@@ -56,7 +62,10 @@
       "zh": "适合产品页、落地页、标题、卖点与行动引导；不是社交帖子、视频脚本或邮件专用Skill。上游示例统计不可当作你的产品事实。",
       "en": "For product/landing pages, headlines, benefits and CTAs; not a specialist social-post, video-script or email Skill. Upstream example statistics are not facts about your product.",
       "ja": "商品/LP・見出し・利点・CTA向け。SNS投稿・動画台本・メール専用ではありません。例示統計を商品の事実として使わないでください。"
-    }
+    },
+    "additionalTasks": [
+      "copy-focused-headlines"
+    ]
   },
   "scientific-writing": {
     "exclude": [
@@ -74,7 +83,12 @@
       "zh": "适合依据真实资料制作科研论文、章节、引用和修改回复；不生成虚构数据或参考文献。可选Python审查工具需另外安装。",
       "en": "For evidence-based research papers, sections, citations and revisions; never invented data or references. Optional Python audit tools require a separate installation.",
       "ja": "実資料に基づく研究論文・章・引用・修正向け。データや文献を捏造しません。任意のPython監査ツールは別途必要です。"
-    }
+    },
+    "additionalTasks": [
+      "paper-focused-limitations",
+      "paper-focused-figures",
+      "paper-focused-response"
+    ]
   },
   "image": {
     "exclude": [
@@ -95,7 +109,11 @@
       "zh": "主要适合产品、品牌、封面与社交配图的构图、光线和导出；不包含九宫格、角色三视图或场景一致性专项工作流。",
       "en": "Primarily for product, brand, hero and social graphics: composition, lighting and export. No dedicated camera-grid, character-turnaround or continuity workflow.",
       "ja": "主に商品・ブランド・カバー・SNS画像の構図・光・書き出し向け。九分割・三面図・一貫性の専用手順は含みません。"
-    }
+    },
+    "additionalTasks": [
+      "photo-focused-background",
+      "photo-focused-series"
+    ]
   },
   "video": {
     "exclude": [
@@ -113,7 +131,11 @@
       "zh": "适合视频制作流程、镜头提示词和剪辑规划；九宫格、角色与场景一致性使用本站对应场景模板。生成媒体还需目标AI软件及其授权。",
       "en": "For production workflow, shot prompts and edit planning. Use the site's dedicated scenarios for camera grids and character/scene continuity. Media generation requires the target AI tool and access.",
       "ja": "制作工程・カット指示・編集計画向け。九分割や人物/場面の一貫性はサイトの専用テンプレートを使います。媒体生成には対象AIと利用権限が必要です。"
-    }
+    },
+    "additionalTasks": [
+      "editing-assembly",
+      "editing-focused-shorten"
+    ]
   },
   "frontend-design": {
     "exclude": [
@@ -126,7 +148,8 @@
       "zh": "网页与交互界面设计，包含可访问性、响应式布局及设计检查；不适用于纯后端任务。",
       "en": "Website and interactive UI design, including accessibility, responsive layout and design checks; excludes backend-only work.",
       "ja": "Web・操作画面の設計、アクセシビリティ、レスポンシブ、設計確認。バックエンドのみの作業は対象外。"
-    }
+    },
+    "additionalTasks": []
   },
   "content-strategy": {
     "exclude": [
@@ -138,6 +161,7 @@
       "zh": "受众、内容主题与发布计划；具体单篇文案请使用文案模块。",
       "en": "Audience, content themes and publishing plans; use copywriting for individual drafts.",
       "ja": "読者、テーマ、公開計画の整理。個別原稿にはコピー作成を利用。"
-    }
+    },
+    "additionalTasks": []
   }
 }

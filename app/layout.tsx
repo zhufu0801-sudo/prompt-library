@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import './studio.css';
+import './workbench.css';
 export const metadata: Metadata = {
   title: 'AI Made Easy · 让提示词更容易使用',
   description:

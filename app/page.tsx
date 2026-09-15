@@ -33,7 +33,10 @@ import {
   SelectContent,
   SelectItem,
 } from '@/components/ui/select';
+import CareStudio from '@/components/CareStudio';
 import { Switch } from '@/components/ui/switch';
+import SkillLibrary from '@/components/SkillLibrary';
+import { HeartHandshake, Layers, CheckCircle2 } from 'lucide-react';
 import {
   defaultValues,
   refreshValues,
@@ -94,6 +97,7 @@ export default function Home() {
     [title, setTitle] = useState('');
   const [tab, setTab] = useState('library'),
     [libraryView, setLibraryView] = useState('tasks'),
+    [visibleCount, setVisibleCount] = useState(24),
     [search, setSearch] = useState(''),
     [category, setCategory] = useState('all'),
     [busy, setBusy] = useState(false),
@@ -125,6 +129,52 @@ export default function Home() {
       count: 'タスクテンプレート',
     },
   }[locale];
+  const editionText = {
+    zh: {
+      care: '关怀版',
+      standard: '返回普通版',
+      skills: 'Skill 下载',
+      more: '显示更多模板',
+      hint: '说一句话，帮您整理成 AI 看得懂的需求。',
+      enter: '进入关怀版',
+      browse: '选择一个具体任务',
+      found: '个结果',
+      steps: ['选任务', '补充需求', '复制使用'],
+    },
+    en: {
+      care: 'Care edition',
+      standard: 'Standard edition',
+      skills: 'Skill downloads',
+      more: 'Show more templates',
+      hint: 'Describe your need in a sentence. We help you prepare it for AI.',
+      enter: 'Open care edition',
+      browse: 'Choose a specific task',
+      found: 'results',
+      steps: ['Choose a task', 'Add details', 'Copy to AI'],
+    },
+    ja: {
+      care: 'かんたん版',
+      standard: '通常版に戻る',
+      skills: 'Skill保存',
+      more: 'さらに表示',
+      hint: '一言の要望を、AIに伝わる内容に整理します。',
+      enter: 'かんたん版へ',
+      browse: '具体的なタスクを選ぶ',
+      found: '件',
+      steps: ['タスク選択', '要望を補足', 'AIにコピー'],
+    },
+  }[locale];
+  function changeCare(next: boolean) {
+    setCare(next);
+    setActive(null);
+    setNotice('');
+    try {
+      localStorage.setItem('ame_care', String(next));
+    } catch {}
+  }
+  useEffect(() => {
+    setVisibleCount(24);
+  }, [search, category, libraryView, locale, tab]);
   const guided = !!active && studioIds.includes(active.id);
   const catalogLabel = {
     zh: '全部提示词',
@@ -252,6 +302,7 @@ export default function Home() {
   useEffect(() => {
     try {
       setLocale(localeOf(localStorage.getItem('ame_locale')));
+      setCare(localStorage.getItem('ame_care') === 'true');
     } catch {}
     setReady(true);
   }, []);
@@ -490,236 +541,329 @@ export default function Home() {
   return (
     <div className={'studio' + (care ? ' studio-care' : '')}>
       <header className="studio-header">
-        <a className="studio-brand" href="#" onClick={() => setTab('library')}>
+        <a
+          className="studio-brand"
+          href="#"
+          onClick={() => {
+            setTab('library');
+            changeCare(false);
+          }}
+        >
           <Sparkles />
           AI Made Easy
         </a>
-        <nav>
-          {(['library', 'catalog', 'favorites', 'plans'] as const).map(
-            (key) => (
-              <button
-                key={key}
-                className={tab === key ? 'selected' : ''}
-                onClick={() => {
-                  setTab(key);
-                  setSearch('');
-                  setCategory('all');
-                }}
-              >
-                {key === 'catalog' ? catalogLabel : t[key]}
-              </button>
-            ),
-          )}
+        <nav aria-label={t.library} hidden={care}>
+          {(
+            ['library', 'catalog', 'skills', 'favorites', 'plans'] as const
+          ).map((key) => (
+            <button
+              key={key}
+              className={tab === key ? 'selected' : ''}
+              onClick={() => {
+                setTab(key);
+                changeCare(false);
+                setSearch('');
+                setCategory('all');
+              }}
+            >
+              {key === 'catalog'
+                ? catalogLabel
+                : key === 'skills'
+                  ? editionText.skills
+                  : t[key]}
+            </button>
+          ))}
         </nav>
         <div className="studio-header-tools">
-          <label className="studio-toggle">
-            <Switch checked={care} onCheckedChange={setCare} />
-            <span>{t.care}</span>
-          </label>
+          <button
+            className="edition-toggle"
+            aria-pressed={care}
+            onClick={() => changeCare(!care)}
+          >
+            <HeartHandshake size={20} />
+            {care ? editionText.standard : editionText.care}
+          </button>
           {languagePicker}
         </div>
       </header>
-      <main className="studio-main">
-        <div className="studio-heading">
-          <div>
-            <h1>{t.title}</h1>
-            <p>{t.intro}</p>
-          </div>
-          <button onClick={() => setHelp(true)}>{t.help}</button>
-        </div>
-        {tab === 'library' && (
-          <div className="studio-toolbar">
-            <div className="studio-browse-mode">
+      <main
+        className={
+          'studio-main' +
+          (!care && tab === 'library' ? ' studio-workbench' : '')
+        }
+      >
+        {care ? (
+          <CareStudio locale={locale} />
+        ) : (
+          <>
+            <div className="studio-heading">
               <div>
-                <button
-                  className={libraryView === 'tasks' ? 'selected' : ''}
-                  aria-pressed={libraryView === 'tasks'}
-                  onClick={() => setLibraryView('tasks')}
-                >
-                  {browseText.tasks}
+                <h1>{t.title}</h1>
+                <p>{t.intro}</p>
+              </div>
+              <div className="studio-flow" aria-label={t.help}>
+                {editionText.steps.map((step, i) => (
+                  <span key={step}>
+                    <b>{i === 2 ? <CheckCircle2 size={19} /> : i + 1}</b>
+                    {step}
+                  </span>
+                ))}
+              </div>
+              <button onClick={() => setHelp(true)}>{t.help}</button>
+            </div>
+            {tab === 'library' && (
+              <aside className="care-invitation">
+                <HeartHandshake size={26} />
+                <div>
+                  <strong>{editionText.care}</strong>
+                  <p>{editionText.hint}</p>
+                </div>
+                <button onClick={() => changeCare(true)}>
+                  {editionText.enter}
                 </button>
-                <button
-                  className={libraryView === 'modules' ? 'selected' : ''}
-                  aria-pressed={libraryView === 'modules'}
-                  onClick={() => setLibraryView('modules')}
+              </aside>
+            )}
+            {tab === 'library' && (
+              <div className="studio-toolbar">
+                <div className="studio-browse-mode">
+                  <div>
+                    <button
+                      className={libraryView === 'tasks' ? 'selected' : ''}
+                      aria-pressed={libraryView === 'tasks'}
+                      onClick={() => setLibraryView('tasks')}
+                    >
+                      {browseText.tasks}
+                    </button>
+                    <button
+                      className={libraryView === 'modules' ? 'selected' : ''}
+                      aria-pressed={libraryView === 'modules'}
+                      onClick={() => setLibraryView('modules')}
+                    >
+                      {browseText.modules}
+                    </button>
+                  </div>
+                  <span>
+                    {templates.length} {browseText.unit} · {workflows.length}{' '}
+                    {browseText.count}
+                  </span>
+                </div>
+                <select
+                  className="studio-mobile-category"
+                  aria-label={t.all}
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
-                  {browseText.modules}
+                  <option value="all">{t.all}</option>
+                  {Object.entries(categoryNames[locale]).map(([id, label]) => (
+                    <option key={id} value={id}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+                <div className="studio-filters">
+                  <button
+                    className={category === 'all' ? 'selected' : ''}
+                    aria-pressed={category === 'all'}
+                    onClick={() => setCategory('all')}
+                  >
+                    {t.all}
+                  </button>
+                  {Object.entries(categoryNames[locale]).map(([id, label]) => (
+                    <button
+                      key={id}
+                      className={category === id ? 'selected' : ''}
+                      aria-pressed={category === id}
+                      onClick={() => setCategory(id)}
+                    >
+                      {label}
+                      <small>
+                        {
+                          workflows.filter((w) => w.template.categoryId === id)
+                            .length
+                        }
+                      </small>
+                    </button>
+                  ))}
+                </div>
+                {
+                  <label className="studio-search">
+                    <Search size={18} />
+                    <input
+                      aria-label={t.search}
+                      placeholder={t.search}
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                    />
+                  </label>
+                }
+              </div>
+            )}
+            {tab === 'library' && (
+              <div className="studio-results-head">
+                <h2>
+                  <Layers size={20} />
+                  {editionText.browse}
+                </h2>
+                <span aria-live="polite">
+                  {libraryView === 'tasks'
+                    ? filteredWorkflows.length
+                    : filtered.length}{' '}
+                  {editionText.found}
+                </span>
+              </div>
+            )}
+            {tab === 'skills' ? (
+              <SkillLibrary locale={locale} />
+            ) : tab === 'catalog' || tab === 'favorites' ? (
+              <FullLibrary
+                key={tab + favorites.join(',')}
+                locale={locale}
+                favoritesOnly={tab === 'favorites'}
+                onOpen={(item) =>
+                  open(templates.find((t) => t.id === item.id) || item)
+                }
+              />
+            ) : failed ? (
+              <div role="alert">
+                {t.error}{' '}
+                <button onClick={() => setRevision((x) => x + 1)}>
+                  {t.retry}
                 </button>
               </div>
-              <span>
-                {templates.length} {browseText.unit} · {workflows.length}{' '}
-                {browseText.count}
-              </span>
-            </div>
-            <select
-              className="studio-mobile-category"
-              aria-label={t.all}
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              <option value="all">{t.all}</option>
-              {Object.entries(categoryNames[locale]).map(([id, label]) => (
-                <option key={id} value={id}>
-                  {label}
-                </option>
-              ))}
-            </select>
-            <div className="studio-filters">
-              <button
-                className={category === 'all' ? 'selected' : ''}
-                onClick={() => setCategory('all')}
-              >
-                {t.all}
-              </button>
-              {Object.entries(categoryNames[locale]).map(([id, label]) => (
-                <button
-                  key={id}
-                  className={category === id ? 'selected' : ''}
-                  onClick={() => setCategory(id)}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-            {
-              <label className="studio-search">
-                <Search size={18} />
-                <input
-                  aria-label={t.search}
-                  placeholder={t.search}
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </label>
-            }
-          </div>
-        )}
-        {tab === 'catalog' || tab === 'favorites' ? (
-          <FullLibrary
-            key={tab + favorites.join(',')}
-            locale={locale}
-            favoritesOnly={tab === 'favorites'}
-            onOpen={(item) =>
-              open(templates.find((t) => t.id === item.id) || item)
-            }
-          />
-        ) : failed ? (
-          <div role="alert">
-            {t.error}{' '}
-            <button onClick={() => setRevision((x) => x + 1)}>{t.retry}</button>
-          </div>
-        ) : loading ? (
-          <p role="status">{t.loading}</p>
-        ) : tab === 'plans' ? (
-          <>
-            <p>{t.oldPlans}</p>
-            <div className="studio-grid">
-              {plans.map((p) => (
-                <article className="studio-card" key={p.id}>
-                  <h2>{p.title}</h2>
-                  <p className="studio-excerpt">{p.output}</p>
-                  <button disabled={busy} onClick={() => openPlan(p)}>
-                    {t.update}
-                    <ArrowUpRight size={18} />
-                  </button>
-                </article>
-              ))}
-            </div>
-            {!plans.length && <p>{t.empty}</p>}
-          </>
-        ) : libraryView === 'tasks' ? (
-          <div className="studio-grid studio-task-grid">
-            {filteredWorkflows.map((task) => (
-              <article className="studio-card" key={task.id}>
-                <span className="studio-task-parent">
-                  {task.template.title}
-                </span>
-                <h2>{task.label}</h2>
-                <p className="studio-task-description">{task.description}</p>
-                <div className="studio-card-bottom">
-                  <span>{categoryNames[locale][task.template.categoryId]}</span>
-                  <button
-                    className="studio-primary"
-                    onClick={() => openTask(task)}
-                  >
-                    {t.use}
-                  </button>
-                </div>
-              </article>
-            ))}
-            {!filteredWorkflows.length && <p>{t.empty}</p>}
-          </div>
-        ) : (
-          <div className="studio-grid">
-            {filtered.map((item) => (
-              <article className="studio-card" key={item.id}>
-                <div className="studio-card-top">
-                  <span
-                    className={
-                      'studio-icon ' +
-                      (item.id === 'custom-animation' ? 'animation' : '')
-                    }
-                  >
-                    {item.id === 'custom-animation' ? (
-                      <Clapperboard />
-                    ) : item.id === 'custom-image' ? (
-                      <ImageIcon />
-                    ) : item.id === 'custom-office' ? (
-                      <FileText />
-                    ) : item.id === 'custom-copy' ? (
-                      <PenLine />
-                    ) : item.id === 'custom-paper-writing' ? (
-                      <GraduationCap />
-                    ) : item.id === 'custom-programming' ? (
-                      <Code2 />
-                    ) : (
-                      <FileText />
-                    )}
-                  </span>
-
-                  <button
-                    disabled={busy}
-                    aria-label={t.favorites + ' · ' + item.title}
-                    aria-pressed={favorites.includes(item.id)}
-                    onClick={() => favorite(item.id)}
-                  >
-                    <Star
-                      size={20}
-                      fill={
-                        favorites.includes(item.id) ? 'currentColor' : 'none'
-                      }
-                    />
-                  </button>
-                </div>
-                <h2>{item.title}</h2>
-                <p>{item.description}</p>
-                <div className="studio-task-shortcuts">
-                  {workflows
-                    .filter((task) => task.template.id === item.id)
-                    .map((task) => (
-                      <button key={task.id} onClick={() => openTask(task)}>
-                        {task.label}
+            ) : loading ? (
+              <p role="status">{t.loading}</p>
+            ) : tab === 'plans' ? (
+              <>
+                <p>{t.oldPlans}</p>
+                <div className="studio-grid">
+                  {plans.map((p) => (
+                    <article className="studio-card" key={p.id}>
+                      <h2>{p.title}</h2>
+                      <p className="studio-excerpt">{p.output}</p>
+                      <button disabled={busy} onClick={() => openPlan(p)}>
+                        {t.update}
+                        <ArrowUpRight size={18} />
                       </button>
-                    ))}
+                    </article>
+                  ))}
                 </div>
-                <div className="studio-card-bottom">
-                  <span>
-                    <Sparkles size={15} />
-                    {t.meta}
-                  </span>
-                  <button className="studio-primary" onClick={() => open(item)}>
-                    {t.use}
+                {!plans.length && <p>{t.empty}</p>}
+              </>
+            ) : libraryView === 'tasks' ? (
+              <div className="studio-grid studio-task-grid">
+                {filteredWorkflows.slice(0, visibleCount).map((task) => (
+                  <article className="studio-card" key={task.id}>
+                    <span className="studio-task-parent">
+                      {task.template.title}
+                    </span>
+                    <h2>{task.label}</h2>
+                    <p className="studio-task-description">
+                      {task.description}
+                    </p>
+                    <div className="studio-card-bottom">
+                      <span>
+                        {categoryNames[locale][task.template.categoryId]}
+                      </span>
+                      <button
+                        className="studio-primary"
+                        onClick={() => openTask(task)}
+                      >
+                        {t.use}
+                      </button>
+                    </div>
+                  </article>
+                ))}
+                {!filteredWorkflows.length && <p>{t.empty}</p>}
+              </div>
+            ) : (
+              <div className="studio-grid">
+                {filtered.slice(0, visibleCount).map((item) => (
+                  <article className="studio-card" key={item.id}>
+                    <div className="studio-card-top">
+                      <span
+                        className={
+                          'studio-icon ' +
+                          (item.id === 'custom-animation' ? 'animation' : '')
+                        }
+                      >
+                        {item.id === 'custom-animation' ? (
+                          <Clapperboard />
+                        ) : item.id === 'custom-image' ? (
+                          <ImageIcon />
+                        ) : item.id === 'custom-office' ? (
+                          <FileText />
+                        ) : item.id === 'custom-copy' ? (
+                          <PenLine />
+                        ) : item.id === 'custom-paper-writing' ? (
+                          <GraduationCap />
+                        ) : item.id === 'custom-programming' ? (
+                          <Code2 />
+                        ) : (
+                          <FileText />
+                        )}
+                      </span>
+
+                      <button
+                        disabled={busy}
+                        aria-label={t.favorites + ' · ' + item.title}
+                        aria-pressed={favorites.includes(item.id)}
+                        onClick={() => favorite(item.id)}
+                      >
+                        <Star
+                          size={20}
+                          fill={
+                            favorites.includes(item.id)
+                              ? 'currentColor'
+                              : 'none'
+                          }
+                        />
+                      </button>
+                    </div>
+                    <h2>{item.title}</h2>
+                    <p>{item.description}</p>
+                    <div className="studio-task-shortcuts">
+                      {workflows
+                        .filter((task) => task.template.id === item.id)
+                        .map((task) => (
+                          <button key={task.id} onClick={() => openTask(task)}>
+                            {task.label}
+                          </button>
+                        ))}
+                    </div>
+                    <div className="studio-card-bottom">
+                      <span>
+                        <Sparkles size={15} />
+                        {t.meta}
+                      </span>
+                      <button
+                        className="studio-primary"
+                        onClick={() => open(item)}
+                      >
+                        {t.use}
+                      </button>
+                    </div>
+                  </article>
+                ))}
+                {!filtered.length && <p>{t.empty}</p>}
+              </div>
+            )}
+            {tab === 'library' &&
+              visibleCount <
+                (libraryView === 'tasks'
+                  ? filteredWorkflows.length
+                  : filtered.length) && (
+                <div className="studio-load-more">
+                  <button onClick={() => setVisibleCount((n) => n + 24)}>
+                    {editionText.more}
                   </button>
                 </div>
-              </article>
-            ))}
-            {!filtered.length && <p>{t.empty}</p>}
-          </div>
+              )}
+            <p className="studio-footnote">{t.modeNote}</p>
+            <p className="studio-footnote">{t.userData}</p>
+          </>
         )}
-        <p className="studio-footnote">{t.modeNote}</p>
-        <p className="studio-footnote">{t.userData}</p>
       </main>
-      {!active && notice && (
+      {!care && !active && notice && (
         <div className="studio-notice" role="status">
           {notice}
         </div>

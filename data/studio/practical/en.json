@@ -28,7 +28,10 @@
         "options": [
           "API implementation",
           "Schema and migrations",
-          "Batch imports and idempotency"
+          "Batch imports and idempotency",
+          "Transactions and rollback",
+          "Background queues and retries",
+          "Site search and ranking"
         ],
         "maxSelections": 1
       },
@@ -157,7 +160,10 @@
         "options": [
           "Unit test cases",
           "End-to-end user journeys",
-          "Bug reports and reproduction"
+          "Bug reports and reproduction",
+          "Flaky test diagnosis",
+          "Date and money boundary tests",
+          "Keyboard and screen-reader tests"
         ],
         "maxSelections": 1
       },
@@ -286,7 +292,10 @@
         "options": [
           "CI/CD pipeline",
           "Containerization and local setup",
-          "Incident runbook"
+          "Incident runbook",
+          "Environment configuration debugging",
+          "Backup restoration drill",
+          "Actionable monitoring alerts"
         ],
         "maxSelections": 1
       },
@@ -415,7 +424,10 @@
         "options": [
           "Data cleaning rules",
           "Exploratory analysis",
-          "Dashboard and chart design"
+          "Dashboard and chart design",
+          "Retention and cohort definitions",
+          "A/B experiment interpretation",
+          "Report reconciliation"
         ],
         "maxSelections": 1
       },
@@ -2350,7 +2362,10 @@
         "options": [
           "Character and scene bible",
           "Shot sizes and shot list",
-          "Cross-shot continuity checks"
+          "Cross-shot continuity checks",
+          "Vertical animation storyboard",
+          "Seamless animation loop",
+          "Animation defect repair prompts"
         ],
         "maxSelections": 1
       },

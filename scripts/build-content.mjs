@@ -175,6 +175,7 @@ for (const s of [
     ...read('data/studio/additional-tasks.json'),
     ...read('data/studio/practical-tasks.json'),
     ...read('data/studio/domain-tasks.json'),
+    ...read('data/studio/deep-tasks.json'),
   ].map((s) => ({ ...s, status: 'published' })),
   ...read('data/research-library/topic-rules.json'),
 ]) {

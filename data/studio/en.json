@@ -305,16 +305,18 @@
         "type": "multi",
         "required": false,
         "defaultValue": [
-          "Character consistency",
-          "Smooth camera motion"
+          "Clear action",
+          "Steady camera"
         ],
         "options": [
-          "Character consistency",
-          "Smooth camera motion",
-          "Lighting continuity",
-          "Natural movement"
+          "Clear action",
+          "Steady camera",
+          "Clear pacing",
+          "Natural lighting",
+          "Spatial continuity"
         ],
-        "maxSelections": 5
+        "maxSelections": 5,
+        "conditionalOptions": {}
       },
       {
         "key": "constraints",
@@ -474,16 +476,18 @@
         "type": "multi",
         "required": false,
         "defaultValue": [
-          "Character consistency",
-          "Smooth camera motion"
+          "Clear subject",
+          "Natural lighting"
         ],
         "options": [
-          "Character consistency",
-          "Smooth camera motion",
-          "Lighting continuity",
-          "Natural movement"
+          "Clear subject",
+          "Natural lighting",
+          "Balanced composition",
+          "Material detail",
+          "Simple background"
         ],
-        "maxSelections": 5
+        "maxSelections": 5,
+        "conditionalOptions": {}
       },
       {
         "key": "constraints",
@@ -556,7 +560,10 @@
           "WPS Spreadsheets",
           "WPS Presentation",
           "WPS PDF",
-          "Cloud document collaboration"
+          "Cloud document collaboration",
+          "WPS formula error diagnosis",
+          "WPS headings and numbering",
+          "WPS pivot tables"
         ],
         "maxSelections": 1
       },
@@ -685,7 +692,10 @@
         "options": [
           "Product and brand copy",
           "Social and campaign copy",
-          "Ads and short-video scripts"
+          "Ads and short-video scripts",
+          "Headline variations",
+          "Brand voice consistency",
+          "Clear campaign terms"
         ],
         "maxSelections": 1
       },
@@ -816,7 +826,10 @@
           "Paper outline and writing plan",
           "Sections and abstract drafting",
           "Citations, figures and formatting",
-          "Revision, translation and responses"
+          "Revision, translation and responses",
+          "Paper limitations and discussion",
+          "Paper figure captions and checks",
+          "Point-by-point reviewer response"
         ],
         "maxSelections": 1
       },
