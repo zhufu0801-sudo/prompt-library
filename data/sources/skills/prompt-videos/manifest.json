@@ -1,0 +1,47 @@
+{
+  "id": "prompt-videos",
+  "repository": "https://github.com/replicate/skills",
+  "commit": "2f36e415965ae63baa1c9f6635888092bcd771d3",
+  "source": "https://github.com/replicate/skills/blob/2f36e415965ae63baa1c9f6635888092bcd771d3/skills/prompt-videos/SKILL.md",
+  "license": "Apache-2.0",
+  "tasks": [
+    "clip",
+    "production-focused-loop",
+    "production-focused-repair"
+  ],
+  "labels": {
+    "zh": "视频动作与镜头提示词",
+    "en": "Video action and camera prompts",
+    "ja": "動画の動作・カメラ指示"
+  },
+  "language": "en",
+  "edition": "adapted-documentation",
+  "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "无脚本适配版。描述单镜头动作、起止状态与运镜；不代替多镜头剪辑。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+    "en": "Instruction-only adaptation. Specify single-shot action, start/end state and camera movement. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+    "ja": "スクリプト不要の調整版。単一カットの動作・開始終了・カメラを指定。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "f7fe9e559ee33341e61df0bc9c31b7bcf967a4350feeb9d8cbb48bf3ea5f8a6a"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "476dd6a815ebe542ee1b355e4e67293457bcc2f1179f143ee6311cb434043e97"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "ba23d6eafcdeea9242f24b0449984812d77a4af7f9e25b9cb7bda1f53df9ca1a"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "623f9b7e3cdd1562c480d6cfaa16ed9f3ddcfddf574b32ddc222e370caebb356"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "502c509f4ad0c4b0186d2b188e8f2f648c4ff322d94b782359da21d8c8686381"
+    }
+  ]
+}

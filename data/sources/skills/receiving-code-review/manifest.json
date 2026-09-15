@@ -1,0 +1,46 @@
+{
+  "id": "receiving-code-review",
+  "repository": "https://github.com/obra/superpowers",
+  "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+  "source": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/receiving-code-review/SKILL.md",
+  "license": "MIT",
+  "tasks": [
+    "review",
+    "git-review"
+  ],
+  "labels": {
+    "zh": "代码审查意见核对",
+    "en": "Code review feedback",
+    "ja": "レビュー指摘の検証"
+  },
+  "language": "en",
+  "edition": "adapted-documentation",
+  "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "无脚本适配版。核对已有审查意见的证据，再决定修复；不自动接受建议。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+    "en": "Instruction-only adaptation. Verify supplied review feedback before applying changes. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+    "ja": "スクリプト不要の調整版。既存の指摘を検証してから修正する。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "75eccc80c90faf70a384dc85f16fae2e7cf0f52bc4a7851772b7c746fa2549db"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "5917685ed87f78164394f12b4fecc1405fde303b5d3db8e156795fd9bf74ca86"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "59e5e25d775eb64431329b1f35d57bcae43f0ecc9931a894b077e69e41a236b3"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "7a758a3fbfa249e95d230e975b0917c45e6089c06ffbe7c89f10459f5017538b"
+    }
+  ]
+}

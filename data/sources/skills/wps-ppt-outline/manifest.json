@@ -1,0 +1,45 @@
+{
+  "id": "wps-ppt-outline",
+  "repository": "https://github.com/Bwkyd/wps-skills",
+  "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+  "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-ppt-outline/SKILL.md",
+  "license": "MIT",
+  "tasks": [
+    "wps-slides"
+  ],
+  "labels": {
+    "zh": "WPS 演示大纲",
+    "en": "WPS presentation outline",
+    "ja": "WPSプレゼン構成"
+  },
+  "language": "en",
+  "edition": "adapted-documentation",
+  "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "无脚本适配版。规划逐页内容、配图和时间；不直接生成演示文件。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+    "en": "Instruction-only adaptation. Plan slide content, visuals and timing; no direct deck generation. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+    "ja": "スクリプト不要の調整版。各ページの内容・図・時間を計画。ファイル生成は別機能。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "e19b5ba9911ba09e96f2bdda686b8a6dd4048ba9bcd5fed686e9c55ed620af84"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "ad3ecdbc04b6dd42edfa935a44f959c8aa7e0bfa4f3c7f46a277338c8e7294b5"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "afc44944cddfd0a02b6b24fd1ff1b9fa3a7037ec8b994b252bed79cf612e0aef"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "22935e4c6d2cdf0b8bbf82fb536d400fa4e004d9b3c882743baaeef9691f1e58"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "fd26b4124584b3d52132acc7ecf31b7328d911e8331e7318ed2ced8cd8844728"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "wps-ppt-outline",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-ppt-outline/SKILL.md",
+    "license": "MIT"
+  },
+  {
+    "id": "wps-ppt-speaker-notes",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-ppt-speaker-notes/SKILL.md",
+    "license": "MIT"
+  },
+  {
+    "id": "wps-data-clean",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-data-clean/SKILL.md",
+    "license": "MIT"
+  },
+  {
+    "id": "wps-pivot",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-pivot/SKILL.md",
+    "license": "MIT"
+  },
+  {
+    "id": "wps-pdf-extract",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-pdf-extract/SKILL.md",
+    "license": "MIT"
+  },
+  {
+    "id": "wps-docx-writer",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-docx-writer/SKILL.md",
+    "license": "MIT"
+  },
+  {
+    "id": "test-driven-development",
+    "repository": "https://github.com/obra/superpowers",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "source": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/test-driven-development/SKILL.md",
+    "license": "MIT"
+  },
+  {
+    "id": "receiving-code-review",
+    "repository": "https://github.com/obra/superpowers",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "source": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/receiving-code-review/SKILL.md",
+    "license": "MIT"
+  },
+  {
+    "id": "verification-before-completion",
+    "repository": "https://github.com/obra/superpowers",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "source": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/verification-before-completion/SKILL.md",
+    "license": "MIT"
+  },
+  {
+    "id": "prompt-images",
+    "repository": "https://github.com/replicate/skills",
+    "commit": "2f36e415965ae63baa1c9f6635888092bcd771d3",
+    "source": "https://github.com/replicate/skills/blob/2f36e415965ae63baa1c9f6635888092bcd771d3/skills/prompt-images/SKILL.md",
+    "license": "Apache-2.0"
+  },
+  {
+    "id": "prompt-videos",
+    "repository": "https://github.com/replicate/skills",
+    "commit": "2f36e415965ae63baa1c9f6635888092bcd771d3",
+    "source": "https://github.com/replicate/skills/blob/2f36e415965ae63baa1c9f6635888092bcd771d3/skills/prompt-videos/SKILL.md",
+    "license": "Apache-2.0"
+  },
+  {
+    "id": "storyboard-workflow",
+    "repository": "https://github.com/toyme/storyboard-skill",
+    "commit": "a8908aabcf9e9585220dfda4d7656f95f68b3610",
+    "source": "https://github.com/toyme/storyboard-skill/blob/a8908aabcf9e9585220dfda4d7656f95f68b3610/SKILL.md",
+    "license": "MIT"
+  }
+]

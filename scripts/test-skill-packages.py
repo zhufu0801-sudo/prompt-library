@@ -30,4 +30,4 @@ for skill in catalog:
         for locale in ('zh','en','ja'):
             assert skill['usage'][locale] in z.read(prefix+f'USAGE.{locale}.md').decode('utf-8-sig').replace('\r\n','\n')
     print('PASS:',skill['id'],'entrypoint, references, license, usage, manifest and hashes')
-print('PASS: all 8 local packages')
+print('PASS:',len(catalog),'local packages')

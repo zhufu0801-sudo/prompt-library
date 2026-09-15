@@ -54,7 +54,7 @@ export default function SkillLibrary({ locale }: { locale: Locale }) {
   return (
     <section className="skill-library">
       <h2>{t.title}</h2>
-      <p>{t.intro}</p>
+      <p>{skills.length} Skills · {t.intro}</p>
       <label className="studio-search">
         <Search size={20} />
         <input

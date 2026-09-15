@@ -1,0 +1,45 @@
+{
+  "id": "wps-pdf-extract",
+  "repository": "https://github.com/Bwkyd/wps-skills",
+  "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+  "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-pdf-extract/SKILL.md",
+  "license": "MIT",
+  "tasks": [
+    "wps-pdf"
+  ],
+  "labels": {
+    "zh": "PDF 文字与表格提取",
+    "en": "PDF text and table extraction",
+    "ja": "PDF文字・表の抽出"
+  },
+  "language": "en",
+  "edition": "adapted-documentation",
+  "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "无脚本适配版。提取可读文本与表格，标注页码、OCR疑点和布局损失。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+    "en": "Instruction-only adaptation. Extract text and tables with page provenance and OCR uncertainty. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+    "ja": "スクリプト不要の調整版。文字・表を抽出しページとOCR不確実性を記す。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "e19b5ba9911ba09e96f2bdda686b8a6dd4048ba9bcd5fed686e9c55ed620af84"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "174f7c8036d448171d9bd03fa09d7d8e8071a1564b0587c595cc057b68293bf0"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "8ee38d9f8f6064e1244a89d40c4d6ee4d204dd8706b03abd802e94d580dedbac"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "071de840464a1ef6325f7e304fc24a44233ae6c862967018727fbd2e424c5063"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "e70aa5076d875c21bab9e6fe3ef202d11f9e4ee260b7380f3f46f8209e751c2b"
+    }
+  ]
+}

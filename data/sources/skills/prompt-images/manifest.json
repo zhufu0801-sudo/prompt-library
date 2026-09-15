@@ -1,0 +1,51 @@
+{
+  "id": "prompt-images",
+  "repository": "https://github.com/replicate/skills",
+  "commit": "2f36e415965ae63baa1c9f6635888092bcd771d3",
+  "source": "https://github.com/replicate/skills/blob/2f36e415965ae63baa1c9f6635888092bcd771d3/skills/prompt-images/SKILL.md",
+  "license": "Apache-2.0",
+  "tasks": [
+    "image",
+    "photo-focused-restore",
+    "photo-focused-background",
+    "photo-focused-series",
+    "character-turnaround",
+    "character-expression",
+    "character-focused-wardrobe"
+  ],
+  "labels": {
+    "zh": "图片描述与局部修改",
+    "en": "Image prompts and local edits",
+    "ja": "画像プロンプトと局所編集"
+  },
+  "language": "en",
+  "edition": "adapted-documentation",
+  "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "无脚本适配版。明确主体、构图与保留项；适合图片生成和局部修复描述。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+    "en": "Instruction-only adaptation. Describe subject, composition and preserved elements for generation or local edits. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+    "ja": "スクリプト不要の調整版。主体・構図・保持条件を明確にし生成や部分修正を指示。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "f7fe9e559ee33341e61df0bc9c31b7bcf967a4350feeb9d8cbb48bf3ea5f8a6a"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "cb1fc3695f2cd6c089127bcbb22aeec416a20f2f81f089efb24bd7b1e4aaecf2"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "79517ea8244570f76dcecd30d112177be3b5bf95071b94af6c2783f1bba52828"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "98e9eef0b14f23d9b6e7c3be566a8666c01d9593d568863de764b227ccea0aa9"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "cc0ee5a00f55454bb3dbaf679ba56b96a3268757e19b818377f8b6bddc6d8357"
+    }
+  ]
+}

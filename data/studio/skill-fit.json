@@ -163,5 +163,173 @@
       "ja": "読者、テーマ、公開計画の整理。個別原稿にはコピー作成を利用。"
     },
     "additionalTasks": []
+  },
+  "wps-ppt-outline": {
+    "scope": {
+      "zh": "规划逐页内容、配图和时间；不直接生成演示文件。",
+      "en": "Plan slide content, visuals and timing; no direct deck generation.",
+      "ja": "各ページの内容・図・時間を計画。ファイル生成は別機能。"
+    },
+    "exclude": [
+      "直接生成PPT文件",
+      "generate pptx file",
+      "PPTXファイル生成"
+    ],
+    "additionalTasks": []
+  },
+  "wps-ppt-speaker-notes": {
+    "scope": {
+      "zh": "依据已有页面内容写讲稿、过渡和时间；无页面时先索取内容。",
+      "en": "Write notes, transitions and timing from supplied slides.",
+      "ja": "提供されたスライドから原稿・つなぎ・時間を作る。"
+    },
+    "exclude": [
+      "重新设计全部页面",
+      "redesign every slide",
+      "全ページの再設計"
+    ],
+    "additionalTasks": []
+  },
+  "wps-data-clean": {
+    "scope": {
+      "zh": "清理空格、重复和类型；保留原始数据并报告改动。",
+      "en": "Clean whitespace, duplicates and types while preserving originals.",
+      "ja": "空白・重複・型を整え原本と変更記録を残す。"
+    },
+    "exclude": [
+      "制作动画",
+      "make an animation",
+      "アニメ制作",
+      "透视表",
+      "pivot table",
+      "ピボット",
+      "公式",
+      "formula",
+      "数式"
+    ],
+    "additionalTasks": []
+  },
+  "wps-pivot": {
+    "scope": {
+      "zh": "按问题配置行列、值、筛选与刷新核对。",
+      "en": "Configure rows, columns, values, filters and refresh checks.",
+      "ja": "問いに合わせ行列・値・絞込・更新確認を設計。"
+    },
+    "exclude": [
+      "宏自动化",
+      "macro automation",
+      "マクロ自動化"
+    ],
+    "additionalTasks": []
+  },
+  "wps-pdf-extract": {
+    "scope": {
+      "zh": "提取可读文本与表格，标注页码、OCR疑点和布局损失。",
+      "en": "Extract text and tables with page provenance and OCR uncertainty.",
+      "ja": "文字・表を抽出しページとOCR不確実性を記す。"
+    },
+    "exclude": [
+      "绕过密码",
+      "bypass password",
+      "パスワード回避"
+    ],
+    "additionalTasks": []
+  },
+  "wps-docx-writer": {
+    "scope": {
+      "zh": "制作文档正文、标题层级、编号与排版方案。",
+      "en": "Draft documents with heading hierarchy, numbering and layout.",
+      "ja": "本文・見出し階層・番号・レイアウトを整える。"
+    },
+    "exclude": [
+      "自动签署",
+      "automatically sign",
+      "自動署名",
+      "公式",
+      "formula",
+      "数式",
+      "透视表",
+      "pivot table",
+      "ピボット"
+    ],
+    "additionalTasks": []
+  },
+  "test-driven-development": {
+    "scope": {
+      "zh": "围绕可观察行为建立失败用例，再做最小修复。",
+      "en": "Start with a behavioral failing test, then a minimal implementation.",
+      "ja": "観測可能な振る舞いの失敗テストから最小実装へ。"
+    },
+    "exclude": [
+      "只改文案",
+      "copy-only change",
+      "文章だけの変更"
+    ],
+    "additionalTasks": []
+  },
+  "receiving-code-review": {
+    "scope": {
+      "zh": "核对已有审查意见的证据，再决定修复；不自动接受建议。",
+      "en": "Verify supplied review feedback before applying changes.",
+      "ja": "既存の指摘を検証してから修正する。"
+    },
+    "exclude": [
+      "自动合并",
+      "automatic merge",
+      "自動マージ"
+    ],
+    "additionalTasks": []
+  },
+  "verification-before-completion": {
+    "scope": {
+      "zh": "按验收条件核对命令、结果与未覆盖项。",
+      "en": "Map acceptance criteria to checks, results and coverage gaps.",
+      "ja": "受入条件と確認結果・未検証項目を対応づける。"
+    },
+    "exclude": [
+      "保证零缺陷",
+      "guarantee zero defects",
+      "無欠陥保証"
+    ],
+    "additionalTasks": []
+  },
+  "prompt-images": {
+    "scope": {
+      "zh": "明确主体、构图与保留项；适合图片生成和局部修复描述。",
+      "en": "Describe subject, composition and preserved elements for generation or local edits.",
+      "ja": "主体・構図・保持条件を明確にし生成や部分修正を指示。"
+    },
+    "exclude": [
+      "生成视频",
+      "generate video",
+      "動画生成"
+    ],
+    "additionalTasks": []
+  },
+  "prompt-videos": {
+    "scope": {
+      "zh": "描述单镜头动作、起止状态与运镜；不代替多镜头剪辑。",
+      "en": "Specify single-shot action, start/end state and camera movement.",
+      "ja": "単一カットの動作・開始終了・カメラを指定。"
+    },
+    "exclude": [
+      "静态海报",
+      "static poster",
+      "静止ポスター"
+    ],
+    "additionalTasks": []
+  },
+  "storyboard-workflow": {
+    "scope": {
+      "zh": "组织角色设定、近中远景、逐镜提示词与连续性检查。",
+      "en": "Organize character bibles, shot sizes, prompts and continuity checks.",
+      "ja": "キャラ設定・近中遠景・カット別指示・連続性を整理。"
+    },
+    "exclude": [
+      "仅表格公式",
+      "spreadsheet formulas only",
+      "表計算数式のみ"
+    ],
+    "additionalTasks": []
   }
 }

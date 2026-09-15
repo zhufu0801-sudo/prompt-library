@@ -53,3 +53,5 @@ print('Packaged documentation Skills:',[(x['id'],x['bytes']) for x in catalog])
 # Preserve reviewed adaptations after every upstream refresh.
 import runpy
 runpy.run_path(str(root / "scripts/repair-skill-packages.py"), run_name="__main__")
+
+runpy.run_path(str(root / "scripts/build-expanded-skills.py"), run_name="__main__")

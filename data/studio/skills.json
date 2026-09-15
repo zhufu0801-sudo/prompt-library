@@ -454,5 +454,598 @@
     "download": "/downloads/skills/content-strategy-5b2c0007766c.zip",
     "sha256": "89533bec7f304acde593763968d12b87097d743de5a292217ab8cfd1ce6396cb",
     "bytes": 23806
+  },
+  {
+    "id": "wps-ppt-outline",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-ppt-outline/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "wps-slides"
+    ],
+    "labels": {
+      "zh": "WPS 演示大纲",
+      "en": "WPS presentation outline",
+      "ja": "WPSプレゼン構成"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。规划逐页内容、配图和时间；不直接生成演示文件。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Plan slide content, visuals and timing; no direct deck generation. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。各ページの内容・図・時間を計画。ファイル生成は別機能。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "e19b5ba9911ba09e96f2bdda686b8a6dd4048ba9bcd5fed686e9c55ed620af84"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "ad3ecdbc04b6dd42edfa935a44f959c8aa7e0bfa4f3c7f46a277338c8e7294b5"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "afc44944cddfd0a02b6b24fd1ff1b9fa3a7037ec8b994b252bed79cf612e0aef"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "22935e4c6d2cdf0b8bbf82fb536d400fa4e004d9b3c882743baaeef9691f1e58"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "fd26b4124584b3d52132acc7ecf31b7328d911e8331e7318ed2ced8cd8844728"
+      }
+    ],
+    "download": "/downloads/skills/wps-ppt-outline-50b04859b776-ame1.zip",
+    "sha256": "dde3a51b602de9e37b9297e8e89d4e9f26e7efb9e3ef71bb5d7d98c41f956f62",
+    "bytes": 5329
+  },
+  {
+    "id": "wps-ppt-speaker-notes",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-ppt-speaker-notes/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "wps-slides"
+    ],
+    "labels": {
+      "zh": "WPS 逐页演讲备注",
+      "en": "WPS speaker notes",
+      "ja": "WPS発表者ノート"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。依据已有页面内容写讲稿、过渡和时间；无页面时先索取内容。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Write notes, transitions and timing from supplied slides. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。提供されたスライドから原稿・つなぎ・時間を作る。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "e19b5ba9911ba09e96f2bdda686b8a6dd4048ba9bcd5fed686e9c55ed620af84"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "b583062713f2ad2d6152257c049ceb261bc9a61d4bd1479c52bdbcba2c9f2fd0"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "cf037a66f81f12c52bff16fd4c43aa83d2a1b72f440aaff1cb788f4991b0a788"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "0c5057009d91bf275dddc0b063079c548c286e8bebc2eefa956abdba93ca50ae"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "a58ff576725dbda9308ca83fa47a06a3ce5d0f7bdf825ee8658585ad928f4ebc"
+      }
+    ],
+    "download": "/downloads/skills/wps-ppt-speaker-notes-50b04859b776-ame1.zip",
+    "sha256": "167c11a01610a3bc1e0c00da07e2bd70003a2bab3de7d738e63987cb926efe2e",
+    "bytes": 5459
+  },
+  {
+    "id": "wps-data-clean",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-data-clean/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "wps-sheet"
+    ],
+    "labels": {
+      "zh": "WPS 数据清洗",
+      "en": "WPS data cleaning",
+      "ja": "WPSデータ整形"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。清理空格、重复和类型；保留原始数据并报告改动。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Clean whitespace, duplicates and types while preserving originals. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。空白・重複・型を整え原本と変更記録を残す。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "e19b5ba9911ba09e96f2bdda686b8a6dd4048ba9bcd5fed686e9c55ed620af84"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "05475bdcac353fa80c44a24c82922078168e98ec7d58a65955e11f5a342a08a5"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "e847cba3b8140b47549e80454c2e71eb87dba78eb2d8e7fc485c0d2ad3e1d29d"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "72fae83dc598609b2c977235eac9a90379b31135a8ea3ed662dfad062fecf4b8"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "e91ad77c2b678e3708affc5715e9966521cf8603e9d6dab6604c7466281b0bc7"
+      }
+    ],
+    "download": "/downloads/skills/wps-data-clean-50b04859b776-ame1.zip",
+    "sha256": "560551ccdf5344eda083690bf7df41b585c72b6dba56066e2768e206c43e5ac4",
+    "bytes": 5393
+  },
+  {
+    "id": "wps-pivot",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-pivot/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "office-focused-pivot"
+    ],
+    "labels": {
+      "zh": "WPS 数据透视表",
+      "en": "WPS pivot tables",
+      "ja": "WPSピボットテーブル"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。按问题配置行列、值、筛选与刷新核对。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Configure rows, columns, values, filters and refresh checks. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。問いに合わせ行列・値・絞込・更新確認を設計。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "e19b5ba9911ba09e96f2bdda686b8a6dd4048ba9bcd5fed686e9c55ed620af84"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "5b84846540c10c3f3ccfb3b49d352271f65f098841f969a65250daccf58c498e"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "e53456692c7c328fd24891571a78b2e515f046a14db5b4296b0f0a2372842b92"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "7e1202f7f7ff4c08e2082c80c96b5c837e48af5b889d3753dbb6a46b2bdfb00d"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "2748abe639a61f7612890f6097d938b0a6a0141ba792801b02bc646c49ad5cef"
+      }
+    ],
+    "download": "/downloads/skills/wps-pivot-50b04859b776-ame1.zip",
+    "sha256": "d8a8e65cdf5143c042342ae7d11d69ead3c996aad378413dcafa0e65b05a16b2",
+    "bytes": 5313
+  },
+  {
+    "id": "wps-pdf-extract",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-pdf-extract/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "wps-pdf"
+    ],
+    "labels": {
+      "zh": "PDF 文字与表格提取",
+      "en": "PDF text and table extraction",
+      "ja": "PDF文字・表の抽出"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。提取可读文本与表格，标注页码、OCR疑点和布局损失。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Extract text and tables with page provenance and OCR uncertainty. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。文字・表を抽出しページとOCR不確実性を記す。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "e19b5ba9911ba09e96f2bdda686b8a6dd4048ba9bcd5fed686e9c55ed620af84"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "174f7c8036d448171d9bd03fa09d7d8e8071a1564b0587c595cc057b68293bf0"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "8ee38d9f8f6064e1244a89d40c4d6ee4d204dd8706b03abd802e94d580dedbac"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "071de840464a1ef6325f7e304fc24a44233ae6c862967018727fbd2e424c5063"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "e70aa5076d875c21bab9e6fe3ef202d11f9e4ee260b7380f3f46f8209e751c2b"
+      }
+    ],
+    "download": "/downloads/skills/wps-pdf-extract-50b04859b776-ame1.zip",
+    "sha256": "0e5a451cdab4d884bf8c6c14f7dc58c3a62ec788efe96365101edc2d9b97e2e9",
+    "bytes": 5339
+  },
+  {
+    "id": "wps-docx-writer",
+    "repository": "https://github.com/Bwkyd/wps-skills",
+    "commit": "50b04859b7768ed23477d7d2af9b8fb83b27adf3",
+    "source": "https://github.com/Bwkyd/wps-skills/blob/50b04859b7768ed23477d7d2af9b8fb83b27adf3/skills/wps-docx-writer/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "wps-writing",
+      "office-focused-merge-docs"
+    ],
+    "labels": {
+      "zh": "WPS 文档结构与排版",
+      "en": "WPS document structure",
+      "ja": "WPS文書構造と書式"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。制作文档正文、标题层级、编号与排版方案。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Draft documents with heading hierarchy, numbering and layout. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。本文・見出し階層・番号・レイアウトを整える。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "e19b5ba9911ba09e96f2bdda686b8a6dd4048ba9bcd5fed686e9c55ed620af84"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "27970cb6537cc815e9d6fef5a5a64002be3d1c3500ee3849f2df596b10a9d1cd"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "179090e87294b747c0a673090e82ec0921f589c0bb34052a4481ec3740d13669"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "6ae1558ede09fcfc506790b1ebd07dc0cc415c25dba51c018c7b964761b63092"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "6cb7f3d2519afc3a0b30ea00a1592cc58211b948cb3442ba0f41f422c31ac1c0"
+      }
+    ],
+    "download": "/downloads/skills/wps-docx-writer-50b04859b776-ame1.zip",
+    "sha256": "86829e8e5edaae30885d71d7a80e7651217bf1f0b41d69c8803adbca803c433d",
+    "bytes": 5381
+  },
+  {
+    "id": "test-driven-development",
+    "repository": "https://github.com/obra/superpowers",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "source": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/test-driven-development/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "testing-unit",
+      "testing-focused-boundaries"
+    ],
+    "labels": {
+      "zh": "测试驱动开发",
+      "en": "Test-driven development",
+      "ja": "テスト駆動開発"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。围绕可观察行为建立失败用例，再做最小修复。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Start with a behavioral failing test, then a minimal implementation. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。観測可能な振る舞いの失敗テストから最小実装へ。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "0ee3c62fbe2bb48faeaeec1427a9a8579b8e725ee93a0d079400aa1e1ccba09f"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "3b4a8ed56e11de67d16658f3e24c26399dd8bcc9979e0e6f95ea83947bd4aac0"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "a66272fccffa73dd4005d8d2d25998eeccd43e8e8e4deb1cf4716754361b0528"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "8d07e4aa1054f92de6665ea3657b4a771bed344243297761c5bc633c1f5fbd3d"
+      }
+    ],
+    "download": "/downloads/skills/test-driven-development-b36e0829c6d0-ame1.zip",
+    "sha256": "841d6829cd71b1fa57e38f964f43b9e0400b8d9717876055092e59297b07eb7d",
+    "bytes": 5561
+  },
+  {
+    "id": "receiving-code-review",
+    "repository": "https://github.com/obra/superpowers",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "source": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/receiving-code-review/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "review",
+      "git-review"
+    ],
+    "labels": {
+      "zh": "代码审查意见核对",
+      "en": "Code review feedback",
+      "ja": "レビュー指摘の検証"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。核对已有审查意见的证据，再决定修复；不自动接受建议。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Verify supplied review feedback before applying changes. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。既存の指摘を検証してから修正する。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "75eccc80c90faf70a384dc85f16fae2e7cf0f52bc4a7851772b7c746fa2549db"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "5917685ed87f78164394f12b4fecc1405fde303b5d3db8e156795fd9bf74ca86"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "59e5e25d775eb64431329b1f35d57bcae43f0ecc9931a894b077e69e41a236b3"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "7a758a3fbfa249e95d230e975b0917c45e6089c06ffbe7c89f10459f5017538b"
+      }
+    ],
+    "download": "/downloads/skills/receiving-code-review-b36e0829c6d0-ame1.zip",
+    "sha256": "9f6db871b1cfa4c315a842c60530299b961eb9c7720df2a556fd88df4190dcef",
+    "bytes": 5475
+  },
+  {
+    "id": "verification-before-completion",
+    "repository": "https://github.com/obra/superpowers",
+    "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+    "source": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/verification-before-completion/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "testing-journey",
+      "testing-report"
+    ],
+    "labels": {
+      "zh": "交付前验证",
+      "en": "Delivery verification",
+      "ja": "完了前の検証"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。按验收条件核对命令、结果与未覆盖项。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Map acceptance criteria to checks, results and coverage gaps. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。受入条件と確認結果・未検証項目を対応づける。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "2bf81c609efe449c76efaffb5944b56d991dac4f90bcddd2c43dd2b3d7286276"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "b98bdbe020cd5f5062271812d2c394823a9595f5d7bca676c0e78d8f6c0133e8"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "5869c1ef790a23bfaa2576bcc0c8206a25a5bc7e23975625f6f9a61f88fc5e97"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "e7fd6fd71467674dc88c1eaf9d4022ac9f5e60401d6caa8300360867f56fd043"
+      }
+    ],
+    "download": "/downloads/skills/verification-before-completion-b36e0829c6d0-ame1.zip",
+    "sha256": "b8203f4e124c219016c1f53fcac1b257a2b3c0b26138fa367e3a50d5574b6ad1",
+    "bytes": 5623
+  },
+  {
+    "id": "prompt-images",
+    "repository": "https://github.com/replicate/skills",
+    "commit": "2f36e415965ae63baa1c9f6635888092bcd771d3",
+    "source": "https://github.com/replicate/skills/blob/2f36e415965ae63baa1c9f6635888092bcd771d3/skills/prompt-images/SKILL.md",
+    "license": "Apache-2.0",
+    "tasks": [
+      "image",
+      "photo-focused-restore",
+      "photo-focused-background",
+      "photo-focused-series",
+      "character-turnaround",
+      "character-expression",
+      "character-focused-wardrobe"
+    ],
+    "labels": {
+      "zh": "图片描述与局部修改",
+      "en": "Image prompts and local edits",
+      "ja": "画像プロンプトと局所編集"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。明确主体、构图与保留项；适合图片生成和局部修复描述。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Describe subject, composition and preserved elements for generation or local edits. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。主体・構図・保持条件を明確にし生成や部分修正を指示。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "f7fe9e559ee33341e61df0bc9c31b7bcf967a4350feeb9d8cbb48bf3ea5f8a6a"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "cb1fc3695f2cd6c089127bcbb22aeec416a20f2f81f089efb24bd7b1e4aaecf2"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "79517ea8244570f76dcecd30d112177be3b5bf95071b94af6c2783f1bba52828"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "98e9eef0b14f23d9b6e7c3be566a8666c01d9593d568863de764b227ccea0aa9"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "cc0ee5a00f55454bb3dbaf679ba56b96a3268757e19b818377f8b6bddc6d8357"
+      }
+    ],
+    "download": "/downloads/skills/prompt-images-2f36e415965a-ame1.zip",
+    "sha256": "e8fb2226f3b82576d06af410e083f3ce1d30907be0c21e8f11d6b2d6590b2206",
+    "bytes": 8647
+  },
+  {
+    "id": "prompt-videos",
+    "repository": "https://github.com/replicate/skills",
+    "commit": "2f36e415965ae63baa1c9f6635888092bcd771d3",
+    "source": "https://github.com/replicate/skills/blob/2f36e415965ae63baa1c9f6635888092bcd771d3/skills/prompt-videos/SKILL.md",
+    "license": "Apache-2.0",
+    "tasks": [
+      "clip",
+      "production-focused-loop",
+      "production-focused-repair"
+    ],
+    "labels": {
+      "zh": "视频动作与镜头提示词",
+      "en": "Video action and camera prompts",
+      "ja": "動画の動作・カメラ指示"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。描述单镜头动作、起止状态与运镜；不代替多镜头剪辑。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Specify single-shot action, start/end state and camera movement. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。単一カットの動作・開始終了・カメラを指定。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "f7fe9e559ee33341e61df0bc9c31b7bcf967a4350feeb9d8cbb48bf3ea5f8a6a"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "476dd6a815ebe542ee1b355e4e67293457bcc2f1179f143ee6311cb434043e97"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "ba23d6eafcdeea9242f24b0449984812d77a4af7f9e25b9cb7bda1f53df9ca1a"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "623f9b7e3cdd1562c480d6cfaa16ed9f3ddcfddf574b32ddc222e370caebb356"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "502c509f4ad0c4b0186d2b188e8f2f648c4ff322d94b782359da21d8c8686381"
+      }
+    ],
+    "download": "/downloads/skills/prompt-videos-2f36e415965a-ame1.zip",
+    "sha256": "c131716eb5f2bae2e857552d17488c578006b5a0f3390fc1a1922ff238efafa2",
+    "bytes": 8520
+  },
+  {
+    "id": "storyboard-workflow",
+    "repository": "https://github.com/toyme/storyboard-skill",
+    "commit": "a8908aabcf9e9585220dfda4d7656f95f68b3610",
+    "source": "https://github.com/toyme/storyboard-skill/blob/a8908aabcf9e9585220dfda4d7656f95f68b3610/SKILL.md",
+    "license": "MIT",
+    "tasks": [
+      "storyboard",
+      "production-bible",
+      "production-shots",
+      "production-continuity",
+      "character-focused-grid",
+      "production-focused-vertical"
+    ],
+    "labels": {
+      "zh": "分镜与角色场景一致性",
+      "en": "Storyboards and continuity",
+      "ja": "絵コンテと連続性"
+    },
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "无脚本适配版。组织角色设定、近中远景、逐镜提示词与连续性检查。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+      "en": "Instruction-only adaptation. Organize character bibles, shot sizes, prompts and continuity checks. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+      "ja": "スクリプト不要の調整版。キャラ設定・近中遠景・カット別指示・連続性を整理。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "86efe82bcc1f83b1620a82fc9a0e36e5a59f531231cd409fd950b6d176d46c3c"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "03da615045317c2ca652a8ba32cdb45057c641c7fd14891d85a771ba35f673d0"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "bd263a07c410f550d1575f39eb42ca241890b3e78b346902c1037541096286a2"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "b9e200ae97e830ab0bfb6c2568c4e6c912de8b38de3d9fd04087f3a1cecb1c08"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "1ae0ec936e0b0ddd40f4eda7fdd2e1d2d3444dd1ea4e86b9888917ad361bd78a"
+      }
+    ],
+    "download": "/downloads/skills/storyboard-workflow-a8908aabcf9e-ame1.zip",
+    "sha256": "42477e02669c65199345316605227f27b21fa7d5367f3ca5c951f8927a7244ea",
+    "bytes": 5546
   }
 ]

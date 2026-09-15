@@ -1,7 +1,7 @@
 # AI Made Easy
 
 Open-source prompt studio / 三语提示词工作室 / 3言語対応プロンプトスタジオ。
-Current release (2026-09-15): **57 homepage modules, 225 task templates, 45 detailed scenarios, eight downloadable GitHub-based Skill documentation packs**. All homepage prompts and usage instructions support Chinese, English and Japanese. See [release and content maintenance](docs/DOMAIN-LIBRARY.md).
+Current release (2026-09-15): **57 homepage modules, 225 task templates, 45 detailed scenarios, 20 downloadable GitHub-based Skill documentation packs**. All homepage prompts and usage instructions support Chinese, English and Japanese. See [release and content maintenance](docs/DOMAIN-LIBRARY.md).
 Original code and editorial content use the MIT license; upstream content retains its own notices (see LICENSE).
 
 Prompt generation and matching are rule-based; the site does not call a model or create media. Earlier engineering and shot-size batches remain documented in [everyday programming](docs/EVERYDAY-PROGRAMMING.md), [code and shot sizes](docs/CODE-AND-SHOT-SIZES.md), and [spatial continuity](docs/SPATIAL-CONTINUITY.md).
@@ -13,7 +13,7 @@ Prompt generation and matching are rule-based; the site does not call a model or
 元提示词开关加入澄清问题、输出结构及自检规则；不调用 AI。用户输入和已锁定字段不会被语言切换自动翻译。
 历史 309 条模板通过“全部提示词”入口开放，保留原文；原有方案仍可打开与导出。Skill模式提供固定版本ZIP、来源、对应许可证、校验值和三语说明；普通模式无需下载。包内为上游文档或注明来源的适配版，执行脚本及外部依赖不包含，未做目标AI运行认证。
 新模板及翻译维护说明见 [data/studio/README.md](data/studio/README.md)。
-完整库共366条（87条原创、279条导入）；首页可直接选择225个细分任务模板。五个其他方向的关键词规则和八个学习草稿保留在数据库中，暂不上首页。
+完整库共366条（87条原创、279条导入）；首页可直接选择225个细分任务模板。五个其他方向的关键词规则和20个学习草稿保留在数据库中，暂不上首页。
 
 一个可以自己维护的提示词网站：搜索数据库 → 填写模板 → 选择和锁定关键词 → 复制、收藏、保存方案。
 
@@ -102,3 +102,5 @@ AI Short 来源：[rockbenben/ChatGPT-Shortcut](https://github.com/rockbenben/Ch
 导入范围仅限公开仓库中的精选数据，**未复制其线上私有数据库、社区用户记录或用户账号信息**。导入是内容存档，不代表已经对专业性、事实准确性或模型执行效果作出验证。
 
 本次新增 60 个原创细分任务与独立关怀版，详见 [关怀版与交互更新](docs/CARE-EDITION.md)。
+
+新增12个GitHub来源的无脚本适配Skill，总计20个，详见 [Skill扩展记录](docs/SKILL-EXPANSION.md)。

@@ -1,0 +1,46 @@
+{
+  "id": "verification-before-completion",
+  "repository": "https://github.com/obra/superpowers",
+  "commit": "b36e0829c6d0140e93cfef2ca599b1b07d4a7797",
+  "source": "https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/verification-before-completion/SKILL.md",
+  "license": "MIT",
+  "tasks": [
+    "testing-journey",
+    "testing-report"
+  ],
+  "labels": {
+    "zh": "交付前验证",
+    "en": "Delivery verification",
+    "ja": "完了前の検証"
+  },
+  "language": "en",
+  "edition": "adapted-documentation",
+  "review": "entrypoint-and-license-reviewed; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "无脚本适配版。按验收条件核对命令、结果与未覆盖项。 解压后将文件夹导入支持 SKILL.md 的 AI 工具；普通聊天可粘贴 SKILL.md 与生成的提示词，并指定中文回答。没有模型、API Key 或软件安装。实际编辑文件、测试代码、生成图片视频需要目标 AI 的相应工具；无法执行时只输出内容和步骤，不能声称已完成。",
+    "en": "Instruction-only adaptation. Map acceptance criteria to checks, results and coverage gaps. Extract the folder into a tool supporting SKILL.md, or paste the document and generated prompt into chat. Request English output. No model, API key or installer is included. Editing files, running code and generating media require tools in the target AI; without them return content and steps without claiming execution.",
+    "ja": "スクリプト不要の調整版。受入条件と確認結果・未検証項目を対応づける。 展開したフォルダーをSKILL.md対応ツールに導入するか、文書とプロンプトをチャットへ貼り付け、日本語を指定します。モデル・APIキー・インストーラーはありません。ファイル編集・実行・媒体生成は対象AIの機能が必要で、未実行なら内容と手順だけを示します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "2bf81c609efe449c76efaffb5944b56d991dac4f90bcddd2c43dd2b3d7286276"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "b98bdbe020cd5f5062271812d2c394823a9595f5d7bca676c0e78d8f6c0133e8"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "5869c1ef790a23bfaa2576bcc0c8206a25a5bc7e23975625f6f9a61f88fc5e97"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "e7fd6fd71467674dc88c1eaf9d4022ac9f5e60401d6caa8300360867f56fd043"
+    }
+  ]
+}
