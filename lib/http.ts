@@ -1,5 +1,12 @@
 export const COOKIE_NAME = 'ame_visitor';
-export async function visitor(request: Request) {
+export function platformIdentity(request: Request) {
+  // Sites dispatch strips client identity headers and supplies verified SIWC identity.
+  // Self-hosting requires an equivalent trusted gateway; never expose this Worker directly.
+  const userId = request.headers.get('oai-authenticated-user-id');
+  const email = request.headers.get('oai-authenticated-user-email');
+  return userId && email ? { userId, email } : null;
+}
+export async function visitor(request: Request, anonymousOnly = false) {
   const cookie = request.headers.get('cookie') || '';
   let token = cookie.match(/(?:^|;\s*)ame_visitor=([a-f0-9]{64})(?:;|$)/)?.[1];
   const fresh = !token;
@@ -7,9 +14,10 @@ export async function visitor(request: Request) {
     token = Array.from(crypto.getRandomValues(new Uint8Array(32)), (x) =>
       x.toString(16).padStart(2, '0'),
     ).join('');
+  const identity = anonymousOnly ? null : platformIdentity(request);
   const digest = await crypto.subtle.digest(
     'SHA-256',
-    new TextEncoder().encode(token),
+    new TextEncoder().encode(identity ? 'siwc:' + identity.userId : token),
   );
   const id = Array.from(new Uint8Array(digest), (x) =>
     x.toString(16).padStart(2, '0'),

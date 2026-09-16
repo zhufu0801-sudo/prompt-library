@@ -1,0 +1,46 @@
+{
+  "id": "ame-evidence-writing",
+  "tasks": [
+    "paper-evidence-matrix",
+    "paper-revision-response"
+  ],
+  "labels": {
+    "zh": "论文证据与返修整理",
+    "en": "Evidence and revision writing",
+    "ja": "論文根拠・査読回答"
+  },
+  "repository": "https://github.com/zhufu0801-sudo/prompt-library",
+  "source": "https://github.com/zhufu0801-sudo/prompt-library/blob/main/data/sources/skills/ame-evidence-writing/SKILL.md",
+  "commit": "original-v1",
+  "license": "MIT",
+  "language": "en",
+  "edition": "original-documentation",
+  "review": "package-and-scope-checked; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "原创指令型 Skill，不附带模型、脚本或外部依赖。解压后将整个文件夹导入支持 SKILL.md 的软件；普通聊天也可粘贴 SKILL.md 和网站生成的需求。请指定回答语言。只有目标 AI 具备相应工具时才执行操作，否则交付可复制的方案。",
+    "en": "Original instruction-only Skill. No model, scripts or external dependencies are included. Extract the folder into a SKILL.md-compatible app, or paste SKILL.md plus the website brief into chat. Specify the response language. Execute only with available host tools; otherwise deliver a copyable plan.",
+    "ja": "独自の指示文Skillです。モデル・スクリプト・外部依存は含みません。展開フォルダを対応ソフトに導入するか、SKILL.mdとサイトの要望文をチャットに貼り付け、回答言語を指定。機能がない場合は実行済みとせず利用可能な案を出します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "2859f5ef9f02a0cd43cf08121ee70ae7e220fe2791c8b6acea5a200c73f4f655"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "2132f6bc9281ce1627f0c053dd517e273436601cb6495b7152841f1db5b31eb2"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "c50de509a2e60aefeccde5103f8da78a9ac788b1d62be05e4359a2176006a9db"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "e3f28fddb785f50719646a1b860484378b2354e0c483d334c671c3ba55c14558"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "97021fa51e46c0967643c973880d19bab2d5fe6e51a4e071a6e2440f24638cad"
+    }
+  ]
+}

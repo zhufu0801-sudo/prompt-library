@@ -557,8 +557,8 @@ test('60 practical task templates resolve correctly in all languages and preserv
   for (const locale of ['zh', 'en', 'ja']) {
     const templates = load(locale),
       cards = taskTemplates(templates, locale);
-    assert.equal(cards.length, 225);
-    assert.equal(new Set(cards.map((c) => c.id)).size, 225);
+    assert.equal(cards.length, 237);
+    assert.equal(new Set(cards.map((c) => c.id)).size, 237);
     for (const task of tasks) {
       const card = cards.find((c) => c.id === task.id);
       assert.ok(card);

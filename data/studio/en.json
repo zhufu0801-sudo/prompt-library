@@ -30,7 +30,9 @@
           "Feature implementation",
           "Debugging",
           "Code review",
-          "Frontend and UI design"
+          "Frontend and UI design",
+          "Stale state and race conditions",
+          "Change an existing codebase"
         ],
         "maxSelections": 1
       },
@@ -563,7 +565,9 @@
           "Cloud document collaboration",
           "WPS formula error diagnosis",
           "WPS headings and numbering",
-          "WPS pivot tables"
+          "WPS pivot tables",
+          "WPS printing and pagination",
+          "Formula version and locale compatibility"
         ],
         "maxSelections": 1
       },
@@ -695,7 +699,9 @@
           "Ads and short-video scripts",
           "Headline variations",
           "Brand voice consistency",
-          "Clear campaign terms"
+          "Clear campaign terms",
+          "Adapt copy for several channels",
+          "Make copy concrete without changing facts"
         ],
         "maxSelections": 1
       },
@@ -829,7 +835,9 @@
           "Revision, translation and responses",
           "Paper limitations and discussion",
           "Paper figure captions and checks",
-          "Point-by-point reviewer response"
+          "Point-by-point reviewer response",
+          "Map paper claims to evidence",
+          "Reviewer response from actual revisions"
         ],
         "maxSelections": 1
       },

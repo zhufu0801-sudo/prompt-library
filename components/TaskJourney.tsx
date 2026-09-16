@@ -16,12 +16,19 @@ import {
 import {
   taskTemplates,
   matchingSkills,
+  skillsForTask,
   briefQuestion,
   taskFields,
   type Locale,
 } from '@/lib/studio';
-import { rankJourneyTasks, taskCategory, briefChecks } from '@/lib/journey';
-import { defaultValues, type Template } from '@/lib/prompt';
+import {
+  rankJourneyTasks,
+  taskCategory,
+  briefChecks,
+  queryCorrections,
+  separateRequests,
+} from '@/lib/journey';
+import { defaultValues, type Template, type Values } from '@/lib/prompt';
 import { categoryNames } from '@/lib/categories';
 import {
   tr,
@@ -65,6 +72,10 @@ export default function TaskJourney({
     [fixCache, setFixCache] = useState({ key: '', value: '' }),
     [skillId, setSkillId] = useState(''),
     [outputStyle, setOutputStyle] = useState<'brief' | 'direct'>('brief');
+  const [saving, setSaving] = useState(false),
+    [savedPlan, setSavedPlan] = useState<{ key: string; id: string } | null>(
+      null,
+    );
   const fixKey = JSON.stringify([
     brief,
     tool,
@@ -180,6 +191,8 @@ export default function TaskJourney({
     return !category || taskCategory(t) === category;
   };
   const ranked = rankJourneyTasks(tasks.filter(relevant), search);
+  const corrections = queryCorrections(search),
+    requests = separateRequests(tasks, search);
   const shown = search.trim()
     ? ranked
     : tasks
@@ -239,7 +252,10 @@ export default function TaskJourney({
         materials: brief.materials,
         constraints: brief.preserve + ' ' + brief.change + ' ' + brief.settings,
       })
-    : [];
+    : skillsForTask(taskId, {
+        subject: brief.goal,
+        constraints: brief.preserve + ' ' + brief.change,
+      });
   const selectedSkill = matches.find((s) => s.id === skillId);
   const finalPrompt =
     (outputStyle === 'direct' && output?.directAvailable
@@ -257,6 +273,68 @@ export default function TaskJourney({
         '\n' +
         selectedSkill.source
       : '');
+  async function saveResult() {
+    const template =
+      card?.template ||
+      templates.find(
+        (t) =>
+          t.id ===
+          (mode.includes('video') ? 'custom-animation' : 'custom-image'),
+      );
+    if (!template || !selected || saving) return;
+    const key = taskId + ':' + l;
+    const values: Values = defaultValues(template);
+    if (card) values[card.field] = card.value;
+    const entries: Record<string, string> = {
+      subject: brief.goal,
+      materials: brief.materials,
+      constraints: [
+        brief.change,
+        brief.preserve,
+        brief.settings,
+        brief.priority,
+      ]
+        .filter(Boolean)
+        .join('\n'),
+    };
+    for (const field of template.fields)
+      if (field.key in entries) values[field.key] = entries[field.key];
+    setSaving(true);
+    try {
+      const r = await fetch('/api/plans', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...(savedPlan?.key === key ? { id: savedPlan.id } : {}),
+          templateId: template.id,
+          title: selected.label,
+          values,
+          locks: {},
+          output: finalPrompt,
+        }),
+      });
+      if (!r.ok) throw Error();
+      const result = (await r.json()) as { id: string };
+      setSavedPlan({ key, id: result.id });
+      setNotice(
+        say(
+          '已保存，可在“我的方案”查看。登录后保存的内容可跨设备使用。',
+          'Saved under My plans. Items saved while signed in are available across devices.',
+          '保存しました。「保存済みプラン」で確認できます。ログイン中の保存内容は別端末でも利用可能です。',
+        ),
+      );
+    } catch {
+      setNotice(
+        say(
+          '未能保存。输入仍保留；请检查内容长度或保存数量，也可先下载备份。',
+          'Could not save. Input is retained; check content length or storage limits, or download a backup.',
+          '保存できません。入力は保持されています。長さ・保存件数を確認するかバックアップを保存してください。',
+        ),
+      );
+    } finally {
+      setSaving(false);
+    }
+  }
   function pick(id: string) {
     const c = tasks.find((t) => t.id === id)!;
     const target = taskCategory(c);
@@ -509,6 +587,44 @@ export default function TaskJourney({
               </button>
             ))}
           </div>
+          {corrections.length > 0 && (
+            <div className="match-explanation">
+              <p>
+                {say(
+                  '可能有一个错别字，要按下面的表达查找吗？',
+                  'Possible typo. Search using this wording?',
+                  '誤字の可能性があります。次の表現で検索しますか？',
+                )}
+              </p>
+              {corrections.map((c) => (
+                <button key={c.from} onClick={() => setSearch(c.query)}>
+                  {c.from} → {c.to}
+                </button>
+              ))}
+            </div>
+          )}
+          {requests.length > 1 && (
+            <div className="match-explanation">
+              <p>
+                {say(
+                  '这句话可能包含多件事。可以先选一件分别生成，原句仍保留在输入框中。',
+                  'This may contain several tasks. Select one to handle separately; the original stays in the search box.',
+                  '複数の作業が含まれる可能性があります。一つずつ作成できます。原文は検索欄に残ります。',
+                )}
+              </p>
+              {requests.map((r) => (
+                <button
+                  key={r.text}
+                  onClick={() => {
+                    pick(r.match.id);
+                    setBrief({ ...emptyBrief, goal: r.text });
+                  }}
+                >
+                  {r.text}
+                </button>
+              ))}
+            </div>
+          )}
           {(category || action === 'unsure' || search.trim()) && (
             <>
               {search.trim() && (
@@ -890,6 +1006,9 @@ export default function TaskJourney({
               >
                 <Copy size={18} />
                 {say('复制提示词', 'Copy prompt', 'コピー')}
+              </button>
+              <button disabled={saving} onClick={saveResult}>
+                {say('保存到我的方案', 'Save to My plans', 'プランに保存')}
               </button>
               <button
                 onClick={() =>

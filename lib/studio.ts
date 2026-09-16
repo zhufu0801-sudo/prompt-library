@@ -199,6 +199,9 @@ export function matchingSkills(t: Template, values: Values) {
       fitsBrief(s.id, values),
   );
 }
+export function skillsForTask(taskId: string, values: Values) {
+  return skillCatalog.filter(s=>skillTasks(s).includes(taskId)&&fitsBrief(s.id,values));
+}
 export function recommendedSkills(t: Template, values: Values, locale: Locale) {
   if (!studioIds.includes(t.id)) return [];
   const current = taskGuide(t, values),

@@ -8,9 +8,9 @@ export function editTasks(l: Lang) {
       tr(l, '更换图片背景', 'Replace an image background', '画像の背景変更'),
       tr(
         l,
-        '明确只替换背景，保留主体身份、衣服、姿势和构图。说明新背景、透视、光线和接触阴影；指出边缘融合检查。',
-        'Replace only the background; preserve identity, clothing, pose and framing. Specify the new setting, perspective, light and contact shadows; check edges.',
-        '背景のみ変更し、人物・服・姿勢・構図は保持。新背景・遠近・光・接地影・境界を確認。',
+        '明确只替换背景，保留主体外观、比例和构图。人物保留身份与服饰，商品保留商标与形状；只采用符合当前主体的检查项。说明新背景、透视、光线和接触阴影，检查边缘融合。',
+        'Replace only the background; preserve subject appearance, proportions and framing. Preserve identity/clothing for people or logos/shape for products, using only relevant checks. Specify perspective, lighting, contact shadows and edge blending.',
+        '背景のみ変更し主体の外観・比率・構図を保持。人物なら本人と服、商品ならロゴと形状を確認し対象に合う項目だけ適用。遠近・光・接地影・境界も指定。',
       ),
     ],
     [

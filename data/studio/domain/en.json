@@ -1843,7 +1843,8 @@
           "Interior layout and mood images",
           "Old-photo restoration brief",
           "Product background replacement",
-          "Consistent product image set"
+          "Consistent product image set",
+          "Product image edit acceptance"
         ],
         "maxSelections": 1
       },
@@ -2107,7 +2108,8 @@
           "Export and platform variants",
           "Shot transitions",
           "Dialogue and background sound",
-          "Condense a long video"
+          "Condense a long video",
+          "Align dialogue and subtitle timing"
         ],
         "maxSelections": 1
       },

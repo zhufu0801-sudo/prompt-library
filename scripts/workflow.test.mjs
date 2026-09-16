@@ -19,7 +19,24 @@ import {
 } from '../lib/video-project.ts';
 import { validFeedback, screenFeedback } from '../lib/feedback.ts';
 import { editTasks } from '../lib/edit-tasks.ts';
-import { rankJourneyTasks, taskCategory } from '../lib/journey.ts';
+import {
+  rankJourneyTasks,
+  taskCategory,
+  queryCorrections,
+  separateRequests,
+} from '../lib/journey.ts';
+test('typo suggestions are explicit and multi-task suggestions preserve the original input', () => {
+  const input = '换背静，然后剪掉视频开头';
+  assert.equal(queryCorrections(input)[0].query, '换背景，然后剪掉视频开头');
+  assert.equal(input, '换背静，然后剪掉视频开头');
+  const tasks = editTasks('zh');
+  assert.deepEqual(
+    separateRequests(tasks, '换背景，然后剪掉视频开头').map((x) => x.match.id),
+    ['edit-image-background', 'edit-video-trim'],
+  );
+  assert.equal(separateRequests(tasks, '换背景，然后换成白色').length, 0);
+  assert.equal(rankJourneyTasks(tasks, 'qzxv-unlisted-request').length, 0);
+});
 import {
   starterProject,
   duplicateEpisode,

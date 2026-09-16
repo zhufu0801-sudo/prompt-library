@@ -14,8 +14,8 @@
   "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
   "license": "MIT",
   "language": "en",
-  "edition": "upstream-documentation",
-  "review": "source-and-license-checked; not-runtime-tested",
+  "edition": "adapted-documentation",
+  "review": "entrypoint-local-links-and-package-checked; external-ai-runtime-not-tested",
   "usage": {
     "zh": "这是上游英文 Skill 的文档包，使用说明提供中英日版本；不含模型、API Key、脚本或软件安装。解压后，将对应 Skill 文件夹导入支持 SKILL.md 的 AI 工具；具体位置以该工具说明为准。普通聊天工具可打开 SKILL.md，将适用的指令与网站生成的提示词一同粘贴。指定用中文回答。先让 AI 列明缺少的资料与能力；没有文件或媒体工具时仅输出内容与步骤，不声称已经生成文件。上游提及的其他 Skill、脚本、工具集成不包含在本包中；需要时另行核对并安装。模型、价格、功能与命令须核对目标工具的官方文档。不要复制示例中的统计数字作为事实；不要输出密钥或环境变量。由使用者确认工具调用与费用。",
     "en": "This package contains the original English Skill documents, with instructions in Chinese, English and Japanese. It includes no model, API key, executable scripts or installer. Extract and import the Skill folder into a tool supporting SKILL.md, following that tool’s documented location. In a plain chat tool, paste the relevant instructions together with the generated prompt. Request an English answer. Ask the AI to identify missing inputs and capabilities first; without file/media tools, return content and steps without claiming files were generated. Referenced external skills, scripts and integrations are not bundled. Verify model capabilities, prices and commands against official documentation. Do not reuse example statistics as facts or print secrets/environment variables. Confirm tool actions and costs yourself.",
@@ -23,12 +23,12 @@
   },
   "files": [
     {
-      "path": "SKILL.md",
-      "sha256": "3b6d4864bae49dd3d60e7f6218e0de0803633989d68bdcf093a3771307387ac2"
-    },
-    {
       "path": "evals/evals.json",
       "sha256": "9f935c91490d5fe9e0170e360baa69edac8dd586921ff631e0a83991b5afe636"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591"
     },
     {
       "path": "references/ai-video-prompting.md",
@@ -37,6 +37,30 @@
     {
       "path": "references/edit-anatomy.md",
       "sha256": "51319196939e75b29fd1f00ef393e1772043e79dbf0a19c82145060cc62fde7f"
+    },
+    {
+      "path": "references/heygen.md",
+      "sha256": "96dd28e8761ab84bb2de296163ba8207900eeeb56cc4db54cd9f033583752f73"
+    },
+    {
+      "path": "references/hyperframes.md",
+      "sha256": "440a2fb3105c350a58e3b422f3dc4dc391db6a4a5a5d8ccad8aa643f13326078"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "67535e4fb0b4513136c2b4d3ba4e61298e56bcc48e3fea37bc81098a13c979cb"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "6a2bc0506f291028ec654be054ab9b106e259e05cabb4b8e310e06c2d04fcb25"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "a4e6f1bff62e30de8f0496335db1259bc64e8bc8275c39504fa26afb66f36aeb"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "5d85e2a312ec819eb00219fbc68ff863bf1c056c6d5c85b01c043dd0f15bd844"
     }
   ]
 }

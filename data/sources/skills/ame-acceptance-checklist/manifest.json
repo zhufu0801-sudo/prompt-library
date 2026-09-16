@@ -1,0 +1,46 @@
+{
+  "id": "ame-acceptance-checklist",
+  "tasks": [
+    "testing-acceptance-cases",
+    "programming-legacy-change"
+  ],
+  "labels": {
+    "zh": "网站功能验收",
+    "en": "Website acceptance checks",
+    "ja": "ウェブ機能の受入確認"
+  },
+  "repository": "https://github.com/zhufu0801-sudo/prompt-library",
+  "source": "https://github.com/zhufu0801-sudo/prompt-library/blob/main/data/sources/skills/ame-acceptance-checklist/SKILL.md",
+  "commit": "original-v1",
+  "license": "MIT",
+  "language": "en",
+  "edition": "original-documentation",
+  "review": "package-and-scope-checked; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "原创指令型 Skill，不附带模型、脚本或外部依赖。解压后将整个文件夹导入支持 SKILL.md 的软件；普通聊天也可粘贴 SKILL.md 和网站生成的需求。请指定回答语言。只有目标 AI 具备相应工具时才执行操作，否则交付可复制的方案。",
+    "en": "Original instruction-only Skill. No model, scripts or external dependencies are included. Extract the folder into a SKILL.md-compatible app, or paste SKILL.md plus the website brief into chat. Specify the response language. Execute only with available host tools; otherwise deliver a copyable plan.",
+    "ja": "独自の指示文Skillです。モデル・スクリプト・外部依存は含みません。展開フォルダを対応ソフトに導入するか、SKILL.mdとサイトの要望文をチャットに貼り付け、回答言語を指定。機能がない場合は実行済みとせず利用可能な案を出します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "2859f5ef9f02a0cd43cf08121ee70ae7e220fe2791c8b6acea5a200c73f4f655"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "2eb871a56682e9c1a4ac499d12f929cc18e6dd89f93716a13daeced27adc653b"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "dbca4e315262cad6a5c9bc9cf93fe95e74a643062938a0825d65e94937efab6d"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "ad6dce405bc29308da969e8c0ca360304d55a5605407f45c620f32c4959aa91a"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "30d0e9da65d4ec8ffc03e76bd170b994ce087960e46706a6ad341fa29e5ead06"
+    }
+  ]
+}

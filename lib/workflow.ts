@@ -113,24 +113,25 @@ export const adapters = [
     id: 'jimeng',
     name: '即梦 / Jimeng',
     modes: ['image', 'image-edit', 'video', 'image-video'],
-    source: '',
-    checked: '',
+    source:
+      'https://jimeng.jianying.com/features/tools/ai-image-generator-from-text',
+    checked: '2026-09-16',
     note: [
-      '提供通用描述版，未核实具体模型版本与编辑功能；请在软件中确认。',
-      'General wording only; model-specific editing capabilities have not been verified.',
-      '汎用表現のみ。モデル固有の編集機能は未確認です。',
+      '文生图描述主体、环境、风格和构图。已核对文生图官方说明；其他模式的参数与可用功能仍需在所选模型中确认。',
+      'For text-to-image describe subject, setting, style and composition. Official text-to-image guidance checked; verify parameters and capabilities for other modes in the selected model.',
+      '文章から画像では被写体・環境・作風・構図を記述。文生図の公式説明を確認済み。他モードの設定・機能は選択モデルで確認。',
     ],
   },
   {
     id: 'kling',
     name: '可灵 / Kling',
     modes: ['video', 'image-video', 'video-edit'],
-    source: '',
-    checked: '',
+    source: 'https://kling.ai/explore/kling_ai_manual',
+    checked: '2026-09-16',
     note: [
-      '提供通用描述版，不保证视频编辑、音频或首尾帧等功能均可用。',
-      'General wording only; editing, audio and first/last-frame capabilities require verification.',
-      '汎用表現のみ。編集・音声・開始終了フレーム等は要確認。',
+      '先确定模型和模式。角色参考资料用同一套编号；对白逐句标明说话人、语言和语气。原生音频、多镜头和编辑入口需在当前版本确认，不写死未知参数。',
+      'Select model and mode first. Keep character references consistently named; pair each dialogue line with speaker, language and delivery. Verify native audio, multi-shot and editing availability in the current version; do not invent parameter syntax.',
+      'モデルとモードを確認。人物参照を同じ識別子で管理し、台詞に話者・言語・口調を付ける。音声・複数カット・編集の利用可否は現行版で確認し不明な構文を作らない。',
     ],
   },
   {
@@ -149,36 +150,37 @@ export const adapters = [
     id: 'deepseek',
     name: 'DeepSeek',
     modes: ['text'],
-    source: '',
-    checked: '',
+    source: 'https://api-docs.deepseek.com/api/create-chat-completion/',
+    checked: '2026-09-16',
     note: [
-      '用于文字、代码和制作方案；不声称能直接输出图片或视频。',
-      'For text, code and production plans; no claim of direct image/video generation.',
-      '文章・コード・制作計画向け。画像や動画の直接生成を前提にしません。',
+      '用于文字、代码和制作方案；给清楚输入、约束和输出格式。已核对文本对话文档，具体文件处理能力以使用的应用为准，不把图片视频制作方案说成生成文件。',
+      'For text, code and production plans, specify inputs, constraints and output format. Text-chat documentation checked; file tools depend on the host app. A media plan is not a generated media file.',
+      '文章・コード・制作計画向けに入力・制約・出力形式を指定。文字対話の文書を確認済み。ファイル操作はアプリ依存で、媒体の計画を生成済みファイルとしない。',
     ],
   },
   {
     id: 'claude',
     name: 'Claude',
     modes: ['text'],
-    source: '',
-    checked: '',
+    source:
+      'https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude',
+    checked: '2026-09-16',
     note: [
-      '按自然语言描述交付要求；文件和执行能力需要在当前环境确认。',
-      'Describe deliverables naturally; verify file and execution tools in the current environment.',
-      '成果物を自然言語で指定。ファイルと実行機能は利用環境で確認。',
+      '支持的环境可创建和编辑文件；请指定文件类型、结构与已有资料。先确认当前账号已开启文件创建功能，没有执行能力时交付正文和步骤。',
+      'Supported environments can create and edit files. Specify file type, structure and source material; verify file creation is enabled, otherwise deliver content and steps.',
+      '対応環境ではファイル作成・編集が可能。形式・構成・資料を指定し、機能の有効化を確認。未対応なら本文と手順を出す。',
     ],
   },
   {
     id: 'capcut',
     name: '剪映 / CapCut',
     modes: ['video-edit'],
-    source: '',
-    checked: '',
+    source: 'https://www.capcut.com/help/how-to-recognise-subtitles',
+    checked: '2026-09-16',
     note: [
-      '输出剪辑操作清单，不假设软件能直接执行整段自然语言指令。',
-      'Produces an editing checklist; does not assume the app executes a whole natural-language instruction.',
-      '編集手順を出力。自然言語全体の自動実行は前提にしません。',
+      '输出剪辑操作清单；字幕可按 Captions / Auto Captions 选择语言后生成，再回听校对。剪映国内版入口可能不同；不假设整段自然语言能自动执行。',
+      'Output an editing checklist. In CapCut use Captions / Auto Captions, select the spoken language, then proofread against audio. Jianying may differ; do not assume whole prompts execute automatically.',
+      '編集手順を出力。CapCutのCaptions / Auto Captionsで言語選択後、音声で校正。剪映は入口が異なる場合があり、指示全体の自動実行は前提にしない。',
     ],
   },
 ] as const;
@@ -236,7 +238,18 @@ export function createBriefOutput(
       'Complete the following task; explain in English.',
       '以下の作業を行い、日本語で説明してください。',
     ),
-    [task,b.goal,b.change?tr(l,'修改 / 重点','Change / focus','変更・重点')+': '+b.change:'',b.preserve?tr(l,'必须保留','Must preserve','保持条件')+': '+b.preserve:''].filter(Boolean).join('\n'),
+    [
+      task,
+      b.goal,
+      b.change
+        ? tr(l, '修改 / 重点', 'Change / focus', '変更・重点') + ': ' + b.change
+        : '',
+      b.preserve
+        ? tr(l, '必须保留', 'Must preserve', '保持条件') + ': ' + b.preserve
+        : '',
+    ]
+      .filter(Boolean)
+      .join('\n'),
     guidance,
     `${tr(l, '输出偏好与限制', 'Output preferences and constraints', '出力の希望・制約')}: ${b.settings || missing}`,
     `${tr(l, '可用资料（用户描述，不代表你已经读取）', 'Available material (described, not necessarily inspected)', '利用資料（記述のみ、閲覧済みとは限らない）')}: ${b.materials || missing}`,

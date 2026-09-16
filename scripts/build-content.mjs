@@ -1,5 +1,6 @@
-import {editTasks} from '../lib/edit-tasks.ts';
-import {editAliases} from '../lib/journey.ts';
+import { editTasks } from '../lib/edit-tasks.ts';
+import { editAliases } from '../lib/journey.ts';
+import { careIntents } from '../lib/care.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -165,10 +166,15 @@ for (const t of templates) {
   group = [];
 }
 const skillFit = read('data/studio/skill-fit.json');
+const skillAudit = read('data/studio/skill-audit.json');
 for (const s of read('data/studio/skills.json'))
   upsert('skill_resources', {
     id: s.id,
-    metadata_json: JSON.stringify({ ...s, fit: skillFit[s.id] }),
+    metadata_json: JSON.stringify({
+      ...s,
+      fit: skillFit[s.id],
+      audit: skillAudit[s.id],
+    }),
   });
 for (const s of [
   ...[
@@ -180,7 +186,18 @@ for (const s of [
     ...read('data/studio/deep-tasks.json'),
   ].map((s) => ({ ...s, status: 'published' })),
   ...read('data/research-library/topic-rules.json'),
-  ...editTasks('zh').map((t,i)=>({...t,terms:editAliases[t.id]||[],status:'published',translations:{zh:t,en:editTasks('en')[i],ja:editTasks('ja')[i]}})),
+  ...careIntents.map((s) => ({
+    ...s,
+    id: 'care-' + s.id,
+    module: 'care',
+    status: 'published',
+  })),
+  ...editTasks('zh').map((t, i) => ({
+    ...t,
+    terms: editAliases[t.id] || [],
+    status: 'published',
+    translations: { zh: t, en: editTasks('en')[i], ja: editTasks('ja')[i] },
+  })),
 ]) {
   upsert('task_resources', {
     id: s.id,

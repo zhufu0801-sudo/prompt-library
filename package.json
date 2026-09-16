@@ -18,7 +18,8 @@
     "test": "node --experimental-strip-types --test scripts/prompt.test.mjs scripts/studio.test.mjs scripts/care.test.mjs scripts/workflow.test.mjs",
     "test:workflow-api": "node --experimental-strip-types scripts/workflow-api.test.mjs",
     "test:api": "node scripts/api.test.mjs",
-    "prebuild": "node scripts/build-content.mjs"
+    "prebuild": "node scripts/build-content.mjs",
+    "test:account-api": "node --experimental-strip-types scripts/account-api.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

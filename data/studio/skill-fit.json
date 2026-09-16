@@ -331,5 +331,41 @@
       "表計算数式のみ"
     ],
     "additionalTasks": []
+  },
+  "ame-series-handoff": {
+    "exclude": [],
+    "scope": {
+      "zh": "连续视频项目交接",
+      "en": "Series project handoff",
+      "ja": "連続動画の引継ぎ"
+    },
+    "additionalTasks": []
+  },
+  "ame-image-edit-brief": {
+    "exclude": [],
+    "scope": {
+      "zh": "图片修改与保留清单",
+      "en": "Image edit and preservation brief",
+      "ja": "画像編集・保持条件"
+    },
+    "additionalTasks": []
+  },
+  "ame-evidence-writing": {
+    "exclude": [],
+    "scope": {
+      "zh": "论文证据与返修整理",
+      "en": "Evidence and revision writing",
+      "ja": "論文根拠・査読回答"
+    },
+    "additionalTasks": []
+  },
+  "ame-acceptance-checklist": {
+    "exclude": [],
+    "scope": {
+      "zh": "网站功能验收",
+      "en": "Website acceptance checks",
+      "ja": "ウェブ機能の受入確認"
+    },
+    "additionalTasks": []
   }
 }

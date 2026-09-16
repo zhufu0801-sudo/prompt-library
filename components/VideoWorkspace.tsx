@@ -158,8 +158,8 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
       setBaseline(JSON.stringify(project));
       setMessage(
         say(
-          '项目已保存到当前访客的云端空间。',
-          'Saved to this visitor’s cloud space.',
+          '项目已保存到当前身份的云端空间。',
+          'Saved to your current cloud space.',
           '現在の訪問者のクラウド領域に保存済み。',
         ),
       );
@@ -487,9 +487,9 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
           </div>
           <p className="storage-note">
             {say(
-              '云端按当前浏览器访客隔离，不是账号同步。清除 Cookie 或换设备前请导出；导入会创建副本。文字资料会在点击保存后上传，媒体仅记录文件名或链接。',
-              'Cloud storage is browser-visitor scoped, not account sync. Export before clearing cookies or changing devices. Saving uploads text; media remains filenames or links.',
-              'クラウドはブラウザー訪問者単位です。Cookie削除・端末変更前に書き出してください。保存時に文章を送信し、媒体は名称やリンクのみ記録。',
+              '登录后可跨设备读取云端项目；未登录时按当前浏览器保存身份区分。点击保存才上传文字资料；本机草稿不会自动同步。媒体仅记录名称或链接，导入备份会创建副本。',
+              'Sign in to access saved projects across devices. Guests are identified by their browser. Saving uploads text; local drafts do not sync automatically. Media is recorded as names/links, and importing creates a copy.',
+              'ログイン後は別端末で保存企画を利用可能。ゲストはブラウザー単位です。保存時に文章を送信し端末内下書きは自動同期しません。媒体は名称・リンクのみ。読込はコピーを作成。',
             )}
           </p>
           <details className="project-settings">

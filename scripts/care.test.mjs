@@ -1,3 +1,4 @@
+import { skillsForTask } from '../lib/studio.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -78,14 +79,14 @@ test('care preserves literal requests and renders only the confirmed intent and 
       );
     }
 });
-test('all 60 focused tasks compose distinctly, translate choices and persist in content seed', () => {
+test('all 72 focused tasks compose distinctly, translate choices and persist in content seed', () => {
   const tasks = read('data/studio/deep-tasks.json');
-  assert.equal(tasks.length, 60);
+  assert.equal(tasks.length, 72);
   const seed = read('data/seed.generated.json');
   for (const locale of ['zh', 'en', 'ja']) {
     const cards = taskTemplates(load(locale), locale);
-    assert.equal(cards.length, 225);
-    assert.equal(new Set(cards.map((c) => c.id)).size, 225);
+    assert.equal(cards.length, 237);
+    assert.equal(new Set(cards.map((c) => c.id)).size, 237);
     for (const task of tasks) {
       const card = cards.find((c) => c.id === task.id);
       assert.ok(card, task.id);
@@ -123,6 +124,10 @@ test('every Skill fits its declared task and excludes incompatible details in al
     for (const skill of skills)
       for (const id of [...skill.tasks, ...fit[skill.id].additionalTasks]) {
         const card = cards.find((c) => c.id === id);
+        if (id.startsWith('edit-')) {
+          assert.ok(skillsForTask(id, {}).some((s) => s.id === skill.id));
+          continue;
+        }
         assert.ok(card, id);
         const values = {
           ...defaultValues(card.template),
@@ -132,20 +137,21 @@ test('every Skill fits its declared task and excludes incompatible details in al
           matchingSkills(card.template, values).some((s) => s.id === skill.id),
           skill.id + ' ' + id,
         );
-        for (const key of [
-          'subject',
-          'constraints',
-          'materials',
-          'criteria',
-          'keywords',
-        ])
-          assert.ok(
-            !matchingSkills(card.template, {
-              ...values,
-              [key]: fit[skill.id].exclude[0],
-            }).some((s) => s.id === skill.id),
-            skill.id + ' ' + key,
-          );
+        if (fit[skill.id].exclude.length)
+          for (const key of [
+            'subject',
+            'constraints',
+            'materials',
+            'criteria',
+            'keywords',
+          ])
+            assert.ok(
+              !matchingSkills(card.template, {
+                ...values,
+                [key]: fit[skill.id].exclude[0],
+              }).some((s) => s.id === skill.id),
+              skill.id + ' ' + key,
+            );
       }
   }
   const office = load('zh').find((t) => t.id === 'custom-office');

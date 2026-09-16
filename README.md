@@ -1,9 +1,11 @@
 # AI Made Easy
 
+最新补充：可选账号保存与跨设备访问、管理员意见审核、每周整理已接纳意见、24 个 Skill 包检查报告、16 个关怀版选择，以及多任务拆分建议。详见 [本轮落实与验证](docs/completion-release.md)。
+
 2026-09-16 更新：默认入口改为“选择任务 → 补充要求 → 核对意思 → 复制使用”。增加10个三语图片/视频修改任务，软件与模式适配、结果修订指令、待审核意见库，以及系列/单片视频项目工作台。视频支持单集、场景、镜头、设定快照、锁定、历史恢复和备份；不直接生成媒体。原模板广场与Skill下载保留。详见 [本次功能、限制与反馈审核](docs/workflow-release.md)。
 
 Open-source prompt studio / 三语提示词工作室 / 3言語対応プロンプトスタジオ。
-Current release (2026-09-15): **57 homepage modules, 225 task templates, 45 detailed scenarios, 20 downloadable GitHub-based Skill documentation packs**. All homepage prompts and usage instructions support Chinese, English and Japanese. See [release and content maintenance](docs/DOMAIN-LIBRARY.md).
+Current release (2026-09-16): **57 homepage modules, 237 library task templates + 10 editing tasks, 45 detailed scenarios, 24 downloadable Skill instruction packs (20 upstream/adapted + 4 original)**. All homepage prompts and usage instructions support Chinese, English and Japanese. See [release and content maintenance](docs/DOMAIN-LIBRARY.md).
 Original code and editorial content use the MIT license; upstream content retains its own notices (see LICENSE).
 
 Prompt generation and matching are rule-based; the site does not call a model or create media. Earlier engineering and shot-size batches remain documented in [everyday programming](docs/EVERYDAY-PROGRAMMING.md), [code and shot sizes](docs/CODE-AND-SHOT-SIZES.md), and [spatial continuity](docs/SPATIAL-CONTINUITY.md).
@@ -15,7 +17,7 @@ Prompt generation and matching are rule-based; the site does not call a model or
 元提示词开关加入澄清问题、输出结构及自检规则；不调用 AI。用户输入和已锁定字段不会被语言切换自动翻译。
 历史 309 条模板通过“全部提示词”入口开放，保留原文；原有方案仍可打开与导出。Skill模式提供固定版本ZIP、来源、对应许可证、校验值和三语说明；普通模式无需下载。包内为上游文档或注明来源的适配版，执行脚本及外部依赖不包含，未做目标AI运行认证。
 新模板及翻译维护说明见 [data/studio/README.md](data/studio/README.md)。
-完整库共366条（87条原创、279条导入）；首页可直接选择225个细分任务模板。五个其他方向的关键词规则和20个学习草稿保留在数据库中，暂不上首页。
+完整库共366条（87条原创、279条导入）；首页可直接选择237个细分任务模板，另有10个图片/视频修改任务。五个其他方向的关键词规则和20个学习草稿保留在数据库中，暂不上首页。
 
 一个可以自己维护的提示词网站：搜索数据库 → 填写模板 → 选择和锁定关键词 → 复制、收藏、保存方案。
 
@@ -23,7 +25,7 @@ Prompt generation and matching are rule-based; the site does not call a model or
 
 ## 已实现
 
-- 首页57个三语模块、225个可直接选择的细分任务；另保留早期10类30条原创模板。
+- 首页57个三语模块、237个可直接选择的细分任务；另保留早期10类30条原创模板。
 - 导入 AI Short 公开仓库的 279 条简体中文精选记录，保留原文、中文释义、原编号和引用来源。
 - 数据库搜索、分类、内容来源筛选、分页。
 - 参数表单、固定/条件推荐词、按已知词库匹配输入、手动添加、选择数量限制。

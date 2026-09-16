@@ -1,0 +1,49 @@
+{
+  "id": "ame-image-edit-brief",
+  "tasks": [
+    "photo-product-local-edit",
+    "edit-image-background",
+    "edit-image-object",
+    "edit-image-light",
+    "edit-image-text"
+  ],
+  "labels": {
+    "zh": "图片修改与保留清单",
+    "en": "Image edit and preservation brief",
+    "ja": "画像編集・保持条件"
+  },
+  "repository": "https://github.com/zhufu0801-sudo/prompt-library",
+  "source": "https://github.com/zhufu0801-sudo/prompt-library/blob/main/data/sources/skills/ame-image-edit-brief/SKILL.md",
+  "commit": "original-v1",
+  "license": "MIT",
+  "language": "en",
+  "edition": "original-documentation",
+  "review": "package-and-scope-checked; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "原创指令型 Skill，不附带模型、脚本或外部依赖。解压后将整个文件夹导入支持 SKILL.md 的软件；普通聊天也可粘贴 SKILL.md 和网站生成的需求。请指定回答语言。只有目标 AI 具备相应工具时才执行操作，否则交付可复制的方案。",
+    "en": "Original instruction-only Skill. No model, scripts or external dependencies are included. Extract the folder into a SKILL.md-compatible app, or paste SKILL.md plus the website brief into chat. Specify the response language. Execute only with available host tools; otherwise deliver a copyable plan.",
+    "ja": "独自の指示文Skillです。モデル・スクリプト・外部依存は含みません。展開フォルダを対応ソフトに導入するか、SKILL.mdとサイトの要望文をチャットに貼り付け、回答言語を指定。機能がない場合は実行済みとせず利用可能な案を出します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "2859f5ef9f02a0cd43cf08121ee70ae7e220fe2791c8b6acea5a200c73f4f655"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "877b19cfedfacdd46139aa72daaae067e84d4e39c9a60e994e1cc56e20c543c2"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "bf20da6b2373704261a1c27eeeebcb7d4202baa48ca70cf27d1e1a88df804ac7"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "dbf43b54ae575979a41d6d1e9af5c7b2a1bbfcb1e74f6cf05366b58b68badf2f"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "039b236f175163c5f7452817eed881588001f612cc5fa1f82a87a30d665697bb"
+    }
+  ]
+}

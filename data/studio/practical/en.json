@@ -163,7 +163,8 @@
           "Bug reports and reproduction",
           "Flaky test diagnosis",
           "Date and money boundary tests",
-          "Keyboard and screen-reader tests"
+          "Keyboard and screen-reader tests",
+          "Turn requirements into acceptance tests"
         ],
         "maxSelections": 1
       },
@@ -2365,7 +2366,8 @@
           "Cross-shot continuity checks",
           "Vertical animation storyboard",
           "Seamless animation loop",
-          "Animation defect repair prompts"
+          "Animation defect repair prompts",
+          "Series episode handoff"
         ],
         "maxSelections": 1
       },

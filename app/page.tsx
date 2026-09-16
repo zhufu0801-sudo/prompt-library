@@ -3,6 +3,7 @@ import { useEffect, useState, lazy, Suspense } from 'react';
 const TaskJourney = lazy(() => import('@/components/TaskJourney'));
 const VideoWorkspace = lazy(() => import('@/components/VideoWorkspace'));
 import { tr } from '@/lib/workflow';
+import AccountMenu from '@/components/AccountMenu';
 import {
   Sparkles,
   Code2,
@@ -590,6 +591,7 @@ export default function Home() {
           ))}
         </nav>
         <div className="studio-header-tools">
+          <AccountMenu locale={locale} />
           <button
             className="edition-toggle"
             aria-pressed={care}

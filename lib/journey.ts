@@ -7,6 +7,38 @@ export type JourneyTask = {
   category: string;
   terms?: readonly string[];
 };
+// Explicit spelling suggestions, never silent edits or a model-confidence score.
+export function queryCorrections(query: string) {
+  const replacements = [
+    ['javscript', 'javascript'],
+    ['pyhton', 'python'],
+    ['typscript', 'typescript'],
+    ['背静', '背景'],
+    ['视屏', '视频'],
+    ['编成', '编程'],
+    ['エクセルル', 'エクセル'],
+  ];
+  return replacements
+    .filter(([from]) => query.toLowerCase().includes(from))
+    .map(([from, to]) => ({
+      from,
+      to,
+      query: query.replace(new RegExp(from, 'gi'), to),
+    }));
+}
+export function separateRequests(tasks: JourneyTask[], query: string) {
+  const parts = query
+    .split(
+      /(?:[；;\n]+|然后|另外|再帮我|\band then\b|\balso\b|それから|また、)/iu,
+    )
+    .map((x) => x.trim())
+    .filter((x) => x.length > 3);
+  if (parts.length < 2 || parts.length > 5) return [];
+  const matches = parts
+    .map((text) => ({ text, match: rankJourneyTasks(tasks, text)[0] }))
+    .filter((x) => x.match);
+  return new Set(matches.map((x) => x.match.id)).size > 1 ? matches : [];
+}
 export const editAliases: Record<string, string[]> = {
   'edit-image-background': [
     '换背景',

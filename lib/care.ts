@@ -3,6 +3,117 @@ export type CareLocale = 'zh' | 'en' | 'ja';
 const l = (zh: string, en: string, ja: string) => ({ zh, en, ja });
 export const careIntents = [
   {
+    id: 'purchase-help',
+    label: l(
+      '退换货或联系客服',
+      'Returns or customer support',
+      '返品・問い合わせ',
+    ),
+    terms: [
+      '退货',
+      '换货',
+      '退款',
+      '联系客服',
+      'return a purchase',
+      'refund',
+      'customer support',
+      '返品',
+      '返金',
+      '問い合わせ',
+    ],
+    question: l(
+      '买了什么、遇到什么问题？您希望换货、退款还是让对方解释？',
+      'What did you buy, what happened, and do you want a replacement, refund or explanation?',
+      '何を購入し、どんな問題がありますか？交換・返金・説明のどれを希望しますか？',
+    ),
+    rule: l(
+      '先写可发送给客服的消息，按已知事实列问题和诉求。需要证据时列订单日期、商品问题照片等，提醒遮住无关个人资料；不编造消费承诺、赔偿规定和法律期限。给对方未理解时的简短补充话术。',
+      'Write a send-ready support message with known facts and the requested outcome. List relevant evidence such as order date or a product photo, excluding unrelated personal details. Do not invent policies or deadlines. Add a short clarification if support misunderstands.',
+      '事実と希望に沿う送信用文を作る。注文日や商品写真など必要資料を示し不要な個人情報を除く。規定や期限を捏造せず、伝わらない場合の短い補足も付ける。',
+    ),
+  },
+  {
+    id: 'appointment-help',
+    label: l(
+      '安排预约或出门办事',
+      'Appointments and errands',
+      '予約・外出の準備',
+    ),
+    terms: [
+      '预约',
+      '办事',
+      '要带什么',
+      'appointment',
+      'what to bring',
+      '予約',
+      '持ち物',
+    ],
+    question: l(
+      '要去哪里办什么事？日期是否确定，需要别人陪同吗？',
+      'Where are you going, for what, and when? Do you need someone to accompany you?',
+      'どこへ何をしに行き、日は決まっていますか？付き添いは必要ですか？',
+    ),
+    rule: l(
+      '整理日期、地点、联系人、应带材料和出门前核对清单。未确定的营业时间、预约入口和材料要求标为需要向机构确认。写可用的电话询问话术；不声称已替用户预约或设置提醒。',
+      'Organize date, place, contact, documents and a departure checklist. Mark unverified opening times, booking routes and requirements for confirmation with the institution. Provide a phone script, without claiming to book or set reminders.',
+      '日時・場所・連絡先・持ち物・出発前確認を整理。未確認の営業時間・窓口・必要書類は施設への確認事項とする。電話用の文を作り、予約や通知を設定済みにしない。',
+    ),
+  },
+  {
+    id: 'photo-edit',
+    label: l('修一张照片', 'Improve a photo', '写真を直す'),
+    terms: [
+      '照片太暗',
+      '老照片',
+      '修照片',
+      '去掉路人',
+      'restore a photo',
+      'photo is dark',
+      'remove a person',
+      '古い写真',
+      '写真を明るく',
+    ],
+    question: l(
+      '想改照片哪一处？人物长相、衣服和背景哪些要保留？',
+      'What should change, and which faces, clothes or background details must stay?',
+      'どこを変え、顔・服・背景の何を残したいですか？',
+    ),
+    rule: l(
+      '把要修改和不能修改的内容分开，生成可以给图片 AI 使用的简短完整指令。说明需要在目标软件上传原图。老照片缺失细节不能当成真实历史恢复；不会查看图片时，不声称看到了照片内容。',
+      'Separate changes from preserved details and write a concise edit prompt. Explain that the original must be uploaded to the image tool. Missing historical details cannot be presented as recovered facts. Do not claim to see an image without access.',
+      '変更と保持項目を分け、画像AI用の短い指示を作る。原画像は対象ツールへ添付する。欠けた歴史的細部を事実復元とせず、閲覧できない画像を見たと言わない。',
+    ),
+  },
+  {
+    id: 'memories',
+    label: l(
+      '整理经历或家里的故事',
+      'Record memories or family stories',
+      '経験・家族の思い出を整理',
+    ),
+    terms: [
+      '回忆',
+      '家里的故事',
+      '我的经历',
+      '家族故事',
+      'memories',
+      'family story',
+      'my life story',
+      '思い出',
+      '家族の話',
+    ],
+    question: l(
+      '想记录哪段经历，给谁看？记不清的名字和年份可以先空着。',
+      'Which memory is it, and who will read it? Uncertain names and dates can stay blank.',
+      'どの経験を誰に伝えますか？不確かな名前や年は空欄で構いません。',
+    ),
+    rule: l(
+      '按用户原话组织时间、人物和事件，保留说话习惯与真实感。给一篇可以保存的完整文字，记不清的地方标记待补充，不编造人物关系、对话或经历。先问一两个能帮助回忆的问题，不一次追问太多。',
+      'Organize supplied people, events and chronology while keeping the speaker’s voice. Deliver a complete saveable text, marking uncertain details for later rather than inventing relationships, dialogue or events. Ask at most one or two helpful memory questions.',
+      '本人の語り口を保ち、人・出来事・順序を整理して保存できる文章にする。不確かな部分は補足待ちとし、関係・会話・経験を創作しない。質問は一、二点に絞る。',
+    ),
+  },
+  {
     id: 'message',
     label: l('写一段消息', 'Write a message', 'メッセージを書く'),
     terms: [
@@ -380,11 +491,12 @@ function evidence(text: string, term: string) {
   return false;
 }
 export function analyzeCare(text: string) {
+  const normalized = text.normalize('NFKC');
   const ranked = careIntents
     .filter((i) => i.id !== 'other')
     .map((intent) => ({
       intent,
-      matches: intent.terms.filter((term) => evidence(text, term)),
+      matches: intent.terms.filter((term) => evidence(normalized, term)),
     }))
     .filter((r) => r.matches.length)
     .sort((a, b) => b.matches.length - a.matches.length);
