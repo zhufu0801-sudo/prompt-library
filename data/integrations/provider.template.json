@@ -1,0 +1,11 @@
+{
+  "enabled": false,
+  "provider": null,
+  "endpoint": null,
+  "serverSecretEnvironmentVariable": null,
+  "capabilities": ["text", "code", "image", "video"],
+  "requestFields": ["task", "requirements", "materials", "settings"],
+  "responseFields": ["status", "text", "assetReferences", "error"],
+  "jobFields": ["id", "status", "createdAt", "completedAt"],
+  "note": "Design placeholder only. No model, API, billing or scheduled execution is enabled. Secrets must remain server-side."
+}

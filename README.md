@@ -1,5 +1,7 @@
 # AI Made Easy
 
+2026-09-16 更新：默认入口改为“选择任务 → 补充要求 → 核对意思 → 复制使用”。增加10个三语图片/视频修改任务，软件与模式适配、结果修订指令、待审核意见库，以及系列/单片视频项目工作台。视频支持单集、场景、镜头、设定快照、锁定、历史恢复和备份；不直接生成媒体。原模板广场与Skill下载保留。详见 [本次功能、限制与反馈审核](docs/workflow-release.md)。
+
 Open-source prompt studio / 三语提示词工作室 / 3言語対応プロンプトスタジオ。
 Current release (2026-09-15): **57 homepage modules, 225 task templates, 45 detailed scenarios, 20 downloadable GitHub-based Skill documentation packs**. All homepage prompts and usage instructions support Chinese, English and Japanese. See [release and content maintenance](docs/DOMAIN-LIBRARY.md).
 Original code and editorial content use the MIT license; upstream content retains its own notices (see LICENSE).

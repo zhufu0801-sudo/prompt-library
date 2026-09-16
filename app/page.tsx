@@ -1,5 +1,8 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
+const TaskJourney = lazy(() => import('@/components/TaskJourney'));
+const VideoWorkspace = lazy(() => import('@/components/VideoWorkspace'));
+import { tr } from '@/lib/workflow';
 import {
   Sparkles,
   Code2,
@@ -95,7 +98,7 @@ export default function Home() {
     [skillMode, setSkillMode] = useState(false),
     [planId, setPlanId] = useState<string | undefined>(),
     [title, setTitle] = useState('');
-  const [tab, setTab] = useState('library'),
+  const [tab, setTab] = useState('start'),
     [libraryView, setLibraryView] = useState('tasks'),
     [visibleCount, setVisibleCount] = useState(24),
     [search, setSearch] = useState(''),
@@ -545,7 +548,7 @@ export default function Home() {
           className="studio-brand"
           href="#"
           onClick={() => {
-            setTab('library');
+            setTab('start');
             changeCare(false);
           }}
         >
@@ -554,7 +557,15 @@ export default function Home() {
         </a>
         <nav aria-label={t.library} hidden={care}>
           {(
-            ['library', 'catalog', 'skills', 'favorites', 'plans'] as const
+            [
+              'start',
+              'library',
+              'video',
+              'catalog',
+              'skills',
+              'favorites',
+              'plans',
+            ] as const
           ).map((key) => (
             <button
               key={key}
@@ -566,11 +577,15 @@ export default function Home() {
                 setCategory('all');
               }}
             >
-              {key === 'catalog'
-                ? catalogLabel
-                : key === 'skills'
-                  ? editionText.skills
-                  : t[key]}
+              {key === 'start'
+                ? tr(locale, '开始使用', 'Start', 'はじめる')
+                : key === 'video'
+                  ? tr(locale, '视频项目', 'Video projects', '動画プロジェクト')
+                  : key === 'catalog'
+                    ? catalogLabel
+                    : key === 'skills'
+                      ? editionText.skills
+                      : t[key]}
             </button>
           ))}
         </nav>
@@ -592,8 +607,23 @@ export default function Home() {
           (!care && tab === 'library' ? ' studio-workbench' : '')
         }
       >
-        {care ? (
+        <div hidden={!care}>
           <CareStudio locale={locale} />
+        </div>
+        <div hidden={care || tab !== 'start'}>
+          <Suspense fallback={<p>{t.loading}</p>}>
+            <TaskJourney
+              locale={locale}
+              templates={templates}
+              onLibrary={() => setTab('library')}
+              onVideo={() => setTab('video')}
+            />
+          </Suspense>
+        </div>
+        {care || tab === 'start' ? null : tab === 'video' ? (
+          <Suspense fallback={<p>{t.loading}</p>}>
+            <VideoWorkspace locale={locale} />
+          </Suspense>
         ) : (
           <>
             <div className="studio-heading">

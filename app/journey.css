@@ -1,0 +1,752 @@
+/* A warm, quiet working surface: actions first, detail on demand. */
+.studio {
+  background: #f7f7f2;
+  color: #252d2b;
+}
+.studio [hidden] {
+  display: none !important;
+}
+.studio-header {
+  background: #fbfbf8;
+  border-bottom: 1px solid #dfe3db;
+  flex-wrap: wrap;
+}
+.studio-header nav {
+  flex-wrap: wrap;
+}
+.studio-header nav button {
+  font-size: 0.9rem;
+  padding: 10px 12px;
+}
+.studio-header nav button.selected {
+  background: #e6eee9;
+  color: #245e48;
+}
+.studio-main {
+  max-width: 1320px;
+}
+.task-journey,
+.video-workspace {
+  max-width: 1180px;
+  margin: 12px auto 56px;
+}
+.journey-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 0 20px;
+}
+.journey-title h1 {
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  letter-spacing: -0.045em;
+  line-height: 1.3;
+  margin: 12px 0;
+  font-weight: 650;
+  outline: none;
+}
+.journey-title p {
+  font-size: 1.05rem;
+  color: #5b665f;
+  line-height: 1.8;
+  max-width: 760px;
+}
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: #65816f;
+}
+.journey-orbit {
+  width: 100px;
+  height: 90px;
+  position: relative;
+  flex: none;
+}
+.journey-orbit span {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  border: 1px solid #648b77;
+  border-radius: 15px;
+  transform: rotate(-18deg);
+  top: 12px;
+  left: 12px;
+}
+.journey-orbit span:nth-child(2) {
+  left: 35px;
+  top: 22px;
+  background: #dbe8dc99;
+  transform: rotate(18deg);
+}
+.journey-orbit span:nth-child(3) {
+  left: 60px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: #b4c784;
+  border: 0;
+  border-radius: 50%;
+}
+.journey-progress {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 26px;
+}
+.journey-progress li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #7a847c;
+  font-size: 0.86rem;
+  flex: 1;
+  border-bottom: 2px solid #e1e5dd;
+  padding-bottom: 12px;
+}
+.journey-progress li span {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  background: #e9ece6;
+  border-radius: 50%;
+  font-size: 0.8rem;
+}
+.journey-progress li.done {
+  border-color: #3e7057;
+  color: #315843;
+}
+.journey-progress li.done span {
+  background: #dcebdc;
+  color: #244f39;
+}
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.studio .action-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  min-height: 195px;
+  padding: 25px 25px 22px;
+  text-align: left;
+  background: #fffefa;
+  border: 1px solid #dce2d8;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px #25372504;
+  position: relative;
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    border-color 0.16s ease;
+  overflow: hidden;
+}
+.action-card .action-number {
+  position: absolute;
+  right: 23px;
+  top: 21px;
+  font-size: 0.75rem;
+  color: #8f9c8f;
+  letter-spacing: 0.08em;
+}
+.action-card > svg:first-of-type {
+  grid-column: 1/-1;
+  color: #437057;
+  margin-bottom: 3px;
+}
+.action-card strong {
+  grid-column: 1/-1;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.action-card > span:not(.action-number) {
+  font-size: 0.87rem;
+  color: #6a736c;
+  line-height: 1.6;
+}
+.action-card > svg:last-child {
+  align-self: end;
+  color: #8c9d8c;
+}
+.studio .action-card:hover {
+  transform: translateY(-3px);
+  border-color: #9cb49b;
+  box-shadow: 0 10px 22px #354c3710;
+}
+.action-card:focus-visible {
+  outline: 3px solid #386d4b;
+  outline-offset: 3px;
+}
+.action-card:nth-child(2),
+.action-card:nth-child(5) {
+  background: #f0f3e9;
+}
+.journey-shortcuts {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 26px 0;
+}
+.studio .journey-shortcuts button,
+.studio .quiet-back {
+  background: transparent;
+  border: 0;
+  color: #426650;
+  padding: 8px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.quiet-back {
+  margin-bottom: 14px;
+}
+.task-journey button,
+.video-workspace button,
+.feedback-panel button {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #ccd8cc;
+  border-radius: 9px;
+  padding: 10px 15px;
+  background: #fffefa;
+  color: #2b4535;
+  cursor: pointer;
+  line-height: 1.5;
+  transition:
+    background 0.12s ease,
+    transform 0.12s ease;
+}
+.task-journey button:disabled,
+.video-workspace button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.task-journey button[aria-pressed='true'],
+.video-workspace button.selected {
+  background: #dce9db;
+  border-color: #64916e;
+}
+.studio .primary-action {
+  background: #305f47;
+  color: white;
+  border-color: #305f47;
+}
+.task-journey button:active,
+.video-workspace button:active {
+  transform: translateY(1px);
+}
+.task-journey label,
+.video-workspace label,
+.feedback-panel label {
+  display: grid;
+  gap: 8px;
+  font-weight: 550;
+  font-size: 0.95rem;
+  margin: 14px 0;
+}
+.task-journey input,
+.task-journey textarea,
+.task-journey select,
+.video-workspace input,
+.video-workspace textarea,
+.video-workspace select,
+.feedback-panel input,
+.feedback-panel textarea,
+.feedback-panel select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  font: inherit;
+  font-weight: 400;
+  background: #fffefa;
+  border: 1px solid #bac9bb;
+  border-radius: 9px;
+  padding: 11px 12px;
+  color: #263d2d;
+  line-height: 1.7;
+}
+.task-journey textarea,
+.video-workspace textarea,
+.feedback-panel textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+.task-journey input:focus,
+.task-journey textarea:focus,
+.task-journey select:focus,
+.video-workspace input:focus,
+.video-workspace textarea:focus,
+.video-workspace select:focus {
+  outline: 2px solid #659079;
+  outline-offset: 2px;
+}
+.category-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+.task-picks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.task-picks button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  text-align: left;
+  padding: 18px;
+  align-content: start;
+  justify-content: stretch;
+}
+.task-picks strong {
+  font-size: 1.06rem;
+  grid-column: 1;
+}
+.task-picks span {
+  font-size: 0.87rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #6e776e;
+  grid-column: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.task-picks svg {
+  grid-column: 2;
+  grid-row: 1/3;
+  align-self: center;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.brief-layout,
+.result-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(250px, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+.brief-fields,
+.confirm-panel,
+.result-main,
+.result-checklist,
+.project-settings,
+.project-switch,
+.shot-editor {
+  background: #fffefa;
+  border: 1px solid #dce2d8;
+  border-radius: 15px;
+  padding: 24px;
+}
+.brief-preview {
+  position: sticky;
+  top: 25px;
+  padding: 28px;
+  background: #edf1e5;
+  border-radius: 16px;
+  overflow-wrap: anywhere;
+}
+.brief-preview h2,
+.result-checklist h2 {
+  font-size: 1.25rem;
+  margin: 15px 0;
+}
+.brief-preview p,
+.brief-preview dd {
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+.brief-preview dt {
+  font-size: 0.85rem;
+  color: #626e62;
+  margin-top: 20px;
+}
+.brief-preview dd {
+  margin: 5px 0;
+}
+.small-note,
+.adapter-note,
+.storage-note {
+  font-size: 0.85rem !important;
+  color: #68766a;
+  line-height: 1.8;
+}
+.adapter-note a {
+  color: #2f654b;
+  text-decoration: underline;
+}
+.confirm-panel {
+  max-width: 780px;
+  margin: 20px auto;
+  line-height: 1.9;
+}
+.confirm-panel > svg {
+  color: #376e4c;
+}
+.preserve-lines {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.button-row,
+.project-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.result-main > textarea,
+.shot-output > textarea {
+  min-height: 370px;
+  font-size: 0.95rem;
+}
+.result-checklist p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.result-checklist h3 {
+  font-size: 1rem;
+  margin-top: 22px;
+}
+.journey-skill {
+  border-top: 1px solid #dce2d8;
+  padding-top: 12px;
+}
+.journey-skill p {
+  font-size: 0.8rem;
+}
+.journey-skill a {
+  color: #2a694b;
+  text-decoration: underline;
+}
+.task-journey details,
+.video-workspace details {
+  margin: 18px 0;
+  line-height: 1.8;
+}
+.task-journey summary,
+.video-workspace summary,
+.feedback-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.feedback-panel {
+  background: #eff2eb;
+  border: 1px dashed #b9c8b7;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 24px 0;
+}
+.feedback-panel p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+.feedback-panel .feedback-trap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.check-line {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 10px !important;
+  font-weight: 400 !important;
+}
+.check-line input {
+  width: 19px !important;
+  height: 19px;
+  flex: none;
+  margin-top: 4px;
+  accent-color: #36694b;
+}
+.inline-status {
+  min-height: 25px;
+  line-height: 1.8;
+  color: #385c42;
+  margin: 12px 0;
+}
+.warning-note {
+  background: #fff2da;
+  padding: 12px;
+  border-left: 3px solid #ac773c;
+  line-height: 1.8;
+}
+.project-switch .file-input {
+  margin-top: 20px;
+}
+.project-switch .form-grid button {
+  margin: 5px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.empty-workspace {
+  text-align: center;
+  padding: 55px 20px;
+  color: #64786a;
+}
+.empty-workspace svg {
+  margin: auto;
+}
+.project-toolbar strong {
+  font-size: 1.35rem;
+  margin-right: auto;
+}
+.project-toolbar span {
+  font-size: 0.82rem;
+  color: #6d766c;
+}
+.entity-row {
+  border-top: 1px solid #dce2d8;
+  margin-top: 18px;
+}
+.production-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin: 28px 0;
+}
+.episode-rail {
+  position: sticky;
+  top: 20px;
+  padding: 18px;
+  background: #edf1e5;
+  border-radius: 12px;
+}
+.episode-rail h2 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+.episode-rail button {
+  display: flex;
+  width: 100%;
+  margin: 8px 0;
+  text-align: left;
+  justify-content: flex-start;
+  overflow-wrap: anywhere;
+}
+.episode-rail .sub {
+  margin-left: 12px;
+  width: calc(100% - 12px);
+  font-size: 0.85rem;
+}
+.shot-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+.shot-editor {
+  margin-top: 20px;
+}
+.shot-editor fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.shot-editor legend {
+  font-size: 0.8rem;
+  color: #68816b;
+}
+.shot-editor fieldset:disabled {
+  opacity: 0.72;
+}
+.shot-editor .form-grid {
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+.entity-picks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.version-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #dfe4da;
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+.version-row button {
+  flex: none;
+}
+.impact-panel {
+  background: #fff3db;
+  padding: 20px;
+  border: 1px solid #e7ce97;
+  border-radius: 12px;
+}
+.continuity-check {
+  background: #edf1e5;
+  padding: 20px;
+  border-radius: 12px;
+}
+.continuity-check p {
+  font-size: 0.9rem;
+}
+.repair-panel textarea[readonly] {
+  min-height: 250px;
+}
+.studio-care .feedback-panel input,
+.studio-care .feedback-panel textarea,
+.studio-care .feedback-panel select,
+.studio-care .feedback-panel button {
+  font-size: 1.2rem;
+  min-height: 50px;
+}
+.studio-care .feedback-panel {
+  background: white;
+}
+.studio-care .feedback-panel p {
+  font-size: 1.1rem;
+}
+.task-picks,
+.brief-layout,
+.confirm-panel,
+.result-workspace {
+  animation: journey-appear 0.16s ease-out;
+}
+@keyframes journey-appear {
+  from {
+    opacity: 0.7;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 900px) {
+  .action-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .brief-layout,
+  .result-workspace {
+    grid-template-columns: 1fr;
+  }
+  .brief-preview {
+    position: static;
+  }
+  .production-layout {
+    grid-template-columns: 1fr;
+  }
+  .episode-rail {
+    position: static;
+  }
+  .episode-rail > div {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 150px;
+    margin-right: 12px;
+  }
+  .studio-header nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+  .studio-header nav button { flex: 0 0 auto; white-space: nowrap; }
+}
+@media (max-width: 560px) {
+  .journey-title {
+    padding-top: 8px;
+  }
+  .journey-orbit {
+    display: none;
+  }
+  .journey-title h1 {
+    font-size: 1.8rem;
+  }
+  .action-grid {
+    gap: 10px;
+  }
+  .studio .action-card {
+    min-height: 170px;
+    padding: 18px 14px;
+    gap: 12px;
+  }
+  .action-card strong {
+    font-size: 1rem;
+  }
+  .action-card > span:not(.action-number) {
+    font-size: 0.79rem;
+  }
+  .action-card .action-number {
+    right: 14px;
+    top: 15px;
+  }
+  .journey-progress {
+    gap: 6px;
+  }
+  .journey-progress li {
+    display: grid;
+    gap: 5px;
+    font-size: 0.72rem;
+  }
+  .task-picks,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .journey-shortcuts {
+    display: grid;
+    justify-content: start;
+    gap: 5px;
+  }
+  .brief-fields,
+  .confirm-panel,
+  .result-main,
+  .result-checklist,
+  .shot-editor,
+  .project-settings,
+  .project-switch {
+    padding: 16px;
+  }
+  .project-toolbar button {
+    flex: 1 1 130px;
+  }
+  .project-toolbar strong {
+    width: 100%;
+  }
+  .version-row {
+    display: grid;
+  }
+  .brief-preview {
+    padding: 20px;
+  }
+  .production-layout {
+    gap: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .task-picks,
+  .brief-layout,
+  .confirm-panel,
+  .result-workspace,
+  .action-card {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

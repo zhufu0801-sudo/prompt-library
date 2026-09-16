@@ -1,3 +1,4 @@
+import {editTasks} from '../lib/edit-tasks.ts';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -178,6 +179,7 @@ for (const s of [
     ...read('data/studio/deep-tasks.json'),
   ].map((s) => ({ ...s, status: 'published' })),
   ...read('data/research-library/topic-rules.json'),
+  ...editTasks('zh').map((t,i)=>({...t,status:'published',translations:{zh:t,en:editTasks('en')[i],ja:editTasks('ja')[i]}})),
 ]) {
   upsert('task_resources', {
     id: s.id,

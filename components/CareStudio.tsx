@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import FeedbackForm from './FeedbackForm';
 import { HeartHandshake, Check, Copy, ArrowLeft, Download } from 'lucide-react';
 import {
   analyzeCare,
@@ -401,6 +402,7 @@ export default function CareStudio({ locale }: { locale: CareLocale }) {
         <summary>{t.how}</summary>
         <p>{t.howBody}</p>
       </details>
+      <FeedbackForm locale={locale} context={'care/'+intent} />
     </section>
   );
 }

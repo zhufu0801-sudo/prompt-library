@@ -4,6 +4,7 @@ import {
   integer,
   index,
   primaryKey,
+  unique,
 } from 'drizzle-orm/sqlite-core';
 export const categories = sqliteTable('categories', {
   id: text('id').primaryKey(),
@@ -133,3 +134,13 @@ export const skillResources = sqliteTable('skill_resources', {
 export const taskResources = sqliteTable('task_resources', {
   id: text('id').primaryKey(), status: text('status').notNull(), metadataJson: text('metadata_json').notNull(),
 });
+export const videoProjects = sqliteTable('video_projects', {
+  id: text('id').primaryKey(), visitorId: text('visitor_id').notNull(),
+  title: text('title').notNull(), payloadJson: text('payload_json').notNull(),
+  revision: integer('revision').notNull().default(1), updatedAt: text('updated_at').notNull(),
+}, t=>[index('video_projects_owner').on(t.visitorId,t.updatedAt)]);
+export const feedback = sqliteTable('feedback', {
+  id:text('id').primaryKey(),visitorId:text('visitor_id').notNull(),summary:text('summary').notNull(),
+  context:text('context').notNull(),kind:text('kind').notNull(),status:text('status').notNull(),
+  digest:text('digest').notNull(),createdAt:text('created_at').notNull(),
+}, t=>[unique().on(t.visitorId,t.digest),index('feedback_owner_date').on(t.visitorId,t.createdAt),index('feedback_review').on(t.status,t.createdAt)]);
