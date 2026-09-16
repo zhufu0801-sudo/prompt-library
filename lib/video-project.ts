@@ -107,6 +107,71 @@ export function shotContent(s: Shot): ShotContent {
   const { id: _id, locked: _locked, history: _history, ...content } = s;
   return structuredClone(content);
 }
+export function starterProject(
+  title: string,
+  kind: 'single' | 'series',
+  l: Lang,
+) {
+  const p = newProject(title, kind);
+  const e: Episode = {
+    id: uid(),
+    title: tr(l, '第1集 / 影片', 'Episode 1 / film', '第1話・作品'),
+    synopsis: '',
+    continuity: '',
+    scenes: [],
+  };
+  const s: Scene = {
+    id: uid(),
+    title: tr(l, '场景1', 'Scene 1', '場面1'),
+    setting: '',
+    shots: [],
+  };
+  s.shots = (['wide', 'medium', 'close'] as const).map((size, i) => ({
+    ...newShot(''),
+    size,
+    title: [
+      tr(l, '建立环境', 'Establish the setting', '場所を示す'),
+      tr(l, '主要动作', 'Main action', '主な動作'),
+      tr(l, '关键细节', 'Key detail', '重要な細部'),
+    ][i],
+  }));
+  e.scenes = [s];
+  p.episodes = [e];
+  return p;
+}
+export function duplicateEpisode(p: VideoProject, id: string, l: Lang) {
+  const source = p.episodes.find((e) => e.id === id);
+  if (!source) throw Error('UNKNOWN_EPISODE');
+  const count = p.episodes.flatMap((e) =>
+    e.scenes.flatMap((s) => s.shots),
+  ).length;
+  if (
+    p.episodes.length >= 30 ||
+    count + source.scenes.flatMap((s) => s.shots).length > 500
+  )
+    throw Error('LIMIT');
+  const e = structuredClone(source);
+  e.id = uid();
+  e.title =
+    tr(l, '新一集：', 'New episode: ', '次の話：') + source.title.slice(0, 75);
+  e.synopsis = '';
+  e.continuity = '';
+  for (const s of e.scenes) {
+    s.id = uid();
+    s.shots = s.shots.map((t) => ({
+      ...t,
+      id: uid(),
+      locked: false,
+      history: [],
+      actual: 0,
+      result: '',
+      issue: '',
+      status: 'draft',
+      context: captureContext(p, e, s, t.entityIds),
+    }));
+  }
+  return e;
+}
 export function reviseShot(
   s: Shot,
   patch: Partial<ShotContent>,
@@ -258,7 +323,23 @@ export function shotPrompt(
   };
   return createBriefOutput(
     {
-      goal: shot.title + '\n' + shot.action,
+      goal: [
+        shot.title,
+        shot.action,
+        shot.start
+          ? tr(l, '开始状态', 'Starting state', '開始状態') + ': ' + shot.start
+          : '',
+        shot.end
+          ? tr(l, '结束状态', 'Ending state', '終了状態') + ': ' + shot.end
+          : '',
+        shot.dialogue
+          ? tr(l, '台词 / 声音', 'Dialogue / sound', '台詞・音') +
+            ': ' +
+            shot.dialogue
+          : '',
+      ]
+        .filter(Boolean)
+        .join('\n'),
       change: shot.issue,
       preserve: shot.preserve,
       materials: [shot.context, shot.references].filter(Boolean).join('\n'),
@@ -268,11 +349,6 @@ export function shotPrompt(
     `${p.title} / ${e.title} / ${s.title}`,
     [
       sizes[shot.size],
-      tr(l, '开始状态', 'Starting state', '開始状態') + ': ' + shot.start,
-      tr(l, '结束状态', 'Ending state', '終了状態') + ': ' + shot.end,
-      tr(l, '台词 / 声音', 'Dialogue / sound', '台詞・音') +
-        ': ' +
-        shot.dialogue,
       tr(
         l,
         '保持已确认的角色和场景设定，明确镜头衔接。缺少参考图则标记待提供，不假装看过。',

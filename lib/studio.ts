@@ -95,7 +95,13 @@ export function taskTemplates(templates: Template[], locale: Locale) {
         template,
         field: taskKey(template),
         value: g.labels[locale],
-        terms: extendedTasks.find((e) => e.id === g.id)?.terms || [],
+        terms: [
+          ...(extendedTasks.find((e) => e.id === g.id)?.terms || []),
+          ...(intentTerms[g.id] || []),
+          ...scenarios.filter((s) => s.task === g.id).flatMap((s) => s.terms),
+        ],
+        example:
+          extendedTasks.find((e) => e.id === g.id)?.examples[locale] || '',
       })),
     );
 }

@@ -1,6 +1,6 @@
 'use client';
 /* eslint-disable react-hooks/exhaustive-deps, react/react-compiler -- Storage effects synchronize browser state; depending on the updated index would cause a loop. */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Film, Plus, Download, Save, Lock, Unlock } from 'lucide-react';
 import {
   tr,
@@ -13,6 +13,8 @@ import {
 } from '@/lib/workflow';
 import {
   newProject,
+  starterProject,
+  duplicateEpisode,
   newShot,
   uid,
   captureContext,
@@ -40,8 +42,11 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
     [local, setLocal] = useState<{ id: string; title: string }[]>([]),
     [affected, setAffected] = useState<string[]>([]),
     [editing, setEditing] = useState(''),
-    [baseline, setBaseline] = useState('');
+    [baseline, setBaseline] = useState(''),
+    [useStarter, setUseStarter] = useState(true),
+    [directShot, setDirectShot] = useState(false);
   const say = (zh: string, en: string, ja: string) => tr(l, zh, en, ja);
+  const activeProjectId = useRef<string | null>(null);
   async function refresh() {
     try {
       const r = await fetch('/api/projects');
@@ -100,12 +105,14 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
     }
   }, [project, revision, baseline]);
   function activate(p: VideoProject, r = 0, b = '') {
+    if (busy) return;
+    activeProjectId.current = p.id;
     setProject(p);
     setRevision(r);
     setBaseline(b);
     setEp(p.episodes[0]?.id || '');
     setScene(p.episodes[0]?.scenes[0]?.id || '');
-    setShot('');
+    setShot(p.episodes[0]?.scenes[0]?.shots[0]?.id || '');
     setEditing('');
     setAffected([]);
     setMessage('');
@@ -146,6 +153,7 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
       });
       if (!r.ok) throw Error(String(r.status));
       const body = (await r.json()) as { revision: number };
+      if (activeProjectId.current !== project.id) return;
       setRevision(body.revision);
       setBaseline(JSON.stringify(project));
       setMessage(
@@ -267,6 +275,11 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
     project && episode && currentScene && currentShot
       ? shotPrompt(project, episode, currentScene, currentShot, l)
       : null;
+  const shotText = output
+    ? directShot && output.directAvailable
+      ? output.direct
+      : output.prompt
+    : '';
   return (
     <section className="video-workspace">
       <div className="journey-title">
@@ -318,7 +331,20 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
             </select>
           </label>
         </div>
+        <label className="check-line">
+          <input
+            type="checkbox"
+            checked={useStarter}
+            onChange={(e) => setUseStarter(e.target.checked)}
+          />
+          {say(
+            '从远景—中景—近景的三镜头结构开始（故事由你填写）',
+            'Start with wide, medium and close shots; you supply the story',
+            '遠景・中景・近景の3カットで開始（物語は自分で記入）',
+          )}
+        </label>
         <button
+          disabled={busy}
           onClick={() => {
             if (!title.trim()) {
               setMessage(
@@ -330,7 +356,11 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
               );
               return;
             }
-            activate(newProject(title.trim(), kind));
+            activate(
+              useStarter
+                ? starterProject(title.trim(), kind, l)
+                : newProject(title.trim(), kind),
+            );
             setTitle('');
           }}
         >
@@ -439,6 +469,21 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
             >
               {say('导出逐镜制作清单', 'Export shot package', 'カット制作一覧')}
             </button>
+          </div>
+          <div className="production-progress">
+            <strong>
+              {say('制作进度', 'Production progress', '制作の進み具合')}
+            </strong>
+            <progress
+              max={Math.max(1, allShots.length)}
+              value={allShots.filter((x) => x.t.status === 'approved').length}
+            />
+            <span>
+              {allShots.filter((x) => x.t.status === 'approved').length} /{' '}
+              {allShots.length}{' '}
+              {say('镜头已确认', 'shots approved', 'カット確認済み')} ·{' '}
+              {allShots.reduce((n, x) => n + x.t.seconds, 0)}s
+            </span>
           </div>
           <p className="storage-note">
             {say(
@@ -647,6 +692,53 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
               </button>
             </aside>
             <div className="production-main">
+              {episode && (
+                <details className="episode-reuse">
+                  <summary>
+                    {say(
+                      '复用这一集的制作结构',
+                      'Reuse this episode structure',
+                      'この話の構成を再利用',
+                    )}
+                  </summary>
+                  <p>
+                    {say(
+                      '复制场景、镜头动作和参考资料供你修改；新一集的故事、衔接、制作结果和确认状态会清空，原集不变。',
+                      'Copies scenes, shot directions and references for revision. Story, continuity, results and approvals reset; the original stays unchanged.',
+                      '場面・カット指示・参照資料をコピー。物語・接続・結果・確認状態はリセットし、元の話は保持します。',
+                    )}
+                  </p>
+                  <button
+                    disabled={busy || project.episodes.length >= 30}
+                    onClick={() => {
+                      try {
+                        const e = duplicateEpisode(project, episode.id, l);
+                        change((p) => {
+                          p.episodes.push(e);
+                        });
+                        setEp(e.id);
+                        setScene(e.scenes[0]?.id || '');
+                        setShot(e.scenes[0]?.shots[0]?.id || '');
+                        setEditing('');
+                      } catch {
+                        setMessage(
+                          say(
+                            '已达到项目容量限制，请另建项目。',
+                            'Project capacity reached; start another project.',
+                            '容量上限です。別のプロジェクトを作成してください。',
+                          ),
+                        );
+                      }
+                    }}
+                  >
+                    {say(
+                      '作为新一集复用',
+                      'Reuse as a new episode',
+                      '次の話として再利用',
+                    )}
+                  </button>
+                </details>
+              )}
               {episode ? (
                 <>
                   <div className="form-grid">
@@ -1073,6 +1165,26 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
                           </label>
                         </div>
                       </fieldset>
+                      <button
+                        disabled={currentShot.locked}
+                        onClick={() => {
+                          updateShot({});
+                          setEditing('');
+                          setMessage(
+                            say(
+                              '已结束本次编辑；下次修改会保留当前版本。',
+                              'Editing checkpoint set; your next change will retain this version.',
+                              '編集区切りを設定。次の変更時に現在の版を保持します。',
+                            ),
+                          );
+                        }}
+                      >
+                        {say(
+                          '保留当前版本，继续下一轮修改',
+                          'Keep this version before the next revision',
+                          '現在の版を残して次の修正へ',
+                        )}
+                      </button>
                       <details>
                         <summary>
                           {say(
@@ -1120,9 +1232,25 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
                               'コピー用プロンプト',
                             )}
                           </h3>
+                          {output.directAvailable && (
+                            <label className="check-line">
+                              <input
+                                type="checkbox"
+                                checked={directShot}
+                                onChange={(e) =>
+                                  setDirectShot(e.target.checked)
+                                }
+                              />
+                              {say(
+                                '只显示制作软件用的简洁指令',
+                                'Show concise production instruction',
+                                '制作ツール用の簡潔な指示を表示',
+                              )}
+                            </label>
+                          )}
                           <textarea
                             readOnly
-                            value={output.prompt}
+                            value={shotText}
                             aria-label={say(
                               '镜头提示词',
                               'Shot prompt',
@@ -1132,9 +1260,7 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
                           <button
                             onClick={async () => {
                               try {
-                                await navigator.clipboard.writeText(
-                                  output.prompt,
-                                );
+                                await navigator.clipboard.writeText(shotText);
                                 setMessage(
                                   say(
                                     '已复制镜头提示词。',
@@ -1159,11 +1285,9 @@ export default function VideoWorkspace({ locale: l }: { locale: Lang }) {
                             onClick={() =>
                               downloadText(
                                 'shot.txt',
-                                [
-                                  output.prompt,
-                                  output.assets,
-                                  output.settings,
-                                ].join('\n\n'),
+                                [shotText, output.assets, output.settings].join(
+                                  '\n\n',
+                                ),
                               )
                             }
                           >

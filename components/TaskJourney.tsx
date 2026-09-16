@@ -13,7 +13,14 @@ import {
   Copy,
   Download,
 } from 'lucide-react';
-import { taskTemplates, matchingSkills, type Locale } from '@/lib/studio';
+import {
+  taskTemplates,
+  matchingSkills,
+  briefQuestion,
+  taskFields,
+  type Locale,
+} from '@/lib/studio';
+import { rankJourneyTasks, taskCategory, briefChecks } from '@/lib/journey';
 import { defaultValues, type Template } from '@/lib/prompt';
 import { categoryNames } from '@/lib/categories';
 import {
@@ -56,7 +63,8 @@ export default function TaskJourney({
     [issue, setIssue] = useState(0),
     [fix, setFix] = useState(''),
     [fixCache, setFixCache] = useState({ key: '', value: '' }),
-    [skillId, setSkillId] = useState('');
+    [skillId, setSkillId] = useState(''),
+    [outputStyle, setOutputStyle] = useState<'brief' | 'direct'>('brief');
   const fixKey = JSON.stringify([
     brief,
     tool,
@@ -66,6 +74,7 @@ export default function TaskJourney({
     l,
     fix,
     issue,
+    outputStyle,
   ]);
   const fixOutput = fixCache.key === fixKey ? fixCache.value : '';
   function setFixOutput(value: string) {
@@ -83,6 +92,7 @@ export default function TaskJourney({
         id: c.id,
         label: c.label,
         description: c.description,
+        terms: c.terms,
         category: c.template.categoryId,
         mode: 'text' as Mode,
       })),
@@ -167,34 +177,49 @@ export default function TaskJourney({
         ? say('视频', 'Video', '動画')
         : categoryNames[l][c] || c;
   const relevant = (t: (typeof tasks)[number]) => {
-    if (category === 'image')
-      return (
-        t.category === 'image' ||
-        (t.category === 'creative' && /image|photo|character/.test(t.id))
-      );
-    if (category === 'video')
-      return (
-        t.category === 'video' ||
-        (t.category === 'creative' &&
-          /clip|storyboard|production|editing|spatial/.test(t.id))
-      );
-    return t.category === category;
+    return !category || taskCategory(t) === category;
   };
-  const shown = tasks
-    .filter(
-      (t) =>
-        relevant(t) &&
-        (!search.trim() ||
-          [t.label, t.description]
-            .join(' ')
-            .toLowerCase()
-            .includes(search.trim().toLowerCase())),
-    )
-    .sort((a, b) =>
-      action === 'modify'
-        ? Number(b.id.startsWith('edit-')) - Number(a.id.startsWith('edit-'))
-        : 0,
-    );
+  const ranked = rankJourneyTasks(tasks.filter(relevant), search);
+  const shown = search.trim()
+    ? ranked
+    : tasks
+        .filter((t) => relevant(t))
+        .sort((a, b) =>
+          action === 'modify'
+            ? Number(b.id.startsWith('edit-')) -
+              Number(a.id.startsWith('edit-'))
+            : 0,
+        );
+  const alternatives =
+    category && search.trim()
+      ? rankJourneyTasks(
+          tasks.filter((t) => !relevant(t)),
+          search,
+        ).slice(0, 3)
+      : [];
+  const hints = briefChecks(brief, mode, l);
+  const specificFields = card
+    ? taskFields(
+        card.template,
+        { ...defaultValues(card.template), [card.field]: card.value },
+        l,
+      )
+    : [];
+  const fieldHint = (key: string) =>
+    specificFields.find((f) => f.key === key)?.placeholder;
+  const example = card?.example || fieldHint('subject') || '';
+  const nextQuestion = card
+    ? briefQuestion(
+        card.template,
+        {
+          ...defaultValues(card.template),
+          [card.field]: card.value,
+          subject: brief.goal,
+          materials: brief.materials,
+        },
+        l,
+      )
+    : null;
   const adapter = adapterInfo(tool, mode, l),
     output = selected
       ? createBriefOutput(
@@ -217,7 +242,9 @@ export default function TaskJourney({
     : [];
   const selectedSkill = matches.find((s) => s.id === skillId);
   const finalPrompt =
-    output?.prompt +
+    (outputStyle === 'direct' && output?.directAvailable
+      ? output.direct
+      : output?.prompt) +
     (selectedSkill
       ? '\n\n' +
         say(
@@ -232,15 +259,20 @@ export default function TaskJourney({
       : '');
   function pick(id: string) {
     const c = tasks.find((t) => t.id === id)!;
+    const target = taskCategory(c);
+    setCategory(target);
+    if (!brief.goal.trim() && search.trim())
+      setBrief({ ...brief, goal: search.trim() });
+    setOutputStyle('brief');
     setTaskId(id);
     setSkillId('');
     setFixOutput('');
     setMode(
       c.id.startsWith('edit-')
         ? c.mode
-        : category === 'image'
+        : target === 'image'
           ? 'image'
-          : category === 'video'
+          : target === 'video'
             ? 'video'
             : 'text',
     );
@@ -440,14 +472,36 @@ export default function TaskJourney({
       )}
       {step === 1 && (
         <>
+          <label className="journey-search">
+            {say(
+              '用一句话描述，或选择下面的分类',
+              'Describe your task, or choose a category',
+              '一文で説明するか、下の分野を選択',
+            )}
+            <input
+              value={search}
+              maxLength={1000}
+              placeholder={say(
+                '例如：把商品背景换成白色，瓶身不能变',
+                'Example: change the product background, keep the bottle',
+                '例：商品の背景だけを変えたい',
+              )}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setLimit(6);
+              }}
+            />
+          </label>
           <div className="category-pills">
+            <button aria-pressed={!category} onClick={() => setCategory('')}>
+              {say('所有方向', 'All directions', 'すべて')}
+            </button>
             {(allowed[action] || allowed.unsure).map((c) => (
               <button
                 aria-pressed={category === c}
                 key={c}
                 onClick={() => {
                   setCategory(c);
-                  setSearch('');
                   setLimit(12);
                 }}
               >
@@ -455,32 +509,31 @@ export default function TaskJourney({
               </button>
             ))}
           </div>
-          {category && (
+          {(category || action === 'unsure' || search.trim()) && (
             <>
-              <label className="journey-search">
-                {say(
-                  '在这个方向内查找',
-                  'Search this direction',
-                  'この分野から探す',
-                )}
-                <input
-                  value={search}
-                  placeholder={say(
-                    '例如：换背景、字幕、公式报错',
-                    'For example: background, captions, formula error',
-                    '例：背景、字幕、数式エラー',
+              {search.trim() && (
+                <p className="match-explanation">
+                  {say(
+                    '这些是按已知词组找到的候选，请选择最接近的；不会替你自动决定。',
+                    'These candidates match known phrases. Choose the closest; nothing is selected automatically.',
+                    '登録表現に基づく候補です。近いものをご自分で選択してください。',
                   )}
-                  onChange={(e) => {
-                    setSearch(e.target.value);
-                    setLimit(12);
-                  }}
-                />
-              </label>
+                </p>
+              )}
               <div className="task-picks">
                 {shown.slice(0, limit).map((t) => (
                   <button key={t.id} onClick={() => pick(t.id)}>
                     <strong>{t.label}</strong>
                     <span>{t.description}</span>
+                    {search.trim() && (
+                      <small>
+                        {say('匹配线索：', 'Matched: ', '一致した表現：')}
+                        {ranked
+                          .find((r) => r.id === t.id)
+                          ?.evidence.slice(0, 3)
+                          .join(' · ')}
+                      </small>
+                    )}
                     <ArrowRight size={17} />
                   </button>
                 ))}
@@ -498,6 +551,22 @@ export default function TaskJourney({
                     '一致するものがありません。言い換え、別分野、要望送信をお試しください。',
                   )}
                 </p>
+              )}
+              {alternatives.length > 0 && (
+                <div className="alternative-matches">
+                  <h3>
+                    {say(
+                      '也可能在这些方向',
+                      'Other possible directions',
+                      '別の分野の候補',
+                    )}
+                  </h3>
+                  {alternatives.map((t) => (
+                    <button key={t.id} onClick={() => pick(t.id)}>
+                      {categoryLabel(taskCategory(t))} · {t.label}
+                    </button>
+                  ))}
+                </div>
               )}
               {category === 'video' && (
                 <button className="primary-action" onClick={onVideo}>
@@ -519,7 +588,16 @@ export default function TaskJourney({
       {step === 2 && selected && (
         <div className="brief-layout">
           <div className="brief-fields">
-            <p className="task-guidance">{selected.description}</p>
+            <details className="task-guidance">
+              <summary>
+                {say(
+                  '这个任务会交付什么？',
+                  'What will this task deliver?',
+                  'この作業の成果物は？',
+                )}
+              </summary>
+              <p>{selected.description}</p>
+            </details>
             <div className="form-grid">
               <label>
                 {say(
@@ -589,12 +667,46 @@ export default function TaskJourney({
                 </span>
               )}
             </p>
+            {nextQuestion && (
+              <div className="question-hint">
+                <strong>
+                  {say(
+                    '这个任务还可以补充',
+                    'Helpful for this task',
+                    'この作業の補足',
+                  )}
+                </strong>
+                <p>{nextQuestion.text}</p>
+              </div>
+            )}
+            {example && (
+              <details className="task-example">
+                <summary>
+                  {say('看看填写示例', 'See an example', '記入例を見る')}
+                </summary>
+                <p>{example}</p>
+                {!brief.goal.trim() && (
+                  <button onClick={() => setBrief({ ...brief, goal: example })}>
+                    {say(
+                      '用这个示例开始',
+                      'Start with this example',
+                      'この例から始める',
+                    )}
+                  </button>
+                )}
+              </details>
+            )}
             {(['goal', 'change', 'preserve'] as const).map((k) => (
               <label key={k}>
                 {questionLabels[k]}
                 {k === 'goal' ? ' *' : ''}
                 <textarea
                   maxLength={5000}
+                  placeholder={
+                    k === 'goal'
+                      ? example
+                      : fieldHint(k === 'change' ? 'criteria' : 'constraints')
+                  }
                   value={brief[k]}
                   onChange={(e) => setBrief({ ...brief, [k]: e.target.value })}
                 />
@@ -613,6 +725,7 @@ export default function TaskJourney({
                   {questionLabels[k]}
                   <textarea
                     value={brief[k]}
+                    placeholder={fieldHint(k === 'settings' ? 'audience' : k)}
                     maxLength={5000}
                     onChange={(e) =>
                       setBrief({ ...brief, [k]: e.target.value })
@@ -678,6 +791,16 @@ export default function TaskJourney({
           <Check size={30} />
           <h2>{selected?.label}</h2>
           <p className="preserve-lines">{output.summary}</p>
+          {hints.length > 0 && (
+            <div className="question-hint">
+              <strong>
+                {say('生成前再看一眼', 'Before you continue', '作成前の確認')}
+              </strong>
+              {hints.map((h) => (
+                <p key={h}>{h}</p>
+              ))}
+            </div>
+          )}
           <p>
             {modeName(mode, l)} · {adapter.name}
           </p>
@@ -715,6 +838,42 @@ export default function TaskJourney({
             <h2>
               {say('可复制的提示词', 'Copyable prompt', 'コピー用プロンプト')}
             </h2>
+            {output.directAvailable && (
+              <div className="output-switch">
+                <button
+                  aria-pressed={outputStyle === 'brief'}
+                  onClick={() => setOutputStyle('brief')}
+                >
+                  {say('完整需求说明', 'Complete brief', '詳しい依頼文')}
+                </button>
+                <button
+                  aria-pressed={outputStyle === 'direct'}
+                  onClick={() => {
+                    setOutputStyle('direct');
+                    setSkillId('');
+                  }}
+                >
+                  {say(
+                    '制作软件用的简洁指令',
+                    'Concise production instruction',
+                    '制作ツール用の簡潔な指示',
+                  )}
+                </button>
+                <p>
+                  {outputStyle === 'direct'
+                    ? say(
+                        '只包含你填写的画面、动作和保留要求。素材需另行上传，参数在软件中设置；这里没有分析图片。',
+                        'Uses your visual, motion and preservation requirements. Upload references and set tool options separately; images are not analyzed.',
+                        '入力した画面・動作・保持条件のみ使用。素材の添付と設定は別途行ってください。画像解析は行いません。',
+                      )
+                    : say(
+                        '适合先让对话 AI 理解需求、补充方案和检查细节。',
+                        'For a conversational AI to understand, plan and check the task.',
+                        '対話AIに要望を伝え、計画と確認を依頼する文章です。',
+                      )}
+                </p>
+              </div>
+            )}
             <textarea
               aria-label={say(
                 '生成的提示词',
@@ -858,6 +1017,7 @@ export default function TaskJourney({
                 <label className="check-line">
                   <input
                     type="checkbox"
+                    disabled={outputStyle === 'direct'}
                     checked={skillId === s.id}
                     onChange={(e) => setSkillId(e.target.checked ? s.id : '')}
                   />

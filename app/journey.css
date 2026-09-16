@@ -328,6 +328,72 @@
   grid-row: 1/3;
   align-self: center;
 }
+.task-picks small {
+  grid-column: 1;
+  color: #35654f;
+  font-size: 0.875rem;
+  margin-top: 10px;
+  font-weight: 500;
+}
+.question-hint,
+.output-switch,
+.alternative-matches,
+.episode-reuse {
+  padding: 18px;
+  border: 1px solid #dce4dc;
+  border-radius: 14px;
+  background: #f5f8f3;
+  margin: 16px 0;
+}
+.question-hint p,
+.output-switch p,
+.match-explanation {
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: #47594e;
+}
+.output-switch button,
+.alternative-matches button {
+  margin: 4px 8px 4px 0;
+}
+.studio .output-switch button[aria-pressed='true'] {
+  background: #275a44;
+  color: white;
+  border-color: #275a44;
+}
+.task-example,
+.task-guidance {
+  margin: 14px 0;
+  line-height: 1.75;
+}
+.task-example p,
+.task-guidance p {
+  white-space: pre-wrap;
+  color: #47594e;
+}
+.production-progress {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 16px 0;
+}
+.production-progress progress {
+  accent-color: #346f51;
+  flex: 1;
+  min-width: 100px;
+  max-width: 320px;
+  height: 10px;
+}
+.journey-title {
+  padding-bottom: 12px;
+}
+.journey-title h1 {
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+}
+.inline-status {
+  display: block;
+}
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -667,7 +733,10 @@
     overflow-x: auto;
     flex-wrap: nowrap;
   }
-  .studio-header nav button { flex: 0 0 auto; white-space: nowrap; }
+  .studio-header nav button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
 }
 @media (max-width: 560px) {
   .journey-title {

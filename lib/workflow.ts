@@ -214,7 +214,21 @@ export function createBriefOutput(
       'Not supplied; ask rather than invent.',
       '未提供。推測で埋めず確認してください。',
     );
-  const summary = `${task}\n${b.goal}\n${tr(l, '修改 / 重点', 'Change / focus', '変更・重点')}: ${b.change || missing}\n${tr(l, '必须保留', 'Must preserve', '保持条件')}: ${b.preserve || missing}`;
+  const summary = [
+    task,
+    b.goal,
+    ...(
+      [
+        ['change', tr(l, '修改 / 重点', 'Change / focus', '変更・重点')],
+        ['preserve', tr(l, '必须保留', 'Must preserve', '保持条件')],
+        ['materials', tr(l, '资料', 'Material', '資料')],
+        ['settings', tr(l, '输出要求', 'Output requirements', '出力条件')],
+        ['priority', tr(l, '冲突时优先', 'Priority', '優先事項')],
+      ] as const
+    )
+      .filter(([k]) => b[k].trim())
+      .map(([k, label]) => label + ': ' + b[k]),
+  ].join('\n');
   const prompt = [
     tr(
       l,
@@ -222,7 +236,7 @@ export function createBriefOutput(
       'Complete the following task; explain in English.',
       '以下の作業を行い、日本語で説明してください。',
     ),
-    summary,
+    [task,b.goal,b.change?tr(l,'修改 / 重点','Change / focus','変更・重点')+': '+b.change:'',b.preserve?tr(l,'必须保留','Must preserve','保持条件')+': '+b.preserve:''].filter(Boolean).join('\n'),
     guidance,
     `${tr(l, '输出偏好与限制', 'Output preferences and constraints', '出力の希望・制約')}: ${b.settings || missing}`,
     `${tr(l, '可用资料（用户描述，不代表你已经读取）', 'Available material (described, not necessarily inspected)', '利用資料（記述のみ、閲覧済みとは限らない）')}: ${b.materials || missing}`,
@@ -261,14 +275,42 @@ export function createBriefOutput(
         'Unspecified; use actual supported options, not invented parameters.',
         '未指定。実際に対応する設定を確認し、不明な値を補完しない。',
       ),
-    tr(
-      l,
-      '比例、时长、分辨率等按软件界面设置，未验证的参数不作为命令复制。',
-      'Set ratio, duration and resolution in the tool UI; do not copy unverified parameters as commands.',
-      '比率・時間・解像度は画面で設定。未確認値をコマンドとして使わない。',
-    ),
+    mode === 'text'
+      ? tr(
+          l,
+          '长度、格式、读者和软件版本属于交付要求；无需填写图片参数。',
+          'Length, format, audience and software version are deliverable requirements. Image parameters are unnecessary.',
+          '長さ・形式・読者・ソフトの版を指定。画像設定は不要です。',
+        )
+      : tr(
+          l,
+          '比例、时长、分辨率等按软件界面设置，未验证的参数不作为命令复制。',
+          'Set ratio, duration and resolution in the tool UI; do not copy unverified parameters as commands.',
+          '比率・時間・解像度は画面で設定。未確認値をコマンドとして使わない。',
+        ),
   ].join('\n');
-  return { summary, prompt, assets, settings };
+  const direct = [
+    b.goal,
+    b.change
+      ? tr(l, '修改 / 动作', 'Change / action', '変更・動作') + ': ' + b.change
+      : '',
+    b.preserve ? tr(l, '保持不变', 'Preserve', '保持') + ': ' + b.preserve : '',
+    b.materials
+      ? tr(l, '参考素材及设定', 'References and context', '参照素材・設定') +
+        ': ' +
+        b.materials
+      : '',
+    b.settings
+      ? tr(l, '画面与时长要求', 'Framing and duration', '画面・時間の条件') +
+        ': ' +
+        b.settings
+      : '',
+    b.priority ? tr(l, '优先保留', 'Priority', '優先') + ': ' + b.priority : '',
+  ]
+    .filter(Boolean)
+    .join('\n');
+  const directAvailable = mode !== 'text' && a.supported && tool !== 'capcut';
+  return { summary, prompt, direct, directAvailable, assets, settings };
 }
 export const revisionIssues = (l: Lang) => [
   tr(l, '太笼统', 'Too vague', '具体性不足'),

@@ -19,6 +19,12 @@ import {
 } from '../lib/video-project.ts';
 import { validFeedback, screenFeedback } from '../lib/feedback.ts';
 import { editTasks } from '../lib/edit-tasks.ts';
+import { rankJourneyTasks, taskCategory } from '../lib/journey.ts';
+import {
+  starterProject,
+  duplicateEpisode,
+  shotPrompt,
+} from '../lib/video-project.ts';
 test('localized briefs preserve requirements across tools and flag incompatible modes', () => {
   for (const l of ['zh', 'en', 'ja']) {
     const b = {
@@ -50,6 +56,107 @@ test('localized briefs preserve requirements across tools and flag incompatible 
     assert.equal(editTasks(l).length, 10);
     assert.equal(new Set(editTasks(l).map((t) => t.id)).size, 10);
   }
+});
+test('search offers evidenced multilingual alternatives and respects explicit exclusions', () => {
+  for (const [l, q] of [
+    ['zh', '把商品背景换成白色'],
+    ['en', 'change background to white'],
+    ['ja', '背景を変えたい'],
+  ]) {
+    const found = rankJourneyTasks(editTasks(l), q);
+    assert.equal(found[0].id, 'edit-image-background');
+    assert.ok(found[0].evidence.length);
+  }
+  assert.equal(rankJourneyTasks(editTasks('zh'), '不需要字幕').length, 0);
+  assert.equal(
+    rankJourneyTasks(editTasks('en'), 'interstellar quantum cooking').length,
+    0,
+  );
+  assert.equal(
+    taskCategory({ id: 'storyboard', category: 'creative' }),
+    'video',
+  );
+  assert.equal(
+    rankJourneyTasks(
+      [
+        ...editTasks('zh'),
+        {
+          id: 'copy',
+          label: '产品文案',
+          description: '',
+          category: 'writing',
+          terms: ['商品'],
+        },
+      ],
+      '把商品背景换成白色',
+    )[0].id,
+    'edit-image-background',
+  );
+});
+test('direct media instructions retain supplied constraints without conversational boilerplate', () => {
+  for (const l of ['zh', 'en', 'ja']) {
+    const b = {
+      ...emptyBrief,
+      goal: 'Cat walks right',
+      change: 'Pan slowly',
+      preserve: 'Red collar',
+      materials: 'Cat reference',
+      settings: '5 seconds',
+      priority: 'Identity first',
+    };
+    const o = createBriefOutput(
+      b,
+      'Story',
+      'Provide a report',
+      'runway',
+      'image-video',
+      l,
+    );
+    for (const v of Object.values(b)) assert.ok(o.direct.includes(v));
+    assert.ok(!o.direct.includes('Provide a report'));
+    assert.equal(o.directAvailable, true);
+    assert.equal(
+      createBriefOutput(b, 'Story', '', 'deepseek', 'video', l).directAvailable,
+      false,
+    );
+    assert.ok(o.summary.includes(b.priority));
+    assert.ok(o.summary.includes(b.settings));
+  }
+});
+test('three-shot starter and episode reuse preserve sources while resetting production state', () => {
+  const p = starterProject('Series', 'series', 'en');
+  assert.ok(validateProject(p));
+  const e = p.episodes[0],
+    s = e.scenes[0],
+    t = s.shots[0];
+  assert.deepEqual(
+    s.shots.map((x) => x.size),
+    ['wide', 'medium', 'close'],
+  );
+  e.synopsis = 'Old story';
+  e.continuity = 'Old ending';
+  t.action = 'Walk';
+  t.start = 'Left';
+  t.end = 'Right';
+  t.dialogue = 'Hello';
+  t.result = 'done.mp4';
+  t.locked = true;
+  t.status = 'approved';
+  const snapshot = JSON.stringify(p);
+  const copied = duplicateEpisode(p, e.id, 'en');
+  assert.equal(JSON.stringify(p), snapshot);
+  assert.notEqual(copied.id, e.id);
+  assert.equal(copied.synopsis, '');
+  assert.equal(copied.continuity, '');
+  assert.equal(copied.scenes[0].shots[0].locked, false);
+  assert.equal(copied.scenes[0].shots[0].result, '');
+  assert.equal(copied.scenes[0].shots[0].action, 'Walk');
+  assert.ok(!copied.scenes[0].shots[0].context.includes('Old story'));
+  p.episodes.push(copied);
+  assert.ok(validateProject(p));
+  const output = shotPrompt(p, e, s, t, 'en');
+  for (const text of ['Left', 'Right', 'Hello'])
+    assert.ok(output.direct.includes(text));
 });
 test('project validation, historical restore, locked shots and continuity', () => {
   const p = newProject('Test', 'series');
