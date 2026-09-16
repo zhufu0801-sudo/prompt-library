@@ -79,14 +79,14 @@ test('care preserves literal requests and renders only the confirmed intent and 
       );
     }
 });
-test('all 72 focused tasks compose distinctly, translate choices and persist in content seed', () => {
+test('all 74 focused tasks compose distinctly, translate choices and persist in content seed', () => {
   const tasks = read('data/studio/deep-tasks.json');
-  assert.equal(tasks.length, 72);
+  assert.equal(tasks.length, 74);
   const seed = read('data/seed.generated.json');
   for (const locale of ['zh', 'en', 'ja']) {
     const cards = taskTemplates(load(locale), locale);
-    assert.equal(cards.length, 237);
-    assert.equal(new Set(cards.map((c) => c.id)).size, 237);
+    assert.equal(cards.length, 239);
+    assert.equal(new Set(cards.map((c) => c.id)).size, 239);
     for (const task of tasks) {
       const card = cards.find((c) => c.id === task.id);
       assert.ok(card, task.id);

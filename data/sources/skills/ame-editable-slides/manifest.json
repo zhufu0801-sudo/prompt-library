@@ -1,0 +1,49 @@
+{
+  "id": "ame-editable-slides",
+  "tasks": [
+    "wps-slides"
+  ],
+  "labels": {
+    "zh": "可编辑演示文稿（PPT Master 思路适配）",
+    "en": "Editable slides (PPT Master workflow adaptation)",
+    "ja": "編集可能なスライド（PPT Master手順調整版）"
+  },
+  "repository": "https://github.com/hugohe3/ppt-master",
+  "source": "https://github.com/hugohe3/ppt-master/blob/3b45af2c3dab15626b1d499ea60ce689b7f97a5a/skills/ppt-master/SKILL.md",
+  "commit": "3b45af2c3dab15626b1d499ea60ce689b7f97a5a",
+  "license": "MIT",
+  "language": "en",
+  "edition": "adapted-documentation",
+  "review": "source-license-package-checked; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "参考 hugohe3/ppt-master 的轻量指令适配版，不是完整 PPT Master，不包含其脚本、模板、渲染器或模型。支持先交付逐页内容与可编辑要求；实际生成 PPTX 需目标 AI 具备演示文件工具。WPS 与 PowerPoint 必须分别检查字体、图表和动画兼容性。 解压后导入支持 SKILL.md 的 AI 软件，或将入口内容和需求一起粘贴到聊天中。指定中文回答。下载包不含模型、自动安装器或付费服务；目标软件缺少工具时只交付方案，不声称执行完成。",
+    "en": "Lightweight instruction adaptation informed by hugohe3/ppt-master, not the full package. No upstream scripts, templates, renderer or model are included. Produces slide content and editability requirements; creating PPTX needs host presentation tools. Check fonts, charts and animations separately in WPS and PowerPoint. Extract into an app supporting SKILL.md, or paste the entrypoint and your request into chat. Request English output. No model, installer or paid service is included. Without the required host tools, produce a plan and do not claim execution.",
+    "ja": "hugohe3/ppt-masterを参考にした軽量指示調整版で、完全版ではありません。スクリプト・テンプレート・描画環境・モデルは含みません。ページ内容と編集要件を作り、PPTX生成には対象AIの機能が必要。WPSとPowerPointで互換性を個別に確認します。 SKILL.md対応ソフトに展開フォルダーを取り込むか、入口の内容と要望をチャットに貼り付け、日本語での回答を指定します。モデル・自動インストーラー・有料サービスは含みません。必要な機能がなければ、実行済みとせず手順を提示します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "80cefc234c1ec12a8cece4344f16300c634fa03df7891686fcf979e3828f0921"
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "567cf49b65bf63e8fb3a7dfc13a9c35571a045581b99a980fd19ebc738150e14"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "1922f1bad5af32273e8e447f174da840d6a0f763a1548ecdcb6fe601e670bf75"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "2bfe887e18d87865cd939db3ff73a705b5e2dc7abbaa5efc2c3d8d15a1759d4e"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "cad8d5ef1b23686bf3112cedd62dddd46f3510d21ae3e3a4a355fba68f756eb5"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "d66a55a08930f494918b8ec7a499162303d278909c63b1e6edaa561d38c28453"
+    }
+  ]
+}

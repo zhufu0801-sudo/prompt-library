@@ -367,5 +367,41 @@
       "ja": "ウェブ機能の受入確認"
     },
     "additionalTasks": []
+  },
+  "ame-find-skills": {
+    "scope": {
+      "zh": "明确任务与软件后查找 Skill，比较来源、适用范围、依赖与安装位置。",
+      "en": "Find Skills for a specific task and host; compare sources, scope and dependencies.",
+      "ja": "目的と利用ソフトに合うSkillを探し、出典・適用範囲・依存を比較。"
+    },
+    "exclude": [],
+    "additionalTasks": []
+  },
+  "humanizer": {
+    "scope": {
+      "zh": "保留事实和作者语气，修改空话、重复与机械句式；不保证规避检测。",
+      "en": "Preserve facts and voice while removing filler and mechanical phrasing; no detector guarantees.",
+      "ja": "事実と書き手の声を保ち、冗長さや機械的な表現を修正。検出回避の保証はありません。"
+    },
+    "exclude": [],
+    "additionalTasks": []
+  },
+  "ame-skill-creator": {
+    "scope": {
+      "zh": "把重复工作整理为有触发条件、输入输出和测试用例的 Skill。",
+      "en": "Turn a repeatable workflow into a scoped Skill with inputs, outputs and test cases.",
+      "ja": "繰り返す作業を適用条件・入出力・テスト例のあるSkillに整理。"
+    },
+    "exclude": [],
+    "additionalTasks": []
+  },
+  "ame-editable-slides": {
+    "scope": {
+      "zh": "整理演示结构、逐页布局和原生可编辑元素；文件生成取决于目标 AI 的工具。",
+      "en": "Plan decks, per-slide layouts and native editable elements; file generation depends on host tools.",
+      "ja": "構成・ページ別レイアウト・編集可能な要素を設計。ファイル作成は対象AIの機能に依存。"
+    },
+    "exclude": [],
+    "additionalTasks": []
   }
 }

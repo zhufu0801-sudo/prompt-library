@@ -49,7 +49,13 @@ export default function SkillLibrary({ locale }: { locale: Locale }) {
     },
   }[locale];
   const filtered = skills.filter((s) =>
-    (s.labels[locale] + ' ' + fit[s.id as keyof typeof fit].scope[locale])
+    (
+      s.id +
+      ' ' +
+      Object.values(s.labels).join(' ') +
+      ' ' +
+      Object.values(fit[s.id as keyof typeof fit].scope).join(' ')
+    )
       .toLowerCase()
       .includes(query.trim().toLowerCase()),
   );
@@ -69,6 +75,91 @@ export default function SkillLibrary({ locale }: { locale: Locale }) {
         />
       </label>
       <p className="skill-library-note">{t.note}</p>
+      <details className="skill-library-note">
+        <summary>
+          {tr(
+            locale,
+            'WorkBuddy 视频推荐：收录与核对情况',
+            'WorkBuddy video: reviewed recommendations',
+            'WorkBuddy動画の推薦：収録・確認状況',
+          )}
+        </summary>
+        <p>
+          {tr(
+            locale,
+            '视频只展示名称，没有给出仓库地址。以下为核实过的对应开源项目或轻量适配版，不能确认与作者安装的版本完全相同。',
+            'The video shows names without repository URLs. These are reviewed matching projects or lightweight adaptations, not verified as the exact versions installed by the author.',
+            '動画には名称のみが表示され、リポジトリURLはありません。対応する公開プロジェクトや軽量調整版を確認しましたが、作者の導入版との一致は未確認です。',
+          )}
+        </p>
+        <div className="skill-links">
+          {[
+            'ame-find-skills',
+            'humanizer',
+            'ame-skill-creator',
+            'ame-editable-slides',
+          ].map((id) => {
+            const skill = skills.find((s) => s.id === id)!;
+            return (
+              <button
+                type="button"
+                className="studio-secondary"
+                key={id}
+                onClick={() => setQuery(id)}
+              >
+                {skill.labels[locale]}
+              </button>
+            );
+          })}
+          <button
+            type="button"
+            className="studio-secondary"
+            onClick={() => setQuery('wps')}
+          >
+            {tr(
+              locale,
+              '查看已有办公 Skills',
+              'Existing office Skills',
+              '既存のオフィスSkills',
+            )}
+          </button>
+          <button
+            type="button"
+            className="studio-secondary"
+            onClick={() => setQuery('')}
+          >
+            {tr(locale, '查看全部', 'Show all', 'すべて表示')}
+          </button>
+        </div>
+        <p>
+          {tr(
+            locale,
+            'Finder Skills 对应技能查找；Humanizer 保留原版指令；Skill Creator 与 PPT Master 提供标明来源的指令适配版。办公类已有 WPS 文档、表格清洗和演示文稿内容，并非 WorkBuddy 自带办公工具的副本。',
+            'Finder Skills maps to Skill discovery. Humanizer retains its original instructions; Skill Creator and PPT Master are attributed instruction adaptations. Existing WPS document, data-cleaning and presentation packs cover office tasks; they are not copies of WorkBuddy’s built-in tools.',
+            'Finder SkillsはSkill検索に対応。Humanizerは原文を収録し、Skill CreatorとPPT Masterは出典を示した指示調整版です。既存のWPS文書・表整理・スライドSkillは、WorkBuddy内蔵ツールの複製ではありません。',
+          )}
+        </p>
+        <p>
+          {tr(
+            locale,
+            'Self Improving、Proactive Agent、Smart Chart：尚未确认视频中所指的具体来源，暂不提供同名下载，也未启用自动学习或后台执行。',
+            'Self Improving, Proactive Agent and Smart Chart: the exact sources shown in the video remain unconfirmed, so no same-name downloads or automatic background execution are enabled.',
+            'Self Improving・Proactive Agent・Smart Chartは動画が指す原典を特定できていないため、同名ダウンロードや自動学習・バックグラウンド実行は未提供です。',
+          )}
+        </p>
+        <a
+          href="https://www.douyin.com/video/7686124900007972150"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {tr(
+            locale,
+            '查看推荐视频',
+            'View the recommendation video',
+            '推薦動画を見る',
+          )}
+        </a>
+      </details>
       <a href="/downloads/skill-audit.json" download>
         {tr(
           locale,

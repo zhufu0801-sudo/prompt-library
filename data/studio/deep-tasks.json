@@ -2326,5 +2326,73 @@
     },
     "sourceReferences": [],
     "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "programming-find-skill",
+    "group": "programming",
+    "labels": {
+      "zh": "查找适合的 Skill（Find Skills 适配版）",
+      "en": "Find a suitable Skill (adapted)",
+      "ja": "適切なSkillを探す（調整版）"
+    },
+    "terms": [
+      "查找适合的 Skill（Find Skills 适配版）",
+      "Find a suitable Skill (adapted)",
+      "適切なSkillを探す（調整版）",
+      "我用 WorkBuddy 整理多份表格，帮我找到合适的 Skill，先比较不要安装。",
+      "Find a Skill for consolidating spreadsheets in WorkBuddy; compare before installing.",
+      "WorkBuddyで複数の表を整理したい。導入せず、適切なSkillを比較して。"
+    ],
+    "examples": {
+      "zh": "我用 WorkBuddy 整理多份表格，帮我找到合适的 Skill，先比较不要安装。",
+      "en": "Find a Skill for consolidating spreadsheets in WorkBuddy; compare before installing.",
+      "ja": "WorkBuddyで複数の表を整理したい。導入せず、適切なSkillを比較して。"
+    },
+    "questions": {
+      "zh": "请给出任务、使用的软件和你是否允许安装。",
+      "en": "Specify the task, host app and whether installation is wanted.",
+      "ja": "目的・利用ソフト・導入の希望を教えてください。"
+    },
+    "guidance": {
+      "zh": "先明确任务与运行软件，再核对候选 Skill 的原始来源、许可证、依赖和真实适用范围。交付简短比较、推荐理由、所需输入和最小试用验收；未知兼容性标为待验证。不要仅凭安装量推荐，不默认安装。",
+      "en": "Identify the task and host, verify candidate sources, licenses, dependencies and scope. Deliver a comparison, rationale, required inputs and a small trial with acceptance criteria. Label unverified compatibility; do not rank only by popularity or install by default.",
+      "ja": "目的と利用環境を確認し、候補の原典・許諾・依存・対象範囲を検証。比較、推薦理由、必要資料、試用と合格条件を提示。未確認の互換性を明記し、人気だけで選ばず自動導入しません。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
+  },
+  {
+    "id": "programming-create-skill",
+    "group": "programming",
+    "labels": {
+      "zh": "创建与改进 Skill（指令适配版）",
+      "en": "Create and improve Skills (instruction adaptation)",
+      "ja": "Skill作成・改善（指示文調整版）"
+    },
+    "terms": [
+      "创建与改进 Skill（指令适配版）",
+      "Create and improve Skills (instruction adaptation)",
+      "Skill作成・改善（指示文調整版）",
+      "把每周销售汇总流程做成 Skill，输出中文报告并检查合计错误。",
+      "Create a Skill for weekly sales summaries that checks totals and produces an English report.",
+      "毎週の売上集計をSkillにし、合計を検査して日本語レポートを出したい。"
+    ],
+    "examples": {
+      "zh": "把每周销售汇总流程做成 Skill，输出中文报告并检查合计错误。",
+      "en": "Create a Skill for weekly sales summaries that checks totals and produces an English report.",
+      "ja": "毎週の売上集計をSkillにし、合計を検査して日本語レポートを出したい。"
+    },
+    "questions": {
+      "zh": "提供一组输入示例、理想输出、目标 AI 和允许使用的工具。",
+      "en": "Provide a sample input, desired output, target AI and allowed tools.",
+      "ja": "入力例・理想の出力・対象AI・利用可能な機能を指定してください。"
+    },
+    "guidance": {
+      "zh": "把重复流程整理为完整 SKILL.md，明确触发条件、输入输出、异常处理和工具依赖。附正常输入、缺资料和不适用场景的测试案例及可观察验收条件。无执行环境时只给测试计划，不虚构通过结果；保留用户选择的软件。",
+      "en": "Produce a complete SKILL.md for the repeated workflow with scoped triggers, inputs, outputs, error handling and tool dependencies. Include normal, incomplete and out-of-scope test cases with observable acceptance criteria. Without an execution environment, provide a plan rather than invented passes; preserve the chosen app.",
+      "ja": "繰り返す手順を完全なSKILL.mdにまとめ、適用条件・入出力・例外処理・依存を明記。通常、不足資料、対象外のテスト例と確認可能な合格条件を付け、未実行の合格を捏造せず、指定ソフトを維持します。"
+    },
+    "sourceReferences": [],
+    "editorialStatus": "original-task-brief"
   }
 ]

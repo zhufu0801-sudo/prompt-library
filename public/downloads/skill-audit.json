@@ -262,5 +262,49 @@
     "bundledExecutables": [],
     "runtime": "not-tested-in-target-ai",
     "edition": "original-documentation"
+  },
+  "ame-find-skills": {
+    "checkedAt": "2026-09-16",
+    "archiveHash": "32ff0b84f63bd8cdbc7ecb32d7371a77b61e9daaee6aadb579314dd9d5dce5b0",
+    "archiveIntegrity": "passed",
+    "requiredFiles": "passed",
+    "entrypointLocalLinks": "passed",
+    "externalLinks": [],
+    "bundledExecutables": [],
+    "runtime": "not-tested-in-target-ai",
+    "edition": "adapted-documentation"
+  },
+  "humanizer": {
+    "checkedAt": "2026-09-16",
+    "archiveHash": "11a7a99c8a5895d857f6ee721755fb221f00d8956e3eca6e0793b6dd558420bd",
+    "archiveIntegrity": "passed",
+    "requiredFiles": "passed",
+    "entrypointLocalLinks": "passed",
+    "externalLinks": [],
+    "bundledExecutables": [],
+    "runtime": "not-tested-in-target-ai",
+    "edition": "upstream-documentation"
+  },
+  "ame-skill-creator": {
+    "checkedAt": "2026-09-16",
+    "archiveHash": "bb2952c2f3a8c711d86ca184bf8539395579ee2c0da5b78b7dd31807cf1087ce",
+    "archiveIntegrity": "passed",
+    "requiredFiles": "passed",
+    "entrypointLocalLinks": "passed",
+    "externalLinks": [],
+    "bundledExecutables": [],
+    "runtime": "not-tested-in-target-ai",
+    "edition": "adapted-documentation"
+  },
+  "ame-editable-slides": {
+    "checkedAt": "2026-09-16",
+    "archiveHash": "51d5a49a0911fc0dc88d2a2452a2a8e39529899c4b12d481c1c956ee3d526dd7",
+    "archiveIntegrity": "passed",
+    "requiredFiles": "passed",
+    "entrypointLocalLinks": "passed",
+    "externalLinks": [],
+    "bundledExecutables": [],
+    "runtime": "not-tested-in-target-ai",
+    "edition": "adapted-documentation"
   }
 }

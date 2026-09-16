@@ -1,0 +1,51 @@
+{
+  "id": "humanizer",
+  "tasks": [
+    "copy-specific-rewrite",
+    "copy-focused-tone",
+    "copy-channel-variants"
+  ],
+  "labels": {
+    "zh": "自然文字润色 · Humanizer",
+    "en": "Natural prose · Humanizer",
+    "ja": "自然な文章推敲 · Humanizer"
+  },
+  "repository": "https://github.com/blader/humanizer",
+  "source": "https://github.com/blader/humanizer/blob/9862685f575c65a8247f90369951df1b3416e3d6/SKILL.md",
+  "commit": "9862685f575c65a8247f90369951df1b3416e3d6",
+  "license": "MIT",
+  "language": "en",
+  "edition": "upstream-documentation",
+  "review": "source-license-package-checked; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "保留 blader/humanizer 原版英文指令。中文保留专名、数字和正式语境，避免硬套英文句式；日文按读者统一敬体/常体。只做表达润色，不虚构经历、数据或论文引文。 解压后导入支持 SKILL.md 的 AI 软件，或将入口内容和需求一起粘贴到聊天中。指定中文回答。下载包不含模型、自动安装器或付费服务；目标软件缺少工具时只交付方案，不声称执行完成。",
+    "en": "Original English instructions from blader/humanizer. Supply a voice sample, audience and protected facts. For Chinese preserve names, numbers and formality; for Japanese choose consistent register. Edit expression without inventing experiences, data or citations. Extract into an app supporting SKILL.md, or paste the entrypoint and your request into chat. Request English output. No model, installer or paid service is included. Without the required host tools, produce a plan and do not claim execution.",
+    "ja": "blader/humanizerの英語原文を収録。読者・文体例・保持すべき事実を指定し、敬体と常体を統一します。英語表現の基準を機械的に当てはめず、体験・データ・引用を創作しません。 SKILL.md対応ソフトに展開フォルダーを取り込むか、入口の内容と要望をチャットに貼り付け、日本語での回答を指定します。モデル・自動インストーラー・有料サービスは含みません。必要な機能がなければ、実行済みとせず手順を提示します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "4ac4810254ab36d45419141aeb8e69bf50652cfafe5b2dab947d06d44e5cbf96"
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "ba1379b484f1cc37e5d5fd677b9655d3f36372986ac85f8757fa622778c6b06d"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "c39879e29a7fe8a9e4bcd0ef66339589ba0e85e3893521ecb0d96a277761467c"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "470df091cb6736833d7b221537225cbf788d4810d4bb75b63eac40210783589e"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "195576da79e10cb3206593d121f704eee943bc33c92c701b5f85d5104d37cc1d"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "5e30bbd2a2732242bed1299157e673c3704b69a0b7dc0c50791165a6ad3c0c88"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "ame-find-skills",
+  "tasks": [
+    "programming-find-skill"
+  ],
+  "labels": {
+    "zh": "查找适合的 Skill（Find Skills 适配版）",
+    "en": "Find a suitable Skill (adapted)",
+    "ja": "適切なSkillを探す（調整版）"
+  },
+  "repository": "https://github.com/vercel-labs/skills",
+  "source": "https://github.com/vercel-labs/skills/blob/d6b37f62ae23c3825b0ed16c73e123eee0a41fdc/skills/find-skills/SKILL.md",
+  "commit": "d6b37f62ae23c3825b0ed16c73e123eee0a41fdc",
+  "license": "MIT",
+  "language": "en",
+  "edition": "adapted-documentation",
+  "review": "source-license-package-checked; external-ai-runtime-not-tested",
+  "usage": {
+    "zh": "按 Vercel Find Skills 整理的指令适配版。检索需要联网；CLI 检索另需 Node.js/npm。不会自动安装或全局更新。人气只作参考，不能替代内容审查。 解压后导入支持 SKILL.md 的 AI 软件，或将入口内容和需求一起粘贴到聊天中。指定中文回答。下载包不含模型、自动安装器或付费服务；目标软件缺少工具时只交付方案，不声称执行完成。",
+    "en": "Instruction adaptation of Vercel Find Skills. Search needs internet; CLI search additionally needs Node.js/npm. No automatic installation or global update. Popularity is not a substitute for reviewing the contents. Extract into an app supporting SKILL.md, or paste the entrypoint and your request into chat. Request English output. No model, installer or paid service is included. Without the required host tools, produce a plan and do not claim execution.",
+    "ja": "Vercel Find Skillsの指示文調整版。検索にはネット接続、CLI検索にはNode.js/npmが必要。自動導入や一括更新は行いません。人気だけで品質を判断しません。 SKILL.md対応ソフトに展開フォルダーを取り込むか、入口の内容と要望をチャットに貼り付け、日本語での回答を指定します。モデル・自動インストーラー・有料サービスは含みません。必要な機能がなければ、実行済みとせず手順を提示します。"
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "661142e53c313d2bb5e1b055f5c0a39001450ff1b5e27b89dc4bc7de9a6352ca"
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "8d92e081fedbac0a91ab775ebf8d18b04a02ab7980689b834ac2199794e90f36"
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "e228af2453ae4a201ad49c8930cdfa8352577ab752fb0172f071b1139a82e5c5"
+    },
+    {
+      "path": "USAGE.en.md",
+      "sha256": "dba7a212f21fc725678a798037d941dc2b6a7abfd1e45963df4105e80e2fb534"
+    },
+    {
+      "path": "USAGE.ja.md",
+      "sha256": "14f3a1875e3c63de57cc96f3eb72b7a4a2eed7a98ae18835d3a7e4921a9a05bd"
+    },
+    {
+      "path": "USAGE.zh.md",
+      "sha256": "bcd7cf2a280ecad9695a6d7e84f32c3b61f565e5b2e54fe5c303801ae1340588"
+    }
+  ]
+}

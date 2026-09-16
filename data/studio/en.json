@@ -32,7 +32,9 @@
           "Code review",
           "Frontend and UI design",
           "Stale state and race conditions",
-          "Change an existing codebase"
+          "Change an existing codebase",
+          "Find a suitable Skill (adapted)",
+          "Create and improve Skills (instruction adaptation)"
         ],
         "maxSelections": 1
       },

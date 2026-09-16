@@ -85,7 +85,19 @@ test('Skill suitability excludes specialized requests and unrelated task switche
   for (const [locale, index, task, subject] of cases) {
     const t = load(locale)[index],
       v = { ...defaultValues(t), ...(task ? { task } : {}), subject };
-    assert.ok(!recommendedSkills(t, v, locale).some((s) => s.id === ({3: 'wps-formula', 2: 'image', 4: 'copywriting', 5: 'scientific-writing'}[index])), subject);
+    assert.ok(
+      !recommendedSkills(t, v, locale).some(
+        (s) =>
+          s.id ===
+          {
+            3: 'wps-formula',
+            2: 'image',
+            4: 'copywriting',
+            5: 'scientific-writing',
+          }[index],
+      ),
+      subject,
+    );
   }
   const t = load('en')[0],
     v = { ...defaultValues(t), subject: 'Build a backend only data service' };
@@ -557,8 +569,8 @@ test('60 practical task templates resolve correctly in all languages and preserv
   for (const locale of ['zh', 'en', 'ja']) {
     const templates = load(locale),
       cards = taskTemplates(templates, locale);
-    assert.equal(cards.length, 237);
-    assert.equal(new Set(cards.map((c) => c.id)).size, 237);
+    assert.equal(cards.length, 239);
+    assert.equal(new Set(cards.map((c) => c.id)).size, 239);
     for (const task of tasks) {
       const card = cards.find((c) => c.id === task.id);
       assert.ok(card);

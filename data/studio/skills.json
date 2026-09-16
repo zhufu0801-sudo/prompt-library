@@ -1270,5 +1270,215 @@
     "download": "/downloads/skills/ame-acceptance-checklist-v1.zip",
     "bytes": 4782,
     "sha256": "df1b14f88996ee299bcc19217a4737e5913ccd1accdc781b802d3b6503155b0b"
+  },
+  {
+    "id": "ame-find-skills",
+    "tasks": [
+      "programming-find-skill"
+    ],
+    "labels": {
+      "zh": "查找适合的 Skill（Find Skills 适配版）",
+      "en": "Find a suitable Skill (adapted)",
+      "ja": "適切なSkillを探す（調整版）"
+    },
+    "repository": "https://github.com/vercel-labs/skills",
+    "source": "https://github.com/vercel-labs/skills/blob/d6b37f62ae23c3825b0ed16c73e123eee0a41fdc/skills/find-skills/SKILL.md",
+    "commit": "d6b37f62ae23c3825b0ed16c73e123eee0a41fdc",
+    "license": "MIT",
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "source-license-package-checked; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "按 Vercel Find Skills 整理的指令适配版。检索需要联网；CLI 检索另需 Node.js/npm。不会自动安装或全局更新。人气只作参考，不能替代内容审查。 解压后导入支持 SKILL.md 的 AI 软件，或将入口内容和需求一起粘贴到聊天中。指定中文回答。下载包不含模型、自动安装器或付费服务；目标软件缺少工具时只交付方案，不声称执行完成。",
+      "en": "Instruction adaptation of Vercel Find Skills. Search needs internet; CLI search additionally needs Node.js/npm. No automatic installation or global update. Popularity is not a substitute for reviewing the contents. Extract into an app supporting SKILL.md, or paste the entrypoint and your request into chat. Request English output. No model, installer or paid service is included. Without the required host tools, produce a plan and do not claim execution.",
+      "ja": "Vercel Find Skillsの指示文調整版。検索にはネット接続、CLI検索にはNode.js/npmが必要。自動導入や一括更新は行いません。人気だけで品質を判断しません。 SKILL.md対応ソフトに展開フォルダーを取り込むか、入口の内容と要望をチャットに貼り付け、日本語での回答を指定します。モデル・自動インストーラー・有料サービスは含みません。必要な機能がなければ、実行済みとせず手順を提示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "661142e53c313d2bb5e1b055f5c0a39001450ff1b5e27b89dc4bc7de9a6352ca"
+      },
+      {
+        "path": "NOTICE.md",
+        "sha256": "8d92e081fedbac0a91ab775ebf8d18b04a02ab7980689b834ac2199794e90f36"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "e228af2453ae4a201ad49c8930cdfa8352577ab752fb0172f071b1139a82e5c5"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "dba7a212f21fc725678a798037d941dc2b6a7abfd1e45963df4105e80e2fb534"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "14f3a1875e3c63de57cc96f3eb72b7a4a2eed7a98ae18835d3a7e4921a9a05bd"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "bcd7cf2a280ecad9695a6d7e84f32c3b61f565e5b2e54fe5c303801ae1340588"
+      }
+    ],
+    "download": "/downloads/skills/ame-find-skills-d6b37f62ae23-ame1.zip",
+    "sha256": "32ff0b84f63bd8cdbc7ecb32d7371a77b61e9daaee6aadb579314dd9d5dce5b0",
+    "bytes": 5871
+  },
+  {
+    "id": "humanizer",
+    "tasks": [
+      "copy-specific-rewrite",
+      "copy-focused-tone",
+      "copy-channel-variants"
+    ],
+    "labels": {
+      "zh": "自然文字润色 · Humanizer",
+      "en": "Natural prose · Humanizer",
+      "ja": "自然な文章推敲 · Humanizer"
+    },
+    "repository": "https://github.com/blader/humanizer",
+    "source": "https://github.com/blader/humanizer/blob/9862685f575c65a8247f90369951df1b3416e3d6/SKILL.md",
+    "commit": "9862685f575c65a8247f90369951df1b3416e3d6",
+    "license": "MIT",
+    "language": "en",
+    "edition": "upstream-documentation",
+    "review": "source-license-package-checked; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "保留 blader/humanizer 原版英文指令。中文保留专名、数字和正式语境，避免硬套英文句式；日文按读者统一敬体/常体。只做表达润色，不虚构经历、数据或论文引文。 解压后导入支持 SKILL.md 的 AI 软件，或将入口内容和需求一起粘贴到聊天中。指定中文回答。下载包不含模型、自动安装器或付费服务；目标软件缺少工具时只交付方案，不声称执行完成。",
+      "en": "Original English instructions from blader/humanizer. Supply a voice sample, audience and protected facts. For Chinese preserve names, numbers and formality; for Japanese choose consistent register. Edit expression without inventing experiences, data or citations. Extract into an app supporting SKILL.md, or paste the entrypoint and your request into chat. Request English output. No model, installer or paid service is included. Without the required host tools, produce a plan and do not claim execution.",
+      "ja": "blader/humanizerの英語原文を収録。読者・文体例・保持すべき事実を指定し、敬体と常体を統一します。英語表現の基準を機械的に当てはめず、体験・データ・引用を創作しません。 SKILL.md対応ソフトに展開フォルダーを取り込むか、入口の内容と要望をチャットに貼り付け、日本語での回答を指定します。モデル・自動インストーラー・有料サービスは含みません。必要な機能がなければ、実行済みとせず手順を提示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "4ac4810254ab36d45419141aeb8e69bf50652cfafe5b2dab947d06d44e5cbf96"
+      },
+      {
+        "path": "NOTICE.md",
+        "sha256": "ba1379b484f1cc37e5d5fd677b9655d3f36372986ac85f8757fa622778c6b06d"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "c39879e29a7fe8a9e4bcd0ef66339589ba0e85e3893521ecb0d96a277761467c"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "470df091cb6736833d7b221537225cbf788d4810d4bb75b63eac40210783589e"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "195576da79e10cb3206593d121f704eee943bc33c92c701b5f85d5104d37cc1d"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "5e30bbd2a2732242bed1299157e673c3704b69a0b7dc0c50791165a6ad3c0c88"
+      }
+    ],
+    "download": "/downloads/skills/humanizer-9862685f575c-ame1.zip",
+    "sha256": "11a7a99c8a5895d857f6ee721755fb221f00d8956e3eca6e0793b6dd558420bd",
+    "bytes": 16291
+  },
+  {
+    "id": "ame-skill-creator",
+    "tasks": [
+      "programming-create-skill"
+    ],
+    "labels": {
+      "zh": "创建与改进 Skill（指令适配版）",
+      "en": "Create and improve Skills (instruction adaptation)",
+      "ja": "Skill作成・改善（指示文調整版）"
+    },
+    "repository": "https://github.com/anthropics/skills",
+    "source": "https://github.com/anthropics/skills/blob/34040c9c568585f6929bedeaad110ad08f079624/skills/skill-creator/SKILL.md",
+    "commit": "34040c9c568585f6929bedeaad110ad08f079624",
+    "license": "Apache-2.0",
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "source-license-package-checked; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "根据 Anthropic skill-creator 整理的轻量指令版，不含其评测脚本或 Claude CLI。可输出完整 SKILL.md 和测试方案；真实评测需要目标 AI，可能使用该平台额度。 解压后导入支持 SKILL.md 的 AI 软件，或将入口内容和需求一起粘贴到聊天中。指定中文回答。下载包不含模型、自动安装器或付费服务；目标软件缺少工具时只交付方案，不声称执行完成。",
+      "en": "Lightweight instruction adaptation of Anthropic skill-creator; its evaluation scripts and Claude CLI are not bundled. Produces SKILL.md and test cases. Actual evaluations need a target AI and may consume its quota. Extract into an app supporting SKILL.md, or paste the entrypoint and your request into chat. Request English output. No model, installer or paid service is included. Without the required host tools, produce a plan and do not claim execution.",
+      "ja": "Anthropic skill-creatorを基にした軽量指示版。評価スクリプトとClaude CLIは含みません。SKILL.mdとテスト案を作成し、実評価には対象AIとその利用枠が必要です。 SKILL.md対応ソフトに展開フォルダーを取り込むか、入口の内容と要望をチャットに貼り付け、日本語での回答を指定します。モデル・自動インストーラー・有料サービスは含みません。必要な機能がなければ、実行済みとせず手順を提示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362"
+      },
+      {
+        "path": "NOTICE.md",
+        "sha256": "5ebed59e02260c9ad103e5efc9d59c5bfb6ac12831396bdbb0655a2729f9f5e7"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "68326b6df07ca1b7202af4d9300d83d16393d7d000c3a51c6846036457a8e5af"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "72f70ebd1d14357415efaa2b2e761b5237787ef31beb93f5ade2acdded1f9bb5"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "c623f8c1c89ff0741b769ca788b595195e0b7c82db08c846b1ba1f22703e4399"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "2b5cc9f131babd9654817ee3f3c8524e835ee4a987c4fe86c71526486b0bad36"
+      }
+    ],
+    "download": "/downloads/skills/ame-skill-creator-34040c9c5685-ame1.zip",
+    "sha256": "bb2952c2f3a8c711d86ca184bf8539395579ee2c0da5b78b7dd31807cf1087ce",
+    "bytes": 9343
+  },
+  {
+    "id": "ame-editable-slides",
+    "tasks": [
+      "wps-slides"
+    ],
+    "labels": {
+      "zh": "可编辑演示文稿（PPT Master 思路适配）",
+      "en": "Editable slides (PPT Master workflow adaptation)",
+      "ja": "編集可能なスライド（PPT Master手順調整版）"
+    },
+    "repository": "https://github.com/hugohe3/ppt-master",
+    "source": "https://github.com/hugohe3/ppt-master/blob/3b45af2c3dab15626b1d499ea60ce689b7f97a5a/skills/ppt-master/SKILL.md",
+    "commit": "3b45af2c3dab15626b1d499ea60ce689b7f97a5a",
+    "license": "MIT",
+    "language": "en",
+    "edition": "adapted-documentation",
+    "review": "source-license-package-checked; external-ai-runtime-not-tested",
+    "usage": {
+      "zh": "参考 hugohe3/ppt-master 的轻量指令适配版，不是完整 PPT Master，不包含其脚本、模板、渲染器或模型。支持先交付逐页内容与可编辑要求；实际生成 PPTX 需目标 AI 具备演示文件工具。WPS 与 PowerPoint 必须分别检查字体、图表和动画兼容性。 解压后导入支持 SKILL.md 的 AI 软件，或将入口内容和需求一起粘贴到聊天中。指定中文回答。下载包不含模型、自动安装器或付费服务；目标软件缺少工具时只交付方案，不声称执行完成。",
+      "en": "Lightweight instruction adaptation informed by hugohe3/ppt-master, not the full package. No upstream scripts, templates, renderer or model are included. Produces slide content and editability requirements; creating PPTX needs host presentation tools. Check fonts, charts and animations separately in WPS and PowerPoint. Extract into an app supporting SKILL.md, or paste the entrypoint and your request into chat. Request English output. No model, installer or paid service is included. Without the required host tools, produce a plan and do not claim execution.",
+      "ja": "hugohe3/ppt-masterを参考にした軽量指示調整版で、完全版ではありません。スクリプト・テンプレート・描画環境・モデルは含みません。ページ内容と編集要件を作り、PPTX生成には対象AIの機能が必要。WPSとPowerPointで互換性を個別に確認します。 SKILL.md対応ソフトに展開フォルダーを取り込むか、入口の内容と要望をチャットに貼り付け、日本語での回答を指定します。モデル・自動インストーラー・有料サービスは含みません。必要な機能がなければ、実行済みとせず手順を提示します。"
+    },
+    "files": [
+      {
+        "path": "LICENSE",
+        "sha256": "80cefc234c1ec12a8cece4344f16300c634fa03df7891686fcf979e3828f0921"
+      },
+      {
+        "path": "NOTICE.md",
+        "sha256": "567cf49b65bf63e8fb3a7dfc13a9c35571a045581b99a980fd19ebc738150e14"
+      },
+      {
+        "path": "SKILL.md",
+        "sha256": "1922f1bad5af32273e8e447f174da840d6a0f763a1548ecdcb6fe601e670bf75"
+      },
+      {
+        "path": "USAGE.en.md",
+        "sha256": "2bfe887e18d87865cd939db3ff73a705b5e2dc7abbaa5efc2c3d8d15a1759d4e"
+      },
+      {
+        "path": "USAGE.ja.md",
+        "sha256": "cad8d5ef1b23686bf3112cedd62dddd46f3510d21ae3e3a4a355fba68f756eb5"
+      },
+      {
+        "path": "USAGE.zh.md",
+        "sha256": "d66a55a08930f494918b8ec7a499162303d278909c63b1e6edaa561d38c28453"
+      }
+    ],
+    "download": "/downloads/skills/ame-editable-slides-3b45af2c3dab-ame1.zip",
+    "sha256": "51d5a49a0911fc0dc88d2a2452a2a8e39529899c4b12d481c1c956ee3d526dd7",
+    "bytes": 6500
   }
 ]
